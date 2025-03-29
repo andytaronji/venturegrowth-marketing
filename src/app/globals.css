@@ -1,26 +1,202 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary colors */
+  --navy-blue: #0A2342;
+  --light-blue: #4F7CAC;
+  --dark-navy: #0D1B2A;
+  --charcoal: #333333;
+  
+  /* Text colors for better visibility */
+  --navy-text: #D0E1F9; /* Light blue for text on dark backgrounds */
+  --dark-text: #1A365D; /* Deep blue for text on light backgrounds */
+  --light-text: #FFFFFF; /* White text for maximum contrast */
+  
+  /* Accent colors */
+  --light-navy: #8EACD0;
+  --bright-blue: #64B5F6;
+  --gold: #F9A826;
+  --pale-gold: #FFE082;
+  --teal: #4DB6AC;
+  
+  /* Background colors */
+  --light-gray: #F5F5F7;
+  --cream: #FFF8E1;
+  --white: #FFFFFF;
+  
+  --background: var(--white);
+  --foreground: var(--dark-text);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-roboto-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--navy-blue);
+    --foreground: var(--light-gray);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  /* Background colors */
+  .bg-navy-blue {
+    background-color: var(--navy-blue);
+  }
+  
+  .bg-light-blue {
+    background-color: var(--light-blue);
+  }
+  
+  .bg-gold {
+    background-color: var(--gold);
+  }
+  
+  .bg-white {
+    background-color: var(--white);
+  }
+  
+  .bg-cream {
+    background-color: var(--cream);
+  }
+  
+  .bg-teal {
+    background-color: var(--teal);
+  }
+  
+  .bg-bright-blue {
+    background-color: var(--bright-blue);
+  }
+  
+  /* Text colors */
+  .text-navy-blue {
+    color: var(--navy-blue);
+  }
+  
+  .text-light-blue {
+    color: var(--light-blue);
+  }
+  
+  .text-gold {
+    color: var(--gold);
+  }
+  
+  .text-navy-text {
+    color: var(--navy-text);
+  }
+  
+  .text-light-navy {
+    color: var(--light-navy);
+  }
+  
+  .text-dark-text {
+    color: var(--dark-text);
+  }
+  
+  .text-light-text {
+    color: var(--light-text);
+  }
+  
+  .text-pale-gold {
+    color: var(--pale-gold);
+  }
+  
+  .text-teal {
+    color: var(--teal);
+  }
+  
+  .text-bright-blue {
+    color: var(--bright-blue);
+  }
+  
+  .text-charcoal {
+    color: var(--charcoal);
+  }
+  
+  /* Border colors */
+  .border-navy-blue {
+    border-color: var(--navy-blue);
+  }
+  
+  .border-light-blue {
+    border-color: var(--light-blue);
+  }
+  
+  .border-gold {
+    border-color: var(--gold);
+  }
+  
+  .border-white {
+    border-color: var(--white);
+  }
+  
+  /* Hover states - backgrounds */
+  .hover\:bg-navy-blue:hover {
+    background-color: var(--navy-blue);
+  }
+  
+  .hover\:bg-light-blue:hover {
+    background-color: var(--light-blue);
+  }
+  
+  .hover\:bg-gold:hover {
+    background-color: var(--gold);
+  }
+  
+  .hover\:bg-teal:hover {
+    background-color: var(--teal);
+  }
+  
+  /* Hover states - text */
+  .hover\:text-navy-blue:hover {
+    color: var(--navy-blue);
+  }
+  
+  .hover\:text-light-blue:hover {
+    color: var(--light-blue);
+  }
+  
+  .hover\:text-gold:hover {
+    color: var(--gold);
+  }
+  
+  .hover\:text-light-navy:hover {
+    color: var(--light-navy);
+  }
+  
+  .hover\:text-pale-gold:hover {
+    color: var(--pale-gold);
+  }
+  
+  .hover\:text-light-text:hover {
+    color: var(--light-text);
+  }
 }
