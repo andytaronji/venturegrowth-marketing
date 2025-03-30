@@ -29,12 +29,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`${isScrolled ? 'bg-white shadow-subtle' : 'bg-white'} text-primary fixed top-0 left-0 right-0 z-50 transition-all duration-300`}>
+    <nav className={`${isScrolled ? 'bg-accent shadow-subtle' : 'bg-accent'} text-white fixed top-0 left-0 right-0 z-50 transition-all duration-300`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-12 md:h-14">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-xl font-semibold text-primary">
+              <span className="text-xl font-semibold text-white">
                 VentureGrowth
               </span>
             </Link>
@@ -42,16 +42,16 @@ const Navbar = () => {
           
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-sm font-medium text-primary hover:text-accent transition-colors duration-200">
+            <Link href="/" className="text-sm font-medium text-white hover:text-bg-primary transition-colors duration-200">
               Home
             </Link>
-            <Link href="/services" className="text-sm font-medium text-primary hover:text-accent transition-colors duration-200">
+            <Link href="/services" className="text-sm font-medium text-white hover:text-bg-primary transition-colors duration-200">
               Services
             </Link>
-            <Link href="/about" className="text-sm font-medium text-primary hover:text-accent transition-colors duration-200">
+            <Link href="/about" className="text-sm font-medium text-white hover:text-bg-primary transition-colors duration-200">
               About Us
             </Link>
-            <Link href="/contact" className="text-sm font-medium text-primary hover:text-accent transition-colors duration-200">
+            <Link href="/contact" className="text-sm font-medium text-white hover:text-bg-primary transition-colors duration-200">
               Contact Us
             </Link>
           </div>
@@ -60,7 +60,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:text-accent focus:outline-none transition-colors duration-200"
+              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-bg-primary focus:outline-none transition-colors duration-200"
               aria-expanded="false"
             >
               <span className="sr-only">Open main menu</span>
@@ -103,33 +103,33 @@ const Navbar = () => {
 
       {/* Mobile menu, show/hide based on menu state */}
       <div 
-        className={`${isMenuOpen ? 'max-h-96 opacity-100 border-t border-gray' : 'max-h-0 opacity-0'} md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white`}
+        className={`${isMenuOpen ? 'max-h-96 opacity-100 border-t border-gray' : 'max-h-0 opacity-0'} md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-accent`}
       >
         <div className="px-4 pt-2 pb-3 space-y-1">
           <Link 
             href="/" 
-            className="block px-3 py-2 text-base font-medium text-primary hover:text-accent transition-colors duration-200"
+            className="block px-3 py-2 text-base font-medium text-white hover:text-bg-primary transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             Home
           </Link>
           <Link 
             href="/services" 
-            className="block px-3 py-2 text-base font-medium text-primary hover:text-accent transition-colors duration-200"
+            className="block px-3 py-2 text-base font-medium text-white hover:text-bg-primary transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             Services
           </Link>
           <Link 
             href="/about" 
-            className="block px-3 py-2 text-base font-medium text-primary hover:text-accent transition-colors duration-200"
+            className="block px-3 py-2 text-base font-medium text-white hover:text-bg-primary transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             About Us
           </Link>
           <Link 
             href="/contact" 
-            className="block px-3 py-2 text-base font-medium text-primary hover:text-accent transition-colors duration-200"
+            className="block px-3 py-2 text-base font-medium text-white hover:text-bg-primary transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             Contact Us

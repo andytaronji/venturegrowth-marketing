@@ -8,6 +8,7 @@
   --secondary: #1D1D1F; /* Dark gray for secondary elements */
   --accent: #0066CC; /* Apple blue for accents and interactive elements */
   --light-accent: #147CE5; /* Lighter blue for hover states */
+  --baby-blue: #89CFF0; /* Baby blue for navbar */
   
   /* Text colors */
   --text-primary: #1D1D1F; /* Near-black for primary text */
@@ -163,6 +164,10 @@
   
   .bg-light-accent {
     background-color: var(--light-accent);
+  }
+  
+  .bg-baby-blue {
+    background-color: var(--baby-blue);
   }
   
   .bg-white {
