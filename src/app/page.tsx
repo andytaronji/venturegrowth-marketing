@@ -16,9 +16,9 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-bg-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Services in Marietta, GA</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Services</h2>
             <p className="text-lg text-white max-w-3xl mx-auto">
-              We offer a comprehensive range of digital services to help businesses in Marietta, Roswell, Alpharetta, Woodstock, Atlanta, and surrounding areas grow and thrive online.
+              We offer a comprehensive range of digital services to help businesses throughout metro Atlanta and beyond grow and thrive online.
             </p>
           </div>
           
@@ -33,7 +33,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg font-semibold text-primary text-center mb-3">Website Design</h3>
                 <p className="text-secondary text-sm mb-6 text-center">
-                  Custom website designs for Marietta businesses that are visually stunning, user-friendly, and perfectly aligned with your brand identity.
+                  Custom website designs that are visually stunning, user-friendly, and perfectly aligned with your brand identity.
                 </p>
                 <div className="text-center">
                   <Link 
@@ -56,7 +56,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg font-semibold text-primary text-center mb-3">Website Development</h3>
                 <p className="text-secondary text-sm mb-6 text-center">
-                  Robust, scalable website development for Georgia businesses with cutting-edge technologies for optimal performance and local search visibility.
+                  Robust, scalable website development with cutting-edge technologies for optimal performance and search visibility.
                 </p>
                 <div className="text-center">
                   <Link 
@@ -79,7 +79,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg font-semibold text-primary text-center mb-3">Website Maintenance</h3>
                 <p className="text-secondary text-sm mb-6 text-center">
-                  Regular updates, security patches, and performance optimization to keep your Marietta business website running smoothly and securely.
+                  Regular updates, security patches, and performance optimization to keep your website running smoothly and securely.
                 </p>
                 <div className="text-center">
                   <Link 
@@ -109,9 +109,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">Why Choose Digital Mosaics Studios in Marietta, GA?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">Why Choose Digital Mosaics Studios?</h2>
               <p className="text-lg text-secondary mb-6">
-                At Digital Mosaics Studios, we're dedicated to helping businesses in Marietta, GA and throughout Cobb County establish a powerful online presence that drives local growth and success.
+                At Digital Mosaics Studios, we're dedicated to helping businesses establish a powerful online presence that drives growth and success.
               </p>
               
               <div className="space-y-4">
@@ -122,8 +122,8 @@ export default function Home() {
                     </svg>
                   </div>
                   <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-primary">Local Expertise</h3>
-                    <p className="text-secondary text-sm">Custom strategies designed specifically for businesses in Marietta and metro Atlanta, with knowledge of the local market and audience.</p>
+                    <h3 className="text-lg font-semibold text-primary">Expert Strategies</h3>
+                    <p className="text-secondary text-sm">Custom strategies designed specifically for your business goals, with deep knowledge of your market and target audience.</p>
                   </div>
                 </div>
                 
@@ -178,9 +178,9 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-primary text-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-light">Ready to Grow Your Marietta Business?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-light">Ready to Grow Your Business?</h2>
           <p className="text-xl text-light mb-8 max-w-3xl mx-auto">
-            Let's work together to create a stunning digital presence that helps your business thrive in Marietta, GA and beyond. Serving businesses throughout Cobb County, including Roswell, Alpharetta, Woodstock, and Atlanta.
+            Let's work together to create a stunning digital presence that helps your business thrive. Based in metro Atlanta and serving clients nationwide.
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <Link 

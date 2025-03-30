@@ -3,7 +3,7 @@ import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
   title: "Contact Us | Digital Mosaics Studios",
-  description: "Get in touch with Digital Mosaics Studios to discuss your web design, development, and digital marketing needs.",
+  description: "Get in touch with Digital Mosaics Studios to discuss your web design, development, and digital marketing needs. Based in metro Atlanta and serving clients nationwide.",
 };
 
 export default function ContactPage() {
@@ -70,7 +70,7 @@ export default function ContactPage() {
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-primary">Office</h3>
                     <p className="text-secondary text-sm">Marietta, GA 30062</p>
-                    <p className="text-secondary text-sm mt-2">Also servicing Roswell, Alpharetta, Woodstock, Atlanta, and more surrounding areas!</p>
+                    <p className="text-secondary text-sm mt-2">Serving clients throughout metro Atlanta and nationwide.</p>
                   </div>
                 </div>
               </div>
@@ -133,8 +133,8 @@ export default function ContactPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <p className="text-primary text-lg font-medium">Digital Mosaics Studios - Marietta, GA 30062</p>
-                <p className="text-secondary mt-2">Serving Marietta, Roswell, Alpharetta, Woodstock, Atlanta, and surrounding areas.</p>
+                <p className="text-primary text-lg font-medium">Digital Mosaics Studios</p>
+                <p className="text-secondary mt-2">Based in metro Atlanta. Serving clients nationwide.</p>
               </div>
             </div>
           </div>

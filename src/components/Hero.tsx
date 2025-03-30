@@ -20,10 +20,10 @@ const Hero = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="animate-fadeIn">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-primary">
-              Grow Your Marietta Business <span className="text-accent">with Stunning Digital Presence</span>
+              Grow Your Business <span className="text-accent">with Stunning Digital Presence</span>
             </h1>
             <p className="text-xl md:text-2xl text-secondary mb-8 max-w-xl">
-              Professional web design and digital marketing solutions in Marietta, GA, tailored to local businesses throughout Cobb County and metro Atlanta.
+              Professional web design and digital marketing solutions tailored to businesses throughout metro Atlanta and beyond.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Link 
@@ -45,7 +45,7 @@ const Hero = () => {
             <div className="relative h-96 w-full transition-all duration-300 hover:shadow-medium">
               <img
                 src="/hero-image.jpg"
-                alt="Digital Marketing Services in Marietta, GA"
+                alt="Professional Digital Marketing Services"
                 style={{ 
                   objectFit: 'cover',
                   width: '100%',
