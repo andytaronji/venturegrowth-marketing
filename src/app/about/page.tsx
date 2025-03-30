@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "About Us | VentureGrowth Marketing",
-  description: "Learn about VentureGrowth Marketing, our mission, values, and the team behind our professional web design and digital marketing services.",
+  title: "About Us | Digital Mosaics Studios",
+  description: "Learn about Digital Mosaics Studios, our mission, values, and the team behind our professional web design and digital marketing services.",
 };
 
 export default function AboutPage() {
@@ -28,7 +28,7 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold text-primary mb-6">Our Story</h2>
               <p className="text-lg text-secondary mb-6">
-                VentureGrowth Marketing was founded with a simple mission: to help businesses establish a powerful online presence that drives real growth and success.
+                Digital Mosaics Studios was founded with a simple mission: to help businesses establish a powerful online presence that drives real growth and success.
               </p>
               <p className="text-lg text-secondary mb-6">
                 We recognized that many businesses struggle to navigate the complex digital landscape, often working with multiple agencies for different aspects of their online presence. Our vision was to create a comprehensive digital marketing agency that could handle all aspects of a business's online presence, from website design and development to content creation and social media management.
@@ -41,7 +41,7 @@ export default function AboutPage() {
             <div className="relative h-96 w-full">
               <Image
                 src="/about-story.jpg"
-                alt="VentureGrowth Marketing Story"
+                alt="Digital Mosaics Studios Story"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 style={{ objectFit: 'cover' }}
@@ -58,7 +58,7 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Mission & Values</h2>
             <p className="text-lg text-white max-w-3xl mx-auto">
-              At VentureGrowth Marketing, we're guided by a set of core values that inform everything we do.
+              At Digital Mosaics Studios, we're guided by a set of core values that inform everything we do.
             </p>
           </div>
           
@@ -111,7 +111,7 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Our Team</h2>
             <p className="text-lg text-secondary max-w-3xl mx-auto">
-              Meet the talented professionals behind VentureGrowth Marketing.
+              Meet the talented professionals behind Digital Mosaics Studios.
             </p>
           </div>
           
@@ -186,7 +186,7 @@ export default function AboutPage() {
             <div className="order-2 md:order-1 relative h-96 w-full">
               <Image
                 src="/why-choose-us.jpg"
-                alt="Why Choose VentureGrowth Marketing"
+                alt="Why Choose Digital Mosaics Studios"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 style={{ objectFit: 'cover' }}
@@ -197,7 +197,7 @@ export default function AboutPage() {
             <div className="order-1 md:order-2">
               <h2 className="text-3xl font-bold text-white mb-6">Why Choose Us</h2>
               <p className="text-lg text-white mb-6">
-                At VentureGrowth Marketing, we stand out from other agencies in several key ways:
+                At Digital Mosaics Studios, we stand out from other agencies in several key ways:
               </p>
               
               <div className="space-y-4">

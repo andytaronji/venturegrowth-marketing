@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-1">
-            <h3 className="text-lg font-semibold mb-4 text-primary">VentureGrowth</h3>
+            <h3 className="text-lg font-semibold mb-4 text-primary">Digital Mosaics Studios</h3>
             <p className="text-secondary-light text-sm mb-4">
               Helping businesses grow through innovative digital solutions.
             </p>
@@ -126,7 +126,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-bg-tertiary text-center">
           <p className="text-secondary-light text-sm">
-            © {currentYear} <span className="text-accent font-semibold">VentureGrowth Marketing</span>. All rights reserved.
+            © {currentYear} <span className="text-accent font-semibold">Digital Mosaics Studios</span>. All rights reserved.
           </p>
         </div>
       </div>

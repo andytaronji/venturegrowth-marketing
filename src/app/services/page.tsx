@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Services | VentureGrowth Marketing",
+  title: "Services | Digital Mosaics Studios",
   description: "Explore our comprehensive range of web design, development, maintenance, social media management, and content creation services.",
 };
 

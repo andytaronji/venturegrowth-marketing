@@ -29,7 +29,9 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     
     // Validate form
@@ -42,23 +44,55 @@ const ContactForm = () => {
       return;
     }
     
-    // In a real application, you would send the form data to a server here
-    // For now, we'll just simulate a successful submission
+    setIsSubmitting(true);
     
-    setFormStatus({
-      submitted: true,
-      success: true,
-      message: 'Thank you for your message! We will get back to you soon.'
-    });
-    
-    // Reset form after successful submission
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: '',
-    });
+    try {
+      // Send form data to API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        // Success
+        setFormStatus({
+          submitted: true,
+          success: true,
+          message: 'Thank you for your message! We will get back to you soon.'
+        });
+        
+        // Reset form after successful submission
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: '',
+        });
+      } else {
+        // API returned an error
+        setFormStatus({
+          submitted: true,
+          success: false,
+          message: data.error || 'Something went wrong. Please try again later.'
+        });
+      }
+    } catch (error) {
+      // Network or other error
+      console.error('Error submitting form:', error);
+      setFormStatus({
+        submitted: true,
+        success: false,
+        message: 'Unable to send message. Please try again later.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -167,9 +201,10 @@ const ContactForm = () => {
           <div>
             <button
               type="submit"
-              className="px-6 py-2.5 bg-accent text-white font-medium rounded-md hover:bg-light-accent transition-colors duration-200"
+              disabled={isSubmitting}
+              className={`px-6 py-2.5 bg-accent text-white font-medium rounded-md hover:bg-light-accent transition-colors duration-200 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
-              Send Message
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
           </div>
         </form>

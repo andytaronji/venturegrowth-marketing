@@ -1,0 +1,13 @@
+# robots.txt for Digital Mosaics Studios
+# https://www.digitalmosaicsstudios.com/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.digitalmosaicsstudios.com/api/sitemap
+
+# Disallow any potential admin or private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
