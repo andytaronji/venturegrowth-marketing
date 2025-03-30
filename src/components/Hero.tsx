@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { CldImage } from 'next-cloudinary';
+import CldImageWrapper from './CldImageWrapper';
 
 const Hero = () => {
   return (
@@ -43,7 +43,7 @@ const Hero = () => {
           
           <div className="hidden md:block">
             <div className="relative h-96 w-full transition-all duration-300 hover:shadow-medium">
-              <CldImage
+              <CldImageWrapper
                 src="samples/landscapes/architecture-signs"
                 alt="Professional Digital Marketing Services"
                 width={1200}

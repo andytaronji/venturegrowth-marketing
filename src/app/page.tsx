@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Hero from "@/components/Hero";
-import { CldImage } from "next-cloudinary";
+import CldImageWrapper from "@/components/CldImageWrapper";
 
 export default function Home() {
   return (
@@ -161,7 +161,7 @@ export default function Home() {
             </div>
             
             <div className="relative h-96 w-full">
-              <CldImage
+              <CldImageWrapper
                 src="samples/people/kitchen-bar"
                 alt="About Digital Mosaic Studios"
                 width={800}

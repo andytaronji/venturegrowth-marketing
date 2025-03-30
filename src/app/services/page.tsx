@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { CldImage } from "next-cloudinary";
+import CldImageWrapper from "@/components/CldImageWrapper";
 import { Metadata } from "next";
 
 // Metadata needs to be in a separate file or handled differently with client components
@@ -76,7 +76,7 @@ export default function ServicesPage() {
             </div>
             
             <div className="relative h-96 w-full">
-              <CldImage
+              <CldImageWrapper
                 src="0001_fmuh3j"
                 alt="Website Design Services"
                 width={800}
@@ -97,7 +97,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 relative h-96 w-full">
-              <CldImage
+              <CldImageWrapper
                 src="Website-Banner_yxkdmt"
                 alt="Website Development Services"
                 width={800}
@@ -208,7 +208,7 @@ export default function ServicesPage() {
             </div>
             
             <div className="relative h-96 w-full">
-              <CldImage
+              <CldImageWrapper
                 src="Thisoneeeeeeee"
                 alt="Website Maintenance Services"
                 width={800}
@@ -229,7 +229,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 relative h-96 w-full">
-              <CldImage
+              <CldImageWrapper
                 src="samples/ecommerce/accessories-bag"
                 alt="Social Media Management Services"
                 width={800}
@@ -340,7 +340,7 @@ export default function ServicesPage() {
             </div>
             
             <div className="relative h-96 w-full">
-              <CldImage
+              <CldImageWrapper
                 src="samples/food/dessert"
                 alt="Content Creation Services"
                 width={800}

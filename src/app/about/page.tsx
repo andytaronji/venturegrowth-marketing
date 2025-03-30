@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { CldImage } from "next-cloudinary";
+import CldImageWrapper from "@/components/CldImageWrapper";
 import { Metadata } from "next";
 
 // Metadata needs to be in a separate file or handled differently with client components
@@ -44,7 +44,7 @@ export default function AboutPage() {
             </div>
             
             <div className="relative h-96 w-full">
-              <CldImage
+              <CldImageWrapper
                 src="samples/landscapes/nature-mountains"
                 alt="Digital Mosaic Studios Story"
                 width={800}
@@ -127,7 +127,7 @@ export default function AboutPage() {
             {/* Team Member 1 */}
             <div className="bg-white rounded-lg shadow-subtle overflow-hidden border border-bg-secondary">
               <div className="relative h-80 w-full">
-                <CldImage
+                <CldImageWrapper
                   src="samples/people/smiling-man"
                   alt="Andrew Taronji - Founder & CEO"
                   width={600}
@@ -151,7 +151,7 @@ export default function AboutPage() {
             {/* Team Member 2 */}
             <div className="bg-white rounded-lg shadow-subtle overflow-hidden border border-bg-secondary">
               <div className="relative h-80 w-full">
-                <CldImage
+                <CldImageWrapper
                   src="samples/smile"
                   alt="Joseph Coile - Chief Sales Officer"
                   width={600}
@@ -175,7 +175,7 @@ export default function AboutPage() {
             {/* Team Member 3 */}
             <div className="bg-white rounded-lg shadow-subtle overflow-hidden border border-bg-secondary">
               <div className="relative h-80 w-full">
-                <CldImage
+                <CldImageWrapper
                   src="samples/man-portrait"
                   alt="Devin Novelli - Chief Financial Officer"
                   width={600}
@@ -204,7 +204,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 relative h-96 w-full">
-              <CldImage
+              <CldImageWrapper
                 src="samples/imagecon-group"
                 alt="Why Choose Digital Mosaic Studios"
                 width={800}
