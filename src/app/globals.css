@@ -3,31 +3,42 @@
 @tailwind utilities;
 
 :root {
-  /* Primary colors */
-  --navy-blue: #0A2342;
-  --light-blue: #4F7CAC;
-  --dark-navy: #0D1B2A;
-  --charcoal: #333333;
+  /* Primary colors - Apple-inspired */
+  --primary: #000000; /* Black for primary elements */
+  --secondary: #1D1D1F; /* Dark gray for secondary elements */
+  --accent: #0066CC; /* Apple blue for accents and interactive elements */
+  --light-accent: #147CE5; /* Lighter blue for hover states */
   
-  /* Text colors for better visibility */
-  --navy-text: #D0E1F9; /* Light blue for text on dark backgrounds */
-  --dark-text: #1A365D; /* Deep blue for text on light backgrounds */
-  --light-text: #FFFFFF; /* White text for maximum contrast */
-  
-  /* Accent colors */
-  --light-navy: #8EACD0;
-  --bright-blue: #64B5F6;
-  --gold: #F9A826;
-  --pale-gold: #FFE082;
-  --teal: #4DB6AC;
+  /* Text colors */
+  --text-primary: #1D1D1F; /* Near-black for primary text */
+  --text-secondary: #6E6E73; /* Medium gray for secondary text */
+  --text-secondary-light: #B0B0B5; /* Lighter gray for secondary text on dark backgrounds */
+  --text-light: #FFFFFF; /* White text for dark backgrounds */
   
   /* Background colors */
-  --light-gray: #F5F5F7;
-  --cream: #FFF8E1;
-  --white: #FFFFFF;
+  --bg-primary: #FFFFFF; /* White primary background */
+  --bg-secondary: #F5F5F7; /* Light gray secondary background */
+  --bg-tertiary: #FBFBFD; /* Subtle off-white tertiary background */
   
-  --background: var(--white);
-  --foreground: var(--dark-text);
+  /* Legacy color variables (kept for compatibility) */
+  --navy-blue: var(--primary);
+  --light-blue: var(--accent);
+  --dark-navy: var(--secondary);
+  --charcoal: var(--secondary);
+  --navy-text: var(--text-light);
+  --dark-text: var(--text-primary);
+  --light-text: var(--text-light);
+  --light-navy: var(--light-accent);
+  --bright-blue: var(--accent);
+  --gold: var(--accent);
+  --pale-gold: var(--light-accent);
+  --teal: var(--accent);
+  --light-gray: var(--bg-secondary);
+  --cream: var(--bg-tertiary);
+  --white: var(--bg-primary);
+  
+  --background: var(--bg-primary);
+  --foreground: var(--text-primary);
 }
 
 @theme inline {
@@ -39,8 +50,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: var(--navy-blue);
-    --foreground: var(--light-gray);
+    --background: var(--secondary);
+    --foreground: var(--bg-primary);
   }
 }
 
@@ -48,11 +59,73 @@
   body {
     background: var(--background);
     color: var(--foreground);
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 17px;
+    line-height: 1.47059;
+    letter-spacing: -0.022em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    color: var(--text-primary);
+    letter-spacing: -0.03em;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.75rem;
+  }
+  
+  h4 {
+    font-size: 1.5rem;
+  }
+  
+  p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+  }
+  
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+  }
+  
+  a:hover {
+    color: var(--light-accent);
+  }
+  
+  /* Modern underline effect for links */
+  a.underline-effect {
+    position: relative;
+  }
+  
+  a.underline-effect::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.2s ease-in-out;
+  }
+  
+  a.underline-effect:hover::after {
+    width: 100%;
   }
 }
 
@@ -64,139 +137,257 @@
   .container-padding {
     @apply px-4 sm:px-6 lg:px-8;
   }
+  
+  .button-primary {
+    @apply px-5 py-2.5 bg-accent text-white font-medium rounded-md hover:bg-light-accent transition-colors duration-200 inline-flex items-center justify-center;
+  }
+  
+  .button-secondary {
+    @apply px-5 py-2.5 bg-transparent border border-accent text-accent font-medium rounded-md hover:bg-accent hover:text-white transition-colors duration-200 inline-flex items-center justify-center;
+  }
 }
 
 @layer utilities {
   /* Background colors */
-  .bg-navy-blue {
-    background-color: var(--navy-blue);
+  .bg-primary {
+    background-color: var(--primary);
   }
   
-  .bg-light-blue {
-    background-color: var(--light-blue);
+  .bg-secondary {
+    background-color: var(--secondary);
   }
   
-  .bg-gold {
-    background-color: var(--gold);
+  .bg-accent {
+    background-color: var(--accent);
+  }
+  
+  .bg-light-accent {
+    background-color: var(--light-accent);
   }
   
   .bg-white {
-    background-color: var(--white);
+    background-color: var(--bg-primary);
+  }
+  
+  .bg-gray {
+    background-color: var(--bg-secondary);
+  }
+  
+  .bg-off-white {
+    background-color: var(--bg-tertiary);
+  }
+  
+  /* Legacy background colors (kept for compatibility) */
+  .bg-navy-blue {
+    background-color: var(--primary);
+  }
+  
+  .bg-light-blue {
+    background-color: var(--accent);
+  }
+  
+  .bg-gold {
+    background-color: var(--accent);
   }
   
   .bg-cream {
-    background-color: var(--cream);
+    background-color: var(--bg-tertiary);
   }
   
   .bg-teal {
-    background-color: var(--teal);
+    background-color: var(--accent);
   }
   
   .bg-bright-blue {
-    background-color: var(--bright-blue);
+    background-color: var(--accent);
   }
   
   /* Text colors */
+  .text-primary {
+    color: var(--text-primary);
+  }
+  
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+  
+  .text-secondary-light {
+    color: var(--text-secondary-light);
+  }
+  
+  .text-accent {
+    color: var(--accent);
+  }
+  
+  .text-light {
+    color: var(--text-light);
+  }
+  
+  /* Legacy text colors (kept for compatibility) */
   .text-navy-blue {
-    color: var(--navy-blue);
+    color: var(--text-primary);
   }
   
   .text-light-blue {
-    color: var(--light-blue);
+    color: var(--accent);
   }
   
   .text-gold {
-    color: var(--gold);
+    color: var(--accent);
   }
   
   .text-navy-text {
-    color: var(--navy-text);
+    color: var(--text-light);
   }
   
   .text-light-navy {
-    color: var(--light-navy);
+    color: var(--light-accent);
   }
   
   .text-dark-text {
-    color: var(--dark-text);
+    color: var(--text-primary);
   }
   
   .text-light-text {
-    color: var(--light-text);
+    color: var(--text-light);
   }
   
   .text-pale-gold {
-    color: var(--pale-gold);
+    color: var(--light-accent);
   }
   
   .text-teal {
-    color: var(--teal);
+    color: var(--accent);
   }
   
   .text-bright-blue {
-    color: var(--bright-blue);
+    color: var(--accent);
   }
   
   .text-charcoal {
-    color: var(--charcoal);
+    color: var(--text-primary);
   }
   
   /* Border colors */
+  .border-primary {
+    border-color: var(--primary);
+  }
+  
+  .border-secondary {
+    border-color: var(--secondary);
+  }
+  
+  .border-accent {
+    border-color: var(--accent);
+  }
+  
+  .border-light-accent {
+    border-color: var(--light-accent);
+  }
+  
+  .border-gray {
+    border-color: var(--bg-secondary);
+  }
+  
+  /* Legacy border colors (kept for compatibility) */
   .border-navy-blue {
-    border-color: var(--navy-blue);
+    border-color: var(--primary);
   }
   
   .border-light-blue {
-    border-color: var(--light-blue);
+    border-color: var(--accent);
   }
   
   .border-gold {
-    border-color: var(--gold);
+    border-color: var(--accent);
   }
   
   .border-white {
-    border-color: var(--white);
+    border-color: var(--bg-primary);
   }
   
   /* Hover states - backgrounds */
+  .hover\:bg-primary:hover {
+    background-color: var(--primary);
+  }
+  
+  .hover\:bg-secondary:hover {
+    background-color: var(--secondary);
+  }
+  
+  .hover\:bg-accent:hover {
+    background-color: var(--accent);
+  }
+  
+  .hover\:bg-light-accent:hover {
+    background-color: var(--light-accent);
+  }
+  
+  /* Legacy hover states - backgrounds (kept for compatibility) */
   .hover\:bg-navy-blue:hover {
-    background-color: var(--navy-blue);
+    background-color: var(--primary);
   }
   
   .hover\:bg-light-blue:hover {
-    background-color: var(--light-blue);
+    background-color: var(--accent);
   }
   
   .hover\:bg-gold:hover {
-    background-color: var(--gold);
+    background-color: var(--accent);
   }
   
   .hover\:bg-teal:hover {
-    background-color: var(--teal);
+    background-color: var(--accent);
   }
   
   /* Hover states - text */
+  .hover\:text-primary:hover {
+    color: var(--text-primary);
+  }
+  
+  .hover\:text-secondary:hover {
+    color: var(--text-secondary);
+  }
+  
+  .hover\:text-accent:hover {
+    color: var(--accent);
+  }
+  
+  .hover\:text-light-accent:hover {
+    color: var(--light-accent);
+  }
+  
+  /* Legacy hover states - text (kept for compatibility) */
   .hover\:text-navy-blue:hover {
-    color: var(--navy-blue);
+    color: var(--text-primary);
   }
   
   .hover\:text-light-blue:hover {
-    color: var(--light-blue);
+    color: var(--accent);
   }
   
   .hover\:text-gold:hover {
-    color: var(--gold);
+    color: var(--accent);
   }
   
   .hover\:text-light-navy:hover {
-    color: var(--light-navy);
+    color: var(--light-accent);
   }
   
   .hover\:text-pale-gold:hover {
-    color: var(--pale-gold);
+    color: var(--light-accent);
   }
   
   .hover\:text-light-text:hover {
-    color: var(--light-text);
+    color: var(--text-light);
+  }
+  
+  /* Shadow utilities */
+  .shadow-subtle {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .shadow-medium {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   }
 }

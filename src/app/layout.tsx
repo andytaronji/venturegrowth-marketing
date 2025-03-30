@@ -4,6 +4,15 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+// Import the font CSS
+import "@fontsource/inter/300.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -31,7 +40,7 @@ export default function RootLayout({
         className={`${inter.variable} ${robotoMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <Navbar />
-        <main className="flex-grow pt-16">
+        <main className="flex-grow">
           {children}
         </main>
         <Footer />

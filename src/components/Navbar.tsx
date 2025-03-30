@@ -1,38 +1,57 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Add scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <nav className="bg-navy-blue text-white shadow-md fixed top-0 left-0 right-0 z-50">
+    <nav className={`${isScrolled ? 'bg-white shadow-subtle' : 'bg-white'} text-primary fixed top-0 left-0 right-0 z-50 transition-all duration-300`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-12 md:h-14">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-xl font-bold">VentureGrowth</span>
+              <span className="text-xl font-semibold text-primary">
+                VentureGrowth
+              </span>
             </Link>
           </div>
           
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="hover:text-pale-gold transition-colors duration-200">
+            <Link href="/" className="text-sm font-medium text-primary hover:text-accent transition-colors duration-200">
               Home
             </Link>
-            <Link href="/services" className="hover:text-pale-gold transition-colors duration-200">
+            <Link href="/services" className="text-sm font-medium text-primary hover:text-accent transition-colors duration-200">
               Services
             </Link>
-            <Link href="/about" className="hover:text-pale-gold transition-colors duration-200">
+            <Link href="/about" className="text-sm font-medium text-primary hover:text-accent transition-colors duration-200">
               About Us
             </Link>
-            <Link href="/contact" className="hover:text-pale-gold transition-colors duration-200">
+            <Link href="/contact" className="text-sm font-medium text-primary hover:text-accent transition-colors duration-200">
               Contact Us
             </Link>
           </div>
@@ -41,7 +60,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-pale-gold focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:text-accent focus:outline-none transition-colors duration-200"
               aria-expanded="false"
             >
               <span className="sr-only">Open main menu</span>
@@ -57,7 +76,7 @@ const Navbar = () => {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth="2"
+                  strokeWidth="1.5"
                   d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
@@ -73,7 +92,7 @@ const Navbar = () => {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth="2"
+                  strokeWidth="1.5"
                   d="M6 18L18 6M6 6l12 12"
                 />
               </svg>
@@ -83,32 +102,34 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu, show/hide based on menu state */}
-      <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <div 
+        className={`${isMenuOpen ? 'max-h-96 opacity-100 border-t border-gray' : 'max-h-0 opacity-0'} md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white`}
+      >
+        <div className="px-4 pt-2 pb-3 space-y-1">
           <Link 
             href="/" 
-            className="block px-3 py-2 rounded-md text-base font-medium hover:bg-light-blue hover:text-navy-blue transition-colors duration-200"
+            className="block px-3 py-2 text-base font-medium text-primary hover:text-accent transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             Home
           </Link>
           <Link 
             href="/services" 
-            className="block px-3 py-2 rounded-md text-base font-medium hover:bg-light-blue hover:text-navy-blue transition-colors duration-200"
+            className="block px-3 py-2 text-base font-medium text-primary hover:text-accent transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             Services
           </Link>
           <Link 
             href="/about" 
-            className="block px-3 py-2 rounded-md text-base font-medium hover:bg-light-blue hover:text-navy-blue transition-colors duration-200"
+            className="block px-3 py-2 text-base font-medium text-primary hover:text-accent transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             About Us
           </Link>
           <Link 
             href="/contact" 
-            className="block px-3 py-2 rounded-md text-base font-medium hover:bg-light-blue hover:text-navy-blue transition-colors duration-200"
+            className="block px-3 py-2 text-base font-medium text-primary hover:text-accent transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             Contact Us
