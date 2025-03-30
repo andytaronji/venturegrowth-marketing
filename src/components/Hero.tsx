@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 
 const Hero = () => {
   return (
@@ -43,18 +43,16 @@ const Hero = () => {
           
           <div className="hidden md:block">
             <div className="relative h-96 w-full transition-all duration-300 hover:shadow-medium">
-              <img
-                src="/hero-image.jpg"
+              <CldImage
+                src="samples/landscapes/architecture-signs"
                 alt="Professional Digital Marketing Services"
-                style={{ 
-                  objectFit: 'cover',
-                  width: '100%',
-                  height: '100%',
-                  position: 'absolute',
-                  top: 0,
-                  left: 0
-                }}
-                className="rounded-lg shadow-subtle relative"
+                width={1200}
+                height={800}
+                crop="fill"
+                gravity="auto"
+                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
             </div>
           </div>

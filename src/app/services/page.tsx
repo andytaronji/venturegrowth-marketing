@@ -1,8 +1,13 @@
-import Image from "next/image";
-import Link from "next/link";
+'use client';
 
-export const metadata = {
-  title: "Services | Digital Mosaics Studios",
+import Link from "next/link";
+import { CldImage } from "next-cloudinary";
+import { Metadata } from "next";
+
+// Metadata needs to be in a separate file or handled differently with client components
+// This is just for reference and won't be used in the client component
+const pageMetadata = {
+  title: "Services | Digital Mosaic Studios",
   description: "Explore our comprehensive range of web design, development, maintenance, social media management, and content creation services.",
 };
 
@@ -71,13 +76,16 @@ export default function ServicesPage() {
             </div>
             
             <div className="relative h-96 w-full">
-              <Image
-                src="/website-design.jpg"
+              <CldImage
+                src="0001_fmuh3j"
                 alt="Website Design Services"
-                fill
+                width={800}
+                height={600}
+                crop="fit"
+                gravity="auto"
+                quality="auto:best"
+                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                style={{ objectFit: 'cover' }}
-                className="rounded-lg shadow-subtle"
               />
             </div>
           </div>
@@ -89,13 +97,16 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 relative h-96 w-full">
-              <Image
-                src="/website-development.jpg"
+              <CldImage
+                src="Website-Banner_yxkdmt"
                 alt="Website Development Services"
-                fill
+                width={800}
+                height={600}
+                crop="fit"
+                gravity="auto"
+                quality="auto:best"
+                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                style={{ objectFit: 'cover' }}
-                className="rounded-lg shadow-subtle"
               />
             </div>
             
@@ -197,13 +208,16 @@ export default function ServicesPage() {
             </div>
             
             <div className="relative h-96 w-full">
-              <Image
-                src="/website-maintenance.jpg"
+              <CldImage
+                src="Thisoneeeeeeee"
                 alt="Website Maintenance Services"
-                fill
+                width={800}
+                height={600}
+                crop="fit"
+                gravity="auto"
+                quality="auto:best"
+                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                style={{ objectFit: 'cover' }}
-                className="rounded-lg shadow-subtle"
               />
             </div>
           </div>
@@ -215,13 +229,16 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 relative h-96 w-full">
-              <Image
-                src="/social-media.jpg"
+              <CldImage
+                src="samples/ecommerce/accessories-bag"
                 alt="Social Media Management Services"
-                fill
+                width={800}
+                height={600}
+                crop="fit"
+                gravity="auto"
+                quality="auto:best"
+                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                style={{ objectFit: 'cover' }}
-                className="rounded-lg shadow-subtle"
               />
             </div>
             
@@ -323,13 +340,16 @@ export default function ServicesPage() {
             </div>
             
             <div className="relative h-96 w-full">
-              <Image
-                src="/content-creation.jpg"
+              <CldImage
+                src="samples/food/dessert"
                 alt="Content Creation Services"
-                fill
+                width={800}
+                height={600}
+                crop="fit"
+                gravity="auto"
+                quality="auto:best"
+                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                style={{ objectFit: 'cover' }}
-                className="rounded-lg shadow-subtle"
               />
             </div>
           </div>

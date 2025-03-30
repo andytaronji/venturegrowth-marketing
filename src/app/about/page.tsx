@@ -1,9 +1,14 @@
-import Image from "next/image";
-import Link from "next/link";
+'use client';
 
-export const metadata = {
-  title: "About Us | Digital Mosaics Studios",
-  description: "Learn about Digital Mosaics Studios, our mission, values, and the team behind our professional web design and digital marketing services.",
+import Link from "next/link";
+import { CldImage } from "next-cloudinary";
+import { Metadata } from "next";
+
+// Metadata needs to be in a separate file or handled differently with client components
+// This is just for reference and won't be used in the client component
+const pageMetadata = {
+  title: "About Us | Digital Mosaic Studios",
+  description: "Learn about Digital Mosaic Studios, our mission, values, and the team behind our professional web design and digital marketing services.",
 };
 
 export default function AboutPage() {
@@ -28,7 +33,7 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold text-primary mb-6">Our Story</h2>
               <p className="text-lg text-secondary mb-6">
-                Digital Mosaics Studios was founded with a simple mission: to help businesses establish a powerful online presence that drives real growth and success.
+                Digital Mosaic Studios was founded with a simple mission: to help businesses establish a powerful online presence that drives real growth and success.
               </p>
               <p className="text-lg text-secondary mb-6">
                 We recognized that many businesses struggle to navigate the complex digital landscape, often working with multiple agencies for different aspects of their online presence. Our vision was to create a comprehensive digital marketing agency that could handle all aspects of a business's online presence, from website design and development to content creation and social media management.
@@ -39,13 +44,16 @@ export default function AboutPage() {
             </div>
             
             <div className="relative h-96 w-full">
-              <Image
-                src="/about-story.jpg"
-                alt="Digital Mosaics Studios Story"
-                fill
+              <CldImage
+                src="samples/landscapes/nature-mountains"
+                alt="Digital Mosaic Studios Story"
+                width={800}
+                height={600}
+                crop="fit"
+                gravity="auto"
+                quality="auto:best"
+                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                style={{ objectFit: 'cover' }}
-                className="rounded-lg shadow-subtle"
               />
             </div>
           </div>
@@ -58,7 +66,7 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Mission & Values</h2>
             <p className="text-lg text-white max-w-3xl mx-auto">
-              At Digital Mosaics Studios, we're guided by a set of core values that inform everything we do.
+              At Digital Mosaic Studios, we're guided by a set of core values that inform everything we do.
             </p>
           </div>
           
@@ -111,7 +119,7 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Our Team</h2>
             <p className="text-lg text-secondary max-w-3xl mx-auto">
-              Meet the talented professionals behind Digital Mosaics Studios.
+              Meet the talented professionals behind Digital Mosaic Studios.
             </p>
           </div>
           
@@ -119,19 +127,23 @@ export default function AboutPage() {
             {/* Team Member 1 */}
             <div className="bg-white rounded-lg shadow-subtle overflow-hidden border border-bg-secondary">
               <div className="relative h-80 w-full">
-                <Image
-                  src="/team-member-1.jpg"
+                <CldImage
+                  src="samples/people/smiling-man"
                   alt="Andrew Taronji - Founder & CEO"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  style={{ objectFit: 'cover' }}
+                  width={600}
+                  height={800}
+                  crop="fill"
+                  gravity="face"
+                  quality="auto:best"
+                  className="rounded-t-lg absolute inset-0 w-full h-full object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-primary mb-1">Andrew Taronji</h3>
                 <p className="text-accent font-medium mb-4">Founder & CEO</p>
                 <p className="text-secondary text-sm mb-4">
-                  With over 15 years of experience in digital marketing and web development, Andrew leads our team with vision and expertise.
+                  With over 5 years of experience in digital marketing and web development, Andrew leads our team with vision and expertise.
                 </p>
               </div>
             </div>
@@ -139,19 +151,23 @@ export default function AboutPage() {
             {/* Team Member 2 */}
             <div className="bg-white rounded-lg shadow-subtle overflow-hidden border border-bg-secondary">
               <div className="relative h-80 w-full">
-                <Image
-                  src="/team-member-2.jpg"
-                  alt="Joseph Coile - Creative Director"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  style={{ objectFit: 'cover' }}
+                <CldImage
+                  src="samples/smile"
+                  alt="Joseph Coile - Chief Sales Officer"
+                  width={600}
+                  height={800}
+                  crop="fill"
+                  gravity="face"
+                  quality="auto:best"
+                  className="rounded-t-lg absolute inset-0 w-full h-full object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-primary mb-1">Joseph Coile</h3>
-                <p className="text-accent font-medium mb-4">Creative Director</p>
+                <p className="text-accent font-medium mb-4">Chief Sales Officer</p>
                 <p className="text-secondary text-sm mb-4">
-                  Joseph brings creativity and strategic thinking to every project, ensuring our designs are both beautiful and effective.
+                  Joseph leads our sales team with a client-focused approach, building strong relationships and ensuring our solutions align with client business goals.
                 </p>
               </div>
             </div>
@@ -159,19 +175,23 @@ export default function AboutPage() {
             {/* Team Member 3 */}
             <div className="bg-white rounded-lg shadow-subtle overflow-hidden border border-bg-secondary">
               <div className="relative h-80 w-full">
-                <Image
-                  src="/team-member-3.jpg"
-                  alt="Devin Novelli - Lead Developer"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  style={{ objectFit: 'cover' }}
+                <CldImage
+                  src="samples/man-portrait"
+                  alt="Devin Novelli - Chief Financial Officer"
+                  width={600}
+                  height={800}
+                  crop="fill"
+                  gravity="face"
+                  quality="auto:best"
+                  className="rounded-t-lg absolute inset-0 w-full h-full object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-primary mb-1">Devin Novelli</h3>
-                <p className="text-accent font-medium mb-4">Lead Developer</p>
+                <p className="text-accent font-medium mb-4">Chief Financial Officer</p>
                 <p className="text-secondary text-sm mb-4">
-                  Devin's technical expertise and problem-solving skills ensure our websites are robust, secure, and high-performing.
+                  Devin oversees our financial operations, ensuring sustainable growth and helping clients maximize their return on investment in digital marketing.
                 </p>
               </div>
             </div>
@@ -184,20 +204,23 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 relative h-96 w-full">
-              <Image
-                src="/why-choose-us.jpg"
-                alt="Why Choose Digital Mosaics Studios"
-                fill
+              <CldImage
+                src="samples/imagecon-group"
+                alt="Why Choose Digital Mosaic Studios"
+                width={800}
+                height={600}
+                crop="fit"
+                gravity="auto"
+                quality="auto:best"
+                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                style={{ objectFit: 'cover' }}
-                className="rounded-lg shadow-subtle"
               />
             </div>
             
             <div className="order-1 md:order-2">
               <h2 className="text-3xl font-bold text-white mb-6">Why Choose Us</h2>
               <p className="text-lg text-white mb-6">
-                At Digital Mosaics Studios, we stand out from other agencies in several key ways:
+                At Digital Mosaic Studios, we stand out from other agencies in several key ways:
               </p>
               
               <div className="space-y-4">

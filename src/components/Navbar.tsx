@@ -51,7 +51,7 @@ const Navbar = () => {
                 </svg>
               </div>
               <span className="text-xl font-semibold text-white">
-                Digital Mosaics Studios
+                Digital Mosaic Studios
               </span>
             </Link>
           </div>

@@ -5,8 +5,8 @@ import { useEffect } from 'react';
 const LocalBusinessSchema = () => {
   useEffect(() => {
     // Get environment variables
-    const siteName = process.env.NEXT_PUBLIC_BUSINESS_NAME || 'Digital Mosaics Studios';
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.digitalmosaicsstudios.com';
+    const siteName = process.env.NEXT_PUBLIC_BUSINESS_NAME || 'Digital Mosaic Studios';
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.digitalmosaicstudios.com';
     const siteDescription = process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'Professional website design, development, maintenance, social media management, and content creation services in Marietta, GA and surrounding areas.';
     const businessEmail = process.env.NEXT_PUBLIC_BUSINESS_EMAIL || 'taronjiandrew@gmail.com';
     const businessPhone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '404-861-7744';
@@ -22,7 +22,7 @@ const LocalBusinessSchema = () => {
       'description': siteDescription,
       'url': siteUrl,
       'logo': `${siteUrl}/digital-mosaics-logo.svg`,
-      'image': `${siteUrl}/hero-image.jpg`,
+      'image': 'https://res.cloudinary.com/demo/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/samples/landscapes/landscape-panorama',
       'telephone': businessPhone,
       'email': businessEmail,
       'address': {
@@ -52,10 +52,10 @@ const LocalBusinessSchema = () => {
         }
       ],
       'sameAs': [
-        'https://www.facebook.com/digitalmosaicsstudios',
-        'https://www.instagram.com/digitalmosaicsstudios',
-        'https://twitter.com/digitalmosaics',
-        'https://www.linkedin.com/company/digital-mosaics-studios'
+        'https://www.facebook.com/digitalmosaicstudios',
+        'https://www.instagram.com/digitalmosaicstudios',
+        'https://twitter.com/digitalmosaic',
+        'https://www.linkedin.com/company/digital-mosaic-studios'
       ],
       'priceRange': '$$',
       'areaServed': [

@@ -1,11 +1,9 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
 import Hero from "@/components/Hero";
-
-export const metadata = {
-  title: "Digital Mosaics Studios | Web Design & Digital Marketing in Marietta, GA",
-  description: "Premier web design and digital marketing agency in Marietta, GA. We help local businesses in Atlanta, Roswell, Alpharetta, and Woodstock establish a powerful online presence.",
-};
+import { CldImage } from "next-cloudinary";
 
 export default function Home() {
   return (
@@ -109,9 +107,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">Why Choose Digital Mosaics Studios?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">Why Choose Digital Mosaic Studios?</h2>
               <p className="text-lg text-secondary mb-6">
-                At Digital Mosaics Studios, we're dedicated to helping businesses establish a powerful online presence that drives growth and success.
+                At Digital Mosaic Studios, we're dedicated to helping businesses establish a powerful online presence that drives growth and success.
               </p>
               
               <div className="space-y-4">
@@ -163,12 +161,16 @@ export default function Home() {
             </div>
             
             <div className="relative h-96 w-full">
-              <Image
-                src="/about-image.jpg"
-                alt="About Digital Mosaics Studios"
-                fill
-                style={{ objectFit: 'cover' }}
-                className="rounded-lg shadow-subtle"
+              <CldImage
+                src="samples/people/kitchen-bar"
+                alt="About Digital Mosaic Studios"
+                width={800}
+                height={600}
+                crop="fit"
+                gravity="auto"
+                quality="auto:best"
+                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </div>
