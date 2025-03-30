@@ -121,17 +121,17 @@ export default function AboutPage() {
               <div className="relative h-80 w-full">
                 <Image
                   src="/team-member-1.jpg"
-                  alt="Team Member"
+                  alt="Andrew Taronji - Founder & CEO"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   style={{ objectFit: 'cover' }}
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-primary mb-1">Alex Johnson</h3>
+                <h3 className="text-xl font-bold text-primary mb-1">Andrew Taronji</h3>
                 <p className="text-accent font-medium mb-4">Founder & CEO</p>
                 <p className="text-secondary text-sm mb-4">
-                  With over 15 years of experience in digital marketing and web development, Alex leads our team with vision and expertise.
+                  With over 15 years of experience in digital marketing and web development, Andrew leads our team with vision and expertise.
                 </p>
               </div>
             </div>
@@ -141,17 +141,17 @@ export default function AboutPage() {
               <div className="relative h-80 w-full">
                 <Image
                   src="/team-member-2.jpg"
-                  alt="Team Member"
+                  alt="Joseph Coile - Creative Director"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   style={{ objectFit: 'cover' }}
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-primary mb-1">Sarah Martinez</h3>
+                <h3 className="text-xl font-bold text-primary mb-1">Joseph Coile</h3>
                 <p className="text-accent font-medium mb-4">Creative Director</p>
                 <p className="text-secondary text-sm mb-4">
-                  Sarah brings creativity and strategic thinking to every project, ensuring our designs are both beautiful and effective.
+                  Joseph brings creativity and strategic thinking to every project, ensuring our designs are both beautiful and effective.
                 </p>
               </div>
             </div>
@@ -161,17 +161,17 @@ export default function AboutPage() {
               <div className="relative h-80 w-full">
                 <Image
                   src="/team-member-3.jpg"
-                  alt="Team Member"
+                  alt="Devin Novelli - Lead Developer"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   style={{ objectFit: 'cover' }}
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-primary mb-1">David Chen</h3>
+                <h3 className="text-xl font-bold text-primary mb-1">Devin Novelli</h3>
                 <p className="text-accent font-medium mb-4">Lead Developer</p>
                 <p className="text-secondary text-sm mb-4">
-                  David's technical expertise and problem-solving skills ensure our websites are robust, secure, and high-performing.
+                  Devin's technical expertise and problem-solving skills ensure our websites are robust, secure, and high-performing.
                 </p>
               </div>
             </div>

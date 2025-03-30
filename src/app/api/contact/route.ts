@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
       to: 'taronjiandrew@gmail.com', // Your email address
       subject: subjectLine,
       html: htmlContent,
-      replyTo: email, // Set reply-to as the sender's email
+      reply_to: email, // Set reply-to as the sender's email
     });
 
     if (error) {
