@@ -176,7 +176,7 @@ export default function AboutPage() {
             <div className="bg-white rounded-lg shadow-subtle overflow-hidden border border-bg-secondary">
               <div className="relative h-80 w-full">
                 <CldImageWrapper
-                  src="samples/man-portrait"
+                  src="man-smiling-behind-wall-portrait-glasses-beard-white-shirt-indoor-casual-happy-young-man-thumbnail_ymzvkv"
                   alt="Devin Novelli - Chief Financial Officer"
                   width={600}
                   height={800}
