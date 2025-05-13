@@ -77,14 +77,14 @@ export default function ServicesPage() {
             
             <div className="relative h-96 w-full">
               <CldImageWrapper
-                src="0001_fmuh3j"
+                src="Screenshot_2025-05-13_150636_o8zzbm"
                 alt="Website Design Services"
                 width={800}
                 height={600}
                 crop="fit"
                 gravity="auto"
                 quality="auto:best"
-                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
+                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-contain"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -98,14 +98,14 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 relative h-96 w-full">
               <CldImageWrapper
-                src="Website-Banner_yxkdmt"
+                src="Screenshot_2025-05-13_150720_ab2fyw"
                 alt="Website Development Services"
                 width={800}
                 height={600}
                 crop="fit"
                 gravity="auto"
                 quality="auto:best"
-                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
+                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-contain"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -209,14 +209,14 @@ export default function ServicesPage() {
             
             <div className="relative h-96 w-full">
               <CldImageWrapper
-                src="Thisoneeeeeeee"
+                src="Screenshot_2025-05-13_150241_yld8vo"
                 alt="Website Maintenance Services"
                 width={800}
                 height={600}
                 crop="fit"
                 gravity="auto"
                 quality="auto:best"
-                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
+                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-contain"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -237,7 +237,7 @@ export default function ServicesPage() {
                 crop="fit"
                 gravity="auto"
                 quality="auto:best"
-                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
+                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-contain"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -341,14 +341,14 @@ export default function ServicesPage() {
             
             <div className="relative h-96 w-full">
               <CldImageWrapper
-                src="samples/food/dessert"
+                src="Screenshot_2025-05-13_151506_jysyqn"
                 alt="Content Creation Services"
                 width={800}
                 height={600}
                 crop="fit"
                 gravity="auto"
                 quality="auto:best"
-                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
+                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-contain"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -359,7 +359,7 @@ export default function ServicesPage() {
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-primary text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Digital Presence?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Website?</h2>
           <p className="text-xl text-white opacity-90 mb-8 max-w-3xl mx-auto">
             Contact us today to discuss how our services can help your business grow.
           </p>
