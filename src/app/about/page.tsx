@@ -133,7 +133,7 @@ export default function AboutPage() {
                   width={600}
                   height={800}
                   crop="fill"
-                  gravity="face"
+                  gravity="center"
                   quality="auto:best"
                   className="rounded-t-lg absolute inset-0 w-full h-full object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
@@ -156,10 +156,10 @@ export default function AboutPage() {
                   alt="Joseph Coile - Chief Sales Officer"
                   width={600}
                   height={800}
-                  crop="fill"
-                  gravity="face"
+                  crop="fit"
+                  gravity="center"
                   quality="auto:best"
-                  className="rounded-t-lg absolute inset-0 w-full h-full object-cover"
+                  className="rounded-t-lg absolute inset-0 w-full h-full object-contain"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
