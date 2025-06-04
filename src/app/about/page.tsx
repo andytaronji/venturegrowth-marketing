@@ -128,7 +128,7 @@ export default function AboutPage() {
             <div className="bg-white rounded-lg shadow-subtle overflow-hidden border border-bg-secondary">
               <div className="relative h-80 w-full">
                 <CldImageWrapper
-                  src="samples/people/smiling-man"
+                  src="Mosaic_Studios_Andrew_ldl9fo"
                   alt="Andrew Taronji - Founder & CEO"
                   width={600}
                   height={800}
@@ -152,7 +152,7 @@ export default function AboutPage() {
             <div className="bg-white rounded-lg shadow-subtle overflow-hidden border border-bg-secondary">
               <div className="relative h-80 w-full">
                 <CldImageWrapper
-                  src="samples/smile"
+                  src="Sleepy_Stunting_gvn3at"
                   alt="Joseph Coile - Chief Sales Officer"
                   width={600}
                   height={800}
