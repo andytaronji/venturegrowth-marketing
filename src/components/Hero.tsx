@@ -20,10 +20,10 @@ const Hero = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="animate-fadeIn">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-primary">
-              Grow Your Business <span className="text-accent">with Stunning Digital Presence</span>
+              Expand Your Business Today!
             </h1>
             <p className="text-xl md:text-2xl text-secondary mb-8 max-w-xl">
-              Professional web design and digital marketing solutions tailored to businesses throughout metro Atlanta and beyond.
+              We've developed an advanced system that delivers comprehensive competitor analysis and SWOT assessments for companies seeking strategic growth and market expansion opportunities.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Link 
@@ -44,8 +44,8 @@ const Hero = () => {
           <div className="hidden md:block">
             <div className="relative h-96 w-full transition-all duration-300 hover:shadow-medium">
               <CldImageWrapper
-                src="samples/landscapes/architecture-signs"
-                alt="Professional Digital Marketing Services"
+                src="nice_vnyvxy"
+                alt="Business Growth and Analytics"
                 width={1200}
                 height={800}
                 crop="fill"

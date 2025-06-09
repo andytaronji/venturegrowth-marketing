@@ -47,8 +47,8 @@ const Footer = () => {
             <h3 className="text-sm font-semibold mb-4 text-primary">Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/services#website-design" className="text-secondary-light text-sm hover:text-accent transition-colors duration-200">
-                  Website Design
+                <Link href="/services#custom-saas-tools" className="text-secondary-light text-sm hover:text-accent transition-colors duration-200">
+                  Custom SaaS Tools
                 </Link>
               </li>
               <li>

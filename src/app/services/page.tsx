@@ -26,14 +26,14 @@ export default function ServicesPage() {
         </div>
       </section>
       
-      {/* Website Design */}
-      <section id="website-design" className="py-16 md:py-24 bg-white">
+      {/* Custom SaaS Tools */}
+      <section id="custom-saas-tools" className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-primary mb-6">Website Design</h2>
+              <h2 className="text-3xl font-bold text-primary mb-6">Custom SaaS Tools</h2>
               <p className="text-lg text-secondary mb-6">
-                Our website design services focus on creating visually stunning, user-friendly websites that align perfectly with your brand identity and business goals.
+                Take control and dominate your industry with custom tools built specifically to your industry and service offerings.
               </p>
               
               <div className="space-y-4">
@@ -44,8 +44,8 @@ export default function ServicesPage() {
                     </svg>
                   </div>
                   <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-primary">Custom Design</h3>
-                    <p className="text-secondary text-sm">Unique designs tailored to your brand identity and business needs.</p>
+                    <h3 className="text-lg font-semibold text-primary">Industry-Specific Solutions</h3>
+                    <p className="text-secondary text-sm">Tailored software solutions designed specifically for your industry's unique challenges and workflows.</p>
                   </div>
                 </div>
                 
@@ -56,8 +56,8 @@ export default function ServicesPage() {
                     </svg>
                   </div>
                   <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-primary">User Experience (UX) Design</h3>
-                    <p className="text-secondary text-sm">Intuitive navigation and user flows that enhance engagement and conversions.</p>
+                    <h3 className="text-lg font-semibold text-primary">Custom Workflow Automation</h3>
+                    <p className="text-secondary text-sm">Streamline your business processes with automated workflows that save time and reduce errors.</p>
                   </div>
                 </div>
                 
@@ -68,8 +68,8 @@ export default function ServicesPage() {
                     </svg>
                   </div>
                   <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-primary">Responsive Design</h3>
-                    <p className="text-secondary text-sm">Websites that look and function perfectly on all devices and screen sizes.</p>
+                    <h3 className="text-lg font-semibold text-primary">Scalable Architecture</h3>
+                    <p className="text-secondary text-sm">Built to grow with your business, ensuring optimal performance as your needs expand.</p>
                   </div>
                 </div>
               </div>
@@ -77,8 +77,8 @@ export default function ServicesPage() {
             
             <div className="relative h-96 w-full">
               <CldImageWrapper
-                src="Screenshot_2025-05-13_150636_o8zzbm"
-                alt="Website Design Services"
+                src="Screenshot_2025-06-09_111230_hq24ze"
+                alt="Custom SaaS Tools Services"
                 width={800}
                 height={600}
                 crop="fit"
@@ -359,7 +359,7 @@ export default function ServicesPage() {
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-primary text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Website?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Grow Your Business?</h2>
           <p className="text-xl text-white opacity-90 mb-8 max-w-3xl mx-auto">
             Contact us today to discuss how our services can help your business grow.
           </p>

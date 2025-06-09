@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import CldImageWrapper from './CldImageWrapper';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,20 +36,16 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
               <div className="mr-2">
-                <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                  {/* Mosaic Grid Background */}
-                  <rect x="0" y="0" width="40" height="40" fill="#f0f4f8" stroke="#e2e8f0" strokeWidth="0.5"/>
-                  
-                  {/* Colored Mosaic Squares */}
-                  <rect x="0" y="0" width="10" height="10" fill="#3B82F6" opacity="0.9" />
-                  <rect x="10" y="10" width="10" height="10" fill="#3B82F6" opacity="0.7" />
-                  <rect x="20" y="20" width="10" height="10" fill="#3B82F6" opacity="0.9" />
-                  <rect x="30" y="30" width="10" height="10" fill="#3B82F6" opacity="0.7" />
-                  <rect x="20" y="0" width="10" height="10" fill="#3B82F6" opacity="0.6" />
-                  <rect x="0" y="20" width="10" height="10" fill="#3B82F6" opacity="0.8" />
-                  <rect x="30" y="10" width="10" height="10" fill="#3B82F6" opacity="0.5" />
-                  <rect x="10" y="30" width="10" height="10" fill="#3B82F6" opacity="0.7" />
-                </svg>
+                <CldImageWrapper
+                  src="newest_DMS_logo_fwbzed"
+                  alt="Digital Mosaic Studios Logo"
+                  width={40}
+                  height={40}
+                  crop="fit"
+                  gravity="center"
+                  className="rounded-full w-10 h-10 object-cover"
+                  sizes="40px"
+                />
               </div>
               <span className="text-xl font-semibold text-white">
                 Digital Mosaic Studios

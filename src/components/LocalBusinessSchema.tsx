@@ -93,8 +93,8 @@ const LocalBusinessSchema = () => {
             '@type': 'Offer',
             'itemOffered': {
               '@type': 'Service',
-              'name': 'Website Design',
-              'description': 'Custom website designs that are visually stunning, user-friendly, and aligned with your brand identity.'
+              'name': 'Custom SaaS Tools',
+              'description': 'Take control and dominate your industry with custom tools built specifically to your industry and service offerings.'
             }
           },
           {
