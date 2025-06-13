@@ -132,7 +132,7 @@ export default function AboutPage() {
                   alt="Andrew Taronji - Founder & CEO"
                   width={600}
                   height={800}
-                  crop="fill"
+                  crop="fit"
                   gravity="center"
                   quality="auto:best"
                   className="rounded-t-lg absolute inset-0 w-full h-full object-cover"

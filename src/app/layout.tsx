@@ -29,8 +29,12 @@ export const metadata: Metadata = {
   description: "Digital Mosaic Studios offers professional website design, development, maintenance, social media management, and content creation services in Marietta, GA and surrounding areas.",
   keywords: "web design Marietta GA, web development Marietta, website maintenance Georgia, social media management Atlanta, content creation Marietta, digital marketing Georgia, Marietta web designer, Atlanta web development, Roswell website services, Alpharetta digital marketing",
   icons: {
-    icon: '/digital-mosaics-logo.svg',
-    apple: '/digital-mosaics-logo.svg',
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' }
+    ],
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
     type: 'website',
