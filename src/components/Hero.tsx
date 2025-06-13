@@ -20,10 +20,10 @@ const Hero = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="animate-fadeIn">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-primary">
-              Expand Your Business Today!
+              Unlock Your Competitive Edge!
             </h1>
             <p className="text-xl md:text-2xl text-secondary mb-8 max-w-xl">
-              We've developed an advanced system that delivers comprehensive competitor analysis and SWOT assessments for companies seeking strategic growth and market expansion opportunities.
+              Gain powerful insights with our advanced competitor analysis and SWOT assessments—helping you identify opportunities, outmaneuver rivals, and accelerate business growth effortlessly.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Link 
