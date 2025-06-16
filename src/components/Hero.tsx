@@ -20,7 +20,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="animate-fadeIn">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-primary">
-              Unlock Your Competitive Edge!
+              Marketing Consulting & Web Design Agency Across the United States
             </h1>
             <p className="text-xl md:text-2xl text-secondary mb-8 max-w-xl">
               Gain powerful insights with our advanced competitor analysis and SWOT assessments—helping you identify opportunities, outmaneuver rivals, and accelerate business growth effortlessly.
@@ -50,6 +50,7 @@ const Hero = () => {
                 height={800}
                 crop="fill"
                 gravity="auto"
+                quality="auto:best"
                 className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority

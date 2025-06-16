@@ -1,6 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us | Digital Mosaic Studios",
-  description: "Learn about Digital Mosaic Studios, our mission, values, and the team behind our professional web design and digital marketing services.",
+  title: "About Digital Mosaic Studios | Marketing Consultants & Web Design Experts",
+  description: "Meet the marketing consultants and web design experts at Digital Mosaic Studios. Learn about our mission, values, and dual expertise in business strategy and web development serving the United States.",
+  alternates: {
+    canonical: 'https://www.digitalmosaicsstudios.com/about',
+  },
 };

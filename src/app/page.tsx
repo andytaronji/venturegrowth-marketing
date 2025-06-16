@@ -16,7 +16,7 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Services</h2>
             <p className="text-lg text-white max-w-3xl mx-auto">
-              We offer a comprehensive range of digital services to help businesses throughout metro Atlanta and beyond grow and thrive online.
+              We offer a comprehensive range of marketing consulting and digital services to help businesses across the United States grow and thrive online.
             </p>
           </div>
           
@@ -182,7 +182,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-light">Ready to Grow Your Business?</h2>
           <p className="text-xl text-light mb-8 max-w-3xl mx-auto">
-            Let's work together to create a stunning digital presence that helps your business thrive. Based in metro Atlanta and serving clients nationwide.
+            Let's work together to create a stunning digital presence that helps your business thrive. Serving high-value businesses nationwide across the United States.
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <Link 

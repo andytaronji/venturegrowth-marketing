@@ -18,7 +18,7 @@ export default function AboutPage() {
       <section className="bg-primary text-white py-20 mt-12 md:mt-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">About Us</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">About Digital Mosaic Studios - Your Marietta Web Design Experts</h1>
             <p className="text-xl text-white opacity-90 max-w-3xl mx-auto">
               We're passionate about helping businesses grow through innovative digital solutions.
             </p>

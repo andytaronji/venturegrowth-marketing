@@ -4,7 +4,7 @@ export async function GET(request: NextRequest) {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.digitalmosaicsstudios.com';
   const today = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
   
-  // Define all the pages on the site
+  // Define only the pages that actually exist on the site
   const pages = [
     { url: '/', priority: '1.0', changefreq: 'weekly' },
     { url: '/services', priority: '0.9', changefreq: 'monthly' },
@@ -12,26 +12,8 @@ export async function GET(request: NextRequest) {
     { url: '/contact', priority: '0.8', changefreq: 'monthly' },
   ];
   
-  // Define service pages
-  const servicePages = [
-    { url: '/services/website-design', priority: '0.8', changefreq: 'monthly' },
-    { url: '/services/website-development', priority: '0.8', changefreq: 'monthly' },
-    { url: '/services/website-maintenance', priority: '0.8', changefreq: 'monthly' },
-    { url: '/services/social-media-management', priority: '0.8', changefreq: 'monthly' },
-    { url: '/services/content-creation', priority: '0.8', changefreq: 'monthly' },
-  ];
-  
-  // Define location pages for local SEO
-  const locationPages = [
-    { url: '/locations/marietta-ga', priority: '0.7', changefreq: 'monthly' },
-    { url: '/locations/atlanta-ga', priority: '0.7', changefreq: 'monthly' },
-    { url: '/locations/roswell-ga', priority: '0.7', changefreq: 'monthly' },
-    { url: '/locations/alpharetta-ga', priority: '0.7', changefreq: 'monthly' },
-    { url: '/locations/woodstock-ga', priority: '0.7', changefreq: 'monthly' },
-  ];
-  
-  // Combine all pages
-  const allPages = [...pages, ...servicePages, ...locationPages];
+  // Only include existing pages
+  const allPages = [...pages];
   
   // Generate the XML
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';

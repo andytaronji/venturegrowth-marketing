@@ -8,7 +8,7 @@ export default function ContactPage() {
       <section className="bg-primary text-white py-20 mt-12 md:mt-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Contact Us</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Contact Digital Mosaic Studios - Marketing Consulting & Web Design Agency</h1>
             <p className="text-xl text-white opacity-90 max-w-3xl mx-auto">
               Have a question or ready to start your project? Get in touch with our team.
             </p>
@@ -64,8 +64,8 @@ export default function ContactPage() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-primary">Office</h3>
-                    <p className="text-secondary text-sm">Marietta, GA 30062</p>
-                    <p className="text-secondary text-sm mt-2">Serving clients throughout metro Atlanta and nationwide.</p>
+                    <p className="text-secondary text-sm">Based in Georgia</p>
+                    <p className="text-secondary text-sm mt-2">Serving clients nationwide across the United States.</p>
                   </div>
                 </div>
               </div>
@@ -123,7 +123,7 @@ export default function ContactPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 <p className="text-primary text-lg font-medium">Digital Mosaic Studios</p>
-                <p className="text-secondary mt-2">Based in metro Atlanta. Serving clients nationwide.</p>
+                <p className="text-secondary mt-2">Based in Georgia. Serving clients nationwide.</p>
               </div>
             </div>
           </div>

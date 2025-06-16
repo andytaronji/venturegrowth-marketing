@@ -25,9 +25,9 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Digital Mosaic Studios | Professional Web Design & Digital Marketing in Marietta, GA",
-  description: "Digital Mosaic Studios offers professional website design, development, maintenance, social media management, and content creation services in Marietta, GA and surrounding areas.",
-  keywords: "web design Marietta GA, web development Marietta, website maintenance Georgia, social media management Atlanta, content creation Marietta, digital marketing Georgia, Marietta web designer, Atlanta web development, Roswell website services, Alpharetta digital marketing",
+  title: "Digital Mosaic Studios | Marketing Consulting & Web Design Across the US",
+  description: "Expert marketing consulting and professional web design services across the United States. Strategic business growth solutions and custom websites for high-value businesses nationwide.",
+  keywords: "marketing consulting, business strategy consulting, web design services, website development, digital marketing consulting, custom web design, business growth solutions, marketing strategy, web development services, nationwide marketing consulting",
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -40,26 +40,26 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.digitalmosaicsstudios.com/',
-    title: 'Digital Mosaic Studios | Web Design & Digital Marketing in Marietta, GA',
-    description: 'Professional website design, development, and digital marketing services in Marietta, GA and surrounding areas. Serving local businesses in Atlanta, Roswell, Alpharetta, and Woodstock.',
+    title: 'Digital Mosaic Studios | Marketing Consulting & Web Design Across the US',
+    description: 'Expert marketing consulting and professional web design services across the United States. Strategic business growth solutions and custom websites for high-value businesses nationwide.',
     siteName: 'Digital Mosaic Studios',
     images: [
       {
         url: 'https://res.cloudinary.com/demo/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/samples/landscapes/landscape-panorama',
         width: 1200,
         height: 630,
-        alt: 'Digital Mosaic Studios - Web Design & Digital Marketing in Marietta, GA',
+        alt: 'Digital Mosaic Studios - Marketing Consulting & Web Design Across the United States',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Digital Mosaic Studios | Web Design & Digital Marketing in Marietta, GA',
-    description: 'Professional website design, development, and digital marketing services in Marietta, GA and surrounding areas.',
+    title: 'Digital Mosaic Studios | Marketing Consulting & Web Design Across the US',
+    description: 'Expert marketing consulting and professional web design services across the United States. Strategic business growth solutions nationwide.',
     images: ['https://res.cloudinary.com/demo/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/samples/landscapes/landscape-panorama'],
   },
   alternates: {
-    canonical: 'https://www.digitalmosaicstudios.com',
+    canonical: 'https://www.digitalmosaicsstudios.com',
   },
   robots: {
     index: true,
