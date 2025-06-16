@@ -25,7 +25,7 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Digital Mosaic Studios | Marketing Consulting & Web Design Across the US",
+  title: "Digital Mosaic Studios - US Marketing & Web Design",
   description: "Expert marketing consulting and professional web design services across the United States. Strategic business growth solutions and custom websites for high-value businesses nationwide.",
   keywords: "marketing consulting, business strategy consulting, web design services, website development, digital marketing consulting, custom web design, business growth solutions, marketing strategy, web development services, nationwide marketing consulting",
   icons: {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.digitalmosaicsstudios.com/',
-    title: 'Digital Mosaic Studios | Marketing Consulting & Web Design Across the US',
+    title: 'Digital Mosaic Studios - US Marketing & Web Design',
     description: 'Expert marketing consulting and professional web design services across the United States. Strategic business growth solutions and custom websites for high-value businesses nationwide.',
     siteName: 'Digital Mosaic Studios',
     images: [
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Digital Mosaic Studios | Marketing Consulting & Web Design Across the US',
+    title: 'Digital Mosaic Studios - US Marketing & Web Design',
     description: 'Expert marketing consulting and professional web design services across the United States. Strategic business growth solutions nationwide.',
     images: ['https://res.cloudinary.com/demo/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/samples/landscapes/landscape-panorama'],
   },
