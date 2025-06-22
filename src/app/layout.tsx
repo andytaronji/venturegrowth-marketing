@@ -1,29 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import EnhancedFooter from "@/components/EnhancedFooter";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { GSAPProvider } from "@/components/GSAPProvider";
 
-// Import the font CSS
-import "@fontsource/inter/300.css";
-import "@fontsource/inter/400.css";
-import "@fontsource/inter/500.css";
-import "@fontsource/inter/600.css";
-import "@fontsource/inter/700.css";
+// Montserrat fonts are imported in globals.css via @fontsource
+// Keep Roboto for monospace fallback
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const robotoMono = Roboto_Mono({
-  variable: "--font-roboto-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Digital Mosaic Studios - US Marketing & Web Design",
@@ -85,7 +70,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${robotoMono.variable} antialiased min-h-screen flex flex-col`}
+        className="antialiased min-h-screen flex flex-col font-sans"
       >
         <GSAPProvider>
           <LocalBusinessSchema />

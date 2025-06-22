@@ -45,7 +45,7 @@ export default function ServicesPage() {
       
       <EnhancedServiceDetailSection
         id="website-development"
-        title="Website Development"
+        title="Web Design"
         description="We build robust, scalable websites using cutting-edge technologies that ensure optimal performance, security, and functionality."
         features={[
           {

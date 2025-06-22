@@ -199,7 +199,7 @@ const EnhancedFooter = () => {
                   href="/services#website-development" 
                   className="footer-link text-secondary-light text-sm hover:text-accent transition-colors duration-200 gsap-will-change"
                 >
-                  Website Development
+                  Web Design
                 </Link>
               </li>
               <li>

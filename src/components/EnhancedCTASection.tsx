@@ -217,14 +217,16 @@ const EnhancedCTASection = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-index-content">
         <h2 
           ref={titleRef}
-          className="js-fade-up-cta text-3xl md:text-4xl font-bold mb-6 text-light gsap-will-change"
+          className="js-fade-up-cta text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white text-on-busy gsap-will-change"
+          style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}
         >
           {title}
         </h2>
         
         <p 
           ref={descriptionRef}
-          className="js-fade-up-cta text-xl text-light mb-8 max-w-3xl mx-auto gsap-will-change"
+          className="js-fade-up-cta text-xl md:text-2xl text-white text-on-busy mb-8 max-w-3xl mx-auto gsap-will-change"
+          style={{ textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)' }}
         >
           {description}
         </p>

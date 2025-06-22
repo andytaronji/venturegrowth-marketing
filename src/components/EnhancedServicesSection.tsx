@@ -13,19 +13,19 @@ const EnhancedServicesSection = () => {
 
   const services = [
     {
-      id: 'marketing-consulting',
-      title: 'Marketing Consulting',
-      description: 'Strategic marketing guidance to accelerate your business growth and market positioning.',
+      id: 'custom-saas-tools',
+      title: 'Custom SaaS Tools',
+      description: 'Take control and dominate your industry with custom tools built specifically to your industry and service offerings.',
       icon: '/globe.svg'
     },
     {
-      id: 'web-design',
+      id: 'website-development',
       title: 'Web Design',
       description: 'Custom, responsive websites that convert visitors into customers and reflect your brand.',
       icon: '/window.svg'
     },
     {
-      id: 'competitor-analysis',
+      id: 'custom-saas-tools',
       title: 'Competitor Analysis',
       description: 'In-depth analysis of your competition to identify opportunities and strategic advantages.',
       icon: '/file.svg'
@@ -72,21 +72,21 @@ const EnhancedServicesSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="section-padding bg-bg-tertiary"
+      className="section-padding bg-primary"
       data-gsap="fade-up"
     >
       <div className="max-w-7xl mx-auto container-padding">
         <div className="text-center mb-16">
           <h2 
             ref={titleRef}
-            className="text-3xl md:text-4xl font-bold text-primary mb-4 gsap-will-change"
+            className="text-3xl md:text-4xl font-bold text-white mb-4 gsap-will-change text-on-dark"
             data-gsap="fade-up"
           >
             Our Services
           </h2>
           <p 
             ref={subtitleRef}
-            className="text-xl text-secondary max-w-3xl mx-auto gsap-will-change"
+            className="text-xl text-white max-w-3xl mx-auto gsap-will-change text-on-dark"
             data-gsap="fade-up"
             data-gsap-delay="0.2"
           >
