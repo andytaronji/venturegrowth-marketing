@@ -56,6 +56,17 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .gsap-fade-up,
+  .gsap-fade-in,
+  .gsap-scale-in,
+  .gsap-slide-left,
+  .gsap-slide-right {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @layer base {
   body {
     background: var(--background);
@@ -140,15 +151,69 @@
   }
   
   .button-primary {
-    @apply px-5 py-2.5 bg-accent text-white font-medium rounded-md hover:bg-light-accent transition-colors duration-200 inline-flex items-center justify-center;
+    @apply px-5 py-2.5 bg-accent text-white font-medium rounded-md hover:bg-light-accent hover:text-white transition-colors duration-200 inline-flex items-center justify-center;
   }
   
   .button-secondary {
-    @apply px-5 py-2.5 bg-transparent border border-accent text-accent font-medium rounded-md hover:bg-accent hover:text-white transition-colors duration-200 inline-flex items-center justify-center;
+    @apply px-5 py-2.5 bg-transparent border border-accent text-accent font-medium rounded-md hover:bg-accent hover:text-white hover:border-accent transition-colors duration-200 inline-flex items-center justify-center;
   }
 }
 
 @layer utilities {
+  /* GSAP Animation Classes */
+  .gsap-fade-up { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  
+  .gsap-fade-in { 
+    opacity: 0; 
+  }
+  
+  .gsap-scale-in { 
+    opacity: 0; 
+    transform: scale(0.95); 
+  }
+  
+  .gsap-slide-left { 
+    opacity: 0; 
+    transform: translateX(-30px); 
+  }
+  
+  .gsap-slide-right { 
+    opacity: 0; 
+    transform: translateX(30px); 
+  }
+  
+  .gsap-will-change { 
+    will-change: transform, opacity; 
+  }
+  
+  .gsap-hardware-accel { 
+    transform: translate3d(0, 0, 0); 
+  }
+  
+  .gsap-disable-transitions { 
+    transition: none !important; 
+  }
+  
+  /* Z-Index Management */
+  .z-index-section {
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+  }
+  
+  .z-index-content {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .z-index-background {
+    position: absolute;
+    z-index: 0;
+  }
+
   /* Background colors */
   .bg-primary {
     background-color: var(--primary);

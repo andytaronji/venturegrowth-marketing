@@ -2,6 +2,12 @@
 
 import Link from "next/link";
 import CldImageWrapper from "@/components/CldImageWrapper";
+import EnhancedAboutHero from "@/components/EnhancedAboutHero";
+import EnhancedTeamSection from "@/components/EnhancedTeamSection";
+import EnhancedAboutSection from "@/components/EnhancedAboutSection";
+import EnhancedServiceDetailSection from "@/components/EnhancedServiceDetailSection";
+import EnhancedWhyChooseUsSection from "@/components/EnhancedWhyChooseUsSection";
+import EnhancedCTASection from "@/components/EnhancedCTASection";
 import { Metadata } from "next";
 
 // Metadata needs to be in a separate file or handled differently with client components
@@ -14,51 +20,33 @@ const pageMetadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* About Hero */}
-      <section className="bg-primary text-white py-20 mt-12 md:mt-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">About Digital Mosaic Studios - Your Marietta Web Design Experts</h1>
-            <p className="text-xl text-white opacity-90 max-w-3xl mx-auto">
-              We're passionate about helping businesses grow through innovative digital solutions.
-            </p>
-          </div>
-        </div>
-      </section>
+      <EnhancedAboutHero />
       
-      {/* Our Story */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-primary mb-6">Our Story</h2>
-              <p className="text-lg text-secondary mb-6">
-                Digital Mosaic Studios was founded with a simple mission: to help businesses establish a powerful online presence that drives real growth and success.
-              </p>
-              <p className="text-lg text-secondary mb-6">
-                We recognized that many businesses struggle to navigate the complex digital landscape, often working with multiple agencies for different aspects of their online presence. Our vision was to create a comprehensive digital marketing agency that could handle all aspects of a business's online presence, from website design and development to content creation and social media management.
-              </p>
-              <p className="text-lg text-secondary">
-                Today, we're proud to partner with businesses of all sizes, helping them achieve their goals through strategic, results-driven digital solutions.
-              </p>
-            </div>
-            
-            <div className="relative h-96 w-full">
-              <CldImageWrapper
-                src="samples/landscapes/nature-mountains"
-                alt="Digital Mosaic Studios Story"
-                width={800}
-                height={600}
-                crop="fit"
-                gravity="auto"
-                quality="auto:best"
-                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <EnhancedServiceDetailSection
+        title="Our Story"
+        description="Digital Mosaic Studios was founded with a simple mission: to help businesses establish a powerful online presence that drives real growth and success."
+        features={[
+          {
+            title: "Comprehensive Solutions",
+            description: "We recognized that many businesses struggle to navigate the complex digital landscape, often working with multiple agencies for different aspects of their online presence."
+          },
+          {
+            title: "Strategic Vision",
+            description: "Our vision was to create a comprehensive digital marketing agency that could handle all aspects of a business's online presence."
+          },
+          {
+            title: "Proven Results",
+            description: "Today, we're proud to partner with businesses of all sizes, helping them achieve their goals through strategic, results-driven digital solutions."
+          }
+        ]}
+        imageSrc="samples/landscapes/nature-mountains"
+        imageAlt="Digital Mosaic Studios Story"
+        imagePosition="right"
+        backgroundColor="white"
+        imageCrop="fit"
+        imageGravity="auto"
+        imageObjectFit="cover"
+      />
       
       {/* Our Mission & Values */}
       <section className="py-16 md:py-24 bg-bg-secondary">
@@ -113,185 +101,18 @@ export default function AboutPage() {
         </div>
       </section>
       
-      {/* Our Team */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Our Team</h2>
-            <p className="text-lg text-secondary max-w-3xl mx-auto">
-              Meet the talented professionals behind Digital Mosaic Studios.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Team Member 1 */}
-            <div className="bg-white rounded-lg shadow-subtle overflow-hidden border border-bg-secondary">
-              <div className="relative h-80 w-full">
-                <CldImageWrapper
-                  src="Mosaic_Studios_Andrew_ldl9fo"
-                  alt="Andrew Taronji - Founder & CEO"
-                  width={600}
-                  height={800}
-                  crop="fit"
-                  gravity="center"
-                  quality="auto:best"
-                  className="rounded-t-lg absolute inset-0 w-full h-full object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-primary mb-1">Andrew Taronji</h3>
-                <p className="text-accent font-medium mb-4">Founder & CEO</p>
-                <p className="text-secondary text-sm mb-4">
-                  With over 5 years of experience in digital marketing and web development, Andrew leads our team with vision and expertise.
-                </p>
-              </div>
-            </div>
-            
-            {/* Team Member 2 */}
-            <div className="bg-white rounded-lg shadow-subtle overflow-hidden border border-bg-secondary">
-              <div className="relative h-80 w-full">
-                <CldImageWrapper
-                  src="Sleepy_Stunting_gvn3at"
-                  alt="Joseph Coile - Chief Sales Officer"
-                  width={600}
-                  height={800}
-                  crop="fit"
-                  gravity="center"
-                  quality="auto:best"
-                  className="rounded-t-lg absolute inset-0 w-full h-full object-contain"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-primary mb-1">Joseph Coile</h3>
-                <p className="text-accent font-medium mb-4">Chief Sales Officer</p>
-                <p className="text-secondary text-sm mb-4">
-                  Joseph leads our sales team with a client-focused approach, building strong relationships and ensuring our solutions align with client business goals.
-                </p>
-              </div>
-            </div>
-            
-            {/* Team Member 3 */}
-            <div className="bg-white rounded-lg shadow-subtle overflow-hidden border border-bg-secondary">
-              <div className="relative h-80 w-full">
-                <CldImageWrapper
-                  src="man-smiling-behind-wall-portrait-glasses-beard-white-shirt-indoor-casual-happy-young-man-thumbnail_ymzvkv"
-                  alt="Devin Novelli - Chief Financial Officer"
-                  width={600}
-                  height={800}
-                  crop="fill"
-                  gravity="face"
-                  quality="auto:best"
-                  className="rounded-t-lg absolute inset-0 w-full h-full object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-primary mb-1">Devin Novelli</h3>
-                <p className="text-accent font-medium mb-4">Chief Financial Officer</p>
-                <p className="text-secondary text-sm mb-4">
-                  Devin oversees our financial operations, ensuring sustainable growth and helping clients maximize their return on investment in digital marketing.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <EnhancedTeamSection />
       
-      {/* Why Choose Us */}
-      <section className="py-16 md:py-24 bg-bg-secondary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1 relative h-96 w-full">
-              <CldImageWrapper
-                src="samples/imagecon-group"
-                alt="Why Choose Digital Mosaic Studios"
-                width={800}
-                height={600}
-                crop="fit"
-                gravity="auto"
-                quality="auto:best"
-                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-            
-            <div className="order-1 md:order-2">
-              <h2 className="text-3xl font-bold text-white mb-6">Why Choose Us</h2>
-              <p className="text-lg text-white mb-6">
-                At Digital Mosaic Studios, we stand out from other agencies in several key ways:
-              </p>
-              
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-white">Comprehensive Services</h3>
-                    <p className="text-white text-sm">We offer end-to-end digital solutions, eliminating the need to work with multiple agencies.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-white">Tailored Approach</h3>
-                    <p className="text-white text-sm">We develop customized strategies based on your unique business goals and target audience.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-white">Results-Driven</h3>
-                    <p className="text-white text-sm">We focus on delivering measurable results that contribute to your business growth.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-white">Transparent Communication</h3>
-                    <p className="text-white text-sm">We maintain open, honest communication throughout every project.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <EnhancedWhyChooseUsSection />
       
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-primary text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Work With Us?</h2>
-          <p className="text-xl text-white opacity-90 mb-8 max-w-3xl mx-auto">
-            Let's discuss how we can help your business grow through innovative digital solutions.
-          </p>
-          <Link 
-            href="/contact" 
-            className="px-8 py-4 bg-accent text-white font-medium rounded-md hover:bg-light-accent transition-colors duration-200"
-          >
-            Get in Touch
-          </Link>
-        </div>
-      </section>
+      <EnhancedCTASection
+        title="Ready to Work With Us?"
+        description="Let's discuss how we can help your business grow through innovative digital solutions."
+        buttons={[
+          { text: "Get in Touch", href: "/contact", variant: "primary" },
+          { text: "View Our Services", href: "/services", variant: "secondary" }
+        ]}
+      />
     </>
   );
 }

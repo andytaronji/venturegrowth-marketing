@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 import CldImageWrapper from "@/components/CldImageWrapper";
+import EnhancedServicesHero from "@/components/EnhancedServicesHero";
+import EnhancedServiceDetailSection from "@/components/EnhancedServiceDetailSection";
+import EnhancedCTASection from "@/components/EnhancedCTASection";
 import { Metadata } from "next";
 
 // Metadata needs to be in a separate file or handled differently with client components
@@ -14,363 +17,136 @@ const pageMetadata = {
 export default function ServicesPage() {
   return (
     <>
-      {/* Services Hero */}
-      <section className="bg-primary text-white py-20 mt-12 md:mt-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Marketing Consulting & Web Design Services Across the United States</h1>
-            <p className="text-xl text-white opacity-90 max-w-3xl mx-auto">
-              Comprehensive digital solutions to help your business establish a powerful online presence and drive growth.
-            </p>
-          </div>
-        </div>
-      </section>
+      <EnhancedServicesHero />
       
-      {/* Custom SaaS Tools */}
-      <section id="custom-saas-tools" className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-primary mb-6">Custom SaaS Tools</h2>
-              <p className="text-lg text-secondary mb-6">
-                Take control and dominate your industry with custom tools built specifically to your industry and service offerings.
-              </p>
-              
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-primary">Industry-Specific Solutions</h3>
-                    <p className="text-secondary text-sm">Tailored software solutions designed specifically for your industry's unique challenges and workflows.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-primary">Custom Workflow Automation</h3>
-                    <p className="text-secondary text-sm">Streamline your business processes with automated workflows that save time and reduce errors.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-primary">Scalable Architecture</h3>
-                    <p className="text-secondary text-sm">Built to grow with your business, ensuring optimal performance as your needs expand.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="relative h-96 w-full">
-              <CldImageWrapper
-                src="Screenshot_2025-06-09_111230_hq24ze"
-                alt="Custom SaaS Tools Services"
-                width={800}
-                height={600}
-                crop="fit"
-                gravity="auto"
-                quality="auto:best"
-                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-contain"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <EnhancedServiceDetailSection
+        id="custom-saas-tools"
+        title="Custom SaaS Tools"
+        description="Take control and dominate your industry with custom tools built specifically to your industry and service offerings."
+        features={[
+          {
+            title: "Industry-Specific Solutions",
+            description: "Tailored software solutions designed specifically for your industry's unique challenges and workflows."
+          },
+          {
+            title: "Custom Workflow Automation",
+            description: "Streamline your business processes with automated workflows that save time and reduce errors."
+          },
+          {
+            title: "Scalable Architecture",
+            description: "Built to grow with your business, ensuring optimal performance as your needs expand."
+          }
+        ]}
+        imageSrc="Screenshot_2025-06-09_111230_hq24ze"
+        imageAlt="Custom SaaS Tools Services"
+        imagePosition="right"
+        backgroundColor="white"
+      />
       
-      {/* Website Development */}
-      <section id="website-development" className="py-16 md:py-24 bg-bg-secondary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1 relative h-96 w-full">
-              <CldImageWrapper
-                src="Screenshot_2025-05-13_150720_ab2fyw"
-                alt="Website Development Services"
-                width={800}
-                height={600}
-                crop="fit"
-                gravity="auto"
-                quality="auto:best"
-                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-contain"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-            
-            <div className="order-1 md:order-2">
-              <h2 className="text-3xl font-bold text-white mb-6">Website Development</h2>
-              <p className="text-lg text-white mb-6">
-                We build robust, scalable websites using cutting-edge technologies that ensure optimal performance, security, and functionality.
-              </p>
-              
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-white">Custom Web Applications</h3>
-                    <p className="text-white text-sm">Tailored web applications that meet your specific business requirements.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-white">E-commerce Solutions</h3>
-                    <p className="text-white text-sm">Secure, user-friendly online stores that drive sales and enhance customer experience.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-white">Content Management Systems</h3>
-                    <p className="text-white text-sm">Easy-to-use CMS implementations that allow you to update your website content effortlessly.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <EnhancedServiceDetailSection
+        id="website-development"
+        title="Website Development"
+        description="We build robust, scalable websites using cutting-edge technologies that ensure optimal performance, security, and functionality."
+        features={[
+          {
+            title: "Custom Web Applications",
+            description: "Tailored web applications that meet your specific business requirements."
+          },
+          {
+            title: "E-commerce Solutions",
+            description: "Secure, user-friendly online stores that drive sales and enhance customer experience."
+          },
+          {
+            title: "Content Management Systems",
+            description: "Easy-to-use CMS implementations that allow you to update your website content effortlessly."
+          }
+        ]}
+        imageSrc="Screenshot_2025-05-13_150720_ab2fyw"
+        imageAlt="Website Development Services"
+        imagePosition="left"
+        backgroundColor="secondary"
+      />
       
-      {/* Website Maintenance */}
-      <section id="website-maintenance" className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-primary mb-6">Website Maintenance</h2>
-              <p className="text-lg text-secondary mb-6">
-                Keep your website running smoothly with our comprehensive maintenance services that ensure security, performance, and up-to-date content.
-              </p>
-              
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-primary">Regular Updates</h3>
-                    <p className="text-secondary text-sm">Timely updates to software, plugins, and content to keep your website current.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-primary">Security Monitoring</h3>
-                    <p className="text-secondary text-sm">Proactive security measures to protect your website from threats and vulnerabilities.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-primary">Performance Optimization</h3>
-                    <p className="text-secondary text-sm">Regular optimization to ensure fast loading times and smooth user experience.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="relative h-96 w-full">
-              <CldImageWrapper
-                src="Screenshot_2025-05-13_150241_yld8vo"
-                alt="Website Maintenance Services"
-                width={800}
-                height={600}
-                crop="fit"
-                gravity="auto"
-                quality="auto:best"
-                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-contain"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <EnhancedServiceDetailSection
+        id="website-maintenance"
+        title="Website Maintenance"
+        description="Keep your website running smoothly with our comprehensive maintenance services that ensure security, performance, and up-to-date content."
+        features={[
+          {
+            title: "Regular Updates",
+            description: "Timely updates to software, plugins, and content to keep your website current."
+          },
+          {
+            title: "Security Monitoring",
+            description: "Proactive security measures to protect your website from threats and vulnerabilities."
+          },
+          {
+            title: "Performance Optimization",
+            description: "Regular optimization to ensure fast loading times and smooth user experience."
+          }
+        ]}
+        imageSrc="Screenshot_2025-05-13_150241_yld8vo"
+        imageAlt="Website Maintenance Services"
+        imagePosition="right"
+        backgroundColor="white"
+      />
       
-      {/* Social Media Management */}
-      <section id="social-media" className="py-16 md:py-24 bg-bg-secondary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1 relative h-96 w-full">
-              <CldImageWrapper
-                src="samples/ecommerce/accessories-bag"
-                alt="Social Media Management Services"
-                width={800}
-                height={600}
-                crop="fit"
-                gravity="auto"
-                quality="auto:best"
-                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-contain"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-            
-            <div className="order-1 md:order-2">
-              <h2 className="text-3xl font-bold text-white mb-6">Social Media Management</h2>
-              <p className="text-lg text-white mb-6">
-                Build and maintain a strong social media presence that engages your audience, builds brand awareness, and drives traffic to your website.
-              </p>
-              
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-white">Content Strategy</h3>
-                    <p className="text-white text-sm">Strategic planning and creation of engaging content tailored to your target audience.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-white">Community Management</h3>
-                    <p className="text-white text-sm">Active engagement with your audience to build relationships and foster community.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-white">Analytics & Reporting</h3>
-                    <p className="text-white text-sm">Regular performance analysis and reporting to track growth and optimize strategies.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <EnhancedServiceDetailSection
+        id="social-media"
+        title="Social Media Management"
+        description="Build and maintain a strong social media presence that engages your audience, builds brand awareness, and drives traffic to your website."
+        features={[
+          {
+            title: "Content Strategy",
+            description: "Strategic planning and creation of engaging content tailored to your target audience."
+          },
+          {
+            title: "Community Management",
+            description: "Active engagement with your audience to build relationships and foster community."
+          },
+          {
+            title: "Analytics & Reporting",
+            description: "Regular performance analysis and reporting to track growth and optimize strategies."
+          }
+        ]}
+        imageSrc="samples/ecommerce/accessories-bag"
+        imageAlt="Social Media Management Services"
+        imagePosition="left"
+        backgroundColor="secondary"
+      />
       
-      {/* Content Creation */}
-      <section id="content-creation" className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-primary mb-6">Content Creation</h2>
-              <p className="text-lg text-secondary mb-6">
-                Compelling, high-quality content that engages your audience, establishes your expertise, and drives organic traffic to your website.
-              </p>
-              
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-primary">Blog Writing</h3>
-                    <p className="text-secondary text-sm">Informative, engaging blog posts that establish your authority and improve SEO.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-primary">Copywriting</h3>
-                    <p className="text-secondary text-sm">Persuasive copy for websites, landing pages, and marketing materials that convert visitors into customers.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-primary">Visual Content</h3>
-                    <p className="text-secondary text-sm">Eye-catching graphics, infographics, and videos that enhance your message and increase engagement.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="relative h-96 w-full">
-              <CldImageWrapper
-                src="Screenshot_2025-05-13_151506_jysyqn"
-                alt="Content Creation Services"
-                width={800}
-                height={600}
-                crop="fit"
-                gravity="auto"
-                quality="auto:best"
-                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-contain"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <EnhancedServiceDetailSection
+        id="content-creation"
+        title="Content Creation"
+        description="Compelling, high-quality content that engages your audience, establishes your expertise, and drives organic traffic to your website."
+        features={[
+          {
+            title: "Blog Writing",
+            description: "Informative, engaging blog posts that establish your authority and improve SEO."
+          },
+          {
+            title: "Copywriting",
+            description: "Persuasive copy for websites, landing pages, and marketing materials that convert visitors into customers."
+          },
+          {
+            title: "Visual Content",
+            description: "Eye-catching graphics, infographics, and videos that enhance your message and increase engagement."
+          }
+        ]}
+        imageSrc="Screenshot_2025-05-13_151506_jysyqn"
+        imageAlt="Content Creation Services"
+        imagePosition="right"
+        backgroundColor="white"
+      />
       
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-primary text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Grow Your Business?</h2>
-          <p className="text-xl text-white opacity-90 mb-8 max-w-3xl mx-auto">
-            Contact us today to discuss how our services can help your business grow.
-          </p>
-          <Link 
-            href="/contact" 
-            className="px-8 py-4 bg-accent text-white font-medium rounded-md hover:bg-light-accent transition-colors duration-200"
-          >
-            Get Started
-          </Link>
-        </div>
-      </section>
+      <EnhancedCTASection
+        title="Ready to Grow Your Business?"
+        description="Contact us today to discuss how our services can help your business grow."
+        buttons={[
+          { text: "Get Started", href: "/contact", variant: "primary" },
+          { text: "View Portfolio", href: "/about", variant: "secondary" }
+        ]}
+      />
     </>
   );
 }

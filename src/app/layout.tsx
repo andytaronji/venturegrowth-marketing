@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import EnhancedFooter from "@/components/EnhancedFooter";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import { GSAPProvider } from "@/components/GSAPProvider";
 
 // Import the font CSS
 import "@fontsource/inter/300.css";
@@ -86,12 +87,14 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${robotoMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        <LocalBusinessSchema />
-        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+        <GSAPProvider>
+          <LocalBusinessSchema />
+          <Navbar />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <EnhancedFooter />
+        </GSAPProvider>
       </body>
     </html>
   );
