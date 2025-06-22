@@ -144,7 +144,7 @@ export default function ServicesPage() {
         description="Contact us today to discuss how our services can help your business grow."
         buttons={[
           { text: "Get Started", href: "/contact", variant: "primary" },
-          { text: "View Portfolio", href: "/about", variant: "secondary" }
+          { text: "About Us", href: "/about", variant: "secondary" }
         ]}
       />
     </>
