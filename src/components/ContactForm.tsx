@@ -2,6 +2,13 @@
 
 import { useState, FormEvent } from 'react';
 
+// Extend the Window interface to include our custom gtag function
+declare global {
+  interface Window {
+    gtagReportConversion?: () => void;
+  }
+}
+
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -59,7 +66,11 @@ const ContactForm = () => {
       const data = await response.json();
       
       if (response.ok) {
-        // Success
+        // Success - trigger Google Ads conversion tracking
+        if (typeof window !== 'undefined' && window.gtagReportConversion) {
+          window.gtagReportConversion();
+        }
+        
         setFormStatus({
           submitted: true,
           success: true,
