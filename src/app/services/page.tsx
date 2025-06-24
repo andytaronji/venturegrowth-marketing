@@ -5,6 +5,7 @@ import CldImageWrapper from "@/components/CldImageWrapper";
 import EnhancedServicesHero from "@/components/EnhancedServicesHero";
 import EnhancedServiceDetailSection from "@/components/EnhancedServiceDetailSection";
 import EnhancedCTASection from "@/components/EnhancedCTASection";
+import ServicesSchema from "@/components/ServicesSchema";
 import { Metadata } from "next";
 
 // Metadata needs to be in a separate file or handled differently with client components
@@ -17,6 +18,7 @@ const pageMetadata = {
 export default function ServicesPage() {
   return (
     <>
+      <ServicesSchema />
       <EnhancedServicesHero />
       
       <EnhancedServiceDetailSection

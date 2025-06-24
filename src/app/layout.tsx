@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import EnhancedFooter from "@/components/EnhancedFooter";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { GSAPProvider } from "@/components/GSAPProvider";
 
 // Montserrat fonts are imported in globals.css via @fontsource
@@ -12,7 +13,7 @@ import "@fontsource/roboto/500.css";
 
 export const metadata: Metadata = {
   title: "Digital Mosaic Studios - US Marketing & Web Design",
-  description: "Expert marketing consulting and professional web design services across the United States. Strategic business growth solutions and custom websites for high-value businesses nationwide.",
+  description: "Professional web design & marketing consulting in Marietta, GA. Custom websites, SaaS tools & digital marketing for Atlanta area businesses. Free consultation!",
   keywords: "marketing consulting, business strategy consulting, web design services, website development, digital marketing consulting, custom web design, business growth solutions, marketing strategy, web development services, nationwide marketing consulting",
   icons: {
     icon: [
@@ -25,24 +26,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://www.digitalmosaicsstudios.com/',
+    url: 'https://www.digitalmosaicstudios.com/',
     title: 'Digital Mosaic Studios - US Marketing & Web Design',
-    description: 'Expert marketing consulting and professional web design services across the United States. Strategic business growth solutions and custom websites for high-value businesses nationwide.',
+    description: 'Professional web design & marketing consulting in Marietta, GA. Custom websites, SaaS tools & digital marketing for Atlanta area businesses. Free consultation!',
     siteName: 'Digital Mosaic Studios',
     images: [
       {
-        url: 'https://res.cloudinary.com/demo/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/samples/landscapes/landscape-panorama',
+        url: 'https://res.cloudinary.com/di4phdven/image/upload/c_fill,w_1200,h_630,g_auto/f_auto/q_auto:best/v1/nice_vnyvxy',
         width: 1200,
         height: 630,
-        alt: 'Digital Mosaic Studios - Marketing Consulting & Web Design Across the United States',
+        alt: 'Digital Mosaic Studios - Professional Web Design & Marketing Consulting in Marietta, GA',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Digital Mosaic Studios - US Marketing & Web Design',
-    description: 'Expert marketing consulting and professional web design services across the United States. Strategic business growth solutions nationwide.',
-    images: ['https://res.cloudinary.com/demo/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/samples/landscapes/landscape-panorama'],
+    description: 'Professional web design & marketing consulting in Marietta, GA. Custom websites, SaaS tools & digital marketing for Atlanta area businesses.',
+    images: ['https://res.cloudinary.com/di4phdven/image/upload/c_fill,w_1200,h_630,g_auto/f_auto/q_auto:best/v1/nice_vnyvxy'],
   },
   alternates: {
     canonical: 'https://www.digitalmosaicsstudios.com',
@@ -74,6 +75,7 @@ export default function RootLayout({
       >
         <GSAPProvider>
           <LocalBusinessSchema />
+          <BreadcrumbSchema />
           <Navbar />
           <main className="flex-grow">
             {children}

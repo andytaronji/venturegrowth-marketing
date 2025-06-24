@@ -36,6 +36,11 @@ const nextConfig = {
             key: 'X-DNS-Prefetch-Control',
             value: 'on'
           },
+          // X-XSS-Protection - Enable XSS filtering
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block'
+          },
           // Content Security Policy - Prevent XSS attacks
           {
             key: 'Content-Security-Policy',
@@ -67,8 +72,37 @@ const nextConfig = {
       };
     }
     
+    // Optimize bundle splitting for better performance
+    if (!dev && !isServer) {
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          chunks: 'all',
+          cacheGroups: {
+            vendor: {
+              test: /[\\/]node_modules[\\/]/,
+              name: 'vendors',
+              chunks: 'all',
+            },
+            common: {
+              name: 'common',
+              minChunks: 2,
+              chunks: 'all',
+              enforce: true,
+            },
+          },
+        },
+      };
+    }
+    
     return config;
   },
+  // Enable experimental features for better performance
+  experimental: {
+    optimizePackageImports: ['@fontsource/roboto'],
+  },
+  // Compress static assets
+  compress: true,
 };
 
 module.exports = nextConfig;
