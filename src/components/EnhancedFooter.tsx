@@ -176,6 +176,14 @@ const EnhancedFooter = () => {
                   Contact Us
                 </Link>
               </li>
+              <li>
+                <Link 
+                  href="/privacy-policy" 
+                  className="footer-link text-secondary-light text-sm hover:text-accent transition-colors duration-200 gsap-will-change"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
           
