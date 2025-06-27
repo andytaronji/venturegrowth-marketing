@@ -5,6 +5,7 @@ import { useState, FormEvent } from 'react';
 // Extend the Window interface to include our custom gtag function
 declare global {
   interface Window {
+    gtag?: (...args: any[]) => void;
     gtagReportConversion?: () => void;
   }
 }
@@ -67,6 +68,14 @@ const ContactForm = () => {
       
       if (response.ok) {
         // Success - trigger Google Ads conversion tracking
+        // Primary method: Direct gtag call
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'conversion', {
+            'send_to': 'AW-17079402860/QG_OCM67oeQaEOyCjNA_'
+          });
+        }
+        
+        // Backup method: Helper function
         if (typeof window !== 'undefined' && window.gtagReportConversion) {
           window.gtagReportConversion();
         }

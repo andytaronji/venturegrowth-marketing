@@ -88,6 +88,18 @@ export default function RootLayout({
           `}
         </Script>
         
+        {/* Google Ads Conversion Tracking */}
+        <Script id="google-ads-conversion" strategy="afterInteractive">
+          {`
+            function gtagReportConversion() {
+              gtag('event', 'conversion', {
+                'send_to': 'AW-17079402860/QG_OCM67oeQaEOyCjNA_'
+              });
+            }
+            window.gtagReportConversion = gtagReportConversion;
+          `}
+        </Script>
+        
         <GSAPProvider>
           <LocalBusinessSchema />
           <BreadcrumbSchema />
