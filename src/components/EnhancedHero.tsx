@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import CldImageWrapper from './CldImageWrapper';
+import CldVideoWrapper from './CldVideoWrapper';
 import { useGSAPAnimation } from './GSAPProvider';
 
 const EnhancedHero = () => {
@@ -139,7 +139,7 @@ const EnhancedHero = () => {
               data-gsap="fade-up"
               data-gsap-delay="0.2"
             >
-              Gain powerful insights with our advanced competitor analysis and SWOT assessments—helping you identify opportunities, outmaneuver rivals, and accelerate business growth effortlessly.
+              Data - it keeps the world turning. Discover key insights about your industry today in one of our expert marketing consultations!
             </p>
             
             <div 
@@ -170,17 +170,15 @@ const EnhancedHero = () => {
               data-gsap="scale-in"
               data-gsap-delay="0.6"
             >
-              <CldImageWrapper
-                src="nice_vnyvxy"
-                alt="Business Growth and Analytics"
-                width={1200}
-                height={800}
-                crop="fill"
-                gravity="auto"
-                quality="auto:best"
+              <CldVideoWrapper
+                src="https://res.cloudinary.com/di4phdven/video/upload/v1751454396/Data1_gmpujr.mp4"
+                alt="Business Growth and Analytics Video"
                 className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
+                loop={true}
+                autoplay={true}
+                muted={true}
+                controls={false}
+                playsInline={true}
               />
             </div>
           </div>
