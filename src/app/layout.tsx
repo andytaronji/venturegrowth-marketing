@@ -74,16 +74,21 @@ export default function RootLayout({
       <body
         className="antialiased min-h-screen flex flex-col font-sans"
       >
-        {/* Google tag (gtag.js) */}
+        {/* Google tag (gtag.js) - Combined Analytics & Ads */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17079402860"
+          src="https://www.googletagmanager.com/gtag/js?id=G-8ZZWWGRYWN"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics-combined" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
+            
+            // Google Analytics
+            gtag('config', 'G-8ZZWWGRYWN');
+            
+            // Google Ads
             gtag('config', 'AW-17079402860');
           `}
         </Script>
