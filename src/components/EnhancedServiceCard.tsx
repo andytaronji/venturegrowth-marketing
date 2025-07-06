@@ -14,107 +14,42 @@ interface EnhancedServiceCardProps {
 
 const EnhancedServiceCard = ({ title, description, icon, id, index = 0 }: EnhancedServiceCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const iconRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const descriptionRef = useRef<HTMLParagraphElement>(null);
-  const buttonRef = useRef<HTMLDivElement>(null);
-  
   const { gsap } = useGSAPAnimation();
 
   useEffect(() => {
-    if (!cardRef.current) return;
-
-    const ctx = gsap.context(() => {
-      // Set initial states
+    if (cardRef.current && gsap) {
+      // Simple blog-style animation - fade in with stagger
       gsap.set(cardRef.current, {
-        opacity: 0,
-        y: 30,
-        scale: 0.95
+        opacity: 1,
+        y: 20,
+        scale: 0.98
       });
 
-      // Scroll-triggered animation
       gsap.to(cardRef.current, {
-        opacity: 1,
         y: 0,
         scale: 1,
         duration: 0.6,
         ease: 'power2.out',
-        delay: index * 0.1, // Stagger based on index
         scrollTrigger: {
           trigger: cardRef.current,
           start: 'top 85%',
           toggleActions: 'play none none reverse'
         }
       });
-
-      // Hover animations
-      const card = cardRef.current;
-      
-      if (card) {
-        const handleMouseEnter = () => {
-          gsap.to(card, {
-            y: -8,
-            scale: 1.02,
-            duration: 0.3,
-            ease: 'power2.out'
-          });
-          
-          gsap.to(iconRef.current, {
-            scale: 1.1,
-            rotation: 5,
-            duration: 0.3,
-            ease: 'power2.out'
-          });
-        };
-
-        const handleMouseLeave = () => {
-          gsap.to(card, {
-            y: 0,
-            scale: 1,
-            duration: 0.3,
-            ease: 'power2.out'
-          });
-          
-          gsap.to(iconRef.current, {
-            scale: 1,
-            rotation: 0,
-            duration: 0.3,
-            ease: 'power2.out'
-          });
-        };
-
-        card.addEventListener('mouseenter', handleMouseEnter);
-        card.addEventListener('mouseleave', handleMouseLeave);
-
-        // Cleanup
-        return () => {
-          card.removeEventListener('mouseenter', handleMouseEnter);
-          card.removeEventListener('mouseleave', handleMouseLeave);
-        };
-      }
-
-    }, cardRef);
-
-    return () => ctx.revert();
-  }, [gsap, index]);
+    }
+  }, [gsap]);
 
   return (
     <div 
       ref={cardRef}
       id={id} 
-      className="group bg-black bg-opacity-20 backdrop-blur-sm rounded-lg overflow-hidden border border-white border-opacity-10 gsap-will-change gsap-hardware-accel"
-      data-gsap="fade-up"
-      data-gsap-delay={index * 0.1}
+      className="group bg-black bg-opacity-20 backdrop-blur-sm rounded-lg overflow-hidden border border-white border-opacity-10 hover:-translate-y-2 hover:scale-105 transition-all duration-300"
       style={{ 
         boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
-        transition: 'box-shadow 0.3s ease'
       }}
     >
       <div className="p-6">
-        <div 
-          ref={iconRef}
-          className="w-12 h-12 mx-auto mb-6 flex items-center justify-center bg-accent bg-opacity-20 rounded-full gsap-will-change"
-        >
+        <div className="w-12 h-12 mx-auto mb-6 flex items-center justify-center bg-accent bg-opacity-20 rounded-full group-hover:scale-110 transition-transform duration-300">
           <img 
             src={icon} 
             alt={title} 
@@ -125,22 +60,20 @@ const EnhancedServiceCard = ({ title, description, icon, id, index = 0 }: Enhanc
         </div>
         
         <h3 
-          ref={titleRef}
-          className="text-lg font-semibold text-white text-center mb-3 text-on-busy"
+          className="text-lg font-semibold text-white text-center mb-3"
           style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}
         >
           {title}
         </h3>
         
         <p 
-          ref={descriptionRef}
-          className="text-white text-opacity-90 mb-6 text-center text-sm text-on-dark"
+          className="text-white text-opacity-90 mb-6 text-center text-sm"
           style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
         >
           {description}
         </p>
         
-        <div ref={buttonRef} className="text-center">
+        <div className="text-center">
           <Link 
             href={`/services#${id}`} 
             className="inline-block px-5 py-2 bg-accent text-white font-medium rounded-md hover:bg-light-accent hover:text-white transition-all duration-200 text-sm transform hover:scale-105"

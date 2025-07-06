@@ -50,14 +50,11 @@ export default function BlogPage() {
 
   // Modal handlers
   const openModal = (post: BlogPost) => {
-    console.log('Opening modal for post:', post.title);
     setSelectedPost(post);
     setIsModalOpen(true);
-    console.log('Modal state set to open');
   };
 
   const closeModal = () => {
-    console.log('Closing modal');
     setIsModalOpen(false);
     setSelectedPost(null);
   };

@@ -59,157 +59,72 @@ const EnhancedAboutSection = ({
   imageAlt = "About Digital Mosaic Studios"
 }: EnhancedAboutSectionProps) => {
   const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const descriptionRef = useRef<HTMLParagraphElement>(null);
-  const featureListRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-  const imageContainerRef = useRef<HTMLDivElement>(null);
-  
   const { gsap } = useGSAPAnimation();
 
   useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const ctx = gsap.context(() => {
-      // Set initial states for text elements
-      gsap.set([titleRef.current, descriptionRef.current], {
-        opacity: 0,
-        y: 20
-      });
-
-      gsap.set(ctaRef.current, {
-        opacity: 0,
-        y: 20
-      });
-
-      // Set initial states for feature items
-      const featureItems = featureListRef.current?.querySelectorAll('.js-fade-up-item');
-      if (featureItems) {
-        gsap.set(featureItems, {
+    if (sectionRef.current && gsap) {
+      // Simple blog-style animation - fade in with stagger
+      gsap.fromTo(sectionRef.current.children, 
+        {
           opacity: 0,
-          y: 20
-        });
-      }
-
-      // Set initial state for image
-      gsap.set(imageContainerRef.current, {
-        opacity: 0,
-        scale: 0.95
-      });
-
-      // Create main timeline
-      const mainTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-          end: 'bottom 25%',
-          toggleActions: 'play none none reverse',
-          markers: false
-        }
-      });
-
-      // Animate title and description
-      mainTimeline
-        .to(titleRef.current, {
+          y: 30
+        },
+        {
           opacity: 1,
           y: 0,
           duration: 0.8,
-          ease: 'power2.out'
-        })
-        .to(descriptionRef.current, {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: 'power2.out'
-        }, '-=0.4');
-
-      // Staggered animation for feature items
-      if (featureItems && featureItems.length > 0) {
-        mainTimeline.to(featureItems, {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
+          stagger: 0.2,
           ease: 'power2.out',
-          stagger: 0.1
-        }, '-=0.3');
-      }
-
-      // Animate CTA button
-      mainTimeline.to(ctaRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: 'power2.out'
-      }, '-=0.2');
-
-      // Animate image
-      mainTimeline.to(imageContainerRef.current, {
-        opacity: 1,
-        scale: 1,
-        duration: 0.8,
-        ease: 'power2.out'
-      }, '-=0.6');
-
-      // Image parallax effect
-      gsap.to(imageContainerRef.current, {
-        yPercent: -20,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1,
-          markers: false
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          }
         }
-      });
-
-    }, sectionRef);
-
-    return () => ctx.revert();
+      );
+    }
   }, [gsap]);
 
   return (
     <section 
       ref={sectionRef}
-      className="js-pin py-16 md:py-24"
+      className="py-16 md:py-24"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 
-              ref={titleRef}
-              className="js-fade-up-text text-3xl md:text-4xl font-bold text-white text-on-busy mb-6 gsap-will-change"
+              className="text-3xl md:text-4xl font-bold text-white mb-6"
               style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}
             >
               {title}
             </h2>
             
             <p 
-              ref={descriptionRef}
-              className="js-fade-up-text text-lg text-white text-on-dark mb-6 gsap-will-change"
+              className="text-lg text-white mb-6"
               style={{ textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)' }}
             >
               {description}
             </p>
             
-            <div ref={featureListRef} className="space-y-4">
+            <div className="space-y-4">
               {features.map((feature, index) => (
                 <div 
                   key={index}
-                  className="js-fade-up-item flex items-start gsap-will-change"
+                  className="flex items-start"
                 >
                   <div className="flex-shrink-0 mt-1">
                     {feature.icon}
                   </div>
                   <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-white text-on-busy" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>{feature.title}</h3>
-                    <p className="text-white text-opacity-90 text-sm text-on-dark" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}>{feature.description}</p>
+                    <h3 className="text-lg font-semibold text-white" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>{feature.title}</h3>
+                    <p className="text-white text-opacity-90 text-sm" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}>{feature.description}</p>
                   </div>
                 </div>
               ))}
             </div>
             
-            <div ref={ctaRef} className="mt-8 gsap-will-change">
+            <div className="mt-8">
               <Link 
                 href={ctaLink}
                 className="inline-block px-6 py-3 bg-accent text-white font-medium rounded-md hover:bg-light-accent hover:text-white transition-colors duration-200 transform hover:scale-105"
@@ -220,10 +135,7 @@ const EnhancedAboutSection = ({
           </div>
           
           <div className="relative h-96 w-full">
-            <div 
-              ref={imageContainerRef}
-              className="js-parallax-img relative h-full w-full gsap-will-change gsap-hardware-accel"
-            >
+            <div className="relative h-full w-full">
               <CldImageWrapper
                 src={imageSrc}
                 alt={imageAlt}

@@ -6,151 +6,49 @@ import { useGSAPAnimation } from './GSAPProvider';
 
 const EnhancedContactSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const contactInfoRef = useRef<HTMLDivElement>(null);
-  const formRef = useRef<HTMLDivElement>(null);
-  
   const { gsap } = useGSAPAnimation();
 
   useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const ctx = gsap.context(() => {
-      // Set initial states
-      gsap.set(titleRef.current, {
-        opacity: 0,
-        y: 30
-      });
-
-      gsap.set([contactInfoRef.current, formRef.current], {
-        opacity: 0,
-        y: 40
-      });
-
-      // Set initial states for contact items
-      const contactItems = contactInfoRef.current?.querySelectorAll('.contact-item');
-      if (contactItems) {
-        gsap.set(contactItems, {
+    if (sectionRef.current && gsap) {
+      // Simple blog-style animation - fade in with stagger
+      gsap.fromTo(sectionRef.current.children, 
+        {
           opacity: 0,
-          x: -30,
-          y: 20
-        });
-      }
-
-      // Create main timeline
-      const contactTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-          end: 'bottom 25%',
-          toggleActions: 'play none none reverse',
-          markers: false
-        }
-      });
-
-      // Animate content
-      contactTimeline
-        .to(titleRef.current, {
+          y: 30
+        },
+        {
           opacity: 1,
           y: 0,
           duration: 0.8,
-          ease: 'power2.out'
-        })
-        .to(contactInfoRef.current, {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power2.out'
-        }, '-=0.4')
-        .to(formRef.current, {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power2.out'
-        }, '-=0.6');
-
-      // Animate contact items with stagger
-      if (contactItems && contactItems.length > 0) {
-        contactTimeline.to(contactItems, {
-          opacity: 1,
-          x: 0,
-          y: 0,
-          duration: 0.6,
+          stagger: 0.2,
           ease: 'power2.out',
-          stagger: 0.1
-        }, '-=0.6');
-      }
-
-      // Add hover effects for contact items
-      if (contactItems) {
-        contactItems.forEach((item) => {
-          const itemElement = item as HTMLElement;
-          const icon = itemElement.querySelector('.contact-icon');
-          
-          itemElement.addEventListener('mouseenter', () => {
-            gsap.to(itemElement, {
-              x: 5,
-              duration: 0.3,
-              ease: 'power2.out'
-            });
-            
-            if (icon) {
-              gsap.to(icon, {
-                scale: 1.1,
-                rotation: 5,
-                duration: 0.3,
-                ease: 'power2.out'
-              });
-            }
-          });
-
-          itemElement.addEventListener('mouseleave', () => {
-            gsap.to(itemElement, {
-              x: 0,
-              duration: 0.3,
-              ease: 'power2.out'
-            });
-            
-            if (icon) {
-              gsap.to(icon, {
-                scale: 1,
-                rotation: 0,
-                duration: 0.3,
-                ease: 'power2.out'
-              });
-            }
-          });
-        });
-      }
-
-    }, sectionRef);
-
-    return () => ctx.revert();
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+    }
   }, [gsap]);
 
   return (
     <section 
       ref={sectionRef}
-      className="py-16 md:py-24 z-index-section"
+      className="py-16 md:py-24"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Information */}
           <div className="lg:col-span-1">
-            <h2 
-              ref={titleRef}
-              className="text-2xl font-bold text-white mb-6 gsap-will-change text-on-dark"
-            >
+            <h2 className="text-2xl font-bold text-white mb-6">
               Get In Touch
             </h2>
             
-            <div 
-              ref={contactInfoRef}
-              className="space-y-6 gsap-will-change"
-            >
-              <div className="contact-item flex items-start gsap-will-change">
+            <div className="space-y-6">
+              <div className="flex items-start hover:translate-x-1 transition-transform duration-300">
                 <div className="flex-shrink-0 mt-1">
-                  <div className="contact-icon w-10 h-10 flex items-center justify-center bg-bg-secondary rounded-full">
+                  <div className="w-10 h-10 flex items-center justify-center bg-bg-secondary rounded-full hover:scale-110 transition-transform duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
@@ -162,9 +60,9 @@ const EnhancedContactSection = () => {
                 </div>
               </div>
               
-              <div className="contact-item flex items-start gsap-will-change">
+              <div className="flex items-start hover:translate-x-1 transition-transform duration-300">
                 <div className="flex-shrink-0 mt-1">
-                  <div className="contact-icon w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full">
+                  <div className="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:scale-110 transition-transform duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
@@ -176,9 +74,9 @@ const EnhancedContactSection = () => {
                 </div>
               </div>
               
-              <div className="contact-item flex items-start gsap-will-change">
+              <div className="flex items-start hover:translate-x-1 transition-transform duration-300">
                 <div className="flex-shrink-0 mt-1">
-                  <div className="contact-icon w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full">
+                  <div className="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:scale-110 transition-transform duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -228,10 +126,7 @@ const EnhancedContactSection = () => {
           </div>
           
           {/* Contact Form */}
-          <div 
-            ref={formRef}
-            className="lg:col-span-2 gsap-will-change"
-          >
+          <div className="lg:col-span-2">
             <ContactForm />
           </div>
         </div>

@@ -106,7 +106,6 @@ const BlogCard = ({
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              console.log('Read More clicked for:', title);
               onReadMore();
             }}
             className="inline-flex items-center text-accent font-medium hover:text-light-accent transition-colors duration-200 group/link relative z-10"

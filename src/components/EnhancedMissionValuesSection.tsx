@@ -5,10 +5,6 @@ import { useGSAPAnimation } from './GSAPProvider';
 
 const EnhancedMissionValuesSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const cardsContainerRef = useRef<HTMLDivElement>(null);
-  
   const { gsap } = useGSAPAnimation();
 
   const values = [
@@ -42,94 +38,49 @@ const EnhancedMissionValuesSection = () => {
   ];
 
   useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const ctx = gsap.context(() => {
-      // Set initial states
-      gsap.set([titleRef.current, subtitleRef.current], {
-        opacity: 0,
-        y: 30
-      });
-
-      // Set initial states for value cards
-      const valueCards = cardsContainerRef.current?.querySelectorAll('.value-card');
-      if (valueCards) {
-        gsap.set(valueCards, {
+    if (sectionRef.current && gsap) {
+      // Simple blog-style animation - fade in with stagger
+      gsap.fromTo(sectionRef.current.children, 
+        {
           opacity: 0,
           y: 30
-        });
-      }
-
-      // Create timeline for section header
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse'
-        }
-      });
-
-      tl.to(titleRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: 'power2.out'
-      })
-      .to(subtitleRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: 'power2.out'
-      }, '-=0.3');
-
-      // Staggered animation for value cards
-      if (valueCards && valueCards.length > 0) {
-        tl.to(valueCards, {
+        },
+        {
           opacity: 1,
           y: 0,
-          duration: 0.6,
+          duration: 0.8,
+          stagger: 0.2,
           ease: 'power2.out',
-          stagger: 0.15
-        }, '-=0.2');
-      }
-
-    }, sectionRef);
-
-    return () => ctx.revert();
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+    }
   }, [gsap]);
 
   return (
     <section 
       ref={sectionRef}
       className="section-padding"
-      data-gsap="fade-up"
     >
       <div className="max-w-7xl mx-auto container-padding">
         <div className="text-center mb-16">
-          <h2 
-            ref={titleRef}
-            className="text-3xl md:text-4xl font-bold text-white mb-4 gsap-will-change text-on-dark"
-            data-gsap="fade-up"
-          >
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Our Mission & Values
           </h2>
-          <p 
-            ref={subtitleRef}
-            className="text-lg text-white max-w-3xl mx-auto gsap-will-change text-on-dark"
-            data-gsap="fade-up"
-            data-gsap-delay="0.2"
-          >
+          <p className="text-lg text-white max-w-3xl mx-auto">
             At Digital Mosaic Studios, we're guided by a set of core values that inform everything we do.
           </p>
         </div>
         
-        <div ref={cardsContainerRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {values.map((value, index) => (
             <div 
               key={value.title}
-              className="value-card bg-white rounded-lg shadow-subtle p-8 border border-bg-secondary gsap-will-change"
-              data-gsap="fade-up"
-              data-gsap-delay={0.1 * index}
+              className="bg-white rounded-lg shadow-subtle p-8 border border-bg-secondary hover:-translate-y-2 hover:scale-105 transition-all duration-300"
             >
               <div className="w-12 h-12 mx-auto mb-6 flex items-center justify-center bg-bg-secondary rounded-full">
                 {value.icon}
