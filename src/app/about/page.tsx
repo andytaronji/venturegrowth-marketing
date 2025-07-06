@@ -4,7 +4,6 @@ import { useEffect, useRef } from 'react';
 import Link from "next/link";
 import CldImageWrapper from "@/components/CldImageWrapper";
 import EnhancedAboutHero from "@/components/EnhancedAboutHero";
-import EnhancedTeamSection from "@/components/EnhancedTeamSection";
 import EnhancedAboutSection from "@/components/EnhancedAboutSection";
 import EnhancedServiceDetailSection from "@/components/EnhancedServiceDetailSection";
 import EnhancedWhyChooseUsSection from "@/components/EnhancedWhyChooseUsSection";
@@ -82,8 +81,6 @@ export default function AboutPage() {
           />
           
           <EnhancedMissionValuesSection />
-          
-          <EnhancedTeamSection />
           
           <EnhancedWhyChooseUsSection />
           
