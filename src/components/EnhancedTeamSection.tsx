@@ -158,19 +158,19 @@ const EnhancedTeamSection = ({
   return (
     <section 
       ref={sectionRef}
-      className="py-16 md:py-24 bg-white z-index-section"
+      className="py-16 md:py-24 z-index-section"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 
             ref={titleRef}
-            className="text-3xl md:text-4xl font-bold text-primary mb-4 gsap-will-change"
+            className="text-3xl md:text-4xl font-bold text-white mb-4 gsap-will-change text-on-dark"
           >
             {title}
           </h2>
           <p 
             ref={descriptionRef}
-            className="text-lg text-secondary max-w-3xl mx-auto gsap-will-change"
+            className="text-lg text-white text-opacity-90 max-w-3xl mx-auto gsap-will-change text-on-dark"
           >
             {description}
           </p>

@@ -171,21 +171,23 @@ const EnhancedAboutSection = ({
   return (
     <section 
       ref={sectionRef}
-      className="js-pin py-16 md:py-24 bg-white"
+      className="js-pin py-16 md:py-24"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 
               ref={titleRef}
-              className="js-fade-up-text text-3xl md:text-4xl font-bold text-primary mb-6 gsap-will-change"
+              className="js-fade-up-text text-3xl md:text-4xl font-bold text-white text-on-busy mb-6 gsap-will-change"
+              style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}
             >
               {title}
             </h2>
             
             <p 
               ref={descriptionRef}
-              className="js-fade-up-text text-lg text-secondary mb-6 gsap-will-change"
+              className="js-fade-up-text text-lg text-white text-on-dark mb-6 gsap-will-change"
+              style={{ textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)' }}
             >
               {description}
             </p>
@@ -200,8 +202,8 @@ const EnhancedAboutSection = ({
                     {feature.icon}
                   </div>
                   <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-primary">{feature.title}</h3>
-                    <p className="text-secondary text-sm">{feature.description}</p>
+                    <h3 className="text-lg font-semibold text-white text-on-busy" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>{feature.title}</h3>
+                    <p className="text-white text-opacity-90 text-sm text-on-dark" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}>{feature.description}</p>
                   </div>
                 </div>
               ))}
@@ -210,7 +212,7 @@ const EnhancedAboutSection = ({
             <div ref={ctaRef} className="mt-8 gsap-will-change">
               <Link 
                 href={ctaLink}
-                className="inline-block px-6 py-3 border border-accent text-accent font-medium rounded-md hover:bg-accent hover:text-white hover:border-accent transition-colors duration-200 transform hover:scale-105"
+                className="inline-block px-6 py-3 bg-accent text-white font-medium rounded-md hover:bg-light-accent hover:text-white transition-colors duration-200 transform hover:scale-105"
               >
                 {ctaText}
               </Link>

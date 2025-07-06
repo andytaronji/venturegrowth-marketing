@@ -142,17 +142,16 @@ const EnhancedServiceDetailSection = ({
     return () => ctx.revert();
   }, [gsap, imagePosition]);
 
-  const bgClass = backgroundColor === 'white' ? 'bg-white' : 'bg-bg-secondary';
-  const textColor = backgroundColor === 'white' ? 'text-primary' : 'text-white';
-  const descColor = backgroundColor === 'white' ? 'text-secondary' : 'text-white';
-  const featureTextColor = backgroundColor === 'white' ? 'text-primary' : 'text-white';
-  const featureDescColor = backgroundColor === 'white' ? 'text-secondary' : 'text-white';
+  const textColor = 'text-white';
+  const descColor = 'text-white text-opacity-90';
+  const featureTextColor = 'text-white';
+  const featureDescColor = 'text-white text-opacity-80';
 
   return (
     <section 
       id={id}
       ref={sectionRef}
-      className={`py-16 md:py-24 ${bgClass} z-index-section`}
+      className="py-16 md:py-24 z-index-section"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

@@ -118,12 +118,12 @@ const ContactForm = () => {
   return (
     <div className="bg-white rounded-lg shadow-subtle p-6 md:p-8 border border-bg-secondary">
       <div>
-        <h2 className="text-2xl font-semibold text-primary mb-6">
+        <h2 className="text-2xl font-semibold text-primary mb-6 text-center">
           Get in Touch
         </h2>
         
         {formStatus.submitted && (
-          <div className={`mb-6 p-4 rounded-md ${formStatus.success ? 'bg-[#E8F5E9] text-[#2E7D32]' : 'bg-[#FFEBEE] text-[#C62828]'}`}>
+          <div className={`mb-6 p-4 rounded-md text-center ${formStatus.success ? 'bg-[#E8F5E9] text-[#2E7D32]' : 'bg-[#FFEBEE] text-[#C62828]'}`}>
             {formStatus.message}
           </div>
         )}
@@ -140,7 +140,7 @@ const ContactForm = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all duration-200 text-black"
+                className="w-full px-4 py-2 border border-black rounded-md focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all duration-200 text-black"
                 required
               />
             </div>
@@ -155,7 +155,7 @@ const ContactForm = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all duration-200 text-black"
+                className="w-full px-4 py-2 border border-black rounded-md focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all duration-200 text-black"
                 required
               />
             </div>
@@ -170,7 +170,7 @@ const ContactForm = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all duration-200 text-black"
+                className="w-full px-4 py-2 border border-black rounded-md focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all duration-200 text-black"
               />
             </div>
             
@@ -183,7 +183,7 @@ const ContactForm = () => {
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all duration-200 bg-white appearance-none text-black"
+                className="w-full px-4 py-2 border border-black rounded-md focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all duration-200 bg-white appearance-none text-black"
                 style={{ 
                   backgroundImage: "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e\")",
                   backgroundPosition: "right 0.5rem center",
@@ -213,12 +213,12 @@ const ContactForm = () => {
               value={formData.message}
               onChange={handleChange}
               rows={5}
-              className="w-full px-4 py-2 border border-bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all duration-200 text-black"
+              className="w-full px-4 py-2 border border-black rounded-md focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all duration-200 text-black"
               required
             ></textarea>
           </div>
           
-          <div>
+          <div className="text-center">
             <button
               type="submit"
               disabled={isSubmitting}

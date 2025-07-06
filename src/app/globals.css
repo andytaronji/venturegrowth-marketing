@@ -2,10 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Montserrat font weights */
-@import '@fontsource/montserrat/300.css'; /* Light */
+/* Import only essential Montserrat font weights for better performance */
 @import '@fontsource/montserrat/400.css'; /* Regular */
-@import '@fontsource/montserrat/500.css'; /* Medium */
 @import '@fontsource/montserrat/600.css'; /* SemiBold */
 @import '@fontsource/montserrat/700.css'; /* Bold */
 
@@ -72,6 +70,40 @@
     opacity: 1;
     transform: none;
   }
+}
+
+/* Fallback styles to ensure components are visible if GSAP fails */
+.gsap-fallback-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Ensure footer and navbar are always visible as fallback */
+footer,
+nav {
+  opacity: 1;
+}
+
+/* Specific fallback for footer sections */
+footer .gsap-will-change {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Specific fallback for navbar */
+nav .gsap-will-change {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation timeout fallback - show elements after 3 seconds if GSAP hasn't initialized */
+@keyframes gsap-fallback {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.gsap-will-change {
+  animation: gsap-fallback 0.1s ease-out 3s both;
 }
 
 @layer base {

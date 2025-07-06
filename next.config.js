@@ -99,10 +99,32 @@ const nextConfig = {
   },
   // Enable experimental features for better performance
   experimental: {
-    optimizePackageImports: ['@fontsource/roboto'],
+    optimizePackageImports: ['@fontsource/montserrat', '@fontsource/roboto'],
+    // Disable optimizeCss to fix critters module error
+    // optimizeCss: true,
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
   },
   // Compress static assets
   compress: true,
+  // Enable SWC minification for better performance
+  swcMinify: true,
+  // Optimize images
+  images: {
+    domains: ['res.cloudinary.com'],
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 60,
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
+  // Enable static optimization
+  output: 'standalone',
 };
 
 module.exports = nextConfig;

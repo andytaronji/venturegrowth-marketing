@@ -108,36 +108,25 @@ const EnhancedHero = () => {
   }, [gsap]);
 
   return (
-    <div ref={heroRef} className="relative bg-white text-primary overflow-hidden mt-12 md:mt-14">
-      {/* Enhanced background with parallax */}
-      <div 
-        ref={backgroundRef}
-        className="absolute inset-0 bg-bg-secondary opacity-50"
-      >
-        <div className="absolute inset-0 opacity-10" 
-          style={{ 
-            backgroundImage: 'url("data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23000000" fill-opacity="0.05"%3E%3Cpath d="M0 0h20v20H0z"/%3E%3C/g%3E%3C/svg%3E")', 
-            backgroundSize: '20px 20px'
-          }}
-        ></div>
-      </div>
-      
+    <div ref={heroRef} className="relative text-white overflow-hidden mt-12 md:mt-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <h1 
               ref={titleRef}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-primary gsap-will-change"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white text-on-busy gsap-will-change"
               data-gsap="fade-up"
+              style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}
             >
               Marketing Consulting & Web Design Agency Across the United States
             </h1>
             
             <p 
               ref={subtitleRef}
-              className="text-xl md:text-2xl text-secondary mb-8 max-w-xl gsap-will-change"
+              className="text-xl md:text-2xl text-white text-on-busy mb-8 max-w-xl gsap-will-change"
               data-gsap="fade-up"
               data-gsap-delay="0.2"
+              style={{ textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)' }}
             >
               Data - it keeps the world turning. Discover key insights about your industry today in one of our expert marketing consultations!
             </p>
@@ -156,7 +145,7 @@ const EnhancedHero = () => {
               </Link>
               <Link 
                 href="/contact" 
-                className="px-8 py-3 bg-transparent border border-accent text-accent font-medium rounded-md hover:bg-accent hover:text-white transition-colors duration-200 text-center transform hover:scale-105 transition-transform"
+                className="px-8 py-3 bg-transparent border-2 border-white text-white font-medium rounded-md hover:bg-white hover:text-primary hover:border-white transition-colors duration-200 text-center transform hover:scale-105 transition-transform"
               >
                 Contact Us
               </Link>

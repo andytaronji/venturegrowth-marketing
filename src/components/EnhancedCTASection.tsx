@@ -203,16 +203,6 @@ const EnhancedCTASection = ({
       ref={sectionRef}
       className="js-pin py-16 md:py-24 text-light z-index-section overflow-hidden"
     >
-      {/* Animated Background */}
-      <div 
-        ref={backgroundRef}
-        className={`z-index-background inset-0 ${backgroundClasses}`}
-        style={{
-          backgroundSize: backgroundGradient ? '200% 200%' : 'cover',
-          backgroundPosition: backgroundGradient ? '0% center' : 'center'
-        }}
-      />
-      
       {/* Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-index-content">
         <h2 

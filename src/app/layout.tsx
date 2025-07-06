@@ -8,9 +8,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { GSAPProvider } from "@/components/GSAPProvider";
 
 // Montserrat fonts are imported in globals.css via @fontsource
-// Keep Roboto for monospace fallback
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
+// Roboto removed to reduce bundle size - using system fonts as fallback
 
 export const metadata: Metadata = {
   title: "Digital Mosaic Studios - US Marketing & Web Design",
@@ -33,7 +31,7 @@ export const metadata: Metadata = {
     siteName: 'Digital Mosaic Studios',
     images: [
       {
-        url: 'https://res.cloudinary.com/di4phdven/image/upload/c_fill,w_1200,h_630,g_auto/f_auto/q_auto:best/v1/nice_vnyvxy',
+        url: 'https://res.cloudinary.com/di4phdven/image/upload/c_fill,w_1200,h_630/f_auto/q_auto:best/v1/nice_vnyvxy',
         width: 1200,
         height: 630,
         alt: 'Digital Mosaic Studios - Professional Web Design & Marketing Consulting in Marietta, GA',
@@ -44,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Digital Mosaic Studios - US Marketing & Web Design',
     description: 'Professional web design & marketing consulting in Marietta, GA. Custom websites, SaaS tools & digital marketing for Atlanta area businesses.',
-    images: ['https://res.cloudinary.com/di4phdven/image/upload/c_fill,w_1200,h_630,g_auto/f_auto/q_auto:best/v1/nice_vnyvxy'],
+    images: ['https://res.cloudinary.com/di4phdven/image/upload/c_fill,w_1200,h_630/f_auto/q_auto:best/v1/nice_vnyvxy'],
   },
   alternates: {
     canonical: 'https://www.digitalmosaicsstudios.com',

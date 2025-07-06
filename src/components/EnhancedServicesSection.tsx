@@ -72,7 +72,7 @@ const EnhancedServicesSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="section-padding bg-primary"
+      className="section-padding"
       data-gsap="fade-up"
     >
       <div className="max-w-7xl mx-auto container-padding">

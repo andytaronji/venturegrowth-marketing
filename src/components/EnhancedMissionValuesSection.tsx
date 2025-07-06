@@ -101,7 +101,7 @@ const EnhancedMissionValuesSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="section-padding bg-bg-secondary"
+      className="section-padding"
       data-gsap="fade-up"
     >
       <div className="max-w-7xl mx-auto container-padding">

@@ -71,14 +71,8 @@ const EnhancedAboutHero = ({
   return (
     <section 
       ref={heroRef}
-      className="relative bg-primary text-white py-20 mt-12 md:mt-14 overflow-hidden z-index-section"
+      className="relative text-white py-20 md:py-32 overflow-hidden z-index-section"
     >
-      {/* Background with parallax */}
-      <div 
-        ref={backgroundRef}
-        className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-primary z-index-background"
-      />
-      
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-20 left-10 w-32 h-32 bg-accent opacity-10 rounded-full blur-2xl" />

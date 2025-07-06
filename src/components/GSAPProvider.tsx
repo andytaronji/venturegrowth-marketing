@@ -34,26 +34,61 @@ export const GSAPProvider = ({ children }: GSAPProviderProps) => {
   useEffect(() => {
     if (typeof window === 'undefined' || isInitialized.current) return;
 
-    // Global GSAP configuration
-    gsap.config({
-      force3D: true,
-      nullTargetWarn: false,
-    });
+    // Add a small delay to ensure DOM is ready
+    const initializeGSAP = () => {
+      try {
+        // Global GSAP configuration
+        gsap.config({
+          force3D: true,
+          nullTargetWarn: false,
+        });
 
-    // ScrollTrigger defaults
-    ScrollTrigger.defaults({
-      toggleActions: 'play none none reverse',
-      markers: false,
-    });
+        // ScrollTrigger defaults
+        ScrollTrigger.defaults({
+          toggleActions: 'play none none reverse',
+          markers: false,
+        });
 
-    // Refresh ScrollTrigger on route changes
-    ScrollTrigger.refresh();
+        // Refresh ScrollTrigger on route changes
+        ScrollTrigger.refresh();
 
-    isInitialized.current = true;
+        isInitialized.current = true;
+
+        // Add fallback visibility for any elements that might be hidden
+        const hiddenElements = document.querySelectorAll('.gsap-will-change[style*="opacity: 0"]');
+        if (hiddenElements.length > 0) {
+          setTimeout(() => {
+            hiddenElements.forEach(el => {
+              const element = el as HTMLElement;
+              if (element.style.opacity === '0') {
+                element.classList.add('gsap-fallback-visible');
+              }
+            });
+          }, 2000);
+        }
+      } catch (error) {
+        console.warn('GSAP initialization failed:', error);
+        // Fallback: make all GSAP elements visible
+        const gsapElements = document.querySelectorAll('.gsap-will-change');
+        gsapElements.forEach(el => {
+          (el as HTMLElement).classList.add('gsap-fallback-visible');
+        });
+      }
+    };
+
+    // Initialize immediately if DOM is ready, otherwise wait
+    if (document.readyState === 'complete') {
+      initializeGSAP();
+    } else {
+      window.addEventListener('load', initializeGSAP);
+      // Also try after a short delay as backup
+      setTimeout(initializeGSAP, 100);
+    }
 
     // Cleanup function
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      window.removeEventListener('load', initializeGSAP);
     };
   }, []);
 

@@ -102,38 +102,40 @@ const EnhancedServiceCard = ({ title, description, icon, id, index = 0 }: Enhanc
     <div 
       ref={cardRef}
       id={id} 
-      className="group bg-white rounded-lg overflow-hidden border border-bg-secondary gsap-will-change gsap-hardware-accel"
+      className="group bg-black bg-opacity-20 backdrop-blur-sm rounded-lg overflow-hidden border border-white border-opacity-10 gsap-will-change gsap-hardware-accel"
       data-gsap="fade-up"
       data-gsap-delay={index * 0.1}
       style={{ 
-        boxShadow: '0 2px 10px rgba(0, 0, 0, 0.05)',
+        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
         transition: 'box-shadow 0.3s ease'
       }}
     >
       <div className="p-6">
         <div 
           ref={iconRef}
-          className="w-12 h-12 mx-auto mb-6 flex items-center justify-center bg-bg-secondary rounded-full gsap-will-change"
+          className="w-12 h-12 mx-auto mb-6 flex items-center justify-center bg-accent bg-opacity-20 rounded-full gsap-will-change"
         >
           <img 
             src={icon} 
             alt={title} 
             width={24} 
             height={24}
-            className="text-primary"
+            className="text-white filter brightness-0 invert"
           />
         </div>
         
         <h3 
           ref={titleRef}
-          className="text-lg font-semibold text-primary text-center mb-3"
+          className="text-lg font-semibold text-white text-center mb-3 text-on-busy"
+          style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}
         >
           {title}
         </h3>
         
         <p 
           ref={descriptionRef}
-          className="text-secondary mb-6 text-center text-sm"
+          className="text-white text-opacity-90 mb-6 text-center text-sm text-on-dark"
+          style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
         >
           {description}
         </p>
@@ -141,7 +143,7 @@ const EnhancedServiceCard = ({ title, description, icon, id, index = 0 }: Enhanc
         <div ref={buttonRef} className="text-center">
           <Link 
             href={`/services#${id}`} 
-            className="inline-block px-5 py-2 border border-accent text-accent font-medium rounded-md hover:bg-accent hover:text-white transition-all duration-200 text-sm transform hover:scale-105"
+            className="inline-block px-5 py-2 bg-accent text-white font-medium rounded-md hover:bg-light-accent hover:text-white transition-all duration-200 text-sm transform hover:scale-105"
           >
             Learn More
           </Link>
