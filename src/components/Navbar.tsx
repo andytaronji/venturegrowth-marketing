@@ -45,6 +45,8 @@ const Navbar = () => {
                   gravity="center"
                   className="rounded-full w-10 h-10 object-cover"
                   sizes="40px"
+                  priority={true}
+                  loading="eager"
                 />
               </div>
               <span className="text-xl font-semibold text-white">

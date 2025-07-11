@@ -4,7 +4,12 @@ import { CldImage, CldImageProps } from 'next-cloudinary';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-export default function CldImageWrapper(props: CldImageProps) {
+interface OptimizedCldImageProps extends CldImageProps {
+  priority?: boolean;
+  loading?: 'lazy' | 'eager';
+}
+
+export default function CldImageWrapper(props: OptimizedCldImageProps) {
   const [isCloudinaryAvailable, setIsCloudinaryAvailable] = useState(true);
 
   useEffect(() => {
@@ -34,6 +39,22 @@ export default function CldImageWrapper(props: CldImageProps) {
     );
   }
 
+  // Enhanced props for mobile performance
+  const optimizedProps: CldImageProps = {
+    ...props,
+    // Force WebP format with fallback
+    format: 'auto',
+    quality: 'auto:best',
+    // Add responsive sizing if not provided
+    sizes: props.sizes || '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
+    // Enable lazy loading by default unless priority is set
+    loading: props.priority ? 'eager' : (props.loading || 'lazy'),
+    // Add mobile-specific optimizations
+    dpr: 'auto',
+    // Add fetch priority for above-the-fold images
+    fetchPriority: props.priority ? 'high' : 'auto',
+  };
+
   // Use CldImage when Cloudinary is available
-  return <CldImage {...props} />;
+  return <CldImage {...optimizedProps} />;
 }

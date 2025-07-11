@@ -7,6 +7,31 @@
 @import '@fontsource/montserrat/600.css'; /* SemiBold */
 @import '@fontsource/montserrat/700.css'; /* Bold */
 
+/* Font display optimization for better performance */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Montserrat Regular'), local('Montserrat-Regular');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Montserrat SemiBold'), local('Montserrat-SemiBold');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Montserrat Bold'), local('Montserrat-Bold');
+}
+
 :root {
   /* Primary colors - Apple-inspired */
   --primary: #000000; /* Black for primary elements */

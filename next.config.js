@@ -110,6 +110,8 @@ const nextConfig = {
         },
       },
     },
+    // Enable modern bundling
+    esmExternals: true,
   },
   // Compress static assets
   compress: true,

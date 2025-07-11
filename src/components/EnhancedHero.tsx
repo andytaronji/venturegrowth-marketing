@@ -74,6 +74,8 @@ const EnhancedHero = () => {
                 muted={true}
                 controls={false}
                 playsInline={true}
+                priority={true}
+                loading="eager"
               />
             </div>
           </div>

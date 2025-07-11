@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 interface CldVideoWrapperProps {
   src: string;
@@ -11,6 +11,8 @@ interface CldVideoWrapperProps {
   controls?: boolean;
   playsInline?: boolean;
   alt?: string;
+  priority?: boolean;
+  loading?: 'lazy' | 'eager';
 }
 
 export default function CldVideoWrapper({
@@ -22,8 +24,12 @@ export default function CldVideoWrapper({
   controls = false,
   playsInline = true,
   alt = 'Video content',
+  priority = false,
+  loading = 'lazy',
 }: CldVideoWrapperProps) {
   const [isCloudinaryAvailable, setIsCloudinaryAvailable] = useState(true);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     // Check if Cloudinary cloud name is available
@@ -31,6 +37,30 @@ export default function CldVideoWrapper({
       setIsCloudinaryAvailable(false);
     }
   }, []);
+
+  // Intersection Observer for lazy loading
+  useEffect(() => {
+    if (priority || loading === 'eager') {
+      setIsIntersecting(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsIntersecting(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [priority, loading]);
 
   if (!isCloudinaryAvailable) {
     // Fallback to a placeholder
@@ -55,15 +85,17 @@ export default function CldVideoWrapper({
   // Use native video element for better control over looping and autoplay
   return (
     <video
+      ref={videoRef}
       className={className}
-      autoPlay={autoplay}
+      autoPlay={autoplay && isIntersecting}
       loop={loop}
       muted={muted}
       playsInline={playsInline}
       controls={controls}
+      preload={priority ? 'auto' : 'metadata'}
       style={{ objectFit: 'cover' }}
     >
-      <source src={src} type="video/mp4" />
+      {isIntersecting && <source src={src} type="video/mp4" />}
       Your browser does not support the video tag.
     </video>
   );

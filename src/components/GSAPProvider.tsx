@@ -1,13 +1,33 @@
 'use client';
 
-import { createContext, useContext, useEffect, useRef, ReactNode } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { createContext, useContext, useEffect, useRef, ReactNode, useState } from 'react';
 
-// Register GSAP plugins
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
+// Lazy load GSAP to improve initial page load
+let gsap: any = null;
+let ScrollTrigger: any = null;
+
+const loadGSAP = async () => {
+  if (gsap && ScrollTrigger) return { gsap, ScrollTrigger };
+  
+  try {
+    const [gsapModule, scrollTriggerModule] = await Promise.all([
+      import('gsap'),
+      import('gsap/ScrollTrigger')
+    ]);
+    
+    gsap = gsapModule.gsap;
+    ScrollTrigger = scrollTriggerModule.ScrollTrigger;
+    
+    if (typeof window !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+    }
+    
+    return { gsap, ScrollTrigger };
+  } catch (error) {
+    console.warn('Failed to load GSAP:', error);
+    return { gsap: null, ScrollTrigger: null };
+  }
+};
 
 interface GSAPContextType {
   gsap: typeof gsap;
@@ -30,41 +50,47 @@ interface GSAPProviderProps {
 
 export const GSAPProvider = ({ children }: GSAPProviderProps) => {
   const isInitialized = useRef(false);
+  const [gsapLoaded, setGsapLoaded] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined' || isInitialized.current) return;
 
-    // Add a small delay to ensure DOM is ready
-    const initializeGSAP = () => {
+    // Lazy load GSAP after initial render
+    const initializeGSAP = async () => {
       try {
-        // Global GSAP configuration
-        gsap.config({
-          force3D: true,
-          nullTargetWarn: false,
-        });
+        const { gsap: loadedGsap, ScrollTrigger: loadedScrollTrigger } = await loadGSAP();
+        
+        if (loadedGsap && loadedScrollTrigger) {
+          // Global GSAP configuration
+          loadedGsap.config({
+            force3D: true,
+            nullTargetWarn: false,
+          });
 
-        // ScrollTrigger defaults
-        ScrollTrigger.defaults({
-          toggleActions: 'play none none reverse',
-          markers: false,
-        });
+          // ScrollTrigger defaults
+          loadedScrollTrigger.defaults({
+            toggleActions: 'play none none reverse',
+            markers: false,
+          });
 
-        // Refresh ScrollTrigger on route changes
-        ScrollTrigger.refresh();
+          // Refresh ScrollTrigger on route changes
+          loadedScrollTrigger.refresh();
 
-        isInitialized.current = true;
+          isInitialized.current = true;
+          setGsapLoaded(true);
 
-        // Add fallback visibility for any elements that might be hidden
-        const hiddenElements = document.querySelectorAll('.gsap-will-change[style*="opacity: 0"]');
-        if (hiddenElements.length > 0) {
-          setTimeout(() => {
-            hiddenElements.forEach(el => {
-              const element = el as HTMLElement;
-              if (element.style.opacity === '0') {
-                element.classList.add('gsap-fallback-visible');
-              }
-            });
-          }, 2000);
+          // Add fallback visibility for any elements that might be hidden
+          const hiddenElements = document.querySelectorAll('.gsap-will-change[style*="opacity: 0"]');
+          if (hiddenElements.length > 0) {
+            setTimeout(() => {
+              hiddenElements.forEach(el => {
+                const element = el as HTMLElement;
+                if (element.style.opacity === '0') {
+                  element.classList.add('gsap-fallback-visible');
+                }
+              });
+            }, 2000);
+          }
         }
       } catch (error) {
         console.warn('GSAP initialization failed:', error);
@@ -76,19 +102,15 @@ export const GSAPProvider = ({ children }: GSAPProviderProps) => {
       }
     };
 
-    // Initialize immediately if DOM is ready, otherwise wait
-    if (document.readyState === 'complete') {
-      initializeGSAP();
-    } else {
-      window.addEventListener('load', initializeGSAP);
-      // Also try after a short delay as backup
-      setTimeout(initializeGSAP, 100);
-    }
+    // Delay GSAP loading to improve initial page load
+    const timer = setTimeout(initializeGSAP, 100);
 
     // Cleanup function
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      window.removeEventListener('load', initializeGSAP);
+      clearTimeout(timer);
+      if (ScrollTrigger?.getAll) {
+        ScrollTrigger.getAll().forEach((trigger: any) => trigger.kill());
+      }
     };
   }, []);
 

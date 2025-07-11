@@ -69,15 +69,36 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        {/* Preload critical fonts */}
+        <link
+          rel="preload"
+          href="/fonts/montserrat/montserrat-400.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/montserrat/montserrat-600.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        {/* DNS prefetch for external domains */}
+        <link rel="dns-prefetch" href="//res.cloudinary.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+      </head>
       <body
         className="antialiased min-h-screen flex flex-col font-sans"
       >
-        {/* Google tag (gtag.js) - Combined Analytics & Ads */}
+        {/* Deferred Google Analytics - Load after page interaction */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-8ZZWWGRYWN"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics-combined" strategy="afterInteractive">
+        <Script id="google-analytics-combined" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -91,8 +112,8 @@ export default function RootLayout({
           `}
         </Script>
         
-        {/* Google Ads Conversion Tracking */}
-        <Script id="google-ads-conversion" strategy="afterInteractive">
+        {/* Google Ads Conversion Tracking - Deferred */}
+        <Script id="google-ads-conversion" strategy="lazyOnload">
           {`
             function gtagReportConversion() {
               gtag('event', 'conversion', {
