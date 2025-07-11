@@ -11,105 +11,49 @@
                             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <!-- Homepage -->
   <url>
-    <loc>https://www.digitalmosaicsstudios.com/</loc>
-    <lastmod>2025-06-24</lastmod>
+    <loc>https://www.digitalmosaicstudios.com/</loc>
+    <lastmod>2025-07-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <!-- Services Page -->
   <url>
-    <loc>https://www.digitalmosaicsstudios.com/services</loc>
-    <lastmod>2025-03-30</lastmod>
+    <loc>https://www.digitalmosaicstudios.com/services</loc>
+    <lastmod>2025-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <!-- About Page -->
   <url>
-    <loc>https://www.digitalmosaicsstudios.com/about</loc>
-    <lastmod>2025-03-30</lastmod>
+    <loc>https://www.digitalmosaicstudios.com/about</loc>
+    <lastmod>2025-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <!-- Contact Page -->
   <url>
-    <loc>https://www.digitalmosaicsstudios.com/contact</loc>
-    <lastmod>2025-03-30</lastmod>
+    <loc>https://www.digitalmosaicstudios.com/contact</loc>
+    <lastmod>2025-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
-  <!-- Add location-specific pages for local SEO -->
+  <!-- Blog Page -->
   <url>
-    <loc>https://www.digitalmosaicsstudios.com/locations/marietta-ga</loc>
-    <lastmod>2025-03-30</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.digitalmosaicstudios.com/blog</loc>
+    <lastmod>2025-07-10</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
+  <!-- Privacy Policy -->
   <url>
-    <loc>https://www.digitalmosaicsstudios.com/locations/atlanta-ga</loc>
-    <lastmod>2025-03-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.digitalmosaicsstudios.com/locations/roswell-ga</loc>
-    <lastmod>2025-03-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.digitalmosaicsstudios.com/locations/alpharetta-ga</loc>
-    <lastmod>2025-03-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.digitalmosaicsstudios.com/locations/woodstock-ga</loc>
-    <lastmod>2025-03-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <!-- Service-specific pages -->
-  <url>
-    <loc>https://www.digitalmosaicsstudios.com/services/website-design</loc>
-    <lastmod>2025-03-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.digitalmosaicsstudios.com/services/website-development</loc>
-    <lastmod>2025-03-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.digitalmosaicsstudios.com/services/website-maintenance</loc>
-    <lastmod>2025-03-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.digitalmosaicsstudios.com/services/social-media-management</loc>
-    <lastmod>2025-03-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.digitalmosaicsstudios.com/services/content-creation</loc>
-    <lastmod>2025-03-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.digitalmosaicstudios.com/privacy-policy</loc>
+    <lastmod>2025-07-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     images: ['https://res.cloudinary.com/di4phdven/image/upload/c_fill,w_1200,h_630/f_auto/q_auto:best/v1/nice_vnyvxy'],
   },
   alternates: {
-    canonical: 'https://www.digitalmosaicsstudios.com',
+    canonical: 'https://www.digitalmosaicstudios.com',
   },
   robots: {
     index: true,

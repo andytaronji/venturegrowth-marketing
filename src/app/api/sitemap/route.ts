@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.digitalmosaicsstudios.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.digitalmosaicstudios.com';
   const today = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
   
   // Define only the pages that actually exist on the site
