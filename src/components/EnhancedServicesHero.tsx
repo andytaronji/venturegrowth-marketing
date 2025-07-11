@@ -9,8 +9,8 @@ interface EnhancedServicesHeroProps {
 }
 
 const EnhancedServicesHero = ({
-  title = "Marketing Consulting & Web Design Services Across the United States",
-  description = "Comprehensive digital solutions to help your business establish a powerful online presence and drive growth."
+  title = "Our Services",
+  description = "Choose one of our result-driven solutions built to grow your business."
 }: EnhancedServicesHeroProps) => {
   const heroRef = useRef<HTMLElement>(null);
   const { gsap } = useGSAPAnimation();
@@ -37,7 +37,7 @@ const EnhancedServicesHero = ({
   return (
     <section 
       ref={heroRef}
-      className="relative text-white py-20 md:py-32 overflow-hidden"
+      className="relative text-white pt-20 md:pt-32 pb-8 md:pb-12 overflow-hidden"
     >
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">

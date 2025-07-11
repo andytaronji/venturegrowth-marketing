@@ -23,7 +23,7 @@ interface EnhancedAboutSectionProps {
 
 const EnhancedAboutSection = ({
   title = "Why Choose Digital Mosaic Studios?",
-  description = "At Digital Mosaic Studios, we're dedicated to helping businesses establish a powerful online presence that drives growth and success.",
+  description = "We work together with and get to know our clients in order to deliver an exclusive marketing experience that is result-oriented and tailored to their specific needs.",
   features = [
     {
       title: "Expert Strategies",
@@ -55,7 +55,7 @@ const EnhancedAboutSection = ({
   ],
   ctaText = "Learn More About Us",
   ctaLink = "/about",
-  imageSrc = "samples/people/kitchen-bar",
+  imageSrc = "https://res.cloudinary.com/di4phdven/image/upload/v1752188902/u9524928111_glass_capsule_luxury_clothing_studio_ghibli_beach_43c21d6e-d75f-46ef-95b2-331e3eb6e258_0_zts6p1.png",
   imageAlt = "About Digital Mosaic Studios"
 }: EnhancedAboutSectionProps) => {
   const sectionRef = useRef<HTMLElement>(null);

@@ -12,7 +12,7 @@ const OrganizationSchema = () => {
       'name': 'Digital Mosaic Studios',
       'alternateName': 'Digital Mosaic',
       'url': 'https://www.digitalmosaicstudios.com',
-      'logo': 'https://www.digitalmosaicstudios.com/digital-mosaics-logo.svg',
+      'logo': 'https://res.cloudinary.com/di4phdven/image/upload/v1752194892/u9524928111_A_crisp_white_circle_intersected_by_layered_geome_350a4477-3775-4097-b658-86a65017fdc3_3_vheyy9.png',
       'description': 'Professional web design & marketing consulting in Marietta, GA. Custom websites, SaaS tools & digital marketing for Atlanta area businesses.',
       'foundingDate': '2020',
       'founders': [

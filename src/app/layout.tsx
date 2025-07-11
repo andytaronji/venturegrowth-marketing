@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   keywords: "marketing consulting, business strategy consulting, web design services, website development, digital marketing consulting, custom web design, business growth solutions, marketing strategy, web development services, nationwide marketing consulting",
   icons: {
     icon: [
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon.ico', sizes: 'any' }
+      { url: 'https://res.cloudinary.com/di4phdven/image/upload/w_16,h_16,c_fill,r_max,f_png/v1752194892/u9524928111_A_crisp_white_circle_intersected_by_layered_geome_350a4477-3775-4097-b658-86a65017fdc3_3_vheyy9.png', sizes: '16x16', type: 'image/png' },
+      { url: 'https://res.cloudinary.com/di4phdven/image/upload/w_32,h_32,c_fill,r_max,f_png/v1752194892/u9524928111_A_crisp_white_circle_intersected_by_layered_geome_350a4477-3775-4097-b658-86a65017fdc3_3_vheyy9.png', sizes: '32x32', type: 'image/png' },
+      { url: 'https://res.cloudinary.com/di4phdven/image/upload/w_32,h_32,c_fill,r_max,f_ico/v1752194892/u9524928111_A_crisp_white_circle_intersected_by_layered_geome_350a4477-3775-4097-b658-86a65017fdc3_3_vheyy9.png', sizes: 'any' }
     ],
-    apple: '/apple-touch-icon.png',
+    apple: 'https://res.cloudinary.com/di4phdven/image/upload/w_180,h_180,c_fill,r_max,f_png/v1752194892/u9524928111_A_crisp_white_circle_intersected_by_layered_geome_350a4477-3775-4097-b658-86a65017fdc3_3_vheyy9.png',
   },
   openGraph: {
     type: 'website',

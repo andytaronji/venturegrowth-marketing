@@ -193,11 +193,12 @@ const ContactForm = () => {
                 }}
               >
                 <option value="">Select a subject</option>
+                <option value="Consultations">Consultations</option>
+                <option value="Audits">Audits</option>
                 <option value="Custom SaaS Tools">Custom SaaS Tools</option>
-                <option value="Website Development">Website Development</option>
-                <option value="Website Maintenance">Website Maintenance</option>
-                <option value="Social Media Management">Social Media Management</option>
-                <option value="Content Creation">Content Creation</option>
+                <option value="Web Design">Web Design</option>
+                <option value="Analytics">Analytics</option>
+                <option value="AI Prompting Lessons">AI Prompting Lessons</option>
                 <option value="Other">Other</option>
               </select>
             </div>

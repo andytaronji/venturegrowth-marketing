@@ -19,7 +19,7 @@ interface EnhancedCTASectionProps {
 
 const EnhancedCTASection = ({
   title = "Ready to Grow Your Business?",
-  description = "Let's work together to create a stunning digital presence that helps your business thrive. Serving high-value businesses nationwide across the United States.",
+  description = "Contact us to schedule a consultation and bring your business ideas into reality!",
   buttons = [
     { text: "Get in Touch", href: "/contact", variant: "primary" },
     { text: "Explore Services", href: "/services", variant: "secondary" }

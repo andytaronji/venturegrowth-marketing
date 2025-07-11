@@ -218,6 +218,24 @@ const EnhancedFooter = () => {
             <ul className="space-y-2">
               <li>
                 <Link 
+                  href="/services#consultations" 
+                  className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
+                  style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
+                >
+                  Consultations
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/services#audits" 
+                  className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
+                  style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
+                >
+                  Audits
+                </Link>
+              </li>
+              <li>
+                <Link 
                   href="/services#custom-saas-tools" 
                   className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
                   style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
@@ -227,7 +245,7 @@ const EnhancedFooter = () => {
               </li>
               <li>
                 <Link 
-                  href="/services#website-development" 
+                  href="/services#web-design" 
                   className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
                   style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
                 >
@@ -236,29 +254,20 @@ const EnhancedFooter = () => {
               </li>
               <li>
                 <Link 
-                  href="/services#website-maintenance" 
+                  href="/services#analytics" 
                   className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
                   style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
                 >
-                  Website Maintenance
+                  Analytics
                 </Link>
               </li>
               <li>
                 <Link 
-                  href="/services#social-media" 
+                  href="/services#ai-prompting-lessons" 
                   className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
                   style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
                 >
-                  Social Media Management
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/services#content-creation" 
-                  className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
-                  style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
-                >
-                  Content Creation
+                  AI Prompting Lessons
                 </Link>
               </li>
             </ul>

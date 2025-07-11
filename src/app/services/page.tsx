@@ -52,6 +52,56 @@ export default function ServicesPage() {
           <EnhancedServicesHero />
           
           <EnhancedServiceDetailSection
+            id="consultations"
+            title="Consultations"
+            description="Expert marketing consultations to help you develop effective strategies and grow your business."
+            features={[
+              {
+                title: "Strategic Planning",
+                description: "Comprehensive marketing strategy development tailored to your business goals and target audience."
+              },
+              {
+                title: "Expert Guidance",
+                description: "One-on-one consultations with experienced marketing professionals to address your specific challenges."
+              },
+              {
+                title: "Actionable Insights",
+                description: "Practical recommendations and actionable steps to implement immediately for business growth."
+              }
+            ]}
+            imageSrc="https://res.cloudinary.com/di4phdven/image/upload/v1752192508/u9524928111_A_transparent_glass_boardroom_with_two_profession_48566216-c499-4db5-97ab-e79e9456f054_2_w1cyjr.png"
+            imageAlt="Marketing Consultations Services"
+            imagePosition="right"
+            backgroundColor="secondary"
+            showContactButton={true}
+          />
+          
+          <EnhancedServiceDetailSection
+            id="audits"
+            title="Audits"
+            description="Comprehensive marketing audits to identify opportunities and areas for improvement in your current strategy."
+            features={[
+              {
+                title: "Performance Analysis",
+                description: "Detailed analysis of your current marketing performance across all channels and platforms."
+              },
+              {
+                title: "Opportunity Identification",
+                description: "Identify untapped opportunities and areas where you can improve your marketing effectiveness."
+              },
+              {
+                title: "Competitive Assessment",
+                description: "Comprehensive review of your competitive landscape and positioning in the market."
+              }
+            ]}
+            imageSrc="https://res.cloudinary.com/di4phdven/image/upload/v1752192878/u9524928111_A_sleek_digital_magnifying_glass_scanning_a_netwo_fe306951-15d8-4e55-8c45-22747766baeb_3_pfpqjh.png"
+            imageAlt="Marketing Audits Services"
+            imagePosition="left"
+            backgroundColor="white"
+            showContactButton={true}
+          />
+          
+          <EnhancedServiceDetailSection
             id="custom-saas-tools"
             title="Custom SaaS Tools"
             description="Take control and dominate your industry with custom tools built specifically to your industry and service offerings."
@@ -69,16 +119,17 @@ export default function ServicesPage() {
                 description: "Built to grow with your business, ensuring optimal performance as your needs expand."
               }
             ]}
-            imageSrc="Screenshot_2025-06-09_111230_hq24ze"
+            imageSrc="https://res.cloudinary.com/di4phdven/image/upload/v1752192971/u9524928111_A_radiant_futuristic_interface_cube_pulsating_wit_69245bf5-2161-4f16-b305-c34f365eb112_3_xacv0n.png"
             imageAlt="Custom SaaS Tools Services"
             imagePosition="right"
             backgroundColor="secondary"
+            showContactButton={true}
           />
           
           <EnhancedServiceDetailSection
-            id="website-development"
+            id="web-design"
             title="Web Design"
-            description="We build robust, scalable websites using cutting-edge technologies that ensure optimal performance, security, and functionality."
+            description="Custom, responsive websites that convert visitors into customers and reflect your brand."
             features={[
               {
                 title: "Custom Web Applications",
@@ -93,82 +144,61 @@ export default function ServicesPage() {
                 description: "Easy-to-use CMS implementations that allow you to update your website content effortlessly."
               }
             ]}
-            imageSrc="Screenshot_2025-05-13_150720_ab2fyw"
-            imageAlt="Website Development Services"
+            imageSrc="https://res.cloudinary.com/di4phdven/image/upload/v1752192877/u9524928111_A_modern_laptop_on_a_pristine_white_desk_with_mar_e105cd71-8430-4cc1-9f82-8c74bc3ec33c_2_pjgw63.png"
+            imageAlt="Web Design Services"
             imagePosition="left"
             backgroundColor="white"
+            showContactButton={true}
           />
           
           <EnhancedServiceDetailSection
-            id="website-maintenance"
-            title="Website Maintenance"
-            description="Keep your website running smoothly with our comprehensive maintenance services that ensure security, performance, and up-to-date content."
+            id="analytics"
+            title="Analytics"
+            description="Data-driven insights and analytics to help you make informed marketing decisions and track performance."
             features={[
               {
-                title: "Regular Updates",
-                description: "Timely updates to software, plugins, and content to keep your website current."
+                title: "Performance Tracking",
+                description: "Comprehensive tracking and monitoring of your marketing campaigns and website performance."
               },
               {
-                title: "Security Monitoring",
-                description: "Proactive security measures to protect your website from threats and vulnerabilities."
+                title: "Data Analysis",
+                description: "In-depth analysis of your marketing data to identify trends, patterns, and opportunities."
               },
               {
-                title: "Performance Optimization",
-                description: "Regular optimization to ensure fast loading times and smooth user experience."
+                title: "Reporting & Insights",
+                description: "Regular reports with actionable insights to help you optimize your marketing strategies."
               }
             ]}
-            imageSrc="Screenshot_2025-05-13_150241_yld8vo"
-            imageAlt="Website Maintenance Services"
+            imageSrc="https://res.cloudinary.com/di4phdven/image/upload/v1752192346/u9524928111_Futuristic_modular_UI_panels_and_code_snippets_fl_a76642d7-73db-4b3b-9018-4cedc4e8015a_3_ds0rbi.png"
+            imageAlt="Analytics Services"
             imagePosition="right"
             backgroundColor="secondary"
+            showContactButton={true}
           />
           
           <EnhancedServiceDetailSection
-            id="social-media"
-            title="Social Media Management"
-            description="Build and maintain a strong social media presence that engages your audience, builds brand awareness, and drives traffic to your website."
+            id="ai-prompting-lessons"
+            title="AI Prompting Lessons"
+            description="Learn how to effectively communicate with AI tools to maximize productivity and achieve better results."
             features={[
               {
-                title: "Content Strategy",
-                description: "Strategic planning and creation of engaging content tailored to your target audience."
+                title: "Prompt Engineering",
+                description: "Master the art of crafting effective prompts that get you the results you want from AI tools."
               },
               {
-                title: "Community Management",
-                description: "Active engagement with your audience to build relationships and foster community."
+                title: "AI Tool Optimization",
+                description: "Learn how to use various AI platforms and tools to their full potential for your business needs."
               },
               {
-                title: "Analytics & Reporting",
-                description: "Regular performance analysis and reporting to track growth and optimize strategies."
+                title: "Productivity Enhancement",
+                description: "Discover techniques to streamline your workflow and increase efficiency using AI assistance."
               }
             ]}
-            imageSrc="samples/ecommerce/accessories-bag"
-            imageAlt="Social Media Management Services"
+            imageSrc="https://res.cloudinary.com/di4phdven/image/upload/v1752192346/u9524928111_A_bright_modern_classroom_of_students_at_laptops__7b221d44-61f0-42d5-ac95-a2f82d38ee17_0_afy8gt.png"
+            imageAlt="AI Prompting Lessons Services"
             imagePosition="left"
             backgroundColor="white"
-          />
-          
-          <EnhancedServiceDetailSection
-            id="content-creation"
-            title="Content Creation"
-            description="Compelling, high-quality content that engages your audience, establishes your expertise, and drives organic traffic to your website."
-            features={[
-              {
-                title: "Blog Writing",
-                description: "Informative, engaging blog posts that establish your authority and improve SEO."
-              },
-              {
-                title: "Copywriting",
-                description: "Persuasive copy for websites, landing pages, and marketing materials that convert visitors into customers."
-              },
-              {
-                title: "Visual Content",
-                description: "Eye-catching graphics, infographics, and videos that enhance your message and increase engagement."
-              }
-            ]}
-            imageSrc="Screenshot_2025-05-13_151506_jysyqn"
-            imageAlt="Content Creation Services"
-            imagePosition="right"
-            backgroundColor="secondary"
+            showContactButton={true}
           />
           
           <EnhancedCTASection

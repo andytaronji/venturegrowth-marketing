@@ -37,14 +37,14 @@ const EnhancedHero = () => {
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white"
               style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}
             >
-              Marketing Consulting & Web Design Agency Across the United States
+              Marketing Consulting for Small Businesses and Startups
             </h1>
             
             <p 
               className="text-xl md:text-2xl text-white mb-8 max-w-xl"
               style={{ textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)' }}
             >
-              Data - it keeps the world turning. Discover key insights about your industry today in one of our expert marketing consultations!
+              Let us handle the marketing for you.
             </p>
             
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">

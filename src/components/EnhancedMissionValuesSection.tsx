@@ -72,7 +72,7 @@ const EnhancedMissionValuesSection = () => {
             Our Mission & Values
           </h2>
           <p className="text-lg text-white max-w-3xl mx-auto">
-            At Digital Mosaic Studios, we're guided by a set of core values that inform everything we do.
+            We are guided by a set of core values that inform everything we do.
           </p>
         </div>
         

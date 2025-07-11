@@ -10,22 +10,40 @@ const EnhancedServicesSection = () => {
 
   const services = [
     {
-      id: 'custom-saas-tools',
-      title: 'Custom SaaS Tools',
-      description: 'Take control and dominate your industry with custom tools built specifically to your industry and service offerings.',
+      id: 'consultations',
+      title: 'Consultations',
+      description: 'Expert marketing consultations to help you develop effective strategies and grow your business.',
       icon: '/globe.svg'
     },
     {
-      id: 'website-development',
-      title: 'Web Design',
-      description: 'Custom, responsive websites that convert visitors into customers and reflect your brand.',
-      icon: '/window.svg'
+      id: 'audits',
+      title: 'Audits',
+      description: 'Comprehensive marketing audits to identify opportunities and areas for improvement in your current strategy.',
+      icon: '/file.svg'
     },
     {
-      id: 'competitor-analysis',
-      title: 'Competitor Analysis',
-      description: 'In-depth analysis of your competition to identify opportunities and strategic advantages.',
+      id: 'custom-saas-tools',
+      title: 'Custom SaaS Tools',
+      description: 'Take control and dominate your industry with custom tools built specifically to your industry and service offerings.',
       icon: '/file.svg'
+    },
+    {
+      id: 'web-design',
+      title: 'Web Design',
+      description: 'Custom, responsive websites that convert visitors into customers and reflect your brand.',
+      icon: '/globe.svg'
+    },
+    {
+      id: 'analytics',
+      title: 'Analytics',
+      description: 'Data-driven insights and analytics to help you make informed marketing decisions and track performance.',
+      icon: '/file.svg'
+    },
+    {
+      id: 'ai-prompting-lessons',
+      title: 'AI Prompting Lessons',
+      description: 'Learn how to effectively communicate with AI tools to maximize productivity and achieve better results.',
+      icon: '/globe.svg'
     }
   ];
 
@@ -64,7 +82,7 @@ const EnhancedServicesSection = () => {
             Our Services
           </h2>
           <p className="text-xl text-white max-w-3xl mx-auto">
-            Comprehensive marketing solutions designed to drive growth and maximize your business potential
+            Whether it's a consultation with one of our marketing experts, an audit to find ways to improve your marketing, or a custom-built solution (SaaS), we are here to help.
           </p>
         </div>
         

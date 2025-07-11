@@ -9,8 +9,8 @@ interface EnhancedContactHeroProps {
 }
 
 const EnhancedContactHero = ({
-  title = "Contact Digital Mosaic Studios - Marketing Consulting & Web Design Agency",
-  description = "Have a question or ready to start your project? Get in touch with our team."
+  title = "Contact Digital Mosaic Studios",
+  description = "We're here to help!"
 }: EnhancedContactHeroProps) => {
   const heroRef = useRef<HTMLElement>(null);
   const { gsap } = useGSAPAnimation();
@@ -37,7 +37,7 @@ const EnhancedContactHero = ({
   return (
     <section 
       ref={heroRef}
-      className="relative text-white py-20 md:py-32 overflow-hidden"
+      className="relative text-white pt-20 md:pt-32 pb-8 md:pb-12 overflow-hidden"
     >
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">

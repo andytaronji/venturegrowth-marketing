@@ -71,7 +71,7 @@ export default function AboutPage() {
                 description: "Today, we're proud to partner with businesses of all sizes, helping them achieve their goals through strategic, results-driven digital solutions."
               }
             ]}
-            imageSrc="samples/landscapes/nature-mountains"
+            imageSrc="u9524928111_A_crisp_professional_mosaic-style_timeline_beside_a26591de-e997-440a-a17c-edbf4462fc63_1_tnxl1s"
             imageAlt="Digital Mosaic Studios Story"
             imagePosition="right"
             backgroundColor="white"
@@ -86,7 +86,7 @@ export default function AboutPage() {
           
           <EnhancedCTASection
             title="Ready to Work With Us?"
-            description="Let's discuss how we can help your business grow through innovative digital solutions."
+            description="Contact us today to learn more about how we can help grow your business!"
             buttons={[
               { text: "Get in Touch", href: "/contact", variant: "primary" },
               { text: "View Our Services", href: "/services", variant: "secondary" }

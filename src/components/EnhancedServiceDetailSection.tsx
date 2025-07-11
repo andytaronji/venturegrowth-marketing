@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import CldImageWrapper from './CldImageWrapper';
 import { useGSAPAnimation } from './GSAPProvider';
 
@@ -21,6 +22,7 @@ interface EnhancedServiceDetailSectionProps {
   imageCrop?: 'fit' | 'fill';
   imageGravity?: 'auto' | 'center' | 'face';
   imageObjectFit?: 'contain' | 'cover';
+  showContactButton?: boolean;
 }
 
 const EnhancedServiceDetailSection = ({
@@ -34,7 +36,8 @@ const EnhancedServiceDetailSection = ({
   backgroundColor = 'white',
   imageCrop = 'fit',
   imageGravity = 'auto',
-  imageObjectFit = 'contain'
+  imageObjectFit = 'contain',
+  showContactButton = false
 }: EnhancedServiceDetailSectionProps) => {
   const sectionRef = useRef<HTMLElement>(null);
   const { gsap } = useGSAPAnimation();
@@ -100,6 +103,17 @@ const EnhancedServiceDetailSection = ({
                 </div>
               ))}
             </div>
+            
+            {showContactButton && (
+              <div className="mt-8">
+                <Link 
+                  href="/contact"
+                  className="inline-block px-8 py-3 bg-accent text-white font-medium rounded-md hover:bg-light-accent hover:text-white transition-colors duration-200"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            )}
           </div>
           
           {/* Image */}
