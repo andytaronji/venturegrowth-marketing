@@ -20,7 +20,7 @@ const ContactPageSchema = () => {
             '@type': 'ContactPoint',
             'telephone': '404-861-7744',
             'contactType': 'customer service',
-            'email': 'taronjiandrew@gmail.com',
+            'email': 'infodigitalmosaicstudios@gmail.com',
             'availableLanguage': 'English',
             'hoursAvailable': [
               {
@@ -41,7 +41,7 @@ const ContactPageSchema = () => {
             '@type': 'ContactPoint',
             'contactType': 'sales',
             'telephone': '404-861-7744',
-            'email': 'taronjiandrew@gmail.com'
+            'email': 'infodigitalmosaicstudios@gmail.com'
           }
         ],
         'address': {

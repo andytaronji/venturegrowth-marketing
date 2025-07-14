@@ -32,7 +32,7 @@ const OrganizationSchema = () => {
         '@type': 'ContactPoint',
         'telephone': '404-861-7744',
         'contactType': 'customer service',
-        'email': 'taronjiandrew@gmail.com',
+        'email': 'infodigitalmosaicstudios@gmail.com',
         'availableLanguage': 'English'
       },
       'sameAs': [

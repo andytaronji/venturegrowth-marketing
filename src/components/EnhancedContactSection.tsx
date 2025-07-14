@@ -56,7 +56,7 @@ const EnhancedContactSection = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-lg font-semibold text-white">Email</h3>
-                  <p className="text-white text-opacity-80 text-sm">taronjiandrew@gmail.com</p>
+                  <p className="text-white text-opacity-80 text-sm">infodigitalmosaicstudios@gmail.com</p>
                 </div>
               </div>
               

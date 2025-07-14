@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     // Send email using Resend
     const { data, error } = await resend.emails.send({
       from: 'Digital Mosaic Studios <onboarding@resend.dev>', // You can customize this once verified
-      to: 'taronjiandrew@gmail.com', // Your email address
+      to: 'infodigitalmosaicstudios@gmail.com', // Your email address
       subject: subjectLine,
       html: htmlContent,
       reply_to: email, // Set reply-to as the sender's email

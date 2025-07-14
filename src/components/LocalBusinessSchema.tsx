@@ -8,7 +8,7 @@ const LocalBusinessSchema = () => {
     const siteName = process.env.NEXT_PUBLIC_BUSINESS_NAME || 'Digital Mosaic Studios';
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.digitalmosaicstudios.com';
     const siteDescription = process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'Professional website design, development, maintenance, social media management, and content creation services in Marietta, GA and surrounding areas.';
-    const businessEmail = process.env.NEXT_PUBLIC_BUSINESS_EMAIL || 'taronjiandrew@gmail.com';
+    const businessEmail = process.env.NEXT_PUBLIC_BUSINESS_EMAIL || 'infodigitalmosaicstudios@gmail.com';
     const businessPhone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '404-861-7744';
     const businessAddress = process.env.NEXT_PUBLIC_BUSINESS_ADDRESS || 'Marietta, GA 30062';
     

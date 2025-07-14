@@ -219,7 +219,7 @@ export default function PrivacyPolicyPage() {
               </p>
               <div className="bg-white bg-opacity-90 p-6 rounded-lg border border-gray-200">
                 <p className="text-gray-900 mb-2"><strong>Digital Mosaic Studios</strong></p>
-                <p className="text-gray-700 mb-2">Email: taronjiandrew@gmail.com</p>
+                <p className="text-gray-700 mb-2">Email: infodigitalmosaicstudios@gmail.com</p>
                 <p className="text-gray-700 mb-2">Phone: 404-861-7744</p>
                 <p className="text-gray-700">Website: digitalmosaicstudios.com</p>
               </div>
