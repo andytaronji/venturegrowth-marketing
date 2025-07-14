@@ -56,19 +56,19 @@ export default function AboutPage() {
           
           <EnhancedServiceDetailSection
             title="Our Story"
-            description="Digital Mosaic Studios was founded with a simple mission: to help businesses establish a powerful online presence that drives real growth and success."
+            description="Digital Mosaic Studios was founded in Marietta, GA with a mission to help local startups and small businesses turn their ideas into reality. We combine hands-on expertise in web design, marketing consulting, and SaaS development to deliver measurable, data-driven results. Our approach is client-centric and focused on tailoring strategies that drive real business growth for companies across Atlanta, Georgia, and beyond."
             features={[
               {
-                title: "Comprehensive Solutions",
-                description: "We recognized that many businesses struggle to navigate the complex digital landscape, often working with multiple agencies for different aspects of their online presence."
+                title: "Discovery & Strategy",
+                description: "We start by understanding your business goals, target audience, and competitive landscape to develop a comprehensive digital strategy."
               },
               {
-                title: "Strategic Vision",
-                description: "Our vision was to create a comprehensive digital marketing agency that could handle all aspects of a business's online presence."
+                title: "Design & Development",
+                description: "Our team creates custom solutions that reflect your brand and convert visitors into customers, from websites to SaaS tools."
               },
               {
-                title: "Proven Results",
-                description: "Today, we're proud to partner with businesses of all sizes, helping them achieve their goals through strategic, results-driven digital solutions."
+                title: "Analytics & Support",
+                description: "We provide ongoing analytics, optimization, and support to ensure your digital presence continues to drive growth. We pride ourselves on transparency, collaboration, and delivering solutions that make a real impact."
               }
             ]}
             imageSrc="u9524928111_A_crisp_professional_mosaic-style_timeline_beside_a26591de-e997-440a-a17c-edbf4462fc63_1_tnxl1s"
@@ -82,13 +82,32 @@ export default function AboutPage() {
           
           <EnhancedMissionValuesSection />
           
+          {/* Testimonial Section */}
+          <section className="py-16 md:py-24">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
+                  What Our Clients Say
+                </h2>
+                <div className="max-w-4xl mx-auto">
+                  <blockquote className="text-xl md:text-2xl text-white mb-8 italic">
+                    "Digital Mosaic Studios helped us launch our business online quickly and professionally. Their guidance and expertise made a huge difference for our Atlanta startup."
+                  </blockquote>
+                  <cite className="text-lg text-white opacity-90 not-italic">
+                    — Satisfied Client
+                  </cite>
+                </div>
+              </div>
+            </div>
+          </section>
+          
           <EnhancedWhyChooseUsSection />
           
           <EnhancedCTASection
             title="Ready to Work With Us?"
             description="Contact us today to learn more about how we can help grow your business!"
             buttons={[
-              { text: "Get in Touch", href: "/contact", variant: "primary" },
+              { text: "Book a Free Consultation", href: "/contact", variant: "primary" },
               { text: "View Our Services", href: "/services", variant: "secondary" }
             ]}
           />

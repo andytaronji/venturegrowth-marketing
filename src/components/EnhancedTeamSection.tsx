@@ -27,21 +27,21 @@ const EnhancedTeamSection = ({
       role: "Founder & CEO",
       description: "With over 5 years of experience in digital marketing and web development, Andrew leads our team with vision and expertise.",
       imageSrc: "Mosaic_Studios_Andrew_ldl9fo",
-      imageAlt: "Andrew Taronji - Founder & CEO"
+      imageAlt: "Andrew Taronji - Founder & CEO of Digital Mosaic Studios, marketing consultant specializing in Atlanta business growth strategies"
     },
     {
       name: "Joseph Coile",
       role: "Chief Sales Officer",
       description: "Joseph leads our sales team with a client-focused approach, building strong relationships and ensuring our solutions align with client business goals.",
       imageSrc: "Sleepy_Stunting_gvn3at",
-      imageAlt: "Joseph Coile - Chief Sales Officer"
+      imageAlt: "Joseph Coile - Chief Sales Officer at Digital Mosaic Studios, helping Marietta and Atlanta businesses achieve sales growth"
     },
     {
       name: "Devin Novelli",
       role: "Chief Financial Officer",
       description: "Devin oversees our financial operations, ensuring sustainable growth and helping clients maximize their return on investment in digital marketing.",
       imageSrc: "man-smiling-behind-wall-portrait-glasses-beard-white-shirt-indoor-casual-happy-young-man-thumbnail_ymzvkv",
-      imageAlt: "Devin Novelli - Chief Financial Officer"
+      imageAlt: "Devin Novelli - Chief Financial Officer at Digital Mosaic Studios, managing financial operations for Georgia marketing clients"
     }
   ]
 }: EnhancedTeamSectionProps) => {

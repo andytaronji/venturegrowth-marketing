@@ -9,8 +9,8 @@ interface EnhancedServicesHeroProps {
 }
 
 const EnhancedServicesHero = ({
-  title = "Our Services",
-  description = "Choose one of our result-driven solutions built to grow your business."
+  title = "Digital Marketing, Web Design & SaaS Services in Marietta & Atlanta",
+  description = "Tailored digital solutions for startups and small businesses across Georgia and the U.S."
 }: EnhancedServicesHeroProps) => {
   const heroRef = useRef<HTMLElement>(null);
   const { gsap } = useGSAPAnimation();

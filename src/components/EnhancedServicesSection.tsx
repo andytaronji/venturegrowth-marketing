@@ -12,37 +12,37 @@ const EnhancedServicesSection = () => {
     {
       id: 'consultations',
       title: 'Consultations',
-      description: 'Expert marketing consultations to help you develop effective strategies and grow your business.',
+      description: 'Expert marketing consultations from our Atlanta-based team to help Marietta and Georgia businesses develop effective strategies and drive real growth.',
       icon: '/globe.svg'
     },
     {
       id: 'audits',
       title: 'Audits',
-      description: 'Comprehensive marketing audits to identify opportunities and areas for improvement in your current strategy.',
+      description: 'Comprehensive marketing audits to identify opportunities and outperform your competition in Atlanta, Marietta, and throughout Georgia.',
       icon: '/file.svg'
     },
     {
       id: 'custom-saas-tools',
       title: 'Custom SaaS Tools',
-      description: 'Take control and dominate your industry with custom tools built specifically to your industry and service offerings.',
+      description: 'Industry-specific SaaS solutions built for Atlanta businesses, from accountants to retailers, designed to dominate your market.',
       icon: '/file.svg'
     },
     {
       id: 'web-design',
       title: 'Web Design',
-      description: 'Custom, responsive websites that convert visitors into customers and reflect your brand.',
+      description: 'Custom, responsive websites that convert visitors into customers for Atlanta and Georgia businesses, optimized for local SEO.',
       icon: '/globe.svg'
     },
     {
       id: 'analytics',
       title: 'Analytics',
-      description: 'Data-driven insights and analytics to help you make informed marketing decisions and track performance.',
+      description: 'Data-driven insights using Google Analytics and custom dashboards to help Atlanta and Georgia businesses make informed decisions.',
       icon: '/file.svg'
     },
     {
       id: 'ai-prompting-lessons',
       title: 'AI Prompting Lessons',
-      description: 'Learn how to effectively communicate with AI tools to maximize productivity and achieve better results.',
+      description: 'Learn AI tools for marketing and workflow automation through local workshops and virtual sessions for Georgia businesses.',
       icon: '/globe.svg'
     }
   ];

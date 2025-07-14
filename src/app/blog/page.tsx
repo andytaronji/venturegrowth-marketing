@@ -92,11 +92,11 @@ export default function BlogPage() {
             <div className="max-w-7xl mx-auto container-padding">
               <div ref={heroRef} className="text-center">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                  Marketing Insights & 
-                  <span className="block text-accent">SEO Tips</span>
+                  Digital Marketing & Web Design 
+                  <span className="block text-accent">Insights for Georgia Businesses</span>
                 </h1>
                 <p className="text-xl md:text-2xl text-text-secondary-light mb-8 max-w-3xl mx-auto leading-relaxed">
-                  Expert insights on digital marketing, SEO strategies, web design trends, and business growth tactics to help your business thrive online.
+                  Expert insights on digital marketing, SEO strategies, web design trends, and business growth tactics specifically for Atlanta, Marietta, and Georgia businesses.
                 </p>
                 
                 {/* Category Filter */}

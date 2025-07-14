@@ -9,8 +9,8 @@ interface EnhancedAboutHeroProps {
 }
 
 const EnhancedAboutHero = ({
-  title = "About Digital Mosaic Studios: Your Future Marketing Consulting Partner",
-  description = "Our passion stems from our love for people. We are here to provide the highest level of service for our clients."
+  title = "Empowering Georgia's Small Businesses with Results-Driven Digital Solutions",
+  description = "Based in Marietta, proudly serving Atlanta, Georgia, and clients nationwide."
 }: EnhancedAboutHeroProps) => {
   const heroRef = useRef<HTMLElement>(null);
   const { gsap } = useGSAPAnimation();

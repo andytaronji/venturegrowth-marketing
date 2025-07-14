@@ -38,7 +38,7 @@ const Navbar = () => {
               <div className="mr-2">
                 <CldImageWrapper
                   src="u9524928111_A_crisp_white_circle_intersected_by_layered_geome_350a4477-3775-4097-b658-86a65017fdc3_3_vheyy9"
-                  alt="Digital Mosaic Studios Logo"
+                  alt="Digital Mosaic Studios - Marketing Consulting & Web Design in Marietta, Atlanta, Georgia"
                   width={40}
                   height={40}
                   crop="fit"

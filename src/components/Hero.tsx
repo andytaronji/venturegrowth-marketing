@@ -45,7 +45,7 @@ const Hero = () => {
             <div className="relative h-96 w-full transition-all duration-300 hover:shadow-medium">
               <CldImageWrapper
                 src="nice_vnyvxy"
-                alt="Business Growth and Analytics"
+                alt="Atlanta marketing consulting team helping local businesses achieve digital growth and analytics success"
                 width={1200}
                 height={800}
                 crop="fill"

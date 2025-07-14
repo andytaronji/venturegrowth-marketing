@@ -43,19 +43,11 @@ const LocalBusinessSchema = () => {
           'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
           'opens': '09:00',
           'closes': '18:00'
-        },
-        {
-          '@type': 'OpeningHoursSpecification',
-          'dayOfWeek': 'Saturday',
-          'opens': '10:00',
-          'closes': '16:00'
         }
       ],
       'sameAs': [
-        'https://www.facebook.com/digitalmosaicstudios',
-        'https://www.instagram.com/digitalmosaicstudios',
-        'https://twitter.com/digitalmosaic',
-        'https://www.linkedin.com/company/digital-mosaic-studios'
+        'https://www.facebook.com/profile.php?id=61578329544080',
+        'https://www.linkedin.com/company/digital-mosaic-studios-llc/'
       ],
       'priceRange': '$$',
       'areaServed': [
@@ -87,46 +79,54 @@ const LocalBusinessSchema = () => {
       ],
       'hasOfferCatalog': {
         '@type': 'OfferCatalog',
-        'name': 'Digital Services',
+        'name': 'Digital Marketing & Web Design Services',
         'itemListElement': [
           {
             '@type': 'Offer',
             'itemOffered': {
               '@type': 'Service',
+              'name': 'Marketing Consultations',
+              'description': 'Expert marketing consultations to help Atlanta and Georgia businesses develop effective strategies and grow.'
+            }
+          },
+          {
+            '@type': 'Offer',
+            'itemOffered': {
+              '@type': 'Service',
+              'name': 'Marketing Audits',
+              'description': 'Comprehensive marketing audits to identify opportunities and outperform competition in Marietta, Atlanta, and beyond.'
+            }
+          },
+          {
+            '@type': 'Offer',
+            'itemOffered': {
+              '@type': 'Service',
               'name': 'Custom SaaS Tools',
-              'description': 'Take control and dominate your industry with custom tools built specifically to your industry and service offerings.'
+              'description': 'Custom SaaS tools built for Atlanta accountants, Georgia retailers, and businesses expanding beyond Georgia.'
             }
           },
           {
             '@type': 'Offer',
             'itemOffered': {
               '@type': 'Service',
-              'name': 'Website Development',
-              'description': 'Robust, scalable website development with cutting-edge technologies for optimal performance.'
+              'name': 'Web Design',
+              'description': 'Custom, responsive websites optimized for local SEO to help Marietta, Atlanta, and Georgia businesses convert visitors into customers.'
             }
           },
           {
             '@type': 'Offer',
             'itemOffered': {
               '@type': 'Service',
-              'name': 'Website Maintenance',
-              'description': 'Regular updates, security patches, and performance optimization to keep your website running smoothly.'
+              'name': 'Analytics Services',
+              'description': 'Google Analytics and custom dashboards to help Atlanta and Georgia businesses make data-driven decisions.'
             }
           },
           {
             '@type': 'Offer',
             'itemOffered': {
               '@type': 'Service',
-              'name': 'Social Media Management',
-              'description': 'Strategic planning and creation of engaging content tailored to your target audience.'
-            }
-          },
-          {
-            '@type': 'Offer',
-            'itemOffered': {
-              '@type': 'Service',
-              'name': 'Content Creation',
-              'description': 'Compelling, high-quality content that engages your audience and establishes your expertise.'
+              'name': 'AI Prompting Lessons',
+              'description': 'Learn to leverage AI tools for marketing, content creation, and workflow automation through local workshops for Georgia businesses.'
             }
           }
         ]

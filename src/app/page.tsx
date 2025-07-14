@@ -9,6 +9,7 @@ import EnhancedAboutSection from "@/components/EnhancedAboutSection";
 import EnhancedCTASection from "@/components/EnhancedCTASection";
 import CldImageWrapper from "@/components/CldImageWrapper";
 import OrganizationSchema from "@/components/OrganizationSchema";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import FAQSchema from "@/components/FAQSchema";
 import ReviewSchema from "@/components/ReviewSchema";
 import { useGSAPAnimation } from "@/components/GSAPProvider";
@@ -22,6 +23,7 @@ export default function Home() {
   return (
     <>
       <OrganizationSchema />
+      <LocalBusinessSchema />
       <FAQSchema />
       <ReviewSchema />
       

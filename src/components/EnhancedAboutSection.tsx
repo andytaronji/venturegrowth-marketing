@@ -23,11 +23,11 @@ interface EnhancedAboutSectionProps {
 
 const EnhancedAboutSection = ({
   title = "Why Choose Digital Mosaic Studios?",
-  description = "We work together with and get to know our clients in order to deliver an exclusive marketing experience that is result-oriented and tailored to their specific needs.",
+  description = "Based in Marietta and serving Atlanta, Georgia, and beyond, we work closely with our clients to deliver exclusive marketing experiences that are result-oriented and tailored to their specific needs. Our unique approach combines local market knowledge with cutting-edge digital strategies.",
   features = [
     {
       title: "Expert Strategies",
-      description: "Custom strategies designed specifically for your business goals, with deep knowledge of your market and target audience.",
+      description: "• Proven track record with Atlanta startups and Georgia businesses\n• Custom strategies designed for your specific market and audience\n• Deep knowledge of local competition and market dynamics",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -36,7 +36,7 @@ const EnhancedAboutSection = ({
     },
     {
       title: "Expert Team",
-      description: "Skilled professionals with extensive experience in web design, development, and digital marketing.",
+      description: "• Certified in leading marketing platforms (Google, Facebook, HubSpot)\n• Extensive experience in web design, development, and digital marketing\n• Local team with deep understanding of Georgia business landscape",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -45,7 +45,7 @@ const EnhancedAboutSection = ({
     },
     {
       title: "Results-Driven Approach",
-      description: "Focus on delivering measurable results that contribute to your business growth.",
+      description: "• Focus on measurable ROI and business growth metrics\n• Data-driven strategies with regular performance reporting\n• Transparent communication and accountability throughout projects",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -118,7 +118,11 @@ const EnhancedAboutSection = ({
                   </div>
                   <div className="ml-3">
                     <h3 className="text-lg font-semibold text-white" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>{feature.title}</h3>
-                    <p className="text-white text-opacity-90 text-sm" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}>{feature.description}</p>
+                    <div className="text-white text-opacity-90 text-sm" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}>
+                      {feature.description.split('\n').map((line, idx) => (
+                        <div key={idx} className="mb-1">{line}</div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}

@@ -37,28 +37,28 @@ const EnhancedHero = () => {
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white"
               style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}
             >
-              Marketing Consulting for Small Businesses and Startups
+              Marietta & Atlanta Marketing Consulting for Small Businesses & Startups
             </h1>
             
             <p 
-              className="text-xl md:text-2xl text-white mb-8 max-w-xl"
+              className="text-xl md:text-2xl text-white mb-6 max-w-xl"
               style={{ textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)' }}
             >
-              Let us handle the marketing for you.
+              Custom web design, SaaS tools, and digital marketing that drives real growth.
             </p>
             
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Link 
-                href="/services" 
+                href="/contact" 
                 className="px-8 py-3 bg-accent text-white font-medium rounded-md hover:bg-light-accent hover:text-white transition-colors duration-200 text-center transform hover:scale-105 transition-transform"
               >
-                Our Services
+                Book Your Free Consultation
               </Link>
               <Link 
-                href="/contact" 
+                href="/services" 
                 className="px-8 py-3 bg-transparent border-2 border-white text-white font-medium rounded-md hover:bg-white hover:text-primary hover:border-white transition-colors duration-200 text-center transform hover:scale-105 transition-transform"
               >
-                Contact Us
+                See Our Services
               </Link>
             </div>
           </div>
@@ -67,7 +67,7 @@ const EnhancedHero = () => {
             <div className="relative h-96 w-full">
               <CldVideoWrapper
                 src="https://res.cloudinary.com/di4phdven/video/upload/v1751454396/Data1_gmpujr.mp4"
-                alt="Business Growth and Analytics Video"
+                alt="Digital Mosaic Studios marketing consulting services helping Atlanta and Marietta businesses grow through data-driven strategies"
                 className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
                 loop={true}
                 autoplay={true}

@@ -9,8 +9,8 @@ interface EnhancedContactHeroProps {
 }
 
 const EnhancedContactHero = ({
-  title = "Contact Digital Mosaic Studios",
-  description = "We're here to help!"
+  title = "Let's Grow Your Business",
+  description = "We respond to all inquiries within 24 hours."
 }: EnhancedContactHeroProps) => {
   const heroRef = useRef<HTMLElement>(null);
   const { gsap } = useGSAPAnimation();
