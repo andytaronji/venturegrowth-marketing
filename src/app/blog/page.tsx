@@ -132,9 +132,9 @@ export default function BlogPage() {
                     excerpt={post.excerpt}
                     category={post.category}
                     readTime={post.readTime}
-                    publishDate={post.publishDate}
-                    slug={post.slug}
-                    featured={post.featured}
+                    publishDate={post.date}
+                    slug={post.id}
+                    featured={false}
                     onReadMore={() => openModal(post)}
                   />
                 ))}
