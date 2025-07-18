@@ -30,24 +30,14 @@ export default function AboutPage() {
     <>
       <AboutPageSchema />
       
-      {/* Dark gradient background container */}
-      <div className="relative min-h-screen overflow-hidden">
-        {/* Animated Background */}
-        <div 
-          ref={backgroundRef}
-          className="fixed inset-0 bg-gradient-to-br from-primary via-secondary to-primary z-0"
-          style={{
-            backgroundSize: '200% 200%',
-            backgroundPosition: '0% center'
-          }}
-        />
-        
-        {/* Decorative Elements */}
+      {/* Sophisticated dark background container */}
+      <div className="relative min-h-screen overflow-hidden bg-dark-solid">
+        {/* Elegant decorative elements for premium feel */}
         <div className="fixed inset-0 pointer-events-none z-0">
-          <div className="absolute top-10 left-10 w-20 h-20 bg-accent opacity-10 rounded-full blur-xl" />
-          <div className="absolute bottom-10 right-10 w-32 h-32 bg-light-accent opacity-5 rounded-full blur-2xl" />
-          <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-accent opacity-8 rounded-full blur-lg" />
-          <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-light-accent opacity-6 rounded-full blur-xl" />
+          <div className="absolute top-20 left-20 w-16 h-16 bg-white opacity-3 rounded-full blur-xl" />
+          <div className="absolute bottom-20 right-20 w-24 h-24 bg-accent opacity-8 rounded-full blur-2xl" />
+          <div className="absolute top-1/2 right-1/3 w-12 h-12 bg-white opacity-4 rounded-full blur-lg" />
+          <div className="absolute bottom-1/2 left-1/3 w-20 h-20 bg-light-accent opacity-6 rounded-full blur-xl" />
         </div>
         
         {/* Content */}
@@ -55,24 +45,24 @@ export default function AboutPage() {
           <EnhancedAboutHero />
           
           <EnhancedServiceDetailSection
-            title="Our Story"
-            description="Digital Mosaic Studios was founded in Marietta, GA with a mission to help local startups and small businesses turn their ideas into reality. We combine hands-on expertise in web design, marketing consulting, and SaaS development to deliver measurable, data-driven results. Our approach is client-centric and focused on tailoring strategies that drive real business growth for companies across Atlanta, Georgia, and beyond."
+            title="Why We Focus on Small Business & Startup Growth"
+            description="After working with hundreds of businesses across every industry, we discovered something powerful: small businesses and startups—tech companies, SaaS platforms, professional services, and e-commerce—have the strongest entrepreneurial drive, the clearest growth potential, and the most innovative solutions. Yet they were being underserved by generic marketing agencies who didn't understand their unique scaling challenges, customer acquisition costs, and rapid growth needs."
             features={[
               {
-                title: "Discovery & Strategy",
-                description: "We start by understanding your business goals, target audience, and competitive landscape to develop a comprehensive digital strategy."
+                title: "Growth Specialization",
+                description: "We made the strategic decision to focus on small businesses and startups. This specialization allows us to understand your scaling challenges, customer acquisition strategies, and growth metrics better than any generalist agency ever could."
               },
               {
-                title: "Design & Development",
-                description: "Our team creates custom solutions that reflect your brand and convert visitors into customers, from websites to SaaS tools."
+                title: "Proven Growth Framework",
+                description: "Our clients see remarkable results: 3x increase in demo signups for tech startups, 40% sales growth for retailers, and doubled inbound leads in 60 days because we've perfected the marketing strategies that work specifically for growing businesses."
               },
               {
-                title: "Analytics & Support",
-                description: "We provide ongoing analytics, optimization, and support to ensure your digital presence continues to drive growth. We pride ourselves on transparency, collaboration, and delivering solutions that make a real impact."
+                title: "Premium Service Standards",
+                description: "We treat your business with the same level of professionalism and attention to detail that you bring to your innovation. Direct access to experts, monthly strategy calls, and transparent reporting—no outsourced support or cookie-cutter solutions."
               }
             ]}
             imageSrc="u9524928111_A_crisp_professional_mosaic-style_timeline_beside_a26591de-e997-440a-a17c-edbf4462fc63_1_tnxl1s"
-            imageAlt="Digital Mosaic Studios Story"
+            imageAlt="Digital Mosaic Studios Blue-Collar Expertise"
             imagePosition="right"
             backgroundColor="white"
             imageCrop="fit"
@@ -82,20 +72,74 @@ export default function AboutPage() {
           
           <EnhancedMissionValuesSection />
           
-          {/* Testimonial Section */}
-          <section className="py-16 md:py-24">
+          {/* Blue-Collar Testimonial Section */}
+          <section className="py-16 md:py-24 bg-luxury-navy bg-opacity-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
-                  What Our Clients Say
+              <div className="text-center mb-16">
+                <h2 className="font-luxury-serif text-4xl md:text-5xl font-bold text-white mb-6">
+                  What Growing Business Leaders Say
                 </h2>
-                <div className="max-w-4xl mx-auto">
-                  <blockquote className="text-xl md:text-2xl text-white mb-8 italic">
-                    "Digital Mosaic Studios helped us launch our business online quickly and professionally. Their guidance and expertise made a huge difference for our Atlanta startup."
+                <p className="text-xl text-white opacity-90 max-w-3xl mx-auto font-luxury-sans">
+                  Real results from ambitious entrepreneurs and business owners who chose luxury-level marketing
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <div className="bg-white rounded-2xl p-8 border border-gray-200 hover:border-accent hover:border-opacity-40 transition-all duration-300 hover:transform hover:scale-105 shadow-card hover:shadow-card-hover">
+                  <blockquote className="text-lg md:text-xl text-card-body mb-6 italic font-luxury-sans leading-relaxed">
+                    "We doubled our beta users in just six weeks. Their understanding of the startup ecosystem and growth strategies is unmatched. ROI has never been higher."
                   </blockquote>
-                  <cite className="text-lg text-white opacity-90 not-italic">
-                    — Satisfied Client
-                  </cite>
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 rounded-full mr-4 border-2 border-accent border-opacity-30 bg-accent flex items-center justify-center">
+                      <span className="text-white font-semibold text-sm font-luxury-sans">MC</span>
+                    </div>
+                    <div>
+                      <cite className="text-accent font-semibold font-luxury-sans not-italic">
+                        Mia Chen
+                      </cite>
+                      <div className="text-card-body text-sm font-luxury-sans">
+                        LaunchPad Apps, Atlanta GA
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-2xl p-8 border border-gray-200 hover:border-accent hover:border-opacity-40 transition-all duration-300 hover:transform hover:scale-105 shadow-card hover:shadow-card-hover">
+                  <blockquote className="text-lg md:text-xl text-card-body mb-6 italic font-luxury-sans leading-relaxed">
+                    "The custom CRM tool saved us 10 hours per week, and our website now converts visitors into paying customers. Fast turnaround, premium results."
+                  </blockquote>
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 rounded-full mr-4 border-2 border-accent border-opacity-30 bg-accent flex items-center justify-center">
+                      <span className="text-white font-semibold text-sm font-luxury-sans">DW</span>
+                    </div>
+                    <div>
+                      <cite className="text-accent font-semibold font-luxury-sans not-italic">
+                        Dana Williams
+                      </cite>
+                      <div className="text-card-body text-sm font-luxury-sans">
+                        Metro Realty Group, Alpharetta GA
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="text-center mt-12">
+                <div className="bg-luxury-gold bg-opacity-10 rounded-xl p-6 max-w-2xl mx-auto border border-luxury-gold border-opacity-30">
+                  <div className="grid grid-cols-3 gap-6">
+                    <div className="text-center">
+                      <div className="text-luxury-gold font-bold text-2xl font-luxury-serif">3x</div>
+                      <div className="text-white text-sm font-luxury-sans">Demo Signups</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-luxury-gold font-bold text-2xl font-luxury-serif">40%</div>
+                      <div className="text-white text-sm font-luxury-sans">Sales Growth</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-luxury-gold font-bold text-2xl font-luxury-serif">60 Days</div>
+                      <div className="text-white text-sm font-luxury-sans">Double Leads</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

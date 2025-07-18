@@ -7,7 +7,7 @@ const LocalBusinessSchema = () => {
     // Get environment variables
     const siteName = process.env.NEXT_PUBLIC_BUSINESS_NAME || 'Digital Mosaic Studios';
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.digitalmosaicstudios.com';
-    const siteDescription = process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'Professional website design, development, maintenance, social media management, and content creation services in Marietta, GA and surrounding areas.';
+    const siteDescription = process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'Premium web design, custom SaaS tools, and data-driven marketing for startups, small businesses, and growing companies in Atlanta, Georgia, and nationwide.';
     const businessEmail = process.env.NEXT_PUBLIC_BUSINESS_EMAIL || 'infodigitalmosaicstudios@gmail.com';
     const businessPhone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '404-861-7744';
     const businessAddress = process.env.NEXT_PUBLIC_BUSINESS_ADDRESS || 'Marietta, GA 30062';
@@ -86,7 +86,7 @@ const LocalBusinessSchema = () => {
             'itemOffered': {
               '@type': 'Service',
               'name': 'Marketing Consultations',
-              'description': 'Expert marketing consultations to help Atlanta and Georgia businesses develop effective strategies and grow.'
+              'description': 'Expert marketing consultations to help startups, small businesses, and growing companies develop effective strategies and scale successfully.'
             }
           },
           {
@@ -94,7 +94,7 @@ const LocalBusinessSchema = () => {
             'itemOffered': {
               '@type': 'Service',
               'name': 'Marketing Audits',
-              'description': 'Comprehensive marketing audits to identify opportunities and outperform competition in Marietta, Atlanta, and beyond.'
+              'description': 'Comprehensive marketing audits to identify opportunities and maximize ROI for small businesses and startups across all industries.'
             }
           },
           {
@@ -102,7 +102,7 @@ const LocalBusinessSchema = () => {
             'itemOffered': {
               '@type': 'Service',
               'name': 'Custom SaaS Tools',
-              'description': 'Custom SaaS tools built for Atlanta accountants, Georgia retailers, and businesses expanding beyond Georgia.'
+              'description': 'Custom SaaS tools built for startups, small businesses, and growing companies to automate workflows and gain competitive advantages.'
             }
           },
           {
@@ -110,7 +110,7 @@ const LocalBusinessSchema = () => {
             'itemOffered': {
               '@type': 'Service',
               'name': 'Web Design',
-              'description': 'Custom, responsive websites optimized for local SEO to help Marietta, Atlanta, and Georgia businesses convert visitors into customers.'
+              'description': 'Custom, responsive websites optimized for conversion to help startups and small businesses turn visitors into loyal customers.'
             }
           },
           {
@@ -118,7 +118,7 @@ const LocalBusinessSchema = () => {
             'itemOffered': {
               '@type': 'Service',
               'name': 'Analytics Services',
-              'description': 'Google Analytics and custom dashboards to help Atlanta and Georgia businesses make data-driven decisions.'
+              'description': 'Google Analytics and custom dashboards to help startups and small businesses make data-driven decisions and scale efficiently.'
             }
           },
           {
@@ -126,7 +126,7 @@ const LocalBusinessSchema = () => {
             'itemOffered': {
               '@type': 'Service',
               'name': 'AI Prompting Lessons',
-              'description': 'Learn to leverage AI tools for marketing, content creation, and workflow automation through local workshops for Georgia businesses.'
+              'description': 'Learn to leverage AI tools for marketing, content creation, and workflow automation to give your startup or small business a competitive edge.'
             }
           }
         ]

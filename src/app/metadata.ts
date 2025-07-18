@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Marietta & Atlanta Marketing Consulting for Small Businesses | Digital Mosaic Studios",
-  description: "Custom web design, SaaS tools, and digital marketing that drives real growth for businesses in Marietta, Atlanta, and Georgia. Free consultation available!",
+  title: "Luxury Marketing Solutions for Small Businesses & Startups | Digital Mosaic Studios",
+  description: "Premium web design, custom SaaS tools, and data-driven marketing for startups, small businesses, and growing companies in Atlanta, Georgia, and nationwide.",
 };

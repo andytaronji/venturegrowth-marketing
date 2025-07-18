@@ -11,9 +11,9 @@ import { GSAPProvider } from "@/components/GSAPProvider";
 // Roboto removed to reduce bundle size - using system fonts as fallback
 
 export const metadata: Metadata = {
-  title: "Digital Mosaic Studios - US Marketing & Web Design",
-  description: "Professional web design & marketing consulting in Marietta, GA. Custom websites, SaaS tools & digital marketing for Atlanta area businesses. Free consultation!",
-  keywords: "marketing consulting, business strategy consulting, web design services, website development, digital marketing consulting, custom web design, business growth solutions, marketing strategy, web development services, nationwide marketing consulting",
+  title: "Luxury Marketing Solutions for Small Businesses & Startups | Digital Mosaic Studios",
+  description: "Premium web design, custom SaaS tools & data-driven marketing for startups, small businesses, and growing companies in Atlanta, Georgia, and nationwide.",
+  keywords: "small business marketing Atlanta, startup marketing consulting, small business web design Georgia, startup growth marketing, small business digital marketing, Atlanta startup consulting, premium marketing solutions, custom SaaS tools, data-driven marketing",
   icons: {
     icon: [
       { url: 'https://res.cloudinary.com/di4phdven/image/upload/w_16,h_16,c_fill,r_max,f_png/v1752194892/u9524928111_A_crisp_white_circle_intersected_by_layered_geome_350a4477-3775-4097-b658-86a65017fdc3_3_vheyy9.png', sizes: '16x16', type: 'image/png' },
@@ -26,22 +26,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.digitalmosaicstudios.com/',
-    title: 'Digital Mosaic Studios - US Marketing & Web Design',
-    description: 'Professional web design & marketing consulting in Marietta, GA. Custom websites, SaaS tools & digital marketing for Atlanta area businesses. Free consultation!',
+    title: 'Luxury Marketing Solutions for Small Businesses & Startups | Digital Mosaic Studios',
+    description: 'Premium web design, custom SaaS tools & data-driven marketing for startups, small businesses, and growing companies in Atlanta, Georgia, and nationwide.',
     siteName: 'Digital Mosaic Studios',
     images: [
       {
         url: 'https://res.cloudinary.com/di4phdven/image/upload/c_fill,w_1200,h_630/f_auto/q_auto:best/v1/nice_vnyvxy',
         width: 1200,
         height: 630,
-        alt: 'Digital Mosaic Studios - Professional Web Design & Marketing Consulting in Marietta, GA',
+        alt: 'Digital Mosaic Studios - Professional Web Design & Marketing Consulting for Small Businesses & Startups',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Digital Mosaic Studios - US Marketing & Web Design',
-    description: 'Professional web design & marketing consulting in Marietta, GA. Custom websites, SaaS tools & digital marketing for Atlanta area businesses.',
+    title: 'Luxury Marketing Solutions for Small Businesses & Startups | Digital Mosaic Studios',
+    description: 'Premium web design, custom SaaS tools & data-driven marketing for startups, small businesses, and growing companies in Atlanta, Georgia, and nationwide.',
     images: ['https://res.cloudinary.com/di4phdven/image/upload/c_fill,w_1200,h_630/f_auto/q_auto:best/v1/nice_vnyvxy'],
   },
   alternates: {
@@ -121,6 +121,29 @@ export default function RootLayout({
               });
             }
             window.gtagReportConversion = gtagReportConversion;
+          `}
+        </Script>
+        
+        {/* Facebook Pixel - For remarketing and conversion tracking */}
+        <Script id="facebook-pixel" strategy="lazyOnload">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            
+            // Initialize Facebook Pixel (replace with actual Pixel ID when available)
+            // fbq('init', 'YOUR_PIXEL_ID');
+            // fbq('track', 'PageView');
+            
+            // For now, create placeholder function
+            window.fbq = window.fbq || function() {
+              console.log('Facebook Pixel would track:', arguments);
+            };
           `}
         </Script>
         

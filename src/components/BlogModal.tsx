@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { BlogPost } from '@/data/blogPosts';
+import { BlogPost, ContentSection } from '@/data/blogPosts';
 
 interface BlogModalProps {
   post: BlogPost | null;
@@ -39,13 +39,100 @@ const BlogModal = ({ post, isOpen, onClose }: BlogModalProps) => {
       'Automation': 'bg-teal-500',
       'Analytics': 'bg-red-500',
       'Consulting': 'bg-indigo-500',
-      'Tips': 'bg-yellow-500'
+      'Tips': 'bg-yellow-500',
+      'Startup Marketing': 'bg-purple-600',
+      'Growth Strategy': 'bg-orange-600',
+      'Marketing Tools': 'bg-teal-600',
+      'Digital Marketing': 'bg-blue-600',
+      'Social Media': 'bg-pink-500',
+      'Content Marketing': 'bg-indigo-600',
+      'Local Marketing': 'bg-green-600'
     };
     return colors[category as keyof typeof colors] || 'bg-accent';
   };
 
-  const formatContent = (content: string) => {
-    // Simple markdown-like formatting
+  // Generate table of contents from headings
+  const generateTableOfContents = (content: ContentSection[]) => {
+    const headings = content.filter(section => section.type === 'heading' && section.level && section.level <= 3);
+    if (headings.length === 0) return null;
+
+    return (
+      <div className="bg-bg-secondary rounded-lg p-4 mb-6">
+        <h4 className="font-semibold text-primary mb-3">Table of Contents</h4>
+        <ul className="space-y-1">
+          {headings.map((heading, index) => (
+            <li key={index}>
+              <a
+                href={`#${heading.id}`}
+                className={`text-sm hover:text-accent transition-colors duration-200 ${
+                  heading.level === 2 ? 'font-medium' : 'ml-4 text-text-secondary'
+                }`}
+              >
+                {heading.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+
+  // Render structured content sections
+  const renderContentSection = (section: ContentSection, index: number) => {
+    switch (section.type) {
+      case 'heading':
+        const HeadingTag = `h${section.level}` as keyof JSX.IntrinsicElements;
+        const headingClasses = {
+          1: 'text-3xl font-bold text-primary mt-8 mb-4 first:mt-0',
+          2: 'text-2xl font-semibold text-primary mt-6 mb-3',
+          3: 'text-xl font-semibold text-primary mt-5 mb-2',
+          4: 'text-lg font-semibold text-primary mt-4 mb-2',
+          5: 'text-base font-semibold text-primary mt-3 mb-2',
+          6: 'text-sm font-semibold text-primary mt-2 mb-1'
+        };
+        
+        return (
+          <HeadingTag
+            key={index}
+            id={section.id}
+            className={headingClasses[section.level as keyof typeof headingClasses] || headingClasses[2]}
+          >
+            {section.text}
+          </HeadingTag>
+        );
+
+      case 'paragraph':
+        return (
+          <p key={index} className="text-text-secondary mb-4 leading-relaxed">
+            {section.text}
+          </p>
+        );
+
+      case 'list':
+        return (
+          <ul key={index} className="list-disc list-inside mb-4 space-y-1">
+            {section.items?.map((item, itemIndex) => (
+              <li key={itemIndex} className="text-text-secondary">
+                {item}
+              </li>
+            ))}
+          </ul>
+        );
+
+      case 'quote':
+        return (
+          <blockquote key={index} className="border-l-4 border-accent pl-4 italic text-text-secondary mb-4">
+            {section.text}
+          </blockquote>
+        );
+
+      default:
+        return null;
+    }
+  };
+
+  // Legacy support for old HTML string format
+  const formatLegacyContent = (content: string) => {
     return content
       .split('\n')
       .map((line, index) => {
@@ -101,7 +188,7 @@ const BlogModal = ({ post, isOpen, onClose }: BlogModalProps) => {
                 <div className="flex items-center space-x-2 text-sm text-text-secondary">
                   <span>{post.readTime}</span>
                   <span>•</span>
-                  <span>{post.publishDate}</span>
+                  <span>{post.date}</span>
                 </div>
               </div>
               <h1 className="text-2xl md:text-3xl font-bold text-primary leading-tight">
@@ -125,7 +212,14 @@ const BlogModal = ({ post, isOpen, onClose }: BlogModalProps) => {
         {/* Content */}
         <div className="p-6 overflow-y-auto max-h-[calc(90vh-140px)]">
           <div className="prose prose-lg max-w-none">
-            {formatContent(post.content)}
+            {/* Table of Contents for structured content */}
+            {Array.isArray(post.content) && generateTableOfContents(post.content)}
+            
+            {/* Render content based on type */}
+            {Array.isArray(post.content) 
+              ? post.content.map((section, index) => renderContentSection(section, index))
+              : formatLegacyContent(post.content)
+            }
           </div>
         </div>
       </div>

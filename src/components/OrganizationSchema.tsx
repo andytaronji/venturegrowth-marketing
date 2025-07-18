@@ -13,7 +13,7 @@ const OrganizationSchema = () => {
       'alternateName': 'Digital Mosaic',
       'url': 'https://www.digitalmosaicstudios.com',
       'logo': 'https://res.cloudinary.com/di4phdven/image/upload/v1752194892/u9524928111_A_crisp_white_circle_intersected_by_layered_geome_350a4477-3775-4097-b658-86a65017fdc3_3_vheyy9.png',
-      'description': 'Professional web design & marketing consulting in Marietta, GA. Custom websites, SaaS tools & digital marketing for Atlanta area businesses.',
+      'description': 'Premium web design, custom SaaS tools, and data-driven marketing for startups, small businesses, and growing companies in Atlanta, Georgia, and nationwide.',
       'foundingDate': '2020',
       'founders': [
         {
@@ -56,7 +56,13 @@ const OrganizationSchema = () => {
         'Marketing Consulting',
         'SaaS Development',
         'Digital Marketing',
-        'Business Strategy Consulting'
+        'Business Strategy Consulting',
+        'Startup Marketing',
+        'Small Business Consulting',
+        'Growth Strategy',
+        'Marketing Audits',
+        'AI Training',
+        'Analytics Services'
       ]
     });
     document.head.appendChild(script);

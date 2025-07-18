@@ -91,12 +91,12 @@ const BlogCard = ({
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-semibold text-primary mb-3 group-hover:text-accent transition-colors duration-300 line-clamp-2">
+        <h3 className="text-card-title text-xl mb-3 group-hover:text-accent transition-colors duration-300 line-clamp-2">
           {title}
         </h3>
 
         {/* Excerpt */}
-        <p className="text-text-secondary mb-6 flex-grow line-clamp-3 leading-relaxed">
+        <p className="text-card-body mb-6 flex-grow line-clamp-3">
           {excerpt}
         </p>
 

@@ -34,31 +34,40 @@ const EnhancedHero = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white"
+              className="font-luxury-serif text-luxury-hero md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white"
               style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}
             >
-              Marietta & Atlanta Marketing Consulting for Small Businesses & Startups
+              Luxury Marketing Solutions for Small Businesses & Startups
             </h1>
             
             <p 
-              className="text-xl md:text-2xl text-white mb-6 max-w-xl"
+              className="text-luxury-subtitle md:text-3xl text-white mb-8 max-w-2xl font-luxury-sans font-medium"
               style={{ textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)' }}
             >
-              Custom web design, SaaS tools, and digital marketing that drives real growth.
+              Web Design, Analytics, Custom Tools, and AI Training—All Under One Roof for Ambitious Entrepreneurs
             </p>
             
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <div className="mb-8 max-w-2xl">
+              <p 
+                className="text-lg md:text-xl text-white opacity-90 font-luxury-sans"
+                style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
+              >
+                Serving <span className="text-accent font-semibold">tech startups</span>, <span className="text-accent font-semibold">e-commerce</span>, <span className="text-accent font-semibold">professional services</span>, and growing businesses across Atlanta, Georgia, and nationwide with premium marketing solutions that deliver measurable results.
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
               <Link 
                 href="/contact" 
-                className="px-8 py-3 bg-accent text-white font-medium rounded-md hover:bg-light-accent hover:text-white transition-colors duration-200 text-center transform hover:scale-105 transition-transform"
+                className="button-primary text-lg px-8 py-4 shadow-button hover:shadow-button-hover transform hover:scale-105"
               >
-                Book Your Free Consultation
+                Accelerate Your Startup Growth
               </Link>
               <Link 
                 href="/services" 
-                className="px-8 py-3 bg-transparent border-2 border-white text-white font-medium rounded-md hover:bg-white hover:text-primary hover:border-white transition-colors duration-200 text-center transform hover:scale-105 transition-transform"
+                className="button-primary text-lg px-8 py-4 shadow-button hover:shadow-button-hover transform hover:scale-105"
               >
-                See Our Services
+                Transform Your Small Business
               </Link>
             </div>
           </div>

@@ -9,8 +9,8 @@ interface EnhancedAboutHeroProps {
 }
 
 const EnhancedAboutHero = ({
-  title = "Empowering Georgia's Small Businesses with Results-Driven Digital Solutions",
-  description = "Based in Marietta, proudly serving Atlanta, Georgia, and clients nationwide."
+  title = "The Luxury Marketing Agency Built for Small Business & Startup Growth",
+  description = "Founded in Marietta, GA, we specialize in helping tech startups, SaaS platforms, professional services, and e-commerce businesses scale across Atlanta, Georgia, and nationwide."
 }: EnhancedAboutHeroProps) => {
   const heroRef = useRef<HTMLElement>(null);
   const { gsap } = useGSAPAnimation();
@@ -47,12 +47,17 @@ const EnhancedAboutHero = ({
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h1 className="font-luxury-serif text-luxury-hero md:text-6xl font-bold text-white mb-8 leading-tight">
             {title}
           </h1>
-          <p className="text-xl text-white opacity-90 max-w-3xl mx-auto">
+          <p className="text-luxury-subtitle md:text-2xl text-white opacity-90 max-w-4xl mx-auto font-luxury-sans leading-relaxed mb-6">
             {description}
           </p>
+          <div className="max-w-3xl mx-auto">
+            <p className="text-lg text-white opacity-80 font-luxury-sans">
+              We don't work with everyone. We work with <span className="text-luxury-gold font-semibold">ambitious entrepreneurs</span> and <span className="text-luxury-gold font-semibold">growing businesses</span> who demand premium results and understand the value of specialized expertise.
+            </p>
+          </div>
         </div>
       </div>
     </section>

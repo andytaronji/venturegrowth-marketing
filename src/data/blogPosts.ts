@@ -1,1183 +1,989 @@
+export interface ContentSection {
+  type: 'heading' | 'paragraph' | 'list' | 'quote';
+  level?: 1 | 2 | 3 | 4 | 5 | 6; // for headings
+  text: string;
+  keywords?: string[]; // SEO keywords for this section
+  id?: string; // for anchor links
+  items?: string[]; // for list type
+}
+
 export interface BlogPost {
   id: string;
   title: string;
   excerpt: string;
-  content: string;
+  content: ContentSection[] | string; // Support both structured and legacy content
+  seoData?: {
+    metaDescription: string;
+    keywords: string[];
+    focusKeyword: string;
+  };
+  date: string;
+  author: string;
   category: string;
+  tags: string[];
   readTime: string;
-  publishDate: string;
-  slug: string;
-  keywords: string[];
-  featured?: boolean;
+  image: string;
 }
 
 export const blogPosts: BlogPost[] = [
   {
-    id: '9',
-    title: 'How Atlanta Startups Can Leverage Digital Marketing in 2025',
-    excerpt: 'Discover actionable digital marketing strategies specifically designed for Atlanta startups. Learn how to use local SEO, social media, and paid advertising to grow your Georgia-based business.',
-    content: `
-# How Atlanta Startups Can Leverage Digital Marketing in 2025
-
-Atlanta's thriving startup ecosystem presents incredible opportunities for new businesses, but standing out in this competitive market requires strategic digital marketing. This comprehensive guide provides actionable strategies specifically tailored for Atlanta startups looking to accelerate their growth in 2025.
-
-## The Atlanta Startup Landscape in 2025
-
-Atlanta has emerged as a major tech hub, with thriving sectors in fintech, healthcare technology, logistics, and SaaS. The city's diverse economy, growing talent pool, and supportive startup ecosystem create unique opportunities for digital marketing success.
-
-### Key Market Characteristics
-- Diverse, educated population with high digital engagement
-- Strong B2B market with Fortune 500 companies
-- Growing millennial and Gen Z consumer base
-- Competitive but collaborative startup environment
-- Access to major transportation and logistics networks
-
-## 1. Local SEO: Your Foundation for Atlanta Success
-
-Local SEO is crucial for Atlanta startups, whether you're B2B or B2C. Here's how to dominate local search results:
-
-### Optimize for Atlanta-Specific Keywords
-Target location-based search terms that your customers actually use:
-- "Atlanta [your service]"
-- "[Your service] near me Atlanta"
-- "Best [your service] in Georgia"
-- "Atlanta startup [your industry]"
-- "[Your service] Buckhead/Midtown/Downtown Atlanta"
-
-### Google Business Profile Optimization
-Your Google Business Profile is your digital storefront:
-- Complete all profile sections with Atlanta-specific information
-- Use high-quality photos of your Atlanta office or team
-- Encourage reviews from Atlanta customers
-- Post regular updates about local events or partnerships
-- Include relevant categories and services
-
-### Local Content Strategy
-Create content that resonates with Atlanta audiences:
-- "Atlanta Startup Success Stories" featuring local businesses
-- "Best Networking Events for Atlanta Entrepreneurs"
-- "Atlanta Business Resources Every Startup Should Know"
-- Industry insights specific to Georgia's business climate
-- Local partnership announcements and collaborations
-
-### Example: Atlanta Fintech Startup
-A fintech startup targeting small businesses might create content like:
-- "How Atlanta Small Businesses Can Improve Cash Flow Management"
-- "Georgia Tax Advantages for Growing Businesses"
-- "Partnering with Atlanta Banks: A Startup's Guide"
-
-## 2. Social Media Marketing for Atlanta Startups
-
-Social media allows you to build community and establish thought leadership in Atlanta's startup ecosystem.
-
-### Platform-Specific Strategies
-
-#### LinkedIn for B2B Success
-- Share insights about Atlanta's business climate
-- Engage with local business leaders and influencers
-- Participate in Atlanta startup and business groups
-- Showcase your team's expertise and company culture
-- Connect with Atlanta-based investors and partners
-
-#### Instagram for Brand Building
-- Behind-the-scenes content from your Atlanta office
-- Team highlights and company culture posts
-- Local Atlanta landmarks and events
-- User-generated content from Atlanta customers
-- Stories featuring Atlanta startup events and networking
-
-#### Twitter for Thought Leadership
-- Share quick insights about your industry
-- Engage in conversations about Atlanta's startup scene
-- Live-tweet from Atlanta tech events and conferences
-- Share relevant news about Georgia business climate
-- Build relationships with local media and influencers
-
-### Local Social Media Tactics
-- Partner with other Atlanta startups for cross-promotion
-- Sponsor or participate in Atlanta startup events
-- Create Atlanta-specific hashtags for campaigns
-- Collaborate with local influencers and micro-influencers
-- Share content from Atlanta business publications
-
-### Example: Atlanta Healthcare Tech Startup
-A healthcare technology startup might:
-- Partner with Emory University for research content
-- Attend and share content from Atlanta healthcare conferences
-- Collaborate with local healthcare providers for case studies
-- Engage with Atlanta's thriving healthcare innovation community
-
-## 3. Paid Advertising Strategies for Atlanta Market
-
-Paid advertising allows you to quickly reach your target audience and compete with established players.
-
-### Google Ads for Local Targeting
-- Use location targeting for Atlanta metro area
-- Create ad extensions with Atlanta office address
-- Target competitor keywords with local modifiers
-- Use dayparting to target Atlanta business hours
-- Create separate campaigns for different Atlanta neighborhoods
-
-### Facebook and Instagram Ads
-- Target by location, interests, and behaviors
-- Use lookalike audiences based on Atlanta customers
-- Create video ads showcasing your Atlanta presence
-- Retarget website visitors with location-specific offers
-- Test different creative formats and messaging
-
-### LinkedIn Ads for B2B Startups
-- Target by company size, industry, and location
-- Use sponsored content to share thought leadership
-- Create lead generation campaigns for Atlanta professionals
-- Target specific companies in Atlanta you want to reach
-- Use event targeting for Atlanta business conferences
-
-### Budget Allocation Strategy
-For Atlanta startups with limited budgets:
-- 40% Google Ads (high-intent searches)
-- 30% Facebook/Instagram (brand awareness and retargeting)
-- 20% LinkedIn (B2B lead generation)
-- 10% experimental channels (TikTok, YouTube, etc.)
-
-## 4. Content Marketing That Resonates with Atlanta Audiences
-
-Create content that speaks directly to Atlanta's business community and addresses local challenges and opportunities.
-
-### Content Themes for Atlanta Startups
-- Atlanta startup success stories and case studies
-- Local business challenges and solutions
-- Georgia regulatory and tax considerations
-- Atlanta networking and partnership opportunities
-- Industry insights specific to Georgia's economy
-
-### Content Distribution Strategy
-- Publish on your blog with local SEO optimization
-- Share across social media with Atlanta-specific hashtags
-- Submit to local business publications and blogs
-- Present at Atlanta startup events and meetups
-- Create downloadable resources for lead generation
-
-### Example Content Calendar
-- Monday: Industry insights and trends
-- Wednesday: Atlanta startup spotlight or case study
-- Friday: Local business tips and resources
-- Monthly: Comprehensive guides on Atlanta business topics
-
-## 5. Email Marketing for Atlanta Startups
-
-Build and nurture relationships with your Atlanta audience through targeted email campaigns.
-
-### Segmentation Strategies
-- Geographic segmentation (Atlanta vs. other markets)
-- Industry-specific segments relevant to Atlanta
-- Engagement level (highly engaged Atlanta subscribers)
-- Customer lifecycle stage
-- Event attendance (Atlanta networking events)
-
-### Local Email Content Ideas
-- Atlanta startup event roundups
-- Local business spotlight features
-- Georgia-specific regulatory updates
-- Atlanta networking opportunities
-- Exclusive offers for Atlanta customers
-
-## 6. Partnership and Collaboration Marketing
-
-Leverage Atlanta's collaborative startup ecosystem for mutual growth.
-
-### Strategic Partnership Opportunities
-- Cross-promotion with complementary Atlanta startups
-- Joint content creation with local businesses
-- Collaborative events and webinars
-- Referral partnerships with established Atlanta companies
-- Integration partnerships with other Atlanta tech companies
-
-### Atlanta Startup Community Engagement
-- Participate in Atlanta Tech Village events
-- Join Atlanta startup accelerators and incubators
-- Attend Atlanta Startup Week and similar events
-- Engage with organizations like Technology Association of Georgia
-- Connect with Atlanta-based investors and VCs
-
-## 7. Measuring Success: KPIs for Atlanta Startups
-
-Track metrics that matter for local market penetration and growth.
-
-### Local SEO Metrics
-- Local search rankings for Atlanta keywords
-- Google Business Profile views and actions
-- Local citation consistency and growth
-- Atlanta-specific organic traffic
-- Local conversion rates
-
-### Social Media Metrics
-- Atlanta follower growth and engagement
-- Local hashtag performance
-- Atlanta event-related social mentions
-- Local influencer collaboration results
-- Geographic breakdown of social traffic
-
-### Paid Advertising Metrics
-- Cost per acquisition by Atlanta campaigns
-- Local ad performance vs. broader targeting
-- Atlanta-specific conversion rates
-- Geographic performance analysis
-- Local competitor ad share
-
-## 8. Common Mistakes Atlanta Startups Should Avoid
-
-### Over-Targeting
-Don't limit yourself only to Atlanta if your product/service can serve a broader market. Balance local focus with scalable growth.
-
-### Ignoring Mobile
-Atlanta has high mobile usage rates. Ensure all digital marketing efforts are mobile-optimized.
-
-### Neglecting Reviews
-Online reviews are crucial for Atlanta businesses. Actively manage your online reputation across all platforms.
-
-### Inconsistent Branding
-Maintain consistent messaging across all channels while adapting content for local relevance.
-
-## 9. 2025 Trends Specific to Atlanta Market
-
-### Emerging Opportunities
-- Increased focus on sustainability and social impact
-- Growing importance of diversity and inclusion messaging
-- Rise of voice search and smart speaker usage
-- Increased video content consumption
-- Growing B2B marketplace opportunities
-
-### Technology Adoption
-- AI and automation tools becoming more accessible
-- Advanced analytics and attribution modeling
-- Personalization at scale
-- Omnichannel customer experience expectations
-- Privacy-first marketing approaches
-
-## Conclusion: Your Atlanta Digital Marketing Action Plan
-
-Success in Atlanta's competitive startup landscape requires a strategic, locally-focused approach to digital marketing. Here's your immediate action plan:
-
-### Week 1-2: Foundation
-- Optimize your Google Business Profile
-- Conduct Atlanta-specific keyword research
-- Set up local SEO tracking and analytics
-- Audit your current digital presence
-
-### Week 3-4: Content and Social
-- Create Atlanta-focused content calendar
-- Optimize social media profiles for local audience
-- Begin engaging with Atlanta startup community
-- Start building local partnerships
-
-### Month 2: Paid Advertising
-- Launch targeted Google Ads campaigns
-- Test social media advertising with Atlanta targeting
-- Implement retargeting campaigns
-- Begin measuring and optimizing performance
-
-### Month 3 and Beyond: Scale and Optimize
-- Analyze performance and adjust strategies
-- Expand successful campaigns
-- Build deeper community relationships
-- Explore new channels and opportunities
-
-Remember, digital marketing success doesn't happen overnight. Stay consistent, measure your results, and continuously adapt your strategies based on what works best for your Atlanta audience.
-
-## Ready to Accelerate Your Atlanta Startup's Growth?
-
-Digital marketing can be complex, especially when you're trying to balance local market penetration with scalable growth. If you're ready to take your Atlanta startup to the next level with a comprehensive digital marketing strategy, we're here to help.
-
-**Book a free consultation with Digital Mosaic Studios today** and discover how we can help your Atlanta startup leverage digital marketing for accelerated growth in 2025. Our team understands the unique challenges and opportunities in Atlanta's startup ecosystem, and we're ready to help you succeed.
-
-[Contact us now](/contact) to schedule your free consultation and start building your digital marketing roadmap for success.
-    `,
-    category: 'Local SEO',
-    readTime: '15 min read',
-    publishDate: 'Jan 15, 2025',
-    slug: 'atlanta-startups-digital-marketing-2025',
-    keywords: ['Atlanta startups', 'digital marketing Atlanta', 'Atlanta SEO', 'Georgia business marketing', 'startup marketing'],
-    featured: true
+    id: "digital-marketing-startups-budget",
+    title: "Digital Marketing for Startups on a Budget",
+    excerpt: "Launching a startup is exciting—but tight budgets can make digital marketing feel overwhelming. Learn how to punch above your weight and attract loyal customers without breaking the bank.",
+    content: [
+      {
+        type: 'heading',
+        level: 2,
+        text: 'Smart Marketing for Resource-Constrained Startups',
+        keywords: ['startup marketing', 'budget marketing', 'resource-constrained'],
+        id: 'smart-marketing'
+      },
+      {
+        type: 'paragraph',
+        text: 'Launching a startup is exciting—but tight budgets can make digital marketing feel overwhelming. The good news? With the right strategies, you can punch above your weight and attract loyal customers without breaking the bank.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '1. Set Clear, Measurable Goals',
+        keywords: ['marketing goals', 'startup metrics', 'measurable goals'],
+        id: 'set-goals'
+      },
+      {
+        type: 'paragraph',
+        text: 'Start by defining what success looks like. Is it email signups? Demo requests? Sales? Clear goals help you prioritize your limited resources and focus on what matters most for your startup\'s growth.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '2. Invest in Your Website First',
+        keywords: ['website design', 'digital storefront', 'startup website'],
+        id: 'website-first'
+      },
+      {
+        type: 'paragraph',
+        text: 'Your website is your digital storefront. Make sure it loads fast, looks professional, and tells your story clearly. Even on a budget, a well-designed site can convert visitors into customers and establish credibility.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '3. Focus on SEO Early',
+        keywords: ['startup SEO', 'local SEO', 'keyword research'],
+        id: 'focus-seo'
+      },
+      {
+        type: 'paragraph',
+        text: 'SEO is a long game, but it pays dividends. Research keywords your target customers are searching for, optimize your site\'s pages, and create helpful, relevant content. Local SEO is a must for startups serving a specific region.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '4. Leverage Free & Low-Cost Tools',
+        keywords: ['free marketing tools', 'budget tools', 'marketing automation'],
+        id: 'free-tools'
+      },
+      {
+        type: 'paragraph',
+        text: 'Use free tools like Google Analytics, Google Search Console, and Canva for design. Automate social posts with Buffer or Hootsuite. Consider affordable SaaS tools for lead tracking and email marketing.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '5. Build Partnerships & Referrals',
+        keywords: ['startup partnerships', 'referral marketing', 'networking'],
+        id: 'partnerships'
+      },
+      {
+        type: 'paragraph',
+        text: 'Connect with other startups, local businesses, and industry groups. Word of mouth and referrals are powerful—and free. Strategic partnerships can help you reach new audiences without advertising costs.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: 'Conclusion',
+        keywords: ['startup success', 'digital marketplace'],
+        id: 'conclusion'
+      },
+      {
+        type: 'paragraph',
+        text: 'You don\'t need a Fortune 500 budget to make an impact. With smart planning and the right partners, your startup can compete and grow in today\'s digital marketplace.'
+      }
+    ],
+    seoData: {
+      metaDescription: "Learn budget-friendly digital marketing strategies for startups. Discover how to maximize ROI with limited resources and compete effectively in today's digital marketplace.",
+      keywords: ["startup marketing", "budget marketing", "digital marketing for startups", "startup SEO", "marketing tools", "startup growth"],
+      focusKeyword: "startup marketing budget"
+    },
+    date: "2024-01-20",
+    author: "Digital Mosaic Studios Team",
+    category: "Startup Marketing",
+    tags: ["startups", "budget marketing", "digital marketing", "growth hacking", "SEO"],
+    readTime: "6 min read",
+    image: "/blog/startup-marketing-budget.jpg"
   },
   {
-    id: '1',
-    title: '10 Essential Website Design Trends for 2025',
-    excerpt: 'Discover the latest website design trends that will dominate 2025. From minimalist layouts to interactive elements, learn how to create modern, user-friendly websites that convert.',
-    content: `
-# 10 Essential Website Design Trends for 2025
-
-The digital landscape is constantly evolving, and staying ahead of website design trends is crucial for businesses looking to maintain a competitive edge. As we move into 2025, several key trends are shaping how users interact with websites and what they expect from their online experiences.
-
-## 1. Minimalist Design with Maximum Impact
-
-Clean, uncluttered designs continue to dominate the web design space. Minimalist approaches focus on essential elements, improving user experience and site performance.
-
-## 2. Dark Mode Integration
-
-Dark mode isn't just a trend—it's becoming a standard expectation. Users appreciate the reduced eye strain and modern aesthetic that dark themes provide.
-
-## 3. Interactive Micro-Animations
-
-Subtle animations guide users through your site, providing feedback and creating engaging experiences without overwhelming the interface.
-
-## 4. Mobile-First Responsive Design
-
-With mobile traffic continuing to grow, designing for mobile devices first ensures optimal performance across all platforms.
-
-## 5. Accessibility-Focused Design
-
-Web accessibility is no longer optional. Designing for all users, including those with disabilities, is both ethical and beneficial for SEO.
-
-## 6. Voice User Interface Integration
-
-As voice search becomes more prevalent, websites are incorporating voice navigation and search capabilities.
-
-## 7. Sustainable Web Design
-
-Eco-friendly design practices that reduce energy consumption and carbon footprint are gaining importance.
-
-## 8. Advanced Typography
-
-Custom fonts and creative typography are being used to establish brand identity and improve readability.
-
-## 9. AI-Powered Personalization
-
-Artificial intelligence is enabling more personalized user experiences based on behavior and preferences.
-
-## 10. Progressive Web Apps (PWAs)
-
-PWAs combine the best of web and mobile apps, offering fast, reliable, and engaging user experiences.
-
-## Conclusion
-
-Implementing these website design trends can significantly improve user engagement, conversion rates, and search engine rankings. The key is to choose trends that align with your brand and audience needs while maintaining functionality and performance.
-    `,
-    category: 'Web Design',
-    readTime: '8 min read',
-    publishDate: 'Dec 15, 2024',
-    slug: 'website-design-trends-2025',
-    keywords: ['website design', 'web design trends', 'website design agency', 'modern web design'],
-    featured: true
+    id: "small-business-growth-hacking",
+    title: "Small Business Growth Hacking Strategies",
+    excerpt: "Growth hacking isn't just for Silicon Valley. Small businesses can use creative, data-driven tactics to accelerate growth and outpace the competition.",
+    content: [
+      {
+        type: 'heading',
+        level: 2,
+        text: 'Growth Hacking for Small Business Success',
+        keywords: ['growth hacking', 'small business success', 'data-driven tactics'],
+        id: 'growth-hacking-success'
+      },
+      {
+        type: 'paragraph',
+        text: 'Growth hacking isn\'t just for Silicon Valley. Small businesses can use creative, data-driven tactics to accelerate growth and outpace the competition. Here\'s how to apply growth hacking principles to your business.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '1. Optimize Your Funnel',
+        keywords: ['funnel optimization', 'conversion optimization', 'sales funnel'],
+        id: 'optimize-funnel'
+      },
+      {
+        type: 'paragraph',
+        text: 'Map out every step from first touch to sale. Identify where prospects drop off and test improvements—simpler forms, better CTAs, or clearer value propositions. Small changes can yield big results.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '2. Automate Repetitive Tasks',
+        keywords: ['marketing automation', 'business automation', 'SaaS tools'],
+        id: 'automate-tasks'
+      },
+      {
+        type: 'paragraph',
+        text: 'Free up your team\'s time by automating follow-ups, lead scoring, and reporting with custom SaaS tools. Automation allows you to scale your efforts without scaling your team.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '3. Experiment with Paid Ads',
+        keywords: ['paid advertising', 'Google Ads', 'Facebook Ads', 'ad optimization'],
+        id: 'paid-ads'
+      },
+      {
+        type: 'paragraph',
+        text: 'Start small with Google or Facebook Ads. Track every dollar, test different audiences, and double down on what works. Even a modest ad budget can drive significant results when optimized properly.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '4. Use Content to Build Trust',
+        keywords: ['content marketing', 'trust building', 'case studies'],
+        id: 'content-trust'
+      },
+      {
+        type: 'paragraph',
+        text: 'Publish case studies, how-to guides, and customer stories. Content builds authority and keeps your business top-of-mind. Focus on solving your customers\' problems, not just promoting your services.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '5. Measure, Learn, Repeat',
+        keywords: ['analytics', 'data analysis', 'continuous improvement'],
+        id: 'measure-learn'
+      },
+      {
+        type: 'paragraph',
+        text: 'Review analytics weekly. Celebrate wins, learn from losses, and keep iterating. Growth hacking is about agility and experimentation—what works for one business may not work for another.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: 'Conclusion',
+        keywords: ['growth strategy', 'business competition'],
+        id: 'conclusion'
+      },
+      {
+        type: 'paragraph',
+        text: 'Growth hacking is about agility and experimentation. With the right mindset and tools, your small business can achieve big results and compete with much larger competitors.'
+      }
+    ],
+    seoData: {
+      metaDescription: "Discover proven growth hacking strategies for small businesses. Learn how to optimize funnels, automate tasks, and scale efficiently without breaking the bank.",
+      keywords: ["growth hacking", "small business growth", "conversion optimization", "marketing automation", "business scaling", "paid advertising"],
+      focusKeyword: "small business growth hacking"
+    },
+    date: "2024-01-18",
+    author: "Digital Mosaic Studios Team",
+    category: "Growth Strategy",
+    tags: ["growth hacking", "small business", "automation", "conversion optimization", "analytics"],
+    readTime: "7 min read",
+    image: "/blog/growth-hacking-strategies.jpg"
   },
   {
-    id: '2',
-    title: 'Marketing Consulting: How to Choose the Right Agency',
-    excerpt: 'Navigate the complex world of marketing consulting with confidence. Learn what to look for in a marketing agency and how to ensure they align with your business goals.',
-    content: `
-# Marketing Consulting: How to Choose the Right Agency
-
-Selecting the right marketing consulting agency can make or break your business growth strategy. With countless agencies promising exceptional results, how do you choose the one that's truly right for your business?
-
-## Understanding Marketing Consulting
-
-Marketing consulting involves working with external experts to develop, implement, and optimize your marketing strategies. The right consultant brings fresh perspectives, specialized expertise, and proven methodologies to accelerate your growth.
-
-## Key Factors to Consider
-
-### 1. Industry Experience
-Look for agencies with experience in your specific industry. They'll understand your market dynamics, customer behavior, and competitive landscape.
-
-### 2. Service Offerings
-Ensure the agency provides comprehensive services that align with your needs:
-- Strategic planning
-- Digital marketing
-- Content creation
-- Analytics and reporting
-- Marketing automation
-
-### 3. Track Record and Results
-Request case studies and references from similar businesses. Look for measurable results and long-term client relationships.
-
-### 4. Communication Style
-Choose an agency that communicates clearly, regularly, and in terms you understand. Transparency is crucial for successful partnerships.
-
-### 5. Technology and Tools
-Modern marketing requires sophisticated tools. Ensure your chosen agency uses current technology and can integrate with your existing systems.
-
-## Red Flags to Avoid
-
-- Agencies that guarantee unrealistic results
-- Lack of transparency in pricing or methods
-- Poor communication or responsiveness
-- No clear reporting structure
-- One-size-fits-all approaches
-
-## Making the Final Decision
-
-The best marketing consulting agency for your business will combine industry expertise, proven results, clear communication, and a genuine understanding of your goals. Take time to evaluate multiple options and choose the partner that feels right for your long-term success.
-    `,
-    category: 'Consulting',
-    readTime: '6 min read',
-    publishDate: 'Dec 12, 2024',
-    slug: 'choosing-marketing-consulting-agency',
-    keywords: ['marketing consulting', 'strategic marketing consulting', 'marketing strategy', 'business consulting']
+    id: "essential-marketing-tools-new-businesses",
+    title: "Essential Marketing Tools for New Businesses",
+    excerpt: "The right tools can save you time, money, and headaches. Here are the top marketing tools every new business should consider for maximum impact.",
+    content: [
+      {
+        type: 'heading',
+        level: 2,
+        text: 'Building Your Marketing Tech Stack',
+        keywords: ['marketing tech stack', 'marketing tools', 'business tools'],
+        id: 'marketing-tech-stack'
+      },
+      {
+        type: 'paragraph',
+        text: 'The right tools can save you time, money, and headaches. Here are the top marketing tools every new business should consider, from essential basics to advanced solutions that scale with your growth.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '1. Website Builders & Hosting',
+        keywords: ['website builders', 'web hosting', 'WordPress', 'Squarespace'],
+        id: 'website-builders'
+      },
+      {
+        type: 'paragraph',
+        text: 'Wix, Squarespace, or WordPress for DIY solutions; custom design for maximum impact and conversion optimization. Choose based on your technical skills and growth plans.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '2. Analytics & Tracking',
+        keywords: ['Google Analytics', 'website analytics', 'tracking tools'],
+        id: 'analytics-tracking'
+      },
+      {
+        type: 'paragraph',
+        text: 'Google Analytics, Google Search Console, and Hotjar for understanding visitor behavior. These free tools provide invaluable insights into your website performance and user experience.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '3. Email Marketing',
+        keywords: ['email marketing', 'Mailchimp', 'email automation', 'ROI'],
+        id: 'email-marketing'
+      },
+      {
+        type: 'paragraph',
+        text: 'Mailchimp, ConvertKit, or Brevo for building and nurturing your email list. Email marketing consistently delivers the highest ROI of any digital marketing channel.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '4. Social Media Scheduling',
+        keywords: ['social media scheduling', 'Buffer', 'Hootsuite', 'social media automation'],
+        id: 'social-media-scheduling'
+      },
+      {
+        type: 'paragraph',
+        text: 'Buffer, Hootsuite, or Later to plan and automate your social media posts. Consistency is key to social media success, and scheduling tools help you maintain regular posting.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '5. Automation & SaaS',
+        keywords: ['marketing automation', 'Zapier', 'SaaS tools', 'workflow automation'],
+        id: 'automation-saas'
+      },
+      {
+        type: 'paragraph',
+        text: 'Zapier for connecting apps and automating workflows; custom SaaS tools for industry-specific needs. Automation helps small teams accomplish more with less effort.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '6. Customer Relationship Management',
+        keywords: ['CRM', 'HubSpot', 'customer management', 'sales process'],
+        id: 'crm-systems'
+      },
+      {
+        type: 'paragraph',
+        text: 'HubSpot, Pipedrive, or custom CRM solutions to track leads and manage customer relationships. A good CRM system is essential for scaling your sales process.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: 'Conclusion',
+        keywords: ['marketing tech stack', 'business growth', 'competitive advantage'],
+        id: 'conclusion'
+      },
+      {
+        type: 'paragraph',
+        text: 'Start with the essentials, then invest in custom solutions as you grow. The right marketing tech stack can give your business a serious competitive edge and help you scale efficiently.'
+      }
+    ],
+    seoData: {
+      metaDescription: "Discover essential marketing tools for new businesses. From website builders to CRM systems, learn which tools deliver maximum ROI and help you scale efficiently.",
+      keywords: ["marketing tools", "new business tools", "marketing tech stack", "business automation", "CRM systems", "email marketing tools"],
+      focusKeyword: "essential marketing tools"
+    },
+    date: "2024-01-16",
+    author: "Digital Mosaic Studios Team",
+    category: "Marketing Tools",
+    tags: ["marketing tools", "new business", "automation", "CRM", "email marketing"],
+    readTime: "8 min read",
+    image: "/blog/marketing-tools-guide.jpg"
   },
   {
-    id: '3',
-    title: 'SEO Services Guide: What Every Business Needs to Know',
-    excerpt: 'Demystify SEO services and understand what your business really needs. From keyword research to technical optimization, learn how to improve your search rankings.',
-    content: `
-# SEO Services Guide: What Every Business Needs to Know
-
-Search Engine Optimization (SEO) is essential for online visibility, but understanding what SEO services you actually need can be overwhelming. This comprehensive guide breaks down everything you need to know about SEO services.
-
-## What Are SEO Services?
-
-SEO services encompass various strategies and techniques designed to improve your website's visibility in search engine results. The goal is to attract more organic traffic and convert visitors into customers.
-
-## Core SEO Services
-
-### 1. Keyword Research and Strategy
-Identifying the terms your target audience uses to find businesses like yours. This forms the foundation of all SEO efforts.
-
-### 2. On-Page Optimization
-Optimizing individual web pages to rank higher and earn more relevant traffic:
-- Title tags and meta descriptions
-- Header structure (H1, H2, H3)
-- Content optimization
-- Internal linking
-- Image optimization
-
-### 3. Technical SEO
-Ensuring your website meets search engine technical requirements:
-- Site speed optimization
-- Mobile responsiveness
-- SSL certificates
-- XML sitemaps
-- Schema markup
-
-### 4. Content Creation
-Developing high-quality, relevant content that addresses user intent and incorporates target keywords naturally.
-
-### 5. Link Building
-Acquiring high-quality backlinks from reputable websites to improve domain authority and search rankings.
-
-### 6. Local SEO
-Optimizing for local search results, crucial for businesses serving specific geographic areas.
-
-## Measuring SEO Success
-
-Key metrics to track include:
-- Organic traffic growth
-- Keyword rankings
-- Click-through rates
-- Conversion rates
-- Local visibility (for local businesses)
-
-## Choosing SEO Services
-
-When selecting SEO services, consider:
-- Your business goals and budget
-- The provider's experience and track record
-- Transparency in methods and reporting
-- Realistic timelines and expectations
-
-## Conclusion
-
-Effective SEO services require a comprehensive approach combining technical expertise, content strategy, and ongoing optimization. The right SEO partner will help you achieve sustainable growth in organic search visibility.
-    `,
-    category: 'SEO',
-    readTime: '7 min read',
-    publishDate: 'Dec 10, 2024',
-    slug: 'seo-services-guide-business',
-    keywords: ['SEO services', 'expert seo', 'search engine optimization', 'SEO strategy']
+    id: "digital-marketing-trends-2024",
+    title: "Top Digital Marketing Trends to Watch in 2024",
+    excerpt: "Discover the latest digital marketing trends that will shape your strategy in 2024, from AI-powered personalization to voice search optimization.",
+    content: [
+      {
+        type: 'heading',
+        level: 2,
+        text: 'The Digital Marketing Landscape is Evolving',
+        keywords: ['digital marketing landscape', 'marketing trends 2024', 'competitive advantage'],
+        id: 'marketing-landscape'
+      },
+      {
+        type: 'paragraph',
+        text: 'As we navigate through 2024, the digital marketing landscape continues to evolve at an unprecedented pace. Businesses that stay ahead of these trends will have a significant competitive advantage.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '1. AI-Powered Personalization',
+        keywords: ['AI personalization', 'artificial intelligence marketing', 'predictive analytics'],
+        id: 'ai-personalization'
+      },
+      {
+        type: 'paragraph',
+        text: 'Artificial intelligence is revolutionizing how we approach customer personalization. From chatbots to predictive analytics, AI helps create more targeted and effective marketing campaigns.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '2. Voice Search Optimization',
+        keywords: ['voice search optimization', 'smart speakers', 'conversational keywords'],
+        id: 'voice-search'
+      },
+      {
+        type: 'paragraph',
+        text: 'With the rise of smart speakers and voice assistants, optimizing for voice search has become crucial. This means focusing on conversational keywords and local SEO.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '3. Video Marketing Dominance',
+        keywords: ['video marketing', 'short-form videos', 'live streaming', 'engagement rates'],
+        id: 'video-marketing'
+      },
+      {
+        type: 'paragraph',
+        text: 'Video content continues to dominate social media platforms. Short-form videos, live streaming, and interactive video content are driving engagement rates higher than ever.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '4. Privacy-First Marketing',
+        keywords: ['privacy-first marketing', 'cookieless future', 'privacy regulations'],
+        id: 'privacy-marketing'
+      },
+      {
+        type: 'paragraph',
+        text: 'With increasing privacy regulations, marketers must adapt to a cookieless future while still delivering personalized experiences.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: 'Conclusion',
+        keywords: ['digital marketplace', 'cutting-edge strategies'],
+        id: 'conclusion'
+      },
+      {
+        type: 'paragraph',
+        text: 'Staying current with these trends will help your business maintain a competitive edge in the digital marketplace. At Digital Mosaic Studios, we help businesses implement these cutting-edge strategies.'
+      }
+    ],
+    seoData: {
+      metaDescription: "Stay ahead with the top digital marketing trends for 2024. Discover AI personalization, voice search optimization, video marketing dominance, and privacy-first strategies.",
+      keywords: ["digital marketing trends 2024", "AI marketing", "voice search optimization", "video marketing", "privacy-first marketing", "marketing strategy"],
+      focusKeyword: "digital marketing trends 2024"
+    },
+    date: "2024-01-15",
+    author: "Digital Mosaic Studios Team",
+    category: "Digital Marketing",
+    tags: ["trends", "AI", "voice search", "video marketing", "privacy"],
+    readTime: "5 min read",
+    image: "/blog/digital-marketing-trends.jpg"
   },
   {
-    id: '4',
-    title: 'Competitor Analysis: Tools and Strategies for Success',
-    excerpt: 'Master the art of competitive intelligence with proven tools and strategies. Learn how to analyze competitors effectively and gain strategic advantages.',
-    content: `
-# Competitor Analysis: Tools and Strategies for Success
-
-Understanding your competition is crucial for business success. Effective competitor analysis provides insights that can inform your strategy, identify opportunities, and help you stay ahead in your market.
-
-## Why Competitor Analysis Matters
-
-Competitor analysis helps you:
-- Identify market gaps and opportunities
-- Understand industry benchmarks
-- Improve your value proposition
-- Anticipate market changes
-- Make informed strategic decisions
-
-## Key Areas to Analyze
-
-### 1. Market Position
-- Market share and positioning
-- Target audience and customer segments
-- Unique selling propositions
-- Brand messaging and positioning
-
-### 2. Product and Service Offerings
-- Features and benefits
-- Pricing strategies
-- Quality and customer satisfaction
-- Innovation and development pipeline
-
-### 3. Marketing and Sales Strategies
-- Digital marketing channels
-- Content marketing approach
-- Social media presence
-- Sales processes and customer journey
-
-### 4. Online Presence
-- Website design and user experience
-- Search engine rankings
-- Social media engagement
-- Online reviews and reputation
-
-## Essential Competitor Analysis Tools
-
-### Free Tools
-- Google Alerts for monitoring mentions
-- Google Analytics for traffic insights
-- Social media platforms for engagement analysis
-- Google Search for SERP analysis
-
-### Paid Tools
-- SEMrush for comprehensive digital analysis
-- Ahrefs for backlink and keyword analysis
-- SimilarWeb for traffic and engagement data
-- BuzzSumo for content performance analysis
-
-## Conducting Effective Analysis
-
-### 1. Identify Your Competitors
-- Direct competitors (same products/services)
-- Indirect competitors (alternative solutions)
-- Aspirational competitors (industry leaders)
-
-### 2. Gather Data Systematically
-Create a structured approach to data collection, focusing on:
-- Quantitative metrics (traffic, rankings, engagement)
-- Qualitative insights (messaging, positioning, customer feedback)
-
-### 3. Analyze and Interpret Findings
-Look for patterns, trends, and opportunities that can inform your strategy.
-
-### 4. Take Action
-Use insights to improve your own strategies and identify competitive advantages.
-
-## Best Practices
-
-- Conduct analysis regularly, not just once
-- Focus on actionable insights
-- Respect ethical boundaries
-- Combine multiple data sources
-- Document findings for future reference
-
-## Conclusion
-
-Effective competitor analysis is an ongoing process that provides valuable insights for strategic decision-making. By understanding your competitive landscape, you can make informed decisions that drive business growth and success.
-    `,
-    category: 'Strategy',
-    readTime: '9 min read',
-    publishDate: 'Dec 8, 2024',
-    slug: 'competitor-analysis-tools-strategies',
-    keywords: ['competitive intelligence', 'competitor analysis', 'market research', 'business strategy']
+    id: "seo-best-practices-2024",
+    title: "SEO Best Practices for Small Businesses in 2024",
+    excerpt: "Learn essential SEO strategies that small businesses can implement to improve their search engine rankings and drive more organic traffic.",
+    content: [
+      {
+        type: 'heading',
+        level: 2,
+        text: 'Why SEO Matters for Small Businesses',
+        keywords: ['SEO for small businesses', 'search engine optimization', 'digital marketplace'],
+        id: 'why-seo-matters'
+      },
+      {
+        type: 'paragraph',
+        text: 'Search Engine Optimization (SEO) is crucial for small businesses looking to compete in the digital marketplace. With the right strategies, even small businesses can rank well against larger competitors.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '1. Focus on Local SEO',
+        keywords: ['local SEO', 'Google Business Profile', 'NAP consistency'],
+        id: 'local-seo'
+      },
+      {
+        type: 'paragraph',
+        text: 'For small businesses, local SEO is often the most important factor. Optimize your Google Business Profile, gather positive reviews, and ensure your NAP (Name, Address, Phone) information is consistent across all platforms.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '2. Create Quality, Relevant Content',
+        keywords: ['content marketing', 'SEO content', 'blog posts', 'customer pain points'],
+        id: 'quality-content'
+      },
+      {
+        type: 'paragraph',
+        text: 'Content is still king in SEO. Create valuable, informative content that addresses your customers\' pain points and questions. Regular blog posts, FAQs, and service pages all contribute to better rankings.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '3. Optimize for Mobile',
+        keywords: ['mobile-first indexing', 'responsive design', 'mobile SEO'],
+        id: 'mobile-optimization'
+      },
+      {
+        type: 'paragraph',
+        text: 'With mobile-first indexing, ensuring your website is mobile-friendly is no longer optional. A responsive design and fast loading times are essential for both user experience and SEO.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '4. Build Quality Backlinks',
+        keywords: ['backlink building', 'guest posting', 'link building strategies'],
+        id: 'quality-backlinks'
+      },
+      {
+        type: 'paragraph',
+        text: 'Focus on earning backlinks from reputable, relevant websites in your industry. Guest posting, local partnerships, and creating shareable content are effective strategies.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '5. Technical SEO Fundamentals',
+        keywords: ['technical SEO', 'site speed', 'SSL certificates', 'XML sitemaps'],
+        id: 'technical-seo'
+      },
+      {
+        type: 'paragraph',
+        text: 'Don\'t overlook technical aspects like site speed, SSL certificates, XML sitemaps, and proper URL structure. These foundational elements support all your other SEO efforts.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: 'Conclusion',
+        keywords: ['SEO investment', 'online visibility', 'customer attraction'],
+        id: 'conclusion'
+      },
+      {
+        type: 'paragraph',
+        text: 'SEO is a long-term investment that requires patience and consistency. By focusing on these best practices, small businesses can significantly improve their online visibility and attract more customers.'
+      }
+    ],
+    seoData: {
+      metaDescription: "Master SEO best practices for small businesses in 2024. Learn local SEO, content strategies, mobile optimization, and technical SEO fundamentals to outrank competitors.",
+      keywords: ["SEO best practices", "small business SEO", "local SEO", "mobile optimization", "technical SEO", "content marketing SEO"],
+      focusKeyword: "SEO best practices 2024"
+    },
+    date: "2024-01-10",
+    author: "Digital Mosaic Studios Team",
+    category: "SEO",
+    tags: ["SEO", "small business", "local SEO", "content marketing", "technical SEO"],
+    readTime: "7 min read",
+    image: "/blog/seo-best-practices.jpg"
   },
   {
-    id: '5',
-    title: 'Lead Generation Strategies That Actually Work',
-    excerpt: 'Discover proven lead generation strategies that drive real results. From content marketing to automation, learn how to attract and convert quality leads.',
-    content: `
-# Lead Generation Strategies That Actually Work
-
-Lead generation is the lifeblood of business growth. However, not all lead generation strategies are created equal. This guide focuses on proven methods that consistently deliver high-quality leads.
-
-## Understanding Lead Generation
-
-Lead generation is the process of attracting and converting prospects into potential customers who have expressed interest in your products or services.
-
-## Proven Lead Generation Strategies
-
-### 1. Content Marketing
-Create valuable content that addresses your audience's pain points:
-- Blog posts and articles
-- Whitepapers and ebooks
-- Webinars and video content
-- Case studies and success stories
-
-### 2. Search Engine Optimization (SEO)
-Optimize your website to attract organic traffic:
-- Target relevant keywords
-- Create high-quality, informative content
-- Optimize for local search (if applicable)
-- Build authoritative backlinks
-
-### 3. Pay-Per-Click (PPC) Advertising
-Use targeted ads to reach potential customers:
-- Google Ads for search intent
-- Social media advertising
-- Retargeting campaigns
-- Display advertising
-
-### 4. Social Media Marketing
-Leverage social platforms to engage with prospects:
-- Share valuable content regularly
-- Engage with your audience
-- Use social media advertising
-- Build communities around your brand
-
-### 5. Email Marketing
-Nurture leads through targeted email campaigns:
-- Welcome series for new subscribers
-- Educational content sequences
-- Product announcements and offers
-- Personalized recommendations
-
-### 6. Landing Page Optimization
-Create compelling landing pages that convert:
-- Clear value propositions
-- Minimal form fields
-- Strong calls-to-action
-- Mobile optimization
-
-### 7. Referral Programs
-Encourage existing customers to refer new leads:
-- Incentivize referrals
-- Make sharing easy
-- Track and reward referrers
-- Follow up on referrals promptly
-
-## Lead Qualification and Scoring
-
-Not all leads are equal. Implement lead scoring to prioritize your efforts:
-- Demographic information
-- Behavioral data
-- Engagement levels
-- Purchase intent signals
-
-## Measuring Lead Generation Success
-
-Key metrics to track:
-- Lead volume and quality
-- Conversion rates by channel
-- Cost per lead
-- Customer acquisition cost
-- Lifetime value of customers
-
-## Common Lead Generation Mistakes
-
-- Focusing on quantity over quality
-- Neglecting lead nurturing
-- Poor follow-up processes
-- Inconsistent messaging
-- Ignoring mobile optimization
-
-## Conclusion
-
-Successful lead generation requires a multi-channel approach, consistent execution, and continuous optimization. Focus on providing value to your audience, and the leads will follow.
-    `,
-    category: 'Marketing',
-    readTime: '8 min read',
-    publishDate: 'Dec 5, 2024',
-    slug: 'lead-generation-strategies-that-work',
-    keywords: ['lead generation', 'marketing strategy', 'customer acquisition', 'digital marketing']
+    id: "social-media-strategy-guide",
+    title: "Building an Effective Social Media Strategy for Your Business",
+    excerpt: "A comprehensive guide to creating a social media strategy that drives engagement, builds brand awareness, and generates leads for your business.",
+    content: [
+      {
+        type: 'heading',
+        level: 2,
+        text: 'The Power of Social Media Marketing',
+        keywords: ['social media marketing', 'business growth', 'brand loyalty'],
+        id: 'social-media-power'
+      },
+      {
+        type: 'paragraph',
+        text: 'Social media has become an indispensable tool for businesses of all sizes. A well-crafted social media strategy can help you connect with your audience, build brand loyalty, and drive business growth.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '1. Define Your Goals and Objectives',
+        keywords: ['social media goals', 'brand awareness', 'lead generation'],
+        id: 'define-goals'
+      },
+      {
+        type: 'paragraph',
+        text: 'Before diving into content creation, clearly define what you want to achieve. Whether it\'s brand awareness, lead generation, or customer service, your goals will shape your entire strategy.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '2. Know Your Audience',
+        keywords: ['target audience', 'demographics', 'social media behavior'],
+        id: 'know-audience'
+      },
+      {
+        type: 'paragraph',
+        text: 'Understanding your target audience is crucial. Research their demographics, interests, pain points, and social media behavior. This information will guide your content creation and platform selection.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '3. Choose the Right Platforms',
+        keywords: ['social media platforms', 'platform selection', 'quality over quantity'],
+        id: 'choose-platforms'
+      },
+      {
+        type: 'paragraph',
+        text: 'Not all social media platforms are created equal. Focus on platforms where your target audience is most active. Quality over quantity is key when it comes to platform selection.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '4. Create Engaging Content',
+        keywords: ['engaging content', 'content mix', 'social media content'],
+        id: 'engaging-content'
+      },
+      {
+        type: 'paragraph',
+        text: 'Develop a content mix that includes educational, entertaining, and promotional posts. Use a variety of formats including images, videos, stories, and live content to keep your audience engaged.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '5. Maintain Consistency',
+        keywords: ['social media consistency', 'brand voice', 'posting schedule'],
+        id: 'maintain-consistency'
+      },
+      {
+        type: 'paragraph',
+        text: 'Consistency in posting schedule, brand voice, and visual identity helps build recognition and trust with your audience. Use scheduling tools to maintain regular posting.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '6. Engage with Your Community',
+        keywords: ['community engagement', 'social media engagement', 'relationship building'],
+        id: 'engage-community'
+      },
+      {
+        type: 'paragraph',
+        text: 'Social media is about being social. Respond to comments, participate in conversations, and build relationships with your followers. Engagement is a two-way street.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '7. Monitor and Analyze Performance',
+        keywords: ['social media analytics', 'performance tracking', 'content optimization'],
+        id: 'monitor-performance'
+      },
+      {
+        type: 'paragraph',
+        text: 'Use analytics tools to track your performance and understand what content resonates with your audience. Regular analysis helps you refine your strategy and improve results.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: 'Conclusion',
+        keywords: ['social media strategy', 'business objectives', 'continuous optimization'],
+        id: 'conclusion'
+      },
+      {
+        type: 'paragraph',
+        text: 'A successful social media strategy requires planning, consistency, and continuous optimization. By following these guidelines, you can build a strong social media presence that supports your business objectives.'
+      }
+    ],
+    seoData: {
+      metaDescription: "Build an effective social media strategy that drives engagement and generates leads. Learn platform selection, content creation, audience targeting, and performance optimization.",
+      keywords: ["social media strategy", "social media marketing", "content creation", "audience engagement", "brand building", "social media analytics"],
+      focusKeyword: "social media strategy"
+    },
+    date: "2024-01-05",
+    author: "Digital Mosaic Studios Team",
+    category: "Social Media",
+    tags: ["social media", "strategy", "engagement", "content marketing", "brand building"],
+    readTime: "8 min read",
+    image: "/blog/social-media-strategy.jpg"
   },
   {
-    id: '6',
-    title: 'Marketing Automation: Streamline Your Business Growth',
-    excerpt: 'Unlock the power of marketing automation to scale your business efficiently. Learn how to implement automated workflows that nurture leads and drive conversions.',
-    content: `
-# Marketing Automation: Streamline Your Business Growth
-
-Marketing automation has revolutionized how businesses nurture leads, engage customers, and drive growth. By automating repetitive tasks and personalizing customer experiences, businesses can scale their marketing efforts efficiently.
-
-## What is Marketing Automation?
-
-Marketing automation uses software to automate marketing tasks and workflows. It enables businesses to deliver personalized messages to prospects and customers at scale, based on their behavior and preferences.
-
-## Benefits of Marketing Automation
-
-### 1. Increased Efficiency
-Automate repetitive tasks like email sending, social media posting, and lead scoring, freeing up time for strategic activities.
-
-### 2. Improved Lead Nurturing
-Guide prospects through the sales funnel with targeted, timely communications based on their actions and interests.
-
-### 3. Better Customer Experience
-Deliver personalized content and offers that resonate with individual customers.
-
-### 4. Enhanced Analytics
-Track customer behavior and campaign performance with detailed analytics and reporting.
-
-### 5. Scalable Growth
-Handle increasing volumes of leads and customers without proportionally increasing staff.
-
-## Key Marketing Automation Features
-
-### Email Marketing Automation
-- Welcome series for new subscribers
-- Abandoned cart reminders
-- Birthday and anniversary emails
-- Re-engagement campaigns
-
-### Lead Scoring and Management
-- Automatically score leads based on behavior
-- Route qualified leads to sales teams
-- Track lead progression through the funnel
-
-### Social Media Automation
-- Schedule posts across multiple platforms
-- Monitor social mentions and engagement
-- Automate responses to common inquiries
-
-### Customer Segmentation
-- Automatically segment customers based on behavior
-- Create dynamic lists that update in real-time
-- Personalize messaging for different segments
-
-## Implementing Marketing Automation
-
-### 1. Define Your Goals
-Clearly outline what you want to achieve:
-- Increase lead conversion rates
-- Improve customer retention
-- Reduce manual workload
-- Enhance customer experience
-
-### 2. Map Customer Journeys
-Understand how customers interact with your brand:
-- Awareness stage touchpoints
-- Consideration phase activities
-- Decision-making factors
-- Post-purchase engagement
-
-### 3. Choose the Right Platform
-Consider factors like:
-- Integration capabilities
-- Ease of use
-- Scalability
-- Pricing structure
-- Support and training
-
-### 4. Start Small and Scale
-Begin with simple automations:
-- Welcome email series
-- Basic lead scoring
-- Simple drip campaigns
-- Gradually add complexity
-
-## Best Practices for Marketing Automation
-
-### 1. Maintain Human Touch
-Balance automation with personal interaction. Not everything should be automated.
-
-### 2. Test and Optimize
-Continuously test different approaches:
-- A/B test email subject lines
-- Experiment with send times
-- Test different content formats
-- Optimize based on results
-
-### 3. Keep Data Clean
-Maintain accurate, up-to-date customer data:
-- Regular database cleaning
-- Consistent data entry standards
-- Remove inactive subscribers
-- Update contact information
-
-### 4. Respect Privacy
-Ensure compliance with data protection regulations:
-- Obtain proper consent
-- Provide easy unsubscribe options
-- Protect customer data
-- Be transparent about data usage
-
-## Common Marketing Automation Mistakes
-
-- Over-automating customer interactions
-- Neglecting to update automated workflows
-- Sending irrelevant or poorly timed messages
-- Failing to integrate with other systems
-- Not training team members properly
-
-## Measuring Success
-
-Key metrics to track:
-- Email open and click-through rates
-- Lead conversion rates
-- Customer lifetime value
-- Time saved through automation
-- Revenue attributed to automated campaigns
-
-## Conclusion
-
-Marketing automation is a powerful tool for scaling business growth, but success requires careful planning, implementation, and ongoing optimization. Start with clear goals, choose the right tools, and focus on delivering value to your customers at every touchpoint.
-    `,
-    category: 'Automation',
-    readTime: '10 min read',
-    publishDate: 'Dec 3, 2024',
-    slug: 'marketing-automation-business-growth',
-    keywords: ['marketing automation', 'business growth', 'email marketing', 'customer nurturing']
+    id: "website-design-trends-2024",
+    title: "Modern Website Design Trends That Convert Visitors to Customers",
+    excerpt: "Explore the latest website design trends that not only look great but also improve user experience and conversion rates.",
+    content: [
+      {
+        type: 'heading',
+        level: 2,
+        text: 'Design That Drives Results',
+        keywords: ['website design', 'user experience', 'conversion optimization'],
+        id: 'design-drives-results'
+      },
+      {
+        type: 'paragraph',
+        text: 'Modern website design goes beyond aesthetics. Today\'s most effective websites combine beautiful design with strategic user experience elements that guide visitors toward conversion.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '1. Minimalist Design with Purpose',
+        keywords: ['minimalist design', 'clean design', 'purposeful design'],
+        id: 'minimalist-design'
+      },
+      {
+        type: 'paragraph',
+        text: 'Clean, uncluttered designs help users focus on what matters most. Every element should serve a purpose, whether it\'s guiding users to take action or providing valuable information.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '2. Mobile-First Approach',
+        keywords: ['mobile-first design', 'responsive design', 'mobile optimization'],
+        id: 'mobile-first'
+      },
+      {
+        type: 'paragraph',
+        text: 'With mobile traffic dominating web usage, designing for mobile first ensures optimal user experience across all devices. This approach also aligns with Google\'s mobile-first indexing.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '3. Fast Loading Speeds',
+        keywords: ['page speed', 'website performance', 'loading times'],
+        id: 'fast-loading'
+      },
+      {
+        type: 'paragraph',
+        text: 'Page speed directly impacts user experience and SEO rankings. Optimize images, minimize code, and use content delivery networks to ensure fast loading times.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '4. Interactive Elements',
+        keywords: ['interactive design', 'animations', 'user engagement'],
+        id: 'interactive-elements'
+      },
+      {
+        type: 'paragraph',
+        text: 'Subtle animations, hover effects, and interactive elements can enhance user engagement without overwhelming the experience. Use them strategically to guide user attention.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '5. Clear Call-to-Actions',
+        keywords: ['call-to-action', 'CTA optimization', 'conversion design'],
+        id: 'clear-ctas'
+      },
+      {
+        type: 'paragraph',
+        text: 'Effective CTAs are prominent, action-oriented, and strategically placed throughout the site. They should clearly communicate the value proposition and next steps.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '6. Accessibility Features',
+        keywords: ['web accessibility', 'inclusive design', 'accessibility standards'],
+        id: 'accessibility-features'
+      },
+      {
+        type: 'paragraph',
+        text: 'Designing for accessibility ensures your website is usable by everyone, including users with disabilities. This includes proper color contrast, alt text for images, and keyboard navigation.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '7. Trust Signals',
+        keywords: ['trust signals', 'social proof', 'testimonials', 'security badges'],
+        id: 'trust-signals'
+      },
+      {
+        type: 'paragraph',
+        text: 'Include testimonials, reviews, certifications, and security badges to build trust with visitors. Social proof is crucial for conversion optimization.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: 'Conclusion',
+        keywords: ['website design trends', 'business results', 'modern design'],
+        id: 'conclusion'
+      },
+      {
+        type: 'paragraph',
+        text: 'Effective website design balances aesthetics with functionality. By incorporating these trends thoughtfully, you can create a website that not only looks modern but also drives business results.'
+      }
+    ],
+    seoData: {
+      metaDescription: "Discover modern website design trends that convert visitors to customers. Learn about mobile-first design, accessibility, fast loading speeds, and conversion optimization.",
+      keywords: ["website design trends", "conversion optimization", "mobile-first design", "web accessibility", "user experience", "website performance"],
+      focusKeyword: "website design trends 2024"
+    },
+    date: "2023-12-28",
+    author: "Digital Mosaic Studios Team",
+    category: "Web Design",
+    tags: ["web design", "UX", "conversion optimization", "mobile design", "accessibility"],
+    readTime: "6 min read",
+    image: "/blog/website-design-trends.jpg"
   },
   {
-    id: '7',
-    title: 'Strategic Marketing Consulting: Building Your Roadmap',
-    excerpt: 'Learn how strategic marketing consulting can transform your business. Discover the process of creating a comprehensive marketing roadmap for sustainable growth.',
-    content: `
-# Strategic Marketing Consulting: Building Your Roadmap
-
-Strategic marketing consulting goes beyond tactical execution—it's about creating a comprehensive roadmap that aligns marketing efforts with business objectives and drives sustainable growth.
-
-## What is Strategic Marketing Consulting?
-
-Strategic marketing consulting involves working with external experts to develop long-term marketing strategies that support overall business goals. It combines market analysis, competitive intelligence, and strategic planning to create actionable roadmaps.
-
-## The Strategic Planning Process
-
-### 1. Business Assessment
-Understanding your current position:
-- Business goals and objectives
-- Current marketing performance
-- Resource availability
-- Market position
-- Competitive landscape
-
-### 2. Market Analysis
-Comprehensive market research:
-- Target audience analysis
-- Market size and growth potential
-- Industry trends and opportunities
-- Customer behavior patterns
-- Competitive positioning
-
-### 3. Strategy Development
-Creating the strategic framework:
-- Marketing objectives and KPIs
-- Target market segmentation
-- Value proposition development
-- Channel strategy
-- Budget allocation
-
-### 4. Implementation Planning
-Developing actionable plans:
-- Campaign roadmaps
-- Resource requirements
-- Timeline and milestones
-- Risk assessment
-- Success metrics
-
-## Key Components of Strategic Marketing
-
-### Brand Positioning
-Defining how your brand should be perceived:
-- Unique value proposition
-- Brand personality and voice
-- Competitive differentiation
-- Market positioning statement
-
-### Customer Journey Mapping
-Understanding the customer experience:
-- Awareness stage touchpoints
-- Consideration phase interactions
-- Decision-making factors
-- Post-purchase engagement
-- Loyalty and advocacy opportunities
-
-### Channel Strategy
-Selecting the right marketing channels:
-- Digital marketing channels
-- Traditional marketing options
-- Content marketing platforms
-- Social media strategy
-- Email marketing approach
-
-### Content Strategy
-Developing valuable content:
-- Content themes and topics
-- Content formats and types
-- Publishing schedules
-- Distribution strategies
-- Performance measurement
-
-## Benefits of Strategic Marketing Consulting
-
-### 1. Objective Perspective
-External consultants provide unbiased insights and fresh perspectives on your business challenges and opportunities.
-
-### 2. Specialized Expertise
-Access to specialized knowledge and experience across various industries and marketing disciplines.
-
-### 3. Resource Efficiency
-Optimize marketing spend and resource allocation based on strategic priorities and expected ROI.
-
-### 4. Accelerated Growth
-Implement proven strategies and best practices to accelerate business growth and market penetration.
-
-### 5. Risk Mitigation
-Identify potential challenges and develop contingency plans to minimize risks.
-
-## Choosing a Strategic Marketing Consultant
-
-### Key Criteria
-- Industry experience and expertise
-- Track record of success
-- Strategic thinking capabilities
-- Communication and collaboration skills
-- Cultural fit with your organization
-
-### Questions to Ask
-- What is your approach to strategic planning?
-- Can you provide case studies from similar businesses?
-- How do you measure success?
-- What is your implementation methodology?
-- How do you stay current with industry trends?
-
-## Implementation and Execution
-
-### 1. Phased Approach
-Break down the strategy into manageable phases:
-- Quick wins and immediate improvements
-- Medium-term initiatives
-- Long-term strategic projects
-
-### 2. Team Alignment
-Ensure all stakeholders understand and support the strategy:
-- Executive buy-in
-- Team training and education
-- Clear roles and responsibilities
-- Regular communication and updates
-
-### 3. Continuous Monitoring
-Track progress and adjust as needed:
-- Regular performance reviews
-- KPI monitoring and reporting
-- Strategy refinement
-- Market condition adjustments
-
-## Common Strategic Marketing Challenges
-
-- Lack of clear business objectives
-- Insufficient market research
-- Poor strategy communication
-- Inadequate resource allocation
-- Resistance to change
-- Failure to adapt to market changes
-
-## Measuring Strategic Success
-
-Key performance indicators:
-- Revenue growth
-- Market share increase
-- Customer acquisition cost
-- Customer lifetime value
-- Brand awareness and perception
-- Return on marketing investment
-
-## Conclusion
-
-Strategic marketing consulting provides the framework and expertise needed to build a comprehensive marketing roadmap. By taking a strategic approach, businesses can align their marketing efforts with business objectives, optimize resource allocation, and achieve sustainable growth.
-    `,
-    category: 'Strategy',
-    readTime: '11 min read',
-    publishDate: 'Dec 1, 2024',
-    slug: 'strategic-marketing-consulting-roadmap',
-    keywords: ['strategic marketing consulting', 'marketing strategy', 'business planning', 'marketing roadmap']
+    id: "content-marketing-roi",
+    title: "Measuring Content Marketing ROI: Metrics That Matter",
+    excerpt: "Learn how to measure the return on investment of your content marketing efforts with key metrics and tracking strategies.",
+    content: [
+      {
+        type: 'heading',
+        level: 2,
+        text: 'The Challenge of Measuring Content Marketing ROI',
+        keywords: ['content marketing ROI', 'marketing measurement', 'content strategy'],
+        id: 'measuring-roi-challenge'
+      },
+      {
+        type: 'paragraph',
+        text: 'Content marketing is a long-term strategy that can be challenging to measure. However, with the right metrics and tracking systems, you can demonstrate clear ROI and optimize your content strategy.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '1. Set Clear Objectives',
+        keywords: ['content objectives', 'brand awareness', 'lead generation'],
+        id: 'clear-objectives'
+      },
+      {
+        type: 'paragraph',
+        text: 'Before measuring ROI, define what success looks like for your content marketing efforts. Common objectives include brand awareness, lead generation, customer education, and sales support.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '2. Track Traffic and Engagement Metrics',
+        keywords: ['website traffic', 'engagement metrics', 'content performance'],
+        id: 'traffic-engagement'
+      },
+      {
+        type: 'paragraph',
+        text: 'Monitor website traffic, time on page, bounce rate, and social media engagement. These metrics indicate how well your content resonates with your audience.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '3. Lead Generation Metrics',
+        keywords: ['lead generation', 'UTM parameters', 'content attribution'],
+        id: 'lead-generation'
+      },
+      {
+        type: 'paragraph',
+        text: 'Track how your content contributes to lead generation through form submissions, newsletter signups, and content downloads. Use UTM parameters to attribute leads to specific content pieces.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '4. Conversion Tracking',
+        keywords: ['conversion tracking', 'customer journey', 'sales funnel'],
+        id: 'conversion-tracking'
+      },
+      {
+        type: 'paragraph',
+        text: 'Set up conversion tracking to see how content influences the customer journey. This includes both direct conversions and assisted conversions throughout the sales funnel.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '5. Customer Lifetime Value',
+        keywords: ['customer lifetime value', 'long-term ROI', 'content marketing value'],
+        id: 'customer-lifetime-value'
+      },
+      {
+        type: 'paragraph',
+        text: 'Consider the long-term value of customers acquired through content marketing. This provides a more complete picture of content ROI beyond immediate conversions.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '6. Brand Awareness Metrics',
+        keywords: ['brand awareness', 'brand mentions', 'branded search'],
+        id: 'brand-awareness'
+      },
+      {
+        type: 'paragraph',
+        text: 'Track brand mentions, search volume for branded terms, and direct traffic to measure how content marketing impacts brand awareness and recognition.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '7. Cost Analysis',
+        keywords: ['content costs', 'ROI calculation', 'content investment'],
+        id: 'cost-analysis'
+      },
+      {
+        type: 'paragraph',
+        text: 'Calculate the total cost of content creation, including time, tools, and promotion. Compare this to the value generated to determine true ROI.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: 'Conclusion',
+        keywords: ['content marketing strategy', 'ROI optimization', 'stakeholder value'],
+        id: 'conclusion'
+      },
+      {
+        type: 'paragraph',
+        text: 'Measuring content marketing ROI requires a comprehensive approach that considers both short-term and long-term impacts. By tracking the right metrics, you can optimize your content strategy and demonstrate its value to stakeholders.'
+      }
+    ],
+    seoData: {
+      metaDescription: "Master content marketing ROI measurement with key metrics and tracking strategies. Learn to track traffic, leads, conversions, and demonstrate content marketing value.",
+      keywords: ["content marketing ROI", "marketing metrics", "content measurement", "lead generation tracking", "conversion tracking", "brand awareness metrics"],
+      focusKeyword: "content marketing ROI"
+    },
+    date: "2023-12-20",
+    author: "Digital Mosaic Studios Team",
+    category: "Content Marketing",
+    tags: ["content marketing", "ROI", "analytics", "metrics", "measurement"],
+    readTime: "7 min read",
+    image: "/blog/content-marketing-roi.jpg"
   },
   {
-    id: '8',
-    title: 'Expert SEO Tips for Small Business Success',
-    excerpt: 'Practical SEO tips specifically designed for small businesses. Learn cost-effective strategies to improve your search rankings and attract more customers.',
-    content: `
-# Expert SEO Tips for Small Business Success
-
-Small businesses face unique challenges when it comes to SEO. Limited budgets, time constraints, and competition from larger companies can make it difficult to achieve search engine visibility. However, with the right strategies, small businesses can compete effectively and achieve significant results.
-
-## SEO Fundamentals for Small Businesses
-
-### 1. Start with Local SEO
-Local SEO is crucial for small businesses serving specific geographic areas:
-- Claim and optimize your Google Business Profile
-- Ensure consistent NAP (Name, Address, Phone) across all platforms
-- Encourage customer reviews and respond to them
-- Create location-specific content
-- Build local citations and backlinks
-
-### 2. Focus on Long-Tail Keywords
-Target specific, less competitive keywords:
-- Use keyword research tools to find opportunities
-- Focus on buyer-intent keywords
-- Include location-based keywords
-- Target question-based searches
-- Optimize for voice search queries
-
-### 3. Create High-Quality Content
-Content is still king in SEO:
-- Address customer pain points and questions
-- Create comprehensive, helpful content
-- Use keywords naturally throughout your content
-- Update content regularly
-- Include local references and examples
-
-## Technical SEO Essentials
-
-### 1. Website Speed Optimization
-Fast-loading websites rank better:
-- Optimize images and media files
-- Use caching and compression
-- Choose reliable hosting
-- Minimize plugins and scripts
-- Test speed regularly
-
-### 2. Mobile Optimization
-Ensure your website works perfectly on mobile devices:
-- Use responsive design
-- Test on various devices
-- Optimize for touch navigation
-- Ensure fast mobile loading
-- Consider mobile-first design
-
-### 3. SSL Certificate
-Secure websites are favored by search engines:
-- Install SSL certificate
-- Redirect HTTP to HTTPS
-- Update internal links
-- Check for mixed content issues
-
-## Content Marketing for SEO
-
-### 1. Blog Regularly
-Consistent blogging improves SEO:
-- Publish helpful, relevant content
-- Target specific keywords
-- Include internal links
-- Optimize meta descriptions
-- Use proper heading structure
-
-### 2. Create Resource Pages
-Develop comprehensive resource pages:
-- Industry guides and tutorials
-- FAQ pages
-- Tool and resource lists
-- Local information pages
-- Customer success stories
-
-### 3. Optimize for Featured Snippets
-Target position zero in search results:
-- Answer questions directly
-- Use structured data markup
-- Create list and table formats
-- Optimize for "how-to" queries
-- Include relevant statistics
-
-## Link Building for Small Businesses
-
-### 1. Local Link Building
-Build relationships in your community:
-- Partner with local businesses
-- Sponsor local events
-- Join local business associations
-- Contribute to local publications
-- Participate in community activities
-
-### 2. Industry Relationships
-Connect with others in your industry:
-- Guest posting opportunities
-- Industry directory listings
-- Professional association memberships
-- Collaboration with complementary businesses
-- Expert interviews and quotes
-
-### 3. Content-Based Link Building
-Create linkable content:
-- Original research and surveys
-- Comprehensive guides
-- Infographics and visual content
-- Tools and calculators
-- Industry insights and commentary
-
-## Measuring SEO Success
-
-### Key Metrics to Track
-- Organic traffic growth
-- Local search visibility
-- Keyword rankings
-- Click-through rates
-- Conversion rates from organic traffic
-- Google Business Profile insights
-
-### Tools for Small Businesses
-Free and affordable SEO tools:
-- Google Analytics
-- Google Search Console
-- Google Business Profile
-- Ubersuggest
-- Answer the Public
-- Local SEO checkers
-
-## Common SEO Mistakes to Avoid
-
-- Keyword stuffing
-- Neglecting local SEO
-- Ignoring mobile optimization
-- Poor website structure
-- Duplicate content
-- Buying low-quality backlinks
-- Not tracking results
-
-## Budget-Friendly SEO Strategies
-
-### 1. DIY SEO Tasks
-Tasks you can handle in-house:
-- Content creation and optimization
-- Google Business Profile management
-- Basic keyword research
-- Social media optimization
-- Local citation building
-
-### 2. When to Hire Help
-Consider professional help for:
-- Technical SEO audits
-- Advanced keyword research
-- Link building campaigns
-- Competitive analysis
-- SEO strategy development
-
-## Long-Term SEO Success
-
-### 1. Consistency is Key
-SEO is a long-term investment:
-- Maintain regular content publishing
-- Continuously optimize existing content
-- Monitor and adjust strategies
-- Stay updated with algorithm changes
-- Build sustainable practices
-
-### 2. Focus on User Experience
-Search engines prioritize user satisfaction:
-- Create valuable, relevant content
-- Ensure easy website navigation
-- Provide fast, reliable performance
-- Optimize for accessibility
-- Encourage user engagement
-
-## Conclusion
-
-SEO success for small businesses requires focus, consistency, and strategic thinking. By prioritizing local SEO, creating valuable content, and building strong technical foundations, small businesses can compete effectively in search results and attract more customers online.
-    `,
-    category: 'SEO',
-    readTime: '12 min read',
-    publishDate: 'Nov 28, 2024',
-    slug: 'expert-seo-tips-small-business',
-    keywords: ['expert seo', 'small business SEO', 'local SEO', 'SEO tips']
+    id: "local-business-online-presence",
+    title: "Building a Strong Online Presence for Local Businesses",
+    excerpt: "Essential strategies for local businesses to establish and maintain a powerful online presence that attracts customers in their area.",
+    content: [
+      {
+        type: 'heading',
+        level: 2,
+        text: 'Why Local Online Presence Matters',
+        keywords: ['local online presence', 'digital footprint', 'local customers'],
+        id: 'local-presence-matters'
+      },
+      {
+        type: 'paragraph',
+        text: 'For local businesses, having a strong online presence is crucial for attracting customers in your area. With most consumers searching online before making purchasing decisions, your digital footprint can make or break your business.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '1. Optimize Your Google Business Profile',
+        keywords: ['Google Business Profile', 'local SEO', 'customer reviews'],
+        id: 'google-business-profile'
+      },
+      {
+        type: 'paragraph',
+        text: 'Your Google Business Profile is often the first impression potential customers have of your business. Ensure all information is accurate, add high-quality photos, and encourage customer reviews.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '2. Maintain Consistent NAP Information',
+        keywords: ['NAP consistency', 'business information', 'local citations'],
+        id: 'nap-consistency'
+      },
+      {
+        type: 'paragraph',
+        text: 'Your Name, Address, and Phone number should be consistent across all online platforms. Inconsistencies can confuse search engines and potential customers.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '3. Build a Professional Website',
+        keywords: ['professional website', 'digital storefront', 'mobile-friendly'],
+        id: 'professional-website'
+      },
+      {
+        type: 'paragraph',
+        text: 'Your website serves as your digital storefront. It should be mobile-friendly, fast-loading, and contain essential information like services, hours, and contact details.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '4. Leverage Local SEO',
+        keywords: ['local SEO', 'local search terms', 'local citations'],
+        id: 'leverage-local-seo'
+      },
+      {
+        type: 'paragraph',
+        text: 'Optimize your website for local search terms, create location-specific content, and build local citations to improve your visibility in local search results.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '5. Engage on Social Media',
+        keywords: ['social media engagement', 'local community', 'social platforms'],
+        id: 'social-media-engagement'
+      },
+      {
+        type: 'paragraph',
+        text: 'Use social media platforms to connect with your local community, share updates, and showcase your products or services. Focus on platforms where your customers are most active.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '6. Collect and Manage Reviews',
+        keywords: ['customer reviews', 'review management', 'local rankings'],
+        id: 'manage-reviews'
+      },
+      {
+        type: 'paragraph',
+        text: 'Positive reviews build trust and improve local search rankings. Actively encourage satisfied customers to leave reviews and respond professionally to all feedback.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '7. Create Local Content',
+        keywords: ['local content', 'community events', 'location-specific'],
+        id: 'local-content'
+      },
+      {
+        type: 'paragraph',
+        text: 'Develop content that resonates with your local audience. This could include local news, community events, or location-specific tips and advice.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: '8. Use Local Directories',
+        keywords: ['local directories', 'online visibility', 'local backlinks'],
+        id: 'local-directories'
+      },
+      {
+        type: 'paragraph',
+        text: 'List your business in relevant local directories and industry-specific platforms. This improves your online visibility and provides valuable backlinks.'
+      },
+      {
+        type: 'heading',
+        level: 3,
+        text: 'Conclusion',
+        keywords: ['local business success', 'online presence strategy'],
+        id: 'conclusion'
+      },
+      {
+        type: 'paragraph',
+        text: 'Building a strong online presence takes time and effort, but it\'s essential for local business success. By implementing these strategies consistently, you can attract more local customers and grow your business.'
+      }
+    ],
+    seoData: {
+      metaDescription: "Build a powerful online presence for your local business. Learn Google Business Profile optimization, local SEO, review management, and social media strategies.",
+      keywords: ["local business online presence", "Google Business Profile", "local SEO", "NAP consistency", "local directories", "customer reviews"],
+      focusKeyword: "local business online presence"
+    },
+    date: "2023-12-15",
+    author: "Digital Mosaic Studios Team",
+    category: "Local Marketing",
+    tags: ["local SEO", "Google Business Profile", "online presence", "local marketing", "reviews"],
+    readTime: "8 min read",
+    image: "/blog/local-business-online.jpg"
   }
 ];
 
-export const getPostBySlug = (slug: string): BlogPost | undefined => {
-  return blogPosts.find(post => post.slug === slug);
-};
-
-export const getFeaturedPosts = (): BlogPost[] => {
-  return blogPosts.filter(post => post.featured);
-};
-
-export const getPostsByCategory = (category: string): BlogPost[] => {
-  return blogPosts.filter(post => post.category === category);
-};
-
-export const getAllCategories = (): string[] => {
+// Helper function to get all unique categories
+export function getAllCategories(): string[] {
   const categories = blogPosts.map(post => post.category);
   return [...new Set(categories)];
-};
+}

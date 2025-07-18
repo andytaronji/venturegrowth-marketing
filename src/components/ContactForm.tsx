@@ -2,11 +2,12 @@
 
 import { useState, FormEvent } from 'react';
 
-// Extend the Window interface to include our custom gtag function
+// Extend the Window interface to include our custom gtag function and Facebook Pixel
 declare global {
   interface Window {
     gtag?: (...args: any[]) => void;
     gtagReportConversion?: () => void;
+    fbq?: (...args: any[]) => void;
   }
 }
 
@@ -17,6 +18,11 @@ const ContactForm = () => {
     phone: '',
     subject: '',
     message: '',
+    // Honeypot fields for bot detection
+    website: '', // Hidden field - bots will fill this
+    company_name: '', // Another honeypot field
+    // How did you hear about us for lead quality
+    referral_source: '',
   });
   
   const [formStatus, setFormStatus] = useState<{
@@ -38,9 +44,44 @@ const ContactForm = () => {
   };
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [lastSubmissionTime, setLastSubmissionTime] = useState(0);
+  const [submissionCount, setSubmissionCount] = useState(0);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    
+    // Rate limiting check
+    const now = Date.now();
+    const timeSinceLastSubmission = now - lastSubmissionTime;
+    
+    if (timeSinceLastSubmission < 5000) { // 5 second minimum between submissions
+      setFormStatus({
+        submitted: true,
+        success: false,
+        message: 'Please wait a moment before submitting again.'
+      });
+      return;
+    }
+    
+    if (submissionCount >= 3) { // Max 3 submissions per session
+      setFormStatus({
+        submitted: true,
+        success: false,
+        message: 'Too many submissions. Please refresh the page and try again.'
+      });
+      return;
+    }
+    
+    // Honeypot validation - if these fields are filled, it's likely a bot
+    if (formData.website || formData.company_name) {
+      // Silently fail for bots
+      setFormStatus({
+        submitted: true,
+        success: true,
+        message: 'Thank you for your message! We will get back to you soon.'
+      });
+      return;
+    }
     
     // Validate form
     if (!formData.name || !formData.email || !formData.message) {
@@ -50,6 +91,31 @@ const ContactForm = () => {
         message: 'Please fill out all required fields.'
       });
       return;
+    }
+    
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setFormStatus({
+        submitted: true,
+        success: false,
+        message: 'Please enter a valid email address.'
+      });
+      return;
+    }
+    
+    // Phone validation (if provided)
+    if (formData.phone) {
+      const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+      const cleanPhone = formData.phone.replace(/[\s\-\(\)\.]/g, '');
+      if (!phoneRegex.test(cleanPhone)) {
+        setFormStatus({
+          submitted: true,
+          success: false,
+          message: 'Please enter a valid phone number.'
+        });
+        return;
+      }
     }
     
     setIsSubmitting(true);
@@ -67,6 +133,10 @@ const ContactForm = () => {
       const data = await response.json();
       
       if (response.ok) {
+        // Update rate limiting
+        setLastSubmissionTime(now);
+        setSubmissionCount(prev => prev + 1);
+        
         // Success - trigger Google Ads conversion tracking
         // Primary method: Direct gtag call
         if (typeof window !== 'undefined' && window.gtag) {
@@ -78,6 +148,11 @@ const ContactForm = () => {
         // Backup method: Helper function
         if (typeof window !== 'undefined' && window.gtagReportConversion) {
           window.gtagReportConversion();
+        }
+        
+        // Facebook Pixel tracking
+        if (typeof window !== 'undefined' && window.fbq) {
+          window.fbq('track', 'Lead');
         }
         
         setFormStatus({
@@ -93,6 +168,9 @@ const ContactForm = () => {
           phone: '',
           subject: '',
           message: '',
+          website: '',
+          company_name: '',
+          referral_source: '',
         });
       } else {
         // API returned an error
@@ -118,7 +196,7 @@ const ContactForm = () => {
   return (
     <div className="bg-white rounded-lg shadow-subtle p-6 md:p-8 border border-bg-secondary">
       <div>
-        <h2 className="text-2xl font-semibold text-primary mb-6 text-center">
+        <h2 className="text-card-title text-2xl mb-6 text-center">
           Get in Touch
         </h2>
         
@@ -193,15 +271,70 @@ const ContactForm = () => {
                 }}
               >
                 <option value="">Select a subject</option>
-                <option value="Consultations">Consultations</option>
-                <option value="Audits">Audits</option>
+                <option value="Startup Growth Consultation">Startup Growth Consultation</option>
+                <option value="Small Business Marketing Audit">Small Business Marketing Audit</option>
+                <option value="Marketing Consultations">Marketing Consultations</option>
                 <option value="Custom SaaS Tools">Custom SaaS Tools</option>
                 <option value="Web Design">Web Design</option>
-                <option value="Analytics">Analytics</option>
+                <option value="Analytics & Insights">Analytics & Insights</option>
                 <option value="AI Prompting Lessons">AI Prompting Lessons</option>
                 <option value="Other">Other</option>
               </select>
             </div>
+            
+            <div>
+              <label htmlFor="referral_source" className="block text-primary text-sm font-medium mb-2">
+                How did you hear about us?
+              </label>
+              <select
+                id="referral_source"
+                name="referral_source"
+                value={formData.referral_source}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-black rounded-md focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all duration-200 bg-white appearance-none text-black"
+                style={{ 
+                  backgroundImage: "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e\")",
+                  backgroundPosition: "right 0.5rem center",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "1.5em 1.5em",
+                  paddingRight: "2.5rem"
+                }}
+              >
+                <option value="">Please select</option>
+                <option value="Google Search">Google Search</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Referral">Referral from Friend/Colleague</option>
+                <option value="Industry Event">Industry Event</option>
+                <option value="Online Ad">Online Advertisement</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Facebook">Facebook</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          
+          {/* Honeypot fields - hidden from users but visible to bots */}
+          <div style={{ display: 'none' }}>
+            <label htmlFor="website">Website (leave blank)</label>
+            <input
+              type="text"
+              id="website"
+              name="website"
+              value={formData.website}
+              onChange={handleChange}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+            <label htmlFor="company_name">Company Name (leave blank)</label>
+            <input
+              type="text"
+              id="company_name"
+              name="company_name"
+              value={formData.company_name}
+              onChange={handleChange}
+              tabIndex={-1}
+              autoComplete="off"
+            />
           </div>
           
           <div>
@@ -216,6 +349,7 @@ const ContactForm = () => {
               rows={5}
               className="w-full px-4 py-2 border border-black rounded-md focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all duration-200 text-black"
               required
+              placeholder="Tell us about your business and how we can help you grow..."
             ></textarea>
           </div>
           

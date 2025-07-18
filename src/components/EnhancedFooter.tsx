@@ -139,7 +139,7 @@ const EnhancedFooter = () => {
   return (
     <footer 
       ref={footerRef}
-      className="text-white z-index-section border-t border-white border-opacity-20"
+      className="bg-dark-solid text-white z-index-section border-t border-white border-opacity-20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -150,7 +150,7 @@ const EnhancedFooter = () => {
           >
             <h3 className="text-lg font-semibold mb-4 text-white text-on-busy" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>Digital Mosaic Studios</h3>
             <p className="text-white text-opacity-90 text-sm mb-4 text-on-dark" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}>
-              Helping businesses grow through innovative digital solutions.
+              Helping startups and small businesses grow through innovative digital solutions.
             </p>
           </div>
           
@@ -281,23 +281,32 @@ const EnhancedFooter = () => {
             <h3 className="text-sm font-semibold mb-4 text-white text-on-busy" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>Contact Us</h3>
             <ul className="space-y-3 text-white text-opacity-90 text-sm text-on-dark">
               <li className="flex items-start" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 mt-0.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 mt-0.5 text-luxury-gold" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
-                <span>Marietta, GA 30062<br />Serving Atlanta & Georgia</span>
+                <div>
+                  <div className="font-semibold text-luxury-gold">Digital Mosaic Studios</div>
+                  <div>Marietta, GA 30062</div>
+                  <div className="text-xs opacity-80">Serving Atlanta, Georgia & Nationwide</div>
+                </div>
               </li>
               <li className="flex items-start" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 mt-0.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 mt-0.5 text-luxury-gold" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
-                <span>404-861-7744</span>
+                <span className="font-semibold">404-861-7744</span>
               </li>
               <li className="flex items-start" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 mt-0.5 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 mt-0.5 text-luxury-gold" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
-                <span>infodigitalmosaicstudios@gmail.com</span>
+                <Link 
+                  href="/contact" 
+                  className="text-luxury-gold hover:text-luxury-bronze transition-colors duration-200 font-semibold underline-effect"
+                >
+                  Use Contact Form
+                </Link>
               </li>
             </ul>
             

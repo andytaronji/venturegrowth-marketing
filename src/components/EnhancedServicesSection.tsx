@@ -10,40 +10,52 @@ const EnhancedServicesSection = () => {
 
   const services = [
     {
-      id: 'consultations',
-      title: 'Consultations',
-      description: 'Expert marketing consultations from our Atlanta-based team to help Marietta and Georgia businesses develop effective strategies and drive real growth.',
-      icon: '/globe.svg'
+      id: 'marketing-consultations',
+      title: 'Marketing Consultations',
+      description: 'Unlock your business\'s growth potential with tailored marketing consultations. We work closely with small businesses and startups to identify your unique market position, define your most profitable customer segments, and map out actionable strategies for scalable success.',
+      icon: '/globe.svg',
+      industries: ['Startups', 'Small Businesses', 'Growth Strategy'],
+      perfectFor: 'Startups needing a go-to-market plan, small businesses seeking to break out of a plateau, or founders ready to scale with confidence.'
     },
     {
-      id: 'audits',
-      title: 'Audits',
-      description: 'Comprehensive marketing audits to identify opportunities and outperform your competition in Atlanta, Marietta, and throughout Georgia.',
-      icon: '/file.svg'
+      id: 'marketing-audits',
+      title: 'Comprehensive Marketing Audits',
+      description: 'Make every marketing dollar count. Our audits dive deep into your current strategies—website, SEO, advertising, and analytics—pinpointing what\'s working, what isn\'t, and where you can maximize ROI.',
+      icon: '/file.svg',
+      industries: ['ROI Optimization', 'Performance Analysis', 'Strategy Review'],
+      perfectFor: 'Businesses with limited budgets, teams looking for quick wins, or anyone wanting to optimize for measurable results.'
     },
     {
       id: 'custom-saas-tools',
       title: 'Custom SaaS Tools',
-      description: 'Industry-specific SaaS solutions built for Atlanta businesses, from accountants to retailers, designed to dominate your market.',
-      icon: '/file.svg'
+      description: 'Supercharge your operations with bespoke SaaS solutions. We build tools that automate repetitive tasks, streamline lead tracking, and deliver powerful insights—customized for your industry and business model.',
+      icon: '/file.svg',
+      industries: ['Automation', 'Lead Tracking', 'Custom Dashboards'],
+      perfectFor: 'Startups scaling fast, businesses juggling multiple channels, or teams seeking a competitive edge through automation.'
     },
     {
       id: 'web-design',
-      title: 'Web Design',
-      description: 'Custom, responsive websites that convert visitors into customers for Atlanta and Georgia businesses, optimized for local SEO.',
-      icon: '/globe.svg'
+      title: 'Custom Responsive Web Design',
+      description: 'Your website is your first impression—make it count. We create conversion-focused, mobile-friendly sites that reflect your brand, engage your audience, and turn visitors into loyal customers.',
+      icon: '/globe.svg',
+      industries: ['Web Development', 'Brand Identity', 'Conversion Optimization'],
+      perfectFor: 'New businesses, rebrands, or anyone ready to level up their digital presence.'
     },
     {
       id: 'analytics',
-      title: 'Analytics',
-      description: 'Data-driven insights using Google Analytics and custom dashboards to help Atlanta and Georgia businesses make informed decisions.',
-      icon: '/file.svg'
+      title: 'Data-Driven Analytics & Insights',
+      description: 'Stop guessing—start growing. We set up robust analytics, track your KPIs, and deliver clear, actionable reports so you always know what\'s driving results.',
+      icon: '/file.svg',
+      industries: ['Performance Tracking', 'KPI Monitoring', 'Growth Analytics'],
+      perfectFor: 'Founders who want to make smarter decisions, teams tired of "vanity metrics," or businesses ready to scale what works.'
     },
     {
       id: 'ai-prompting-lessons',
       title: 'AI Prompting Lessons',
-      description: 'Learn AI tools for marketing and workflow automation through local workshops and virtual sessions for Georgia businesses.',
-      icon: '/globe.svg'
+      description: 'Harness the power of AI for your business. Our hands-on training sessions teach you and your team to use ChatGPT, Gemini, and other AI tools for marketing, content creation, and workflow automation.',
+      icon: '/globe.svg',
+      industries: ['AI Training', 'Productivity', 'Competitive Advantage'],
+      perfectFor: 'Teams new to AI, founders seeking a competitive edge, or anyone ready to unlock next-level productivity.'
     }
   ];
 
@@ -78,12 +90,17 @@ const EnhancedServicesSection = () => {
     >
       <div className="max-w-7xl mx-auto container-padding">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Our Services
+          <h2 className="font-luxury-serif text-luxury-title md:text-5xl font-bold text-white mb-6">
+            Premium Marketing Solutions
           </h2>
-          <p className="text-xl text-white max-w-3xl mx-auto">
-            Whether it's a consultation with one of our marketing experts, an audit to find ways to improve your marketing, or a custom-built solution (SaaS), we are here to help.
+          <p className="text-luxury-body md:text-xl text-white max-w-4xl mx-auto font-luxury-sans leading-relaxed">
+            Specialized services designed for <span className="text-accent font-semibold">startups</span>, <span className="text-accent font-semibold">small businesses</span>, and <span className="text-accent font-semibold">growing companies</span> who demand excellence and measurable results.
           </p>
+          <div className="mt-8">
+            <p className="text-lg text-white opacity-90 font-luxury-sans">
+              From strategy to execution, we deliver luxury-level marketing that drives real growth for ambitious entrepreneurs across Atlanta, Georgia, and nationwide.
+            </p>
+          </div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

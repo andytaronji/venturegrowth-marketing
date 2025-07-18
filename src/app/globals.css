@@ -2,10 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import only essential Montserrat font weights for better performance */
+/* Import luxury fonts for enhanced typography */
 @import '@fontsource/montserrat/400.css'; /* Regular */
+@import '@fontsource/montserrat/500.css'; /* Medium */
 @import '@fontsource/montserrat/600.css'; /* SemiBold */
 @import '@fontsource/montserrat/700.css'; /* Bold */
+@import '@fontsource/inter/400.css'; /* Inter Regular */
+@import '@fontsource/inter/500.css'; /* Inter Medium */
+@import '@fontsource/inter/600.css'; /* Inter SemiBold */
+@import '@fontsource/playfair-display/400.css'; /* Playfair Regular */
+@import '@fontsource/playfair-display/600.css'; /* Playfair SemiBold */
+@import '@fontsource/playfair-display/700.css'; /* Playfair Bold */
 
 /* Font display optimization for better performance */
 @font-face {
@@ -33,23 +40,23 @@
 }
 
 :root {
-  /* Primary colors - Apple-inspired */
-  --primary: #000000; /* Black for primary elements */
-  --secondary: #1D1D1F; /* Dark gray for secondary elements */
-  --accent: #0066CC; /* Apple blue for accents and interactive elements */
+  /* Accessible color scheme for better legibility */
+  --primary: #1e3a8a; /* Professional navy blue for primary elements */
+  --secondary: #64748b; /* Light gray for secondary elements */
+  --accent: #0066CC; /* Accessible blue for accents and interactive elements */
   --light-accent: #147CE5; /* Lighter blue for hover states */
   --baby-blue: #89CFF0; /* Baby blue for navbar */
   
-  /* Text colors */
-  --text-primary: #1D1D1F; /* Near-black for primary text */
-  --text-secondary: #6E6E73; /* Medium gray for secondary text */
-  --text-secondary-light: #B0B0B5; /* Lighter gray for secondary text on dark backgrounds */
-  --text-light: #FFFFFF; /* White text for dark backgrounds */
+  /* Text colors with proper contrast ratios */
+  --text-primary: #1f2937; /* Dark gray for primary text (better than pure black) */
+  --text-secondary: #6b7280; /* Medium gray for secondary text */
+  --text-secondary-light: #9ca3af; /* Lighter gray for secondary text on dark backgrounds */
+  --text-light: #ffffff; /* White text for dark backgrounds */
   
   /* Background colors */
-  --bg-primary: #FFFFFF; /* White primary background */
-  --bg-secondary: #F5F5F7; /* Light gray secondary background */
-  --bg-tertiary: #FBFBFD; /* Subtle off-white tertiary background */
+  --bg-primary: #ffffff; /* White primary background */
+  --bg-secondary: #f8fafc; /* Very light gray secondary background */
+  --bg-tertiary: #f1f5f9; /* Light gray tertiary background */
   
   /* Legacy color variables (kept for compatibility) */
   --navy-blue: var(--primary);
@@ -135,9 +142,9 @@ nav .gsap-will-change {
   body {
     background: var(--background);
     color: var(--foreground);
-    font-family: 'Montserrat', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.65;
     letter-spacing: -0.01em;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
@@ -152,63 +159,75 @@ nav .gsap-will-change {
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Playfair Display', 'Montserrat', serif;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.15;
     margin-bottom: 0.5em;
     color: var(--text-primary);
     letter-spacing: -0.02em;
   }
   
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
   }
   
   @media (min-width: 768px) {
     h1 {
-      font-size: 3rem;
+      font-size: 4rem;
     }
   }
   
   h2 {
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: 600;
+    line-height: 1.15;
   }
   
   @media (min-width: 768px) {
     h2 {
-      font-size: 2.25rem;
+      font-size: 2.625rem;
     }
   }
   
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 600;
+    line-height: 1.25;
   }
   
   @media (min-width: 768px) {
     h3 {
-      font-size: 1.75rem;
+      font-size: 2rem;
     }
   }
   
   h4 {
-    font-size: 1.25rem;
+    font-size: 1.375rem;
     font-weight: 600;
+    line-height: 1.3;
   }
   
   @media (min-width: 768px) {
     h4 {
-      font-size: 1.5rem;
+      font-size: 1.625rem;
     }
   }
   
   p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.65;
+    font-size: 1.125rem;
+  }
+  
+  @media (min-width: 768px) {
+    p {
+      font-size: 1.125rem;
+      line-height: 1.7;
+    }
   }
   
   /* Enhanced readability for text on dark backgrounds */
@@ -264,12 +283,64 @@ nav .gsap-will-change {
     @apply px-4 sm:px-6 lg:px-8;
   }
   
+  /* Enhanced button styles with proper contrast */
   .button-primary {
-    @apply px-5 py-2.5 bg-accent text-white font-medium rounded-md hover:bg-light-accent hover:text-white transition-colors duration-200 inline-flex items-center justify-center;
+    @apply px-6 py-3 bg-primary text-white font-semibold rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-200 inline-flex items-center justify-center text-base;
   }
   
   .button-secondary {
-    @apply px-5 py-2.5 bg-transparent border border-accent text-accent font-medium rounded-md hover:bg-accent hover:text-white hover:border-accent transition-colors duration-200 inline-flex items-center justify-center;
+    @apply px-6 py-3 bg-white border-2 border-primary text-primary font-semibold rounded-md hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-200 inline-flex items-center justify-center text-base;
+  }
+  
+  .button-accent {
+    @apply px-6 py-3 bg-accent text-white font-semibold rounded-md hover:bg-light-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-200 inline-flex items-center justify-center text-base;
+  }
+  
+  /* Card styles with proper shadows and contrast */
+  .card-base {
+    @apply bg-white rounded-lg shadow-card border border-gray-100 transition-shadow duration-200;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-card-hover hover:border-accent hover:border-opacity-20;
+  }
+  
+  .card-title {
+    @apply text-text-primary font-semibold text-xl mb-3;
+  }
+  
+  .card-text {
+    @apply text-text-secondary text-base leading-relaxed;
+  }
+  
+  /* Enhanced typography for better readability */
+  .heading-primary {
+    @apply text-text-primary font-bold text-4xl md:text-5xl leading-tight;
+  }
+  
+  .heading-secondary {
+    @apply text-text-primary font-semibold text-2xl md:text-3xl leading-tight;
+  }
+  
+  .heading-tertiary {
+    @apply text-text-primary font-semibold text-xl md:text-2xl leading-tight;
+  }
+  
+  .body-large {
+    @apply text-text-secondary text-lg leading-relaxed;
+  }
+  
+  .body-base {
+    @apply text-text-secondary text-base leading-relaxed;
+  }
+  
+  /* Text on dark backgrounds */
+  .text-on-dark {
+    @apply text-white font-medium;
+  }
+  
+  .heading-on-dark {
+    @apply text-white font-bold;
   }
 }
 
@@ -386,25 +457,57 @@ nav .gsap-will-change {
     background-color: var(--accent);
   }
   
-  /* Text colors */
+  /* Text colors with fallbacks for better compatibility */
   .text-primary {
-    color: var(--text-primary);
+    color: var(--text-primary, #1f2937);
   }
   
   .text-secondary {
-    color: var(--text-secondary);
+    color: var(--text-secondary, #6b7280);
   }
   
   .text-secondary-light {
-    color: var(--text-secondary-light);
+    color: var(--text-secondary-light, #9ca3af);
   }
   
   .text-accent {
-    color: var(--accent);
+    color: var(--accent, #0066CC);
   }
   
   .text-light {
-    color: var(--text-light);
+    color: var(--text-light, #ffffff);
+  }
+  
+  /* Additional text color utilities for white cards */
+  .text-text-primary {
+    color: var(--text-primary, #1f2937) !important;
+  }
+  
+  .text-text-secondary {
+    color: var(--text-secondary, #6b7280) !important;
+  }
+  
+  .text-text-light {
+    color: var(--text-light, #ffffff) !important;
+  }
+  
+  /* Enhanced readability classes for white cards */
+  .text-card-title {
+    color: var(--text-primary, #1f2937);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  
+  .text-card-body {
+    color: var(--text-secondary, #6b7280);
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  
+  .text-card-meta {
+    color: var(--text-secondary-light, #9ca3af);
+    font-weight: 400;
+    font-size: 0.875rem;
   }
   
   /* Legacy text colors (kept for compatibility) */
@@ -574,4 +677,33 @@ nav .gsap-will-change {
   .shadow-medium {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   }
+  
+  .shadow-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .shadow-card-hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Dark solid background for premium, sophisticated look */
+  .bg-dark-solid {
+    background: #0a1633;
+    background-attachment: fixed;
+    position: relative;
+  }
+  
+  /* Alternative dark background options */
+  .bg-deep-charcoal {
+    background: #181c23;
+    background-attachment: fixed;
+    position: relative;
+  }
+  
+  .bg-soft-black {
+    background: #101014;
+    background-attachment: fixed;
+    position: relative;
+  }
+  
 }
