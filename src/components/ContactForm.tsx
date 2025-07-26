@@ -1,6 +1,12 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import dynamic from 'next/dynamic';
+
+// @ts-ignore
+const ReCAPTCHA = dynamic(() => import('react-google-recaptcha'), {
+  ssr: false,
+});
 
 // Extend the Window interface to include our custom gtag function and Facebook Pixel
 declare global {
@@ -12,6 +18,8 @@ declare global {
 }
 
 const ContactForm = () => {
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -83,6 +91,16 @@ const ContactForm = () => {
       return;
     }
     
+    // reCAPTCHA validation
+    if (!recaptchaToken) {
+      setFormStatus({
+        submitted: true,
+        success: false,
+        message: 'Please complete the reCAPTCHA verification.'
+      });
+      return;
+    }
+    
     // Validate form
     if (!formData.name || !formData.email || !formData.message) {
       setFormStatus({
@@ -127,7 +145,10 @@ const ContactForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          recaptchaToken
+        }),
       });
       
       const data = await response.json();
@@ -172,6 +193,9 @@ const ContactForm = () => {
           company_name: '',
           referral_source: '',
         });
+        
+        // Reset reCAPTCHA
+        setRecaptchaToken(null);
       } else {
         // API returned an error
         setFormStatus({
@@ -353,11 +377,21 @@ const ContactForm = () => {
             ></textarea>
           </div>
           
+          {/* reCAPTCHA */}
+          <div className="flex justify-center">
+            <ReCAPTCHA
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+              onChange={(token: string | null) => setRecaptchaToken(token)}
+              onExpired={() => setRecaptchaToken(null)}
+              onError={() => setRecaptchaToken(null)}
+            />
+          </div>
+          
           <div className="text-center">
             <button
               type="submit"
-              disabled={isSubmitting}
-              className={`px-6 py-2.5 bg-accent text-white font-medium rounded-md hover:bg-light-accent hover:text-white transition-colors duration-200 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+              disabled={isSubmitting || !recaptchaToken}
+              className={`px-6 py-2.5 bg-accent text-white font-medium rounded-md hover:bg-light-accent hover:text-white transition-colors duration-200 ${isSubmitting || !recaptchaToken ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>

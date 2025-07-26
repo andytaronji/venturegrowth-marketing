@@ -44,7 +44,7 @@ const nextConfig = {
           // Content Security Policy - Prevent XSS attacks
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://res.cloudinary.com https://www.googletagmanager.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://res.cloudinary.com https://www.googletagmanager.com https://www.google.com data:; media-src 'self' https://res.cloudinary.com; connect-src 'self' https://res.cloudinary.com https://www.google-analytics.com https://analytics.google.com https://www.google.com; frame-src https://td.doubleclick.net https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
+            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://res.cloudinary.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.google.com https://www.gstatic.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://res.cloudinary.com https://www.googletagmanager.com https://www.google.com data:; media-src 'self' https://res.cloudinary.com; connect-src 'self' https://res.cloudinary.com https://www.google-analytics.com https://analytics.google.com https://www.google.com; frame-src https://td.doubleclick.net https://www.googletagmanager.com https://www.google.com https://recaptcha.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
           },
           // Permissions Policy - Control browser features
           {
