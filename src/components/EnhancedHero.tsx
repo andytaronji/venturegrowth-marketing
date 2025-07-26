@@ -75,7 +75,7 @@ const EnhancedHero = () => {
           <div className="hidden md:block">
             <div className="relative h-96 w-full">
               <CldVideoWrapper
-                src="https://res.cloudinary.com/di4phdven/video/upload/v1751454396/Data1_gmpujr.mp4"
+                src="https://res.cloudinary.com/di4phdven/video/upload/v1753569628/The_new_video_whpeo9.mp4"
                 alt="Digital Mosaic Studios marketing consulting services helping Atlanta and Marietta businesses grow through data-driven strategies"
                 className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
                 loop={true}
