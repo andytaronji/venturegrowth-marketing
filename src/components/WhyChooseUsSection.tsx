@@ -1,11 +1,10 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { useGSAPAnimation } from './GSAPProvider';
 
 const WhyChooseUsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const { gsap } = useGSAPAnimation();
+  const headerRef = useRef<HTMLDivElement>(null);
 
   const benefits = [
     {
@@ -71,31 +70,44 @@ const WhyChooseUsSection = () => {
   ];
 
   useEffect(() => {
-    if (sectionRef.current && gsap) {
-      const cards = sectionRef.current.querySelectorAll('.benefit-card');
-      
-      gsap.fromTo(cards, 
-        {
-          opacity: 0,
-          y: 50,
-          scale: 0.95
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Animate in when scrolling down and reaching trigger point
+            // First animate the header
+            if (headerRef.current) {
+              headerRef.current.classList.add('is-visible');
+            }
+            
+            // Then animate the cards with a delay to ensure header completes first
+            setTimeout(() => {
+              const cards = entry.target.querySelectorAll('.animate-card');
+              cards.forEach((card) => {
+                card.classList.add('is-visible');
+              });
+              
+              // No need to dispatch events - pop-in animation is now automatic on scroll
+            }, 600); // 600ms delay after header starts animating to ensure it completes
           }
-        }
-      );
+        });
+      },
+      {
+        threshold: 0.3,
+        rootMargin: '0px 0px -25% 0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
-  }, [gsap]);
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
     <section 
@@ -103,66 +115,42 @@ const WhyChooseUsSection = () => {
       className="section-padding bg-luxury-navy bg-opacity-10"
     >
       <div className="max-w-7xl mx-auto container-padding">
-        <div className="text-center mb-16">
-          <h2 className="font-luxury-serif text-luxury-title md:text-5xl font-bold text-white mb-6">
+        <div ref={headerRef} className="section-header animate-header text-center mb-12 md:mb-16">
+          <h2 className="font-figtree text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
             Why Small Businesses & Startups Choose Us
           </h2>
-          <p className="text-luxury-body md:text-xl text-white max-w-4xl mx-auto font-luxury-sans leading-relaxed">
-            We're not just another marketing agency. We're specialists who understand the unique challenges and opportunities in <span className="text-luxury-gold font-semibold">tech startups</span>, <span className="text-luxury-gold font-semibold">SaaS platforms</span>, <span className="text-luxury-gold font-semibold">professional services</span>, and <span className="text-luxury-gold font-semibold">e-commerce</span>.
+          <p className="text-base sm:text-lg md:text-xl text-white max-w-4xl mx-auto font-figtree leading-relaxed">
+            We're not just another marketing agency. We're specialists who understand the unique challenges and opportunities in <span className="text-accent font-semibold">tech startups</span>, <span className="text-accent font-semibold">SaaS platforms</span>, <span className="text-accent font-semibold">professional services</span>, and <span className="text-accent font-semibold">e-commerce</span>.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="card-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="benefit-card bg-white rounded-xl p-8 border border-gray-200 hover:border-accent hover:border-opacity-40 transition-all duration-300 hover:transform hover:scale-105 shadow-card hover:shadow-card-hover"
+              className="animate-card benefit-card bg-white rounded-xl p-6 md:p-8 border border-gray-200 hover:border-accent hover:border-opacity-40 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
-              <div className="flex items-center mb-6">
-                <div className="p-3 bg-accent bg-opacity-10 rounded-lg mr-4">
+              <div className="flex items-center mb-4 md:mb-6">
+                <div className="p-2 md:p-3 bg-accent bg-opacity-10 rounded-lg mr-3 md:mr-4 flex-shrink-0">
                   {benefit.icon}
                 </div>
-                <div>
-                  <h3 className="text-card-title text-xl mb-1">
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-figtree text-lg md:text-xl font-bold text-primary mb-1">
                     {benefit.title}
                   </h3>
-                  <div className="text-accent text-sm font-semibold font-luxury-sans">
+                  <div className="text-accent text-sm font-semibold font-figtree">
                     {benefit.stat}
                   </div>
                 </div>
               </div>
               
-              <p className="text-card-body font-luxury-sans">
+              <p className="text-sm md:text-base text-gray-600 font-figtree leading-relaxed">
                 {benefit.description}
               </p>
             </div>
           ))}
         </div>
         
-        <div className="text-center mt-16">
-          <div className="bg-luxury-gold bg-opacity-10 rounded-2xl p-8 border border-luxury-gold border-opacity-30">
-            <h3 className="font-luxury-serif text-2xl font-semibold text-white mb-4">
-              Ready to Transform Your Business?
-            </h3>
-            <p className="text-white text-opacity-90 font-luxury-sans mb-6 max-w-2xl mx-auto">
-              Join the growing number of startups and small businesses that have chosen luxury-level marketing to accelerate their growth and dominate their markets.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/contact" 
-                className="button-primary text-lg px-8 py-4 shadow-button hover:shadow-button-hover transform hover:scale-105"
-              >
-                Accelerate Your Growth
-              </a>
-              <a 
-                href="/services" 
-                className="button-primary text-lg px-8 py-4 shadow-button hover:shadow-button-hover transform hover:scale-105"
-              >
-                Transform Your Business
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

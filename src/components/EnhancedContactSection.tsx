@@ -2,43 +2,72 @@
 
 import { useEffect, useRef } from 'react';
 import ContactForm from './ContactForm';
-import { useGSAPAnimation } from './GSAPProvider';
 
-const EnhancedContactSection = () => {
+interface EnhancedContactSectionProps {
+  title?: string;
+  description?: string;
+}
+
+const EnhancedContactSection = ({
+  title = "Let's Grow Your Business",
+  description = "We respond to all inquiries within 24 hours."
+}: EnhancedContactSectionProps) => {
   const sectionRef = useRef<HTMLElement>(null);
-  const { gsap } = useGSAPAnimation();
+  const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (sectionRef.current && gsap) {
-      // Simple blog-style animation - fade in with stagger
-      gsap.fromTo(sectionRef.current.children, 
-        {
-          opacity: 0,
-          y: 30
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Animate everything simultaneously
+            if (headerRef.current) {
+              headerRef.current.classList.add('is-visible');
+            }
+            
+            // Animate content at the same time (no delay)
+            const content = entry.target.querySelector('.animate-card');
+            if (content) {
+              content.classList.add('is-visible');
+            }
           }
-        }
-      );
+        });
+      },
+      {
+        threshold: 0.3,
+        rootMargin: '0px 0px -25% 0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
-  }, [gsap]);
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
     <section 
       ref={sectionRef}
-      className="py-16 md:py-24"
+      className="pt-20 md:pt-32 pb-16 md:pb-24"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        {/* Hero Content */}
+        <div ref={headerRef} className="text-center mb-12 md:mb-16 animate-header">
+          <h1 className="font-figtree text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
+            {title}
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl text-white max-w-4xl mx-auto font-figtree leading-relaxed">
+            {description}
+          </p>
+        </div>
+
+        {/* Contact Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 animate-card">
           {/* Contact Information */}
           <div className="lg:col-span-1">
             <h2 className="text-2xl font-bold text-white mb-6">

@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from 'react';
 import Script from "next/script";
-import EnhancedContactHero from "@/components/EnhancedContactHero";
 import EnhancedContactSection from "@/components/EnhancedContactSection";
 import EnhancedMapSection from "@/components/EnhancedMapSection";
 import ContactPageSchema from "@/components/ContactPageSchema";
@@ -45,7 +44,6 @@ export default function ContactPage() {
         
         {/* Content */}
         <div className="relative z-10">
-          <EnhancedContactHero />
           <EnhancedContactSection />
           <EnhancedMapSection />
         </div>

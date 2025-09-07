@@ -1,8 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { useGSAPAnimation } from '@/components/GSAPProvider';
 
 interface BlogCardProps {
   title: string;
@@ -25,50 +23,14 @@ const BlogCard = ({
   featured = false,
   onReadMore
 }: BlogCardProps) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const { gsap } = useGSAPAnimation();
-
-  useEffect(() => {
-    if (cardRef.current && gsap) {
-      // Initial state - start visible but slightly transformed
-      gsap.set(cardRef.current, {
-        opacity: 1,
-        y: 20,
-        scale: 0.98
-      });
-
-      // Animate in with scroll trigger
-      gsap.to(cardRef.current, {
-        y: 0,
-        scale: 1,
-        duration: 0.6,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: cardRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none reverse'
-        }
-      });
-    }
-  }, [gsap]);
 
   const getCategoryColor = (category: string) => {
-    const colors = {
-      'SEO': 'bg-green-500',
-      'Web Design': 'bg-blue-500',
-      'Marketing': 'bg-purple-500',
-      'Strategy': 'bg-orange-500',
-      'Automation': 'bg-teal-500',
-      'Analytics': 'bg-red-500',
-      'Consulting': 'bg-indigo-500',
-      'Tips': 'bg-yellow-500'
-    };
-    return colors[category as keyof typeof colors] || 'bg-accent';
+    // All categories now use the same blue color as the services filter section
+    return 'bg-accent';
   };
 
   return (
     <div
-      ref={cardRef}
       className={`group relative bg-white rounded-xl shadow-subtle border border-bg-secondary overflow-hidden transition-all duration-300 hover:shadow-medium hover:-translate-y-2 hover:scale-105 ${
         featured ? 'md:col-span-2 lg:col-span-1' : ''
       }`}
@@ -80,10 +42,10 @@ const BlogCard = ({
       <div className="relative p-6 h-full flex flex-col">
         {/* Category and meta info */}
         <div className="flex items-center justify-between mb-4">
-          <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-white ${getCategoryColor(category)}`}>
+          <span className={`font-figtree inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-white ${getCategoryColor(category)}`}>
             {category}
           </span>
-          <div className="flex items-center space-x-2 text-xs text-text-secondary">
+          <div className="font-figtree flex items-center space-x-2 text-xs text-text-secondary">
             <span>{readTime}</span>
             <span>•</span>
             <span>{publishDate}</span>
@@ -91,12 +53,12 @@ const BlogCard = ({
         </div>
 
         {/* Title */}
-        <h3 className="text-card-title text-xl mb-3 group-hover:text-accent transition-colors duration-300 line-clamp-2">
+        <h3 className="font-figtree text-card-title text-xl mb-3 group-hover:text-accent transition-colors duration-300 line-clamp-2">
           {title}
         </h3>
 
         {/* Excerpt */}
-        <p className="text-card-body mb-6 flex-grow line-clamp-3">
+        <p className="font-figtree text-card-body mb-6 flex-grow line-clamp-3">
           {excerpt}
         </p>
 
@@ -108,7 +70,7 @@ const BlogCard = ({
               e.stopPropagation();
               onReadMore();
             }}
-            className="inline-flex items-center text-accent font-medium hover:text-light-accent transition-colors duration-200 group/link relative z-10"
+            className="font-figtree inline-flex items-center text-accent font-medium hover:text-light-accent transition-colors duration-200 group/link relative z-10"
             style={{ pointerEvents: 'auto' }}
           >
             Read More

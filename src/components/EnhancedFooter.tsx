@@ -148,8 +148,8 @@ const EnhancedFooter = () => {
             ref={companyInfoRef}
             className="col-span-1 md:col-span-1 gsap-will-change"
           >
-            <h3 className="text-lg font-semibold mb-4 text-white text-on-busy" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>Digital Mosaic Studios</h3>
-            <p className="text-white text-opacity-90 text-sm mb-4 text-on-dark" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}>
+            <h3 className="font-figtree text-lg font-semibold mb-4 text-white text-on-busy" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>Digital Mosaic Studios</h3>
+            <p className="font-figtree text-white text-opacity-90 text-sm mb-4 text-on-dark" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}>
               Helping startups and small businesses grow through innovative digital solutions.
             </p>
           </div>
@@ -159,12 +159,12 @@ const EnhancedFooter = () => {
             ref={quickLinksRef}
             className="col-span-1 gsap-will-change"
           >
-            <h3 className="text-sm font-semibold mb-4 text-white text-on-busy" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>Quick Links</h3>
+            <h3 className="font-figtree text-sm font-semibold mb-4 text-white text-on-busy" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <Link 
                   href="/" 
-                  className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
+                  className="font-figtree footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
                   style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
                 >
                   Home
@@ -173,7 +173,7 @@ const EnhancedFooter = () => {
               <li>
                 <Link 
                   href="/services" 
-                  className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
+                  className="font-figtree footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
                   style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
                 >
                   Services
@@ -182,7 +182,7 @@ const EnhancedFooter = () => {
               <li>
                 <Link 
                   href="/about" 
-                  className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
+                  className="font-figtree footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
                   style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
                 >
                   About Us
@@ -191,7 +191,7 @@ const EnhancedFooter = () => {
               <li>
                 <Link 
                   href="/contact" 
-                  className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
+                  className="font-figtree footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
                   style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
                 >
                   Contact Us
@@ -200,7 +200,7 @@ const EnhancedFooter = () => {
               <li>
                 <Link 
                   href="/privacy-policy" 
-                  className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
+                  className="font-figtree footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
                   style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
                 >
                   Privacy Policy
@@ -214,12 +214,12 @@ const EnhancedFooter = () => {
             ref={servicesRef}
             className="col-span-1 gsap-will-change"
           >
-            <h3 className="text-sm font-semibold mb-4 text-white text-on-busy" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>Services</h3>
+            <h3 className="font-figtree text-sm font-semibold mb-4 text-white text-on-busy" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>Services</h3>
             <ul className="space-y-2">
               <li>
                 <Link 
                   href="/services#consultations" 
-                  className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
+                  className="font-figtree footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
                   style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
                 >
                   Consultations
@@ -228,7 +228,7 @@ const EnhancedFooter = () => {
               <li>
                 <Link 
                   href="/services#audits" 
-                  className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
+                  className="font-figtree footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
                   style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
                 >
                   Audits
@@ -237,7 +237,7 @@ const EnhancedFooter = () => {
               <li>
                 <Link 
                   href="/services#custom-saas-tools" 
-                  className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
+                  className="font-figtree footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
                   style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
                 >
                   Custom SaaS Tools
@@ -246,7 +246,7 @@ const EnhancedFooter = () => {
               <li>
                 <Link 
                   href="/services#web-design" 
-                  className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
+                  className="font-figtree footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
                   style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
                 >
                   Web Design
@@ -255,7 +255,7 @@ const EnhancedFooter = () => {
               <li>
                 <Link 
                   href="/services#analytics" 
-                  className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
+                  className="font-figtree footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
                   style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
                 >
                   Analytics
@@ -264,7 +264,7 @@ const EnhancedFooter = () => {
               <li>
                 <Link 
                   href="/services#ai-prompting-lessons" 
-                  className="footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
+                  className="font-figtree footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
                   style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
                 >
                   AI Prompting Lessons
@@ -278,8 +278,8 @@ const EnhancedFooter = () => {
             ref={contactRef}
             className="col-span-1 gsap-will-change"
           >
-            <h3 className="text-sm font-semibold mb-4 text-white text-on-busy" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>Contact Us</h3>
-            <ul className="space-y-3 text-white text-opacity-90 text-sm text-on-dark">
+            <h3 className="font-figtree text-sm font-semibold mb-4 text-white text-on-busy" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>Contact Us</h3>
+            <ul className="font-figtree space-y-3 text-white text-opacity-90 text-sm text-on-dark">
               <li className="flex items-start" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 mt-0.5 text-luxury-gold" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
@@ -303,7 +303,7 @@ const EnhancedFooter = () => {
                 </svg>
                 <Link 
                   href="/contact" 
-                  className="text-luxury-gold hover:text-luxury-bronze transition-colors duration-200 font-semibold underline-effect"
+                  className="font-figtree text-luxury-gold hover:text-luxury-bronze transition-colors duration-200 font-semibold underline-effect"
                 >
                   Use Contact Form
                 </Link>
@@ -343,7 +343,7 @@ const EnhancedFooter = () => {
           ref={copyrightRef}
           className="mt-8 pt-8 border-t border-white border-opacity-20 text-center gsap-will-change"
         >
-          <p className="text-white text-opacity-90 text-sm text-on-dark" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}>
+          <p className="font-figtree text-white text-opacity-90 text-sm text-on-dark" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}>
             © {currentYear} <span className="text-accent font-semibold">Digital Mosaic Studios</span>. All rights reserved.
           </p>
         </div>

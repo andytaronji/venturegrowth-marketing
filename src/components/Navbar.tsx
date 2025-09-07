@@ -49,7 +49,7 @@ const Navbar = () => {
                   loading="eager"
                 />
               </div>
-              <span className="text-xl font-semibold text-white">
+              <span className="text-xl font-figtree font-semibold text-white">
                 Digital Mosaic Studios
               </span>
             </Link>
@@ -57,19 +57,19 @@ const Navbar = () => {
           
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-sm font-medium text-white hover:text-bg-primary transition-colors duration-200">
+            <Link href="/" className="text-sm font-figtree font-medium text-white hover:text-bg-primary transition-colors duration-200">
               Home
             </Link>
-            <Link href="/services" className="text-sm font-medium text-white hover:text-bg-primary transition-colors duration-200">
+            <Link href="/services" className="text-sm font-figtree font-medium text-white hover:text-bg-primary transition-colors duration-200">
               Services
             </Link>
-            <Link href="/about" className="text-sm font-medium text-white hover:text-bg-primary transition-colors duration-200">
+            <Link href="/about" className="text-sm font-figtree font-medium text-white hover:text-bg-primary transition-colors duration-200">
               About Us
             </Link>
-            <Link href="/blog" className="text-sm font-medium text-white hover:text-bg-primary transition-colors duration-200">
+            <Link href="/blog" className="text-sm font-figtree font-medium text-white hover:text-bg-primary transition-colors duration-200">
               Blog
             </Link>
-            <Link href="/contact" className="text-sm font-medium text-white hover:text-bg-primary transition-colors duration-200">
+            <Link href="/contact" className="text-sm font-figtree font-medium text-white hover:text-bg-primary transition-colors duration-200">
               Contact Us
             </Link>
           </div>
@@ -126,35 +126,35 @@ const Navbar = () => {
         <div className="px-4 pt-2 pb-3 space-y-1">
           <Link 
             href="/" 
-            className="block px-3 py-2 text-base font-medium text-white hover:text-bg-primary transition-colors duration-200"
+            className="block px-3 py-2 text-base font-figtree font-medium text-white hover:text-bg-primary transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             Home
           </Link>
           <Link 
             href="/services" 
-            className="block px-3 py-2 text-base font-medium text-white hover:text-bg-primary transition-colors duration-200"
+            className="block px-3 py-2 text-base font-figtree font-medium text-white hover:text-bg-primary transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             Services
           </Link>
           <Link 
             href="/about" 
-            className="block px-3 py-2 text-base font-medium text-white hover:text-bg-primary transition-colors duration-200"
+            className="block px-3 py-2 text-base font-figtree font-medium text-white hover:text-bg-primary transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             About Us
           </Link>
           <Link 
             href="/blog" 
-            className="block px-3 py-2 text-base font-medium text-white hover:text-bg-primary transition-colors duration-200"
+            className="block px-3 py-2 text-base font-figtree font-medium text-white hover:text-bg-primary transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             Blog
           </Link>
           <Link 
             href="/contact" 
-            className="block px-3 py-2 text-base font-medium text-white hover:text-bg-primary transition-colors duration-200"
+            className="block px-3 py-2 text-base font-figtree font-medium text-white hover:text-bg-primary transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             Contact Us

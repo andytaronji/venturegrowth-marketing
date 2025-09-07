@@ -1,11 +1,10 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { useGSAPAnimation } from './GSAPProvider';
 
 const EnhancedMissionValuesSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const { gsap } = useGSAPAnimation();
+  const headerRef = useRef<HTMLDivElement>(null);
 
   const values = [
     {
@@ -38,28 +37,42 @@ const EnhancedMissionValuesSection = () => {
   ];
 
   useEffect(() => {
-    if (sectionRef.current && gsap) {
-      // Simple blog-style animation - fade in with stagger
-      gsap.fromTo(sectionRef.current.children, 
-        {
-          opacity: 0,
-          y: 30
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Animate in when section is at center of viewer's screen
+            // First animate the header
+            if (headerRef.current) {
+              headerRef.current.classList.add('is-visible');
+            }
+            
+            // Then animate the content with a delay to ensure header completes first
+            setTimeout(() => {
+              const content = entry.target.querySelector('.animate-card');
+              if (content) {
+                content.classList.add('is-visible');
+              }
+            }, 600); // 600ms delay after header starts animating
           }
-        }
-      );
+        });
+      },
+      {
+        threshold: 1.0,
+        rootMargin: '0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
-  }, [gsap]);
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
     <section 
@@ -67,7 +80,7 @@ const EnhancedMissionValuesSection = () => {
       className="section-padding"
     >
       <div className="max-w-7xl mx-auto container-padding">
-        <div className="text-center mb-16">
+        <div ref={headerRef} className="text-center mb-16 animate-header">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Our Mission & Values
           </h2>
@@ -76,7 +89,7 @@ const EnhancedMissionValuesSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 animate-card">
           {values.map((value, index) => (
             <div 
               key={value.title}

@@ -2,42 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import luxury fonts for enhanced typography */
-@import '@fontsource/montserrat/400.css'; /* Regular */
-@import '@fontsource/montserrat/500.css'; /* Medium */
-@import '@fontsource/montserrat/600.css'; /* SemiBold */
-@import '@fontsource/montserrat/700.css'; /* Bold */
-@import '@fontsource/inter/400.css'; /* Inter Regular */
-@import '@fontsource/inter/500.css'; /* Inter Medium */
-@import '@fontsource/inter/600.css'; /* Inter SemiBold */
-@import '@fontsource/playfair-display/400.css'; /* Playfair Regular */
-@import '@fontsource/playfair-display/600.css'; /* Playfair SemiBold */
-@import '@fontsource/playfair-display/700.css'; /* Playfair Bold */
+/* Import Figtree font for consistent typography */
+@import '@fontsource/figtree/300.css'; /* Light */
+@import '@fontsource/figtree/400.css'; /* Regular */
+@import '@fontsource/figtree/500.css'; /* Medium */
+@import '@fontsource/figtree/600.css'; /* SemiBold */
+@import '@fontsource/figtree/700.css'; /* Bold */
 
-/* Font display optimization for better performance */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Montserrat Regular'), local('Montserrat-Regular');
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local('Montserrat SemiBold'), local('Montserrat-SemiBold');
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local('Montserrat Bold'), local('Montserrat-Bold');
-}
 
 :root {
   /* Accessible color scheme for better legibility */
@@ -93,56 +64,12 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .gsap-fade-up,
-  .gsap-fade-in,
-  .gsap-scale-in,
-  .gsap-slide-left,
-  .gsap-slide-right {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* Fallback styles to ensure components are visible if GSAP fails */
-.gsap-fallback-visible {
-  opacity: 1 !important;
-  transform: none !important;
-}
-
-/* Ensure footer and navbar are always visible as fallback */
-footer,
-nav {
-  opacity: 1;
-}
-
-/* Specific fallback for footer sections */
-footer .gsap-will-change {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Specific fallback for navbar */
-nav .gsap-will-change {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Animation timeout fallback - show elements after 3 seconds if GSAP hasn't initialized */
-@keyframes gsap-fallback {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-.gsap-will-change {
-  animation: gsap-fallback 0.1s ease-out 3s both;
-}
 
 @layer base {
   body {
     background: var(--background);
     color: var(--foreground);
-    font-family: 'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     line-height: 1.65;
     letter-spacing: -0.01em;
@@ -159,7 +86,7 @@ nav .gsap-will-change {
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', 'Montserrat', serif;
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-weight: 600;
     line-height: 1.15;
     margin-bottom: 0.5em;
@@ -345,42 +272,32 @@ nav .gsap-will-change {
 }
 
 @layer utilities {
-  /* GSAP Animation Classes */
-  .gsap-fade-up { 
-    opacity: 0; 
-    transform: translateY(30px); 
+  /* --- CSS Pop-In Animation System (Frame Rate Optimized) --- */
+  /* Hide elements with pop-in data attributes to prevent flash of unstyled content */
+  [data-animate="pop-in"] {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   
-  .gsap-fade-in { 
-    opacity: 0; 
+  /* When element becomes visible, apply the subtle pop-in effect */
+  [data-animate="pop-in"].is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
   }
   
-  .gsap-scale-in { 
-    opacity: 0; 
-    transform: scale(0.95); 
+  /* For users who prefer reduced motion, show immediately without animation */
+  @media (prefers-reduced-motion: reduce) {
+    [data-animate="pop-in"] {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+      transition: none !important;
+    }
   }
   
-  .gsap-slide-left { 
-    opacity: 0; 
-    transform: translateX(-30px); 
-  }
-  
-  .gsap-slide-right { 
-    opacity: 0; 
-    transform: translateX(30px); 
-  }
-  
-  .gsap-will-change { 
-    will-change: transform, opacity; 
-  }
-  
-  .gsap-hardware-accel { 
-    transform: translate3d(0, 0, 0); 
-  }
-  
-  .gsap-disable-transitions { 
-    transition: none !important; 
-  }
   
   /* Z-Index Management */
   .z-index-section {
@@ -686,6 +603,10 @@ nav .gsap-will-change {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
   
+  .shadow-luxury {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+  
   /* Dark solid background for premium, sophisticated look */
   .bg-dark-solid {
     background: #0a1633;
@@ -704,6 +625,362 @@ nav .gsap-will-change {
     background: #101014;
     background-attachment: fixed;
     position: relative;
+  }
+  
+  /* Enhanced ice-style service cards with animated gradients */
+  .ice-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 1px 4px rgba(0, 0, 0, 0.1); /* shadow-luxury */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .ice-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      hsl(220, 100%, 35%) 0%,
+      hsl(240, 100%, 40%) 25%,
+      hsl(260, 100%, 45%) 50%,
+      hsl(280, 100%, 50%) 75%,
+      hsl(300, 100%, 45%) 100%
+    );
+    background-size: 400% 400%;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+  }
+
+  .ice-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .ice-card:hover::before {
+    opacity: 0.2;
+    animation: gradientFlow 3s ease-in-out infinite;
+  }
+
+  @keyframes gradientFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 100% 50%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Floating animation for hero card - EXTREMELY DRAMATIC */
+  /* Only animate for users who haven't requested reduced motion */
+  @media (prefers-reduced-motion: no-preference) {
+    .floating-card {
+      animation: float 3s ease-in-out infinite !important;
+      transform-origin: center center !important;
+    }
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px) scale(1) rotate(0deg) !important;
+    }
+    25% {
+      transform: translateY(-100px) scale(1.3) rotate(2deg) !important;
+    }
+    50% {
+      transform: translateY(-200px) scale(1.5) rotate(0deg) !important;
+    }
+    75% {
+      transform: translateY(-100px) scale(1.3) rotate(-2deg) !important;
+    }
+    100% {
+      transform: translateY(0px) scale(1) rotate(0deg) !important;
+    }
+  }
+
+  /* Alternative ultra-dramatic bounce animation */
+  .mega-bounce {
+    animation: megaBounce 2s ease-in-out infinite !important;
+    transform-origin: center center !important;
+  }
+
+  @keyframes megaBounce {
+    0% {
+      transform: translateY(0px) scale(1) !important;
+    }
+    50% {
+      transform: translateY(-300px) scale(2) !important;
+    }
+    100% {
+      transform: translateY(0px) scale(1) !important;
+    }
+  }
+
+  /* CSS Animation Classes for scroll-triggered animations */
+  .animate-header {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .animate-header.is-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .animate-card {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .animate-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered animation delays for cards */
+  .animate-card:nth-child(1) { transition-delay: 0.1s; }
+  .animate-card:nth-child(2) { transition-delay: 0.3s; }
+  .animate-card:nth-child(3) { transition-delay: 0.5s; }
+  .animate-card:nth-child(4) { transition-delay: 0.7s; }
+  .animate-card:nth-child(5) { transition-delay: 0.9s; }
+  .animate-card:nth-child(6) { transition-delay: 1.1s; }
+
+  /* Blog-specific animation classes without predefined delays */
+  .animate-blog-card {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .animate-blog-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Ensure elements are visible for users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-header,
+    .animate-card {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* Enhanced Mobile Static View - Disable ALL animations on mobile */
+  @media (max-width: 768px) {
+    /* Disable all IntersectionObserver-based animations */
+    .animate-header,
+    .animate-card,
+    .animate-blog-card {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+      animation: none !important;
+      visibility: visible !important;
+    }
+    
+    /* Disable triggered animation states */
+    .animate-header.is-visible,
+    .animate-card.is-visible,
+    .animate-blog-card.is-visible {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    
+    /* Disable pop-in animations */
+    [data-animate="pop-in"] {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+      transition: none !important;
+      animation: none !important;
+    }
+    
+    [data-animate="pop-in"].is-visible {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+    }
+    
+    /* Disable advanced mask reveal animations */
+    .animate-slide-up,
+    .animate-slide-in,
+    .animate-image-reveal,
+    .animate-button {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+      animation: none !important;
+    }
+    
+    .start-animation .animate-slide-up,
+    .start-animation .animate-slide-in,
+    .start-animation .animate-image-reveal,
+    .start-animation .animate-button {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    
+    /* Disable image reveal overlays */
+    .image-reveal-container::after {
+      display: none !important;
+    }
+    
+    /* Disable any GSAP-applied inline styles that might hide content */
+    [style*="opacity: 0"],
+    [style*="opacity:0"] {
+      opacity: 1 !important;
+    }
+    
+    [style*="transform"] {
+      transform: none !important;
+    }
+    
+    /* Disable floating and bounce animations */
+    .floating-card,
+    .mega-bounce {
+      animation: none !important;
+      transform: none !important;
+    }
+    
+    /* Disable ice card hover animations */
+    .ice-card::before {
+      display: none !important;
+    }
+    
+    .ice-card:hover::before {
+      animation: none !important;
+    }
+    
+    /* Ensure all staggered delays are removed */
+    .animate-card:nth-child(1),
+    .animate-card:nth-child(2),
+    .animate-card:nth-child(3),
+    .animate-card:nth-child(4),
+    .animate-card:nth-child(5),
+    .animate-card:nth-child(6) {
+      transition-delay: 0s !important;
+    }
+  }
+
+  /* --- Advanced Mask Reveal Animation System --- */
+  
+  /* Mask containers for overflow clipping */
+  .reveal-mask {
+    display: block;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* Elements that slide up from below */
+  .animate-slide-up {
+    display: block;
+    opacity: 0;
+    transform: translateY(110%);
+    transition: opacity 0.8s cubic-bezier(0.2, 1, 0.3, 1), transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+  }
+  
+  /* List items sliding in from the left */
+  .animate-slide-in {
+    transform: translateX(-101%);
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+  }
+
+  /* Image reveal container */
+  .image-reveal-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+  }
+  
+  .image-reveal-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 43, 66, 0.9); /* Dark overlay matching theme */
+    transform: translateX(0);
+    transition: transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+    z-index: 1;
+  }
+  
+  .animate-image-reveal {
+    opacity: 0;
+    transform: scale(1.1);
+    transition: opacity 1.2s cubic-bezier(0.2, 1, 0.3, 1), transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+  }
+  
+  /* Button fade/scale animation */
+  .animate-button {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  /* --- Animation Triggers --- */
+  .start-animation .animate-slide-up {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  
+  .start-animation .animate-slide-in {
+    transform: translate(0, 0);
+  }
+
+  .start-animation .image-reveal-container::after {
+    transform: translateX(101%);
+  }
+  
+  .start-animation .animate-image-reveal {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .start-animation .animate-button {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Accessibility: Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-slide-up,
+    .animate-slide-in,
+    .animate-image-reveal,
+    .animate-button {
+      transform: none !important;
+      opacity: 1 !important;
+      transition: none !important;
+    }
+    
+    .image-reveal-container::after {
+      display: none !important;
+    }
   }
   
 }

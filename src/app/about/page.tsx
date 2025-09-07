@@ -5,7 +5,7 @@ import Link from "next/link";
 import CldImageWrapper from "@/components/CldImageWrapper";
 import EnhancedAboutHero from "@/components/EnhancedAboutHero";
 import EnhancedAboutSection from "@/components/EnhancedAboutSection";
-import EnhancedServiceDetailSection from "@/components/EnhancedServiceDetailSection";
+import AboutBusinessFocusSection from "@/components/AboutBusinessFocusSection";
 import EnhancedWhyChooseUsSection from "@/components/EnhancedWhyChooseUsSection";
 import EnhancedCTASection from "@/components/EnhancedCTASection";
 import EnhancedMissionValuesSection from "@/components/EnhancedMissionValuesSection";
@@ -22,9 +22,50 @@ const pageMetadata = {
 
 export default function AboutPage() {
   const backgroundRef = useRef<HTMLDivElement>(null);
+  const testimonialsRef = useRef<HTMLElement>(null);
+  const testimonialsHeaderRef = useRef<HTMLDivElement>(null);
   const { gsap } = useGSAPAnimation();
 
   // Removed gradient animation to eliminate moving line effect
+
+  // IntersectionObserver for testimonials section
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Animate in when section is at center of viewer's screen
+            // First animate the header
+            if (testimonialsHeaderRef.current) {
+              testimonialsHeaderRef.current.classList.add('is-visible');
+            }
+            
+            // Then animate the content with a delay to ensure header completes first
+            setTimeout(() => {
+              const content = entry.target.querySelector('.animate-card');
+              if (content) {
+                content.classList.add('is-visible');
+              }
+            }, 600); // 600ms delay after header starts animating
+          }
+        });
+      },
+      {
+        threshold: 1.0,
+        rootMargin: '0px'
+      }
+    );
+
+    if (testimonialsRef.current) {
+      observer.observe(testimonialsRef.current);
+    }
+
+    return () => {
+      if (testimonialsRef.current) {
+        observer.unobserve(testimonialsRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -44,60 +85,39 @@ export default function AboutPage() {
         <div className="relative z-10">
           <EnhancedAboutHero />
           
-          <EnhancedServiceDetailSection
-            title="Why We Focus on Small Business & Startup Growth"
-            description="After working with hundreds of businesses across every industry, we discovered something powerful: small businesses and startups—tech companies, SaaS platforms, professional services, and e-commerce—have the strongest entrepreneurial drive, the clearest growth potential, and the most innovative solutions. Yet they were being underserved by generic marketing agencies who didn't understand their unique scaling challenges, customer acquisition costs, and rapid growth needs."
-            features={[
-              {
-                title: "Growth Specialization",
-                description: "We made the strategic decision to focus on small businesses and startups. This specialization allows us to understand your scaling challenges, customer acquisition strategies, and growth metrics better than any generalist agency ever could."
-              },
-              {
-                title: "Proven Growth Framework",
-                description: "Our clients see remarkable results: 3x increase in demo signups for tech startups, 40% sales growth for retailers, and doubled inbound leads in 60 days because we've perfected the marketing strategies that work specifically for growing businesses."
-              },
-              {
-                title: "Premium Service Standards",
-                description: "We treat your business with the same level of professionalism and attention to detail that you bring to your innovation. Direct access to experts, monthly strategy calls, and transparent reporting—no outsourced support or cookie-cutter solutions."
-              }
-            ]}
-            imageSrc="u9524928111_A_crisp_professional_mosaic-style_timeline_beside_a26591de-e997-440a-a17c-edbf4462fc63_1_tnxl1s"
-            imageAlt="Digital Mosaic Studios Blue-Collar Expertise"
-            imagePosition="right"
-            backgroundColor="white"
-            imageCrop="fit"
-            imageGravity="auto"
-            imageObjectFit="cover"
-          />
+          <AboutBusinessFocusSection />
           
           <EnhancedMissionValuesSection />
           
           {/* Blue-Collar Testimonial Section */}
-          <section className="py-16 md:py-24 bg-luxury-navy bg-opacity-10">
+          <section 
+            ref={testimonialsRef}
+            className="py-16 md:py-24 bg-luxury-navy bg-opacity-10"
+          >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16">
-                <h2 className="font-luxury-serif text-4xl md:text-5xl font-bold text-white mb-6">
+              <div ref={testimonialsHeaderRef} className="text-center mb-16 animate-header">
+                <h2 className="font-figtree text-4xl md:text-5xl font-bold text-white mb-6">
                   What Growing Business Leaders Say
                 </h2>
-                <p className="text-xl text-white opacity-90 max-w-3xl mx-auto font-luxury-sans">
+                <p className="text-xl text-white opacity-90 max-w-3xl mx-auto font-figtree">
                   Real results from ambitious entrepreneurs and business owners who chose luxury-level marketing
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto animate-card">
                 <div className="bg-white rounded-2xl p-8 border border-gray-200 hover:border-accent hover:border-opacity-40 transition-all duration-300 hover:transform hover:scale-105 shadow-card hover:shadow-card-hover">
-                  <blockquote className="text-lg md:text-xl text-card-body mb-6 italic font-luxury-sans leading-relaxed">
+                  <blockquote className="text-lg md:text-xl text-card-body mb-6 italic font-figtree leading-relaxed">
                     "We doubled our beta users in just six weeks. Their understanding of the startup ecosystem and growth strategies is unmatched. ROI has never been higher."
                   </blockquote>
                   <div className="flex items-center">
                     <div className="w-12 h-12 rounded-full mr-4 border-2 border-accent border-opacity-30 bg-accent flex items-center justify-center">
-                      <span className="text-white font-semibold text-sm font-luxury-sans">MC</span>
+                      <span className="text-white font-semibold text-sm font-figtree">MC</span>
                     </div>
                     <div>
-                      <cite className="text-accent font-semibold font-luxury-sans not-italic">
+                      <cite className="text-accent font-semibold font-figtree not-italic">
                         Mia Chen
                       </cite>
-                      <div className="text-card-body text-sm font-luxury-sans">
+                      <div className="text-card-body text-sm font-figtree">
                         LaunchPad Apps, Atlanta GA
                       </div>
                     </div>
@@ -105,18 +125,18 @@ export default function AboutPage() {
                 </div>
                 
                 <div className="bg-white rounded-2xl p-8 border border-gray-200 hover:border-accent hover:border-opacity-40 transition-all duration-300 hover:transform hover:scale-105 shadow-card hover:shadow-card-hover">
-                  <blockquote className="text-lg md:text-xl text-card-body mb-6 italic font-luxury-sans leading-relaxed">
+                  <blockquote className="text-lg md:text-xl text-card-body mb-6 italic font-figtree leading-relaxed">
                     "The custom CRM tool saved us 10 hours per week, and our website now converts visitors into paying customers. Fast turnaround, premium results."
                   </blockquote>
                   <div className="flex items-center">
                     <div className="w-12 h-12 rounded-full mr-4 border-2 border-accent border-opacity-30 bg-accent flex items-center justify-center">
-                      <span className="text-white font-semibold text-sm font-luxury-sans">DW</span>
+                      <span className="text-white font-semibold text-sm font-figtree">DW</span>
                     </div>
                     <div>
-                      <cite className="text-accent font-semibold font-luxury-sans not-italic">
+                      <cite className="text-accent font-semibold font-figtree not-italic">
                         Dana Williams
                       </cite>
-                      <div className="text-card-body text-sm font-luxury-sans">
+                      <div className="text-card-body text-sm font-figtree">
                         Metro Realty Group, Alpharetta GA
                       </div>
                     </div>
@@ -124,20 +144,20 @@ export default function AboutPage() {
                 </div>
               </div>
               
-              <div className="text-center mt-12">
+              <div className="text-center mt-12 animate-card">
                 <div className="bg-luxury-gold bg-opacity-10 rounded-xl p-6 max-w-2xl mx-auto border border-luxury-gold border-opacity-30">
                   <div className="grid grid-cols-3 gap-6">
                     <div className="text-center">
-                      <div className="text-luxury-gold font-bold text-2xl font-luxury-serif">3x</div>
-                      <div className="text-white text-sm font-luxury-sans">Demo Signups</div>
+                      <div className="text-luxury-gold font-bold text-2xl font-figtree">3x</div>
+                      <div className="text-white text-sm font-figtree">Demo Signups</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-luxury-gold font-bold text-2xl font-luxury-serif">40%</div>
-                      <div className="text-white text-sm font-luxury-sans">Sales Growth</div>
+                      <div className="text-luxury-gold font-bold text-2xl font-figtree">40%</div>
+                      <div className="text-white text-sm font-figtree">Sales Growth</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-luxury-gold font-bold text-2xl font-luxury-serif">60 Days</div>
-                      <div className="text-white text-sm font-luxury-sans">Double Leads</div>
+                      <div className="text-luxury-gold font-bold text-2xl font-figtree">60 Days</div>
+                      <div className="text-white text-sm font-figtree">Double Leads</div>
                     </div>
                   </div>
                 </div>

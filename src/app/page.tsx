@@ -6,7 +6,9 @@ import Link from "next/link";
 import EnhancedHero from "@/components/EnhancedHero";
 import EnhancedServicesSection from "@/components/EnhancedServicesSection";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
+import PopInCTASection from "@/components/PopInCTASection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import ReadyToJoinCTASection from "@/components/ReadyToJoinCTASection";
 import EnhancedAboutSection from "@/components/EnhancedAboutSection";
 import EnhancedCTASection from "@/components/EnhancedCTASection";
 import CldImageWrapper from "@/components/CldImageWrapper";
@@ -44,9 +46,13 @@ export default function Home() {
           <EnhancedHero />
           <EnhancedServicesSection />
           <WhyChooseUsSection />
+          <PopInCTASection />
           <TestimonialsSection />
+          <ReadyToJoinCTASection />
           <EnhancedAboutSection />
-          <EnhancedCTASection />
+          <EnhancedCTASection 
+            title="Ready to Work With Us?"
+          />
         </div>
       </div>
     </>

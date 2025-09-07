@@ -3,7 +3,6 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import CldImageWrapper from './CldImageWrapper';
-import { useGSAPAnimation } from './GSAPProvider';
 
 interface FeatureItem {
   title: string;
@@ -59,100 +58,116 @@ const EnhancedAboutSection = ({
   imageAlt = "About Digital Mosaic Studios"
 }: EnhancedAboutSectionProps) => {
   const sectionRef = useRef<HTMLElement>(null);
-  const { gsap } = useGSAPAnimation();
+  const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (sectionRef.current && gsap) {
-      // Simple blog-style animation - fade in with stagger
-      gsap.fromTo(sectionRef.current.children, 
-        {
-          opacity: 0,
-          y: 30
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Trigger advanced animations immediately
+            entry.target.classList.add('start-animation');
           }
-        }
-      );
+        });
+      },
+      {
+        threshold: 0.3,
+        rootMargin: '0px 0px -25% 0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
-  }, [gsap]);
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
     <section 
       ref={sectionRef}
-      className="py-16 md:py-24"
+      className="section-padding"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
+      <div className="max-w-7xl mx-auto container-padding">
+        <div ref={headerRef} className="section-header text-center mb-16">
+          <div className="reveal-mask mb-6">
             <h2 
-              className="text-3xl md:text-4xl font-bold text-white mb-6"
-              style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}
+              className="animate-slide-up font-figtree text-luxury-title md:text-5xl font-bold text-white"
+              style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)', transitionDelay: '0.1s' }}
             >
               {title}
             </h2>
-            
+          </div>
+          
+          <div className="reveal-mask">
             <p 
-              className="text-lg text-white mb-6"
-              style={{ textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)' }}
+              className="animate-slide-up text-luxury-body md:text-xl text-white max-w-4xl mx-auto font-figtree leading-relaxed"
+              style={{ textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)', transitionDelay: '0.3s' }}
             >
               {description}
             </p>
-            
-            <div className="space-y-4">
-              {features.map((feature, index) => (
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-4">
+            {features.map((feature, index) => (
+              <div key={index} className="reveal-mask">
                 <div 
-                  key={index}
-                  className="flex items-start"
+                  className="animate-slide-in bg-white/10 backdrop-blur-sm rounded-xl shadow-luxury overflow-hidden hover:shadow-luxury-hover transition-all duration-300"
+                  style={{ transitionDelay: `${0.5 + index * 0.1}s` }}
                 >
-                  <div className="flex-shrink-0 mt-1">
-                    {feature.icon}
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-white" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>{feature.title}</h3>
-                    <div className="text-white text-opacity-90 text-sm" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}>
-                      {feature.description.split('\n').map((line, idx) => (
-                        <div key={idx} className="mb-1">{line}</div>
-                      ))}
+                  <div className="gradient-border-card-content">
+                    <div className="p-6 text-center">
+                      <h3 
+                        className="text-xl md:text-2xl font-bold text-white font-figtree mb-3" 
+                        style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}
+                      >
+                        {feature.title}
+                      </h3>
+                      <div 
+                        className="text-base text-white text-opacity-90 font-figtree leading-relaxed" 
+                        style={{ textShadow: '0 1px 3px rgba(0, 0, 0, 0.2)' }}
+                      >
+                        {feature.description.split('\n').map((line, idx) => (
+                          <div key={idx} className="mb-2">{line}</div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-            
-            <div className="mt-8">
-              <Link 
-                href={ctaLink}
-                className="inline-block px-6 py-3 bg-accent text-white font-medium rounded-md hover:bg-light-accent hover:text-white transition-colors duration-200 transform hover:scale-105"
-              >
-                {ctaText}
-              </Link>
-            </div>
+              </div>
+            ))}
           </div>
           
           <div className="relative h-96 w-full">
-            <div className="relative h-full w-full">
-              <CldImageWrapper
-                src={imageSrc}
-                alt={imageAlt}
-                width={800}
-                height={600}
-                crop="fit"
-                gravity="auto"
-                quality="auto:best"
-                className="rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
+            <CldImageWrapper
+              src={imageSrc}
+              alt={imageAlt}
+              width={800}
+              height={600}
+              crop="fit"
+              gravity="auto"
+              quality="auto:best"
+              className="animate-image-reveal rounded-lg shadow-subtle absolute inset-0 w-full h-full object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ transitionDelay: '1.5s' }}
+            />
           </div>
+        </div>
+        
+        <div className="text-center mt-12">
+          <Link 
+            href={ctaLink}
+            className="animate-button inline-block px-8 py-4 bg-accent text-white font-medium font-figtree rounded-full hover:bg-light-accent hover:text-white transition-colors duration-200 transform hover:scale-105 shadow-button hover:shadow-button-hover"
+            style={{ transitionDelay: '0.9s' }}
+          >
+            {ctaText}
+          </Link>
         </div>
       </div>
     </section>
