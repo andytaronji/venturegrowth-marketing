@@ -9,7 +9,7 @@ interface EnhancedAboutHeroProps {
 }
 
 const EnhancedAboutHero = ({
-  title = "The Luxury Marketing Agency Built for Small Business & Startup Growth",
+  title = "The Digital Strategy Marketing Agency Built for Small Business & Startup Growth",
   description = "Founded in Marietta, GA, we specialize in helping tech startups, SaaS platforms, professional services, and e-commerce businesses scale across Atlanta, Georgia, and nationwide."
 }: EnhancedAboutHeroProps) => {
   const heroRef = useRef<HTMLElement>(null);

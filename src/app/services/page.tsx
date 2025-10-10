@@ -4,12 +4,12 @@ import { useEffect, useRef } from 'react';
 import Link from "next/link";
 import CldImageWrapper from "@/components/CldImageWrapper";
 import EnhancedServicesHero from "@/components/EnhancedServicesHero";
-import ConsultationsSection from "@/components/ConsultationsSection";
-import AuditsSection from "@/components/AuditsSection";
-import CustomSaasToolsSection from "@/components/CustomSaasToolsSection";
-import WebDesignSection from "@/components/WebDesignSection";
-import AnalyticsSection from "@/components/AnalyticsSection";
-import AiPromptingLessonsSection from "@/components/AiPromptingLessonsSection";
+import DiscoveryAndAuditSection from "@/components/DiscoveryAndAuditSection";
+import CustomerJourneyMappingSection from "@/components/CustomerJourneyMappingSection";
+import DigitalChannelStrategySection from "@/components/DigitalChannelStrategySection";
+import TechnologyStackPlanningSection from "@/components/TechnologyStackPlanningSection";
+import MeasurementOptimizationFrameworkSection from "@/components/MeasurementOptimizationFrameworkSection";
+import ComprehensiveDigitalStrategySection from "@/components/ComprehensiveDigitalStrategySection";
 import EnhancedCTASection from "@/components/EnhancedCTASection";
 import ServicesSchema from "@/components/ServicesSchema";
 import { useGSAPAnimation } from "@/components/GSAPProvider";
@@ -46,12 +46,12 @@ export default function ServicesPage() {
         <div className="relative z-10">
           <EnhancedServicesHero />
           
-          <ConsultationsSection />
-          <AuditsSection />
-          <CustomSaasToolsSection />
-          <WebDesignSection />
-          <AnalyticsSection />
-          <AiPromptingLessonsSection />
+          <DiscoveryAndAuditSection />
+          <CustomerJourneyMappingSection />
+          <DigitalChannelStrategySection />
+          <TechnologyStackPlanningSection />
+          <MeasurementOptimizationFrameworkSection />
+          <ComprehensiveDigitalStrategySection />
           
           <EnhancedCTASection
             title="Ready to Work With Us?"

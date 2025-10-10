@@ -47,17 +47,17 @@ const EnhancedHero = () => {
             {/* Text Content Side */}
             <div className="p-6 md:p-10 lg:pl-12 lg:pr-6 flex flex-col justify-center">
               <h1 
-                className="font-figtree text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white mb-4 md:mb-6"
+                className="font-figtree text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white mb-4 md:mb-6 text-center"
                 style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}
               >
-                Social Media Management for Small Businesses
+                Digital Strategy for Small Businesses
               </h1>
               
               <h2 
-                className="text-base sm:text-lg md:text-xl lg:text-2xl text-white font-figtree font-medium mb-4 md:mb-6 leading-relaxed"
+                className="text-base sm:text-lg md:text-xl lg:text-2xl text-white font-figtree font-medium mb-4 md:mb-6 leading-relaxed text-center"
                 style={{ textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)' }}
               >
-                Content Creation, Content Publication, Ad Campaign Management, and More!
+                Smart Digital Strategies That Drive Growth
               </h2>
               
               <h3 
@@ -72,8 +72,8 @@ const EnhancedHero = () => {
                   href="/contact" 
                   className="px-6 py-3 sm:px-8 sm:py-4 font-medium font-figtree rounded-full transition-all duration-200 transform hover:scale-105 shadow-button hover:shadow-button-hover bg-accent text-white hover:bg-light-accent hover:text-white flex flex-col items-center text-sm sm:text-base"
                 >
-                  <span>Talk to Us, It's</span>
-                  <span>Free</span>
+                  <span>Schedule Your</span>
+                  <span>Consultation</span>
                 </Link>
                 <Link 
                   href="/services" 
@@ -91,7 +91,7 @@ const EnhancedHero = () => {
               <div className="relative w-full max-w-lg lg:max-w-2xl aspect-video">
                 <CldImageWrapper
                   src="https://res.cloudinary.com/di4phdven/image/upload/w_1200,h_675,c_fill,q_auto,f_auto,dpr_auto/v1756593178/Brown_Green_Terracotta_Minimal_Social_Media_Mockup_Instagram_Post_vzeb5n.png"
-                  alt="Social Media Management mockup showcasing Digital Mosaic Studios' professional social media design services for small businesses"
+                  alt="Digital Strategy for businesses showcasing Digital Mosaic Studios' professional digital strategy services for small businesses"
                   width={1200}
                   height={675}
                   className="absolute inset-0 w-full h-full object-cover rounded-none shadow-lg"

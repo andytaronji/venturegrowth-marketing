@@ -120,7 +120,7 @@ const WhyChooseUsSection = () => {
             Why Small Businesses & Startups Choose Us
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-white max-w-4xl mx-auto font-figtree leading-relaxed">
-            We're not just another marketing agency. We're specialists who understand the unique challenges and opportunities in <span className="text-accent font-semibold">tech startups</span>, <span className="text-accent font-semibold">SaaS platforms</span>, <span className="text-accent font-semibold">professional services</span>, and <span className="text-accent font-semibold">e-commerce</span>.
+            We're strategists who understand the evolving challenges and opportunities of building a business in today's digital landscape. Our approach is rooted in <span className="text-accent font-semibold">clarity, adaptability, and measurable growth</span>. We design everything to align with your vision.
           </p>
         </div>
         
