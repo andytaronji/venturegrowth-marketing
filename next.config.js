@@ -16,10 +16,10 @@ const nextConfig = {
             key: 'Strict-Transport-Security',
             value: 'max-age=31536000; includeSubDomains; preload'
           },
-          // X-Frame-Options - Prevent clickjacking
+          // X-Frame-Options - Prevent clickjacking (SAMEORIGIN in dev to allow preview iframes)
           {
             key: 'X-Frame-Options',
-            value: 'DENY'
+            value: process.env.NODE_ENV === 'development' ? 'SAMEORIGIN' : 'DENY'
           },
           // X-Content-Type-Options - Prevent MIME type sniffing
           {
@@ -41,10 +41,12 @@ const nextConfig = {
             key: 'X-XSS-Protection',
             value: '1; mode=block'
           },
-          // Content Security Policy - Prevent XSS attacks
+          // Content Security Policy - Prevent XSS attacks (frame-ancestors relaxed in dev for preview)
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://res.cloudinary.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.google.com https://www.gstatic.com https://connect.facebook.net https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://res.cloudinary.com https://www.googletagmanager.com https://www.google.com https://assets.calendly.com https://calendly.com data:; media-src 'self' https://res.cloudinary.com; connect-src 'self' https://res.cloudinary.com https://www.google-analytics.com https://analytics.google.com https://www.google.com https://calendly.com https://assets.calendly.com; frame-src https://td.doubleclick.net https://www.googletagmanager.com https://www.google.com https://recaptcha.google.com https://calendly.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
+            value: process.env.NODE_ENV === 'development'
+              ? "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://res.cloudinary.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.google.com https://www.gstatic.com https://connect.facebook.net https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://res.cloudinary.com https://www.googletagmanager.com https://www.google.com https://assets.calendly.com https://calendly.com data:; media-src 'self' https://res.cloudinary.com; connect-src 'self' https://res.cloudinary.com https://www.google-analytics.com https://analytics.google.com https://www.google.com https://calendly.com https://assets.calendly.com; frame-src https://td.doubleclick.net https://www.googletagmanager.com https://www.google.com https://recaptcha.google.com https://calendly.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self';"
+              : "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://res.cloudinary.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.google.com https://www.gstatic.com https://connect.facebook.net https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://res.cloudinary.com https://www.googletagmanager.com https://www.google.com https://assets.calendly.com https://calendly.com data:; media-src 'self' https://res.cloudinary.com; connect-src 'self' https://res.cloudinary.com https://www.google-analytics.com https://analytics.google.com https://www.google.com https://calendly.com https://assets.calendly.com; frame-src https://td.doubleclick.net https://www.googletagmanager.com https://www.google.com https://recaptcha.google.com https://calendly.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
           },
           // Permissions Policy - Control browser features
           {

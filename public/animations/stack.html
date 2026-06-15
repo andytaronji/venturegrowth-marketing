@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Technology Stack Planning — Digital Mosaic Studios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; background: transparent; }
+  dms-anim { position: fixed; inset: 0; display: block; }
+</style>
+</head>
+<body>
+  <dms-anim kind="stack"></dms-anim>
+  <script>
+/*  Digital Mosaic Studios — Service Animations
+ *  Drop-in, dependency-free web component.
+ *
+ *  USAGE
+ *    <script src="dms-animations.js"><\/script>
+ *    <dms-anim kind="discovery"></dms-anim>
+ *
+ *  ATTRIBUTES
+ *    kind="discovery|journey|channel|stack|measurement|orchestration"
+ *    accent="#38e0ff"      (optional — override the per-kind accent colour)
+ *    transparent            (optional — skip the dark background fill so the
+ *                            element sits on your own card/background)
+ *
+ *  SIZING
+ *    The component fills its host element. Give the host a size, e.g.
+ *    dms-anim { display:block; width:100%; aspect-ratio:16/10; }
+ *
+ *  Each animation loops continuously with a calm pause between cycles.
+ */
+(function () {
+  if (window.customElements && customElements.get('dms-anim')) return;
+
+  /* ---------------- helpers ---------------- */
+  function hexA(hex, a) {
+    let h = hex.replace('#', '');
+    if (h.length === 3) h = h.split('').map(c => c + c).join('');
+    const n = parseInt(h, 16);
+    return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+  }
+  function cyc(t, play, pause) { const total = play + pause; const lt = ((t % total) + total) % total; return Math.min(lt / play, 1); }
+  function easeInOut(x) { return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2; }
+  function easeOut(x) { return 1 - Math.pow(1 - x, 3); }
+  function mulberry32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  function rrect(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.roundRect(x, y, w, h, r); }
+  function label(ctx, text, x, y, color, align) {
+    ctx.save();
+    ctx.font = '600 11px Manrope, system-ui, sans-serif';
+    ctx.letterSpacing = '2px';
+    ctx.fillStyle = hexA(color, 0.72);
+    ctx.textAlign = align || 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(text, x, y);
+    ctx.restore();
+  }
+  function bigNum(ctx, text, x, y, color, align, mid) {
+    ctx.save();
+    ctx.font = '600 26px "Space Grotesk", system-ui, sans-serif';
+    ctx.fillStyle = '#f3f8ff';
+    ctx.textAlign = align || 'left';
+    ctx.textBaseline = mid ? 'middle' : 'alphabetic';
+    ctx.shadowColor = color; ctx.shadowBlur = 12;
+    ctx.fillText(text, x, y);
+    ctx.restore();
+  }
+  function panel(ctx, x, y, w, h, ac) {
+    ctx.fillStyle = 'rgba(120,160,220,0.035)'; rrect(ctx, x, y, w, h, 12); ctx.fill();
+    ctx.strokeStyle = hexA(ac, 0.16); ctx.lineWidth = 1; rrect(ctx, x, y, w, h, 12); ctx.stroke();
+  }
+  function drawBg(ctx, w, h, t, ac, paint) {
+    if (paint) {
+      const g = ctx.createLinearGradient(0, 0, 0, h);
+      g.addColorStop(0, '#0a1429'); g.addColorStop(1, '#05080f');
+      ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+    }
+    const rg = ctx.createRadialGradient(w * 0.5, h * 0.52, 0, w * 0.5, h * 0.52, Math.max(w, h) * 0.62);
+    rg.addColorStop(0, hexA(ac, paint ? 0.10 : 0.06)); rg.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = rg; ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = 'rgba(120,150,200,0.055)';
+    const gap = 26;
+    for (let x = gap; x < w; x += gap) for (let y = gap; y < h; y += gap) { ctx.beginPath(); ctx.arc(x, y, 1, 0, 7); ctx.fill(); }
+    if (paint) {
+      const vg = ctx.createRadialGradient(w / 2, h / 2, Math.min(w, h) * 0.32, w / 2, h / 2, Math.max(w, h) * 0.78);
+      vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(0,0,0,0.5)');
+      ctx.fillStyle = vg; ctx.fillRect(0, 0, w, h);
+    }
+  }
+
+  /* ---------------- 1. Discovery — radar scan ---------------- */
+  function drawDiscovery(ctx, w, h, t, ac, cache) {
+    const cx = w * 0.5, cy = h * 0.5, R = Math.min(w, h) * 0.4;
+    const p = cyc(t, 6, 1.4);
+    if (!cache.disc) { const rnd = mulberry32(42); const arr = []; for (let i = 0; i < 18; i++) { arr.push({ ang: rnd() * Math.PI * 2, r: (0.16 + rnd() * 0.82) * R }); } cache.disc = arr; }
+    const nodes = cache.disc;
+    ctx.lineWidth = 1;
+    for (let i = 1; i <= 3; i++) { ctx.strokeStyle = hexA(ac, 0.12); ctx.beginPath(); ctx.arc(cx, cy, R * i / 3, 0, 7); ctx.stroke(); }
+    ctx.strokeStyle = hexA(ac, 0.1); ctx.beginPath(); ctx.moveTo(cx - R, cy); ctx.lineTo(cx + R, cy); ctx.moveTo(cx, cy - R); ctx.lineTo(cx, cy + R); ctx.stroke();
+    const start = -Math.PI / 2;
+    const sweep = easeInOut(p) * Math.PI * 2 * 1.12;
+    const ang = start + sweep;
+    const steps = 38, span = Math.PI * 0.62;
+    for (let i = 0; i < steps; i++) {
+      const a0 = ang - span * (i / steps), a1 = ang - span * ((i + 1) / steps);
+      ctx.fillStyle = hexA(ac, 0.16 * (1 - i / steps));
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.arc(cx, cy, R, a1, a0); ctx.closePath(); ctx.fill();
+    }
+    ctx.save(); ctx.shadowColor = ac; ctx.shadowBlur = 14; ctx.strokeStyle = hexA(ac, 0.9); ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(ang) * R, cy + Math.sin(ang) * R); ctx.stroke(); ctx.restore();
+    nodes.forEach(n => {
+      const x = cx + Math.cos(n.ang) * n.r, y = cy + Math.sin(n.ang) * n.r;
+      const firstPass = ((n.ang - start) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
+      const lit = sweep >= firstPass;
+      const since = sweep - firstPass;
+      if (lit) { ctx.save(); ctx.shadowColor = ac; ctx.shadowBlur = 10; ctx.fillStyle = hexA(ac, 0.95); ctx.beginPath(); ctx.arc(x, y, 3.2, 0, 7); ctx.fill(); ctx.restore(); }
+      else { ctx.fillStyle = hexA('#9fb6d8', 0.22); ctx.beginPath(); ctx.arc(x, y, 2, 0, 7); ctx.fill(); }
+      if (lit && since < 0.7) { const rr = 4 + since * 26; ctx.strokeStyle = hexA(ac, 0.5 * (1 - since / 0.7)); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(x, y, rr, 0, 7); ctx.stroke(); }
+    });
+    ctx.save(); ctx.shadowColor = ac; ctx.shadowBlur = 16; ctx.fillStyle = ac; ctx.beginPath(); ctx.arc(cx, cy, 3.5, 0, 7); ctx.fill(); ctx.restore();
+    label(ctx, 'SCANNING DIGITAL PRESENCE', cx, h - 22, ac);
+  }
+
+  /* ---------------- 2. Journey — path with waypoints ---------------- */
+  function drawJourney(ctx, w, h, t, ac, cache) {
+    const ac2 = '#38e0ff';
+    const p = cyc(t, 6, 1.5);
+    const p0 = { x: w * 0.13, y: h * 0.72 }, c1 = { x: w * 0.33, y: h * 0.16 }, c2 = { x: w * 0.6, y: h * 0.96 }, p3 = { x: w * 0.87, y: h * 0.3 };
+    const cub = (a) => { const m = 1 - a; return { x: m * m * m * p0.x + 3 * m * m * a * c1.x + 3 * m * a * a * c2.x + a * a * a * p3.x, y: m * m * m * p0.y + 3 * m * m * a * c1.y + 3 * m * a * a * c2.y + a * a * a * p3.y }; };
+    ctx.strokeStyle = hexA('#9fb6d8', 0.16); ctx.lineWidth = 2; ctx.beginPath();
+    for (let i = 0; i <= 80; i++) { const q = cub(i / 80); i ? ctx.lineTo(q.x, q.y) : ctx.moveTo(q.x, q.y); } ctx.stroke();
+    const drawP = easeInOut(p);
+    ctx.save(); ctx.shadowColor = ac; ctx.shadowBlur = 12; ctx.lineWidth = 3; ctx.lineCap = 'round';
+    const grad = ctx.createLinearGradient(0, 0, w, 0); grad.addColorStop(0, ac); grad.addColorStop(1, ac2); ctx.strokeStyle = grad;
+    ctx.beginPath(); let started = false;
+    for (let i = 0; i <= 80; i++) { const a = i / 80; if (a > drawP) break; const q = cub(a); started ? ctx.lineTo(q.x, q.y) : (ctx.moveTo(q.x, q.y), started = true); }
+    const qe = cub(drawP); if (started) ctx.lineTo(qe.x, qe.y); ctx.stroke(); ctx.restore();
+    const stages = [{ t: 0.0, l: 'AWARENESS' }, { t: 0.34, l: 'INTEREST' }, { t: 0.66, l: 'DECISION' }, { t: 1.0, l: 'CONVERSION' }];
+    stages.forEach(s => {
+      const q = cub(s.t); const lit = drawP >= s.t - 0.001; const since = drawP - s.t;
+      if (lit) { ctx.save(); ctx.shadowColor = ac; ctx.shadowBlur = 12; ctx.fillStyle = ac; ctx.beginPath(); ctx.arc(q.x, q.y, 5, 0, 7); ctx.fill(); ctx.restore(); }
+      else { ctx.fillStyle = hexA('#9fb6d8', 0.3); ctx.beginPath(); ctx.arc(q.x, q.y, 3.5, 0, 7); ctx.fill(); }
+      if (lit && since >= 0 && since < 0.5) { const rr = 6 + since * 32; ctx.strokeStyle = hexA(ac, 0.5 * (1 - since / 0.5)); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(q.x, q.y, rr, 0, 7); ctx.stroke(); }
+      const ly = q.y > h * 0.5 ? q.y + 22 : q.y - 18;
+      const lx = Math.max(62, Math.min(w - 62, q.x));
+      label(ctx, s.l, lx, ly, lit ? ac : '#7f93b5');
+    });
+    ctx.save(); ctx.shadowColor = ac; ctx.shadowBlur = 18; ctx.fillStyle = '#eaffff'; ctx.beginPath(); ctx.arc(qe.x, qe.y, 5, 0, 7); ctx.fill(); ctx.restore();
+  }
+
+  /* ---------------- 3. Channel — hub broadcasting ---------------- */
+  function drawChannel(ctx, w, h, t, ac, cache) {
+    const p = cyc(t, 6.5, 1.4); const e = easeInOut(p);
+    const cx = w * 0.5, cy = h * 0.52, R = Math.min(w, h) * 0.4;
+    const chans = ['SOCIAL', 'CONTENT', 'EMAIL', 'SEO', 'ADS'];
+    chans.forEach((l, i) => {
+      const ang = -Math.PI / 2 + i / chans.length * Math.PI * 2;
+      const x = cx + Math.cos(ang) * R, y = cy + Math.sin(ang) * R;
+      const startP = 0.1 + i * 0.16, local = (e - startP) / 0.18;
+      const lit = e >= startP + 0.18, nodeLit = lit || local > 0.6;
+      ctx.strokeStyle = hexA(ac, lit ? 0.5 : 0.15); ctx.lineWidth = lit ? 2 : 1.2;
+      if (lit) { ctx.save(); ctx.shadowColor = ac; ctx.shadowBlur = 7; }
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(x, y); ctx.stroke(); if (lit) ctx.restore();
+      if (local > 0 && local < 1) { const px = cx + (x - cx) * local, py = cy + (y - cy) * local; ctx.save(); ctx.shadowColor = ac; ctx.shadowBlur = 14; ctx.fillStyle = '#eaffff'; ctx.beginPath(); ctx.arc(px, py, 4, 0, 7); ctx.fill(); ctx.restore(); }
+      if (nodeLit) { ctx.save(); ctx.shadowColor = ac; ctx.shadowBlur = 12; ctx.fillStyle = ac; rrect(ctx, x - 9, y - 9, 18, 18, 5); ctx.fill(); ctx.restore(); }
+      else { ctx.fillStyle = hexA('#9fb6d8', 0.28); rrect(ctx, x - 7, y - 7, 14, 14, 4); ctx.fill(); }
+      const lx = cx + Math.cos(ang) * (R + 26), ly = cy + Math.sin(ang) * (R + 26);
+      label(ctx, l, lx, ly, nodeLit ? ac : '#7f93b5');
+    });
+    const pu = (t % 2) / 2; ctx.strokeStyle = hexA(ac, 0.4 * (1 - pu)); ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(cx, cy, 10 + pu * 40, 0, 7); ctx.stroke();
+    const pu2 = ((t + 1) % 2) / 2; ctx.strokeStyle = hexA(ac, 0.3 * (1 - pu2)); ctx.beginPath(); ctx.arc(cx, cy, 10 + pu2 * 40, 0, 7); ctx.stroke();
+    ctx.save(); ctx.shadowColor = ac; ctx.shadowBlur = 20; ctx.fillStyle = ac; ctx.beginPath(); ctx.arc(cx, cy, 9, 0, 7); ctx.fill(); ctx.restore();
+    ctx.fillStyle = '#06101f'; ctx.beginPath(); ctx.arc(cx, cy, 4, 0, 7); ctx.fill();
+  }
+
+  /* ---------------- 4. Stack — tiers assembling ---------------- */
+  function drawStack(ctx, w, h, t, ac, cache) {
+    const p = cyc(t, 6, 1.6); const e = easeInOut(p);
+    const tiers = ['INFRASTRUCTURE', 'DATA LAYER', 'PLATFORM', 'APPLICATIONS'];
+    const n = tiers.length, cx = w * 0.5;
+    const slabW = Math.min(w * 0.52, 290), slabH = 34, gap = 16;
+    const totalH = n * slabH + (n - 1) * gap;
+    const top = h * 0.5 - totalH / 2;
+    for (let i = 0; i < n; i++) {
+      const appearAt = i * 0.18, local = Math.min(Math.max((e - appearAt) / 0.22, 0), 1);
+      const ease = easeOut(local); if (ease <= 0.01) continue;
+      const y = top + (n - 1 - i) * (slabH + gap);
+      const offX = (1 - ease) * 130;
+      ctx.globalAlpha = ease;
+      const g = ctx.createLinearGradient(cx - slabW / 2, y, cx + slabW / 2, y);
+      g.addColorStop(0, hexA(ac, 0.18)); g.addColorStop(0.5, hexA(ac, 0.34)); g.addColorStop(1, hexA(ac, 0.18));
+      ctx.fillStyle = g; ctx.save(); ctx.shadowColor = ac; ctx.shadowBlur = ease * 16;
+      rrect(ctx, cx - slabW / 2 + offX, y, slabW, slabH, 8); ctx.fill(); ctx.restore();
+      ctx.strokeStyle = hexA(ac, 0.55 * ease); ctx.lineWidth = 1.2; rrect(ctx, cx - slabW / 2 + offX, y, slabW, slabH, 8); ctx.stroke();
+      ctx.font = '600 11px Manrope, sans-serif'; ctx.letterSpacing = '1.5px'; ctx.fillStyle = hexA('#eaf3ff', 0.92); ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+      ctx.fillText(tiers[i], cx - slabW / 2 + offX + 16, y + slabH / 2);
+      ctx.fillStyle = ac; ctx.beginPath(); ctx.arc(cx + slabW / 2 + offX - 15, y + slabH / 2, 3, 0, 7); ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+    if (e > 0.86) {
+      const lx = cx - slabW / 2 - 18;
+      ctx.strokeStyle = hexA(ac, 0.35); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(lx, top); ctx.lineTo(lx, top + totalH); ctx.stroke();
+      const tp = (t % 1.6) / 1.6, py = top + tp * totalH;
+      ctx.save(); ctx.shadowColor = ac; ctx.shadowBlur = 12; ctx.fillStyle = '#eaffff'; ctx.beginPath(); ctx.arc(lx, py, 4, 0, 7); ctx.fill(); ctx.restore();
+    }
+    label(ctx, 'BUILT TO SCALE', cx, h - 20, ac);
+  }
+
+  /* ---------------- 5. Measurement — live dashboard ---------------- */
+  function drawMeasurement(ctx, w, h, t, ac, cache) {
+    const p = cyc(t, 6, 1.4); const e = easeInOut(p);
+    const pad = Math.min(w, h) * 0.09;
+    const gx = pad, gy = pad, gw = (w - pad * 3) * 0.62, gh = h - pad * 2;
+    panel(ctx, gx, gy, gw, gh, ac);
+    ctx.strokeStyle = 'rgba(150,175,215,0.07)';
+    for (let i = 1; i < 4; i++) { const yy = gy + gh * i / 4; ctx.beginPath(); ctx.moveTo(gx + 14, yy); ctx.lineTo(gx + gw - 14, yy); ctx.stroke(); }
+    const pts = [0.28, 0.22, 0.34, 0.27, 0.42, 0.33, 0.5, 0.45, 0.62, 0.54, 0.72, 0.84];
+    const cnt = pts.length, innerX = gx + 18, innerW = gw - 36, baseY = gy + gh - 20, avail = gh - 56;
+    const xat = i => innerX + innerW * i / (cnt - 1), yat = v => baseY - avail * v;
+    const maxI = e * (cnt - 1), poly = [];
+    for (let i = 0; i < cnt; i++) {
+      if (i > maxI) { const f = maxI - (i - 1); if (f > 0) poly.push({ x: xat(i - 1) + (xat(i) - xat(i - 1)) * f, y: yat(pts[i - 1]) + (yat(pts[i]) - yat(pts[i - 1])) * f }); break; }
+      poly.push({ x: xat(i), y: yat(pts[i]) });
+    }
+    if (poly.length > 1) {
+      ctx.save(); ctx.beginPath(); ctx.moveTo(poly[0].x, baseY);
+      poly.forEach(q => ctx.lineTo(q.x, q.y)); ctx.lineTo(poly[poly.length - 1].x, baseY); ctx.closePath();
+      const ag = ctx.createLinearGradient(0, gy, 0, baseY); ag.addColorStop(0, hexA(ac, 0.3)); ag.addColorStop(1, hexA(ac, 0));
+      ctx.fillStyle = ag; ctx.fill(); ctx.restore();
+      ctx.save(); ctx.shadowColor = ac; ctx.shadowBlur = 8; ctx.strokeStyle = ac; ctx.lineWidth = 2.4; ctx.lineJoin = 'round'; ctx.beginPath();
+      poly.forEach((q, i) => i ? ctx.lineTo(q.x, q.y) : ctx.moveTo(q.x, q.y)); ctx.stroke(); ctx.restore();
+      const last = poly[poly.length - 1];
+      ctx.save(); ctx.shadowColor = ac; ctx.shadowBlur = 14; ctx.fillStyle = '#eaffff'; ctx.beginPath(); ctx.arc(last.x, last.y, 4, 0, 7); ctx.fill(); ctx.restore();
+    }
+    bigNum(ctx, '+' + Math.round(e * 186) + '%', innerX, gy + 30, ac, 'left');
+    label(ctx, 'PERFORMANCE', innerX + 2, gy + 48, '#8fa3c4', 'left');
+    const cgx = gx + gw + pad, cgw = w - pad - cgx;
+    panel(ctx, cgx, gy, cgw, gh, ac);
+    const ccx = cgx + cgw / 2, ccy = gy + gh * 0.52, rad = Math.min(cgw, gh) * 0.3;
+    const a0 = Math.PI * 0.75, a1 = a0 + Math.PI * 1.5;
+    ctx.strokeStyle = hexA('#9fb6d8', 0.15); ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.beginPath(); ctx.arc(ccx, ccy, rad, a0, a1); ctx.stroke();
+    const cur = e * 0.82;
+    ctx.save(); ctx.shadowColor = ac; ctx.shadowBlur = 12; ctx.strokeStyle = ac; ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.beginPath(); ctx.arc(ccx, ccy, rad, a0, a0 + (a1 - a0) * cur); ctx.stroke(); ctx.restore();
+    bigNum(ctx, Math.round(cur * 100) + '%', ccx, ccy, ac, 'center', true);
+    label(ctx, 'OPTIMIZED', ccx, ccy + rad + 20, ac);
+  }
+
+  /* ---------------- 6. Orchestration — managed ecosystem orbit ---------------- */
+  function drawOrchestration(ctx, w, h, t, ac, cache) {
+    const p = cyc(t, 5, 1.0); const e = easeInOut(Math.min(p * 1.5, 1));
+    const cx = w * 0.5, cy = h * 0.52;
+    const mods = ['PLAN', 'BUILD', 'LAUNCH', 'OPTIMIZE', 'REPORT', 'SCALE'];
+    const n = mods.length, Rx = Math.min(w, h) * 0.44, Ry = Math.min(w, h) * 0.3, rot = t * 0.16;
+    ctx.strokeStyle = hexA(ac, 0.1); ctx.lineWidth = 1; ctx.beginPath(); ctx.ellipse(cx, cy, Rx, Ry, 0, 0, 7); ctx.stroke();
+    const pos = mods.map((l, i) => { const a = rot + i / n * Math.PI * 2; return { x: cx + Math.cos(a) * Rx, y: cy + Math.sin(a) * Ry, z: Math.sin(a), l }; });
+    pos.forEach((q, i) => {
+      ctx.strokeStyle = hexA(ac, 0.14 * e); ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(q.x, q.y); ctx.stroke();
+      const tp = ((t * 0.5 + i / n) % 1); const px = cx + (q.x - cx) * tp, py = cy + (q.y - cy) * tp;
+      ctx.globalAlpha = e; ctx.fillStyle = hexA(ac, 0.85); ctx.beginPath(); ctx.arc(px, py, 2.4, 0, 7); ctx.fill(); ctx.globalAlpha = 1;
+    });
+    ctx.strokeStyle = hexA(ac, 0.12 * e); ctx.lineWidth = 1; ctx.beginPath(); pos.forEach((q, i) => i ? ctx.lineTo(q.x, q.y) : ctx.moveTo(q.x, q.y)); ctx.closePath(); ctx.stroke();
+    pos.slice().sort((a, b) => a.z - b.z).forEach(q => {
+      const sc = 0.7 + 0.3 * (q.z + 1) / 2, r = 7 * sc;
+      ctx.save(); ctx.shadowColor = ac; ctx.shadowBlur = 12 * sc; ctx.fillStyle = ac; ctx.globalAlpha = 0.5 + 0.5 * ((q.z + 1) / 2);
+      ctx.beginPath(); ctx.arc(q.x, q.y, r, 0, 7); ctx.fill(); ctx.restore(); ctx.globalAlpha = 1;
+      label(ctx, q.l, q.x, q.y - r - 9, ac);
+    });
+    ctx.save(); ctx.translate(cx, cy); ctx.rotate(t * 0.3);
+    ctx.strokeStyle = hexA(ac, 0.4); ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(0, 0, 16, 0, 7); ctx.stroke();
+    for (let i = 0; i < 12; i++) { const a = i / 12 * Math.PI * 2; ctx.strokeStyle = hexA(ac, 0.5); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(Math.cos(a) * 18, Math.sin(a) * 18); ctx.lineTo(Math.cos(a) * 22, Math.sin(a) * 22); ctx.stroke(); }
+    ctx.restore();
+    ctx.save(); ctx.shadowColor = ac; ctx.shadowBlur = 22; ctx.fillStyle = ac; ctx.beginPath(); ctx.arc(cx, cy, 8, 0, 7); ctx.fill(); ctx.restore();
+    ctx.fillStyle = '#06101f'; ctx.beginPath(); ctx.arc(cx, cy, 3.5, 0, 7); ctx.fill();
+    label(ctx, 'CONTINUOUS ORCHESTRATION', cx, h - 20, ac);
+  }
+
+  /* ---------------- registry ---------------- */
+  const KINDS = {
+    discovery:     { fn: drawDiscovery,     accent: '#38e0ff' },
+    radar:         { fn: drawDiscovery,     accent: '#38e0ff' },
+    journey:       { fn: drawJourney,       accent: '#2fe6b0' },
+    channel:       { fn: drawChannel,       accent: '#5b9dff' },
+    stack:         { fn: drawStack,         accent: '#7c8cff' },
+    measurement:   { fn: drawMeasurement,   accent: '#3fe0c8' },
+    dashboard:     { fn: drawMeasurement,   accent: '#3fe0c8' },
+    orchestration: { fn: drawOrchestration, accent: '#a78bff' }
+  };
+
+  /* ---------------- web component ---------------- */
+  class DMSAnim extends HTMLElement {
+    connectedCallback() {
+      this._cache = {};
+      if (getComputedStyle(this).position === 'static') this.style.position = 'relative';
+      if (getComputedStyle(this).display === 'inline') this.style.display = 'block';
+      this._canvas = document.createElement('canvas');
+      this._canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block;';
+      this.appendChild(this._canvas);
+      this._start = performance.now();
+      this._loop = this._loop.bind(this);
+      this._raf = requestAnimationFrame(this._loop);
+    }
+    disconnectedCallback() { if (this._raf) cancelAnimationFrame(this._raf); }
+    _loop(now) {
+      this._raf = requestAnimationFrame(this._loop);
+      const cv = this._canvas; if (!cv) return;
+      const cssW = cv.clientWidth, cssH = cv.clientHeight; if (!cssW || !cssH) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      if (cv.width !== Math.round(cssW * dpr) || cv.height !== Math.round(cssH * dpr)) { cv.width = Math.round(cssW * dpr); cv.height = Math.round(cssH * dpr); }
+      const k = KINDS[(this.getAttribute('kind') || 'discovery').toLowerCase()] || KINDS.discovery;
+      const ac = this.getAttribute('accent') || k.accent;
+      const transparent = this.hasAttribute('transparent') || this.getAttribute('background') === 'transparent';
+      const t = (now - this._start) / 1000;
+      const ctx = cv.getContext('2d');
+      ctx.save(); ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, cssW, cssH);
+      drawBg(ctx, cssW, cssH, t, ac, !transparent);
+      k.fn(ctx, cssW, cssH, t, ac, this._cache);
+      ctx.restore();
+    }
+  }
+  customElements.define('dms-anim', DMSAnim);
+})();
+
+  </script>
+</body>
+</html>

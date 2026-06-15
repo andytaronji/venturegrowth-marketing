@@ -1,8 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import Link from "next/link";
-import CldImageWrapper from "@/components/CldImageWrapper";
+import Script from "next/script";
 import EnhancedServicesHero from "@/components/EnhancedServicesHero";
 import DiscoveryAndAuditSection from "@/components/DiscoveryAndAuditSection";
 import CustomerJourneyMappingSection from "@/components/CustomerJourneyMappingSection";
@@ -12,24 +10,12 @@ import MeasurementOptimizationFrameworkSection from "@/components/MeasurementOpt
 import ComprehensiveDigitalStrategySection from "@/components/ComprehensiveDigitalStrategySection";
 import EnhancedCTASection from "@/components/EnhancedCTASection";
 import ServicesSchema from "@/components/ServicesSchema";
-import { useGSAPAnimation } from "@/components/GSAPProvider";
-import { Metadata } from "next";
-
-// Metadata needs to be in a separate file or handled differently with client components
-// This is just for reference and won't be used in the client component
-const pageMetadata = {
-  title: "Services | Digital Mosaic Studios",
-  description: "Explore our comprehensive range of web design, development, maintenance, social media management, and content creation services.",
-};
-
 export default function ServicesPage() {
-  const backgroundRef = useRef<HTMLDivElement>(null);
-  const { gsap } = useGSAPAnimation();
-
   // Removed gradient animation to eliminate moving line effect
 
   return (
     <>
+      <Script src="/dms-animations.js" strategy="lazyOnload" />
       <ServicesSchema />
       
       {/* Sophisticated dark background container */}
