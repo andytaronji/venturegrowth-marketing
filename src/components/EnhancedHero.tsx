@@ -90,13 +90,16 @@ const EnhancedHero = () => {
               {/* Image Container for positioning */}
               <div className="relative w-full max-w-lg lg:max-w-2xl aspect-video">
                 <CldImageWrapper
-                  src="https://res.cloudinary.com/di4phdven/image/upload/w_1200,h_675,c_fill,q_auto,f_auto,dpr_auto/v1756593178/Brown_Green_Terracotta_Minimal_Social_Media_Mockup_Instagram_Post_vzeb5n.png"
+                  src="https://res.cloudinary.com/di4phdven/image/upload/v1756593178/Brown_Green_Terracotta_Minimal_Social_Media_Mockup_Instagram_Post_vzeb5n.png"
                   alt="Digital Strategy for businesses showcasing Digital Mosaic Studios' professional digital strategy services for small businesses"
                   width={1200}
                   height={675}
+                  crop="fill"
+                  gravity="auto"
                   className="absolute inset-0 w-full h-full object-cover rounded-none shadow-lg"
                   priority={true}
                   loading="eager"
+                  sizes="(max-width: 1024px) min(512px, calc(100vw - 5rem)), min(672px, 60vw)"
                 />
               </div>
             </div>

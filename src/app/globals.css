@@ -15,6 +15,7 @@
   --primary: #1e3a8a; /* Professional navy blue for primary elements */
   --secondary: #64748b; /* Light gray for secondary elements */
   --accent: #0066CC; /* Accessible blue for accents and interactive elements */
+  --accent-on-dark: #5BA3FF; /* Higher-contrast accent for dark backgrounds (7.5:1 on #101014) */
   --light-accent: #147CE5; /* Lighter blue for hover states */
   --baby-blue: #89CFF0; /* Baby blue for navbar */
   
@@ -778,6 +779,12 @@
   .animate-blog-card.is-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Higher-contrast accent text on dark backgrounds (WCAG AA — 7.5:1 on #101014) */
+  .bg-dark-solid .text-accent,
+  [class*="bg-dark"] .text-accent {
+    color: var(--accent-on-dark);
   }
 
   /* Ensure elements are visible for users who prefer reduced motion */

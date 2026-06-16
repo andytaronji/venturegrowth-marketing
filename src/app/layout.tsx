@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'verification_token', // Replace with actual Google verification token when available
+    google: 'wQSfqxcFDNIqcf8BsQI8EBJRDm3nZYz9ZAjqgbqQWYw',
   },
 };
 
@@ -70,25 +70,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* Preload critical fonts */}
-        <link
-          rel="preload"
-          href="/fonts/montserrat/montserrat-400.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/montserrat/montserrat-600.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        {/* Fonts for DMS animation content blocks */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
         {/* DNS prefetch for external domains */}
         <link rel="dns-prefetch" href="//res.cloudinary.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
@@ -125,29 +106,6 @@ export default function RootLayout({
               });
             }
             window.gtagReportConversion = gtagReportConversion;
-          `}
-        </Script>
-        
-        {/* Facebook Pixel - For remarketing and conversion tracking */}
-        <Script id="facebook-pixel" strategy="lazyOnload">
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            
-            // Initialize Facebook Pixel (replace with actual Pixel ID when available)
-            // fbq('init', 'YOUR_PIXEL_ID');
-            // fbq('track', 'PageView');
-            
-            // For now, create placeholder function
-            window.fbq = window.fbq || function() {
-              console.log('Facebook Pixel would track:', arguments);
-            };
           `}
         </Script>
         

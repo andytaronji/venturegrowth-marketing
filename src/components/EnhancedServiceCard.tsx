@@ -20,11 +20,11 @@ const EnhancedServiceCard = ({ title, id, index = 0 }: EnhancedServiceCardProps)
         </h3>
         
         <div className="text-center">
-          <Link 
-            href={`/services#${id}`} 
+          <Link
+            href={`/services#${id}`}
             className="inline-block px-6 py-3 md:px-8 md:py-4 font-medium font-figtree rounded-full transition-all duration-200 transform hover:scale-105 shadow-button hover:shadow-button-hover bg-accent text-white hover:bg-light-accent hover:text-white text-sm md:text-base"
           >
-            Learn More
+            Learn More About {title}
           </Link>
         </div>
       </div>
