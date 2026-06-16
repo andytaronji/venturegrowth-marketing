@@ -12,7 +12,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.digitalmosaicstudios.com/</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -20,7 +20,7 @@
   <!-- Services Page -->
   <url>
     <loc>https://www.digitalmosaicstudios.com/services</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -28,7 +28,7 @@
   <!-- About Page -->
   <url>
     <loc>https://www.digitalmosaicstudios.com/about</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -36,7 +36,7 @@
   <!-- Contact Page -->
   <url>
     <loc>https://www.digitalmosaicstudios.com/contact</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -44,7 +44,7 @@
   <!-- Blog Page -->
   <url>
     <loc>https://www.digitalmosaicstudios.com/blog</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -52,7 +52,7 @@
   <!-- Privacy Policy -->
   <url>
     <loc>https://www.digitalmosaicstudios.com/privacy-policy</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
