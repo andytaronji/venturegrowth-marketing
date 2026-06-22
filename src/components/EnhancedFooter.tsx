@@ -262,12 +262,21 @@ const EnhancedFooter = () => {
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/services#ai-prompting-lessons" 
+                <Link
+                  href="/services#ai-prompting-lessons"
                   className="font-figtree footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
                   style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
                 >
                   AI Prompting Lessons
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/photography"
+                  className="font-figtree footer-link text-white text-opacity-90 text-sm hover:text-accent transition-colors duration-200 gsap-will-change text-on-dark"
+                  style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' }}
+                >
+                  Professional Photography
                 </Link>
               </li>
             </ul>

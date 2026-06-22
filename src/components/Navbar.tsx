@@ -63,6 +63,9 @@ const Navbar = () => {
             <Link href="/services" className="text-sm font-figtree font-medium text-white hover:text-bg-primary transition-colors duration-200">
               Services
             </Link>
+            <Link href="/services/photography" className="text-sm font-figtree font-medium text-white hover:text-bg-primary transition-colors duration-200">
+              Photography
+            </Link>
             <Link href="/about" className="text-sm font-figtree font-medium text-white hover:text-bg-primary transition-colors duration-200">
               About Us
             </Link>
@@ -131,12 +134,19 @@ const Navbar = () => {
           >
             Home
           </Link>
-          <Link 
-            href="/services" 
+          <Link
+            href="/services"
             className="block px-3 py-2 text-base font-figtree font-medium text-white hover:text-bg-primary transition-colors duration-200"
             onClick={() => setIsMenuOpen(false)}
           >
             Services
+          </Link>
+          <Link
+            href="/services/photography"
+            className="block px-3 py-2 text-base font-figtree font-medium text-white hover:text-bg-primary transition-colors duration-200"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Photography
           </Link>
           <Link 
             href="/about" 
