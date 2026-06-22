@@ -465,19 +465,3 @@ export default function PhotographyPageClient() {
     </>
   );
 }
-     </section>
-
-          {/* ─── CTA ─── */}
-          <EnhancedCTASection
-            title="Ready to Elevate Your Brand's Photography?"
-            description="On-site, professional, and SEO-optimized from day one. Serving Atlanta, Marietta, and all of Georgia. Book your free consultation to get started."
-            buttons={[
-              { text: 'Book Your Session', href: '/contact', variant: 'primary' },
-              { text: 'See All Services', href: '/services', variant: 'secondary' },
-            ]}
-          />
-        </div>
-      </div>
-    </>
-  );
-}
