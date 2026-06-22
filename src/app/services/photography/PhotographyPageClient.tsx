@@ -232,7 +232,6 @@ export default function PhotographyPageClient() {
                 Alt tags, filenames, metadata, and compression included in every package.
               </p>
 
-              {/* Buttons — using same pattern as EnhancedHero to avoid hover conflicts */}
               <div ref={heroButtonsRef} className="flex flex-col sm:flex-row justify-center items-center gap-4">
                 <a
                   href="#packages"
@@ -333,9 +332,8 @@ export default function PhotographyPageClient() {
                         </div>
                       )}
 
-                      <div className={`gradient-border-card-content flex-1 flex flex-col ${pkg.highlight ? '' : ''}`}>
+                      <div className="gradient-border-card-content flex-1 flex flex-col">
                         <div className="p-7 flex flex-col flex-grow">
-                          {/* Name & price */}
                           <div className="mb-5">
                             <h3
                               className="font-figtree font-bold text-xl text-white mb-1"
@@ -376,7 +374,8 @@ export default function PhotographyPageClient() {
                                 >
                                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                 </svg>
-                                      </li>
+                                <span className="font-figtree text-sm text-white/85">{feature}</span>
+                              </li>
                             ))}
                           </ul>
 
